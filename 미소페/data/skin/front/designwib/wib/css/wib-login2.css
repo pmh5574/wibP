@@ -1,0 +1,116 @@
+#contents{padding-top:20px;padding-bottom:150px;}
+.sub_content{padding-top:0;}
+.member_wrap{width:500px;margin:85px auto 0;}
+
+/* /member/find_id.php */
+.member_tit{margin-bottom:45px;}
+.member_tit h2{font-size:40px;font-weight:400;letter-spacing:0.03em;color:#333;font-family:"Cardo", serif;margin-bottom:0;line-height:1;}
+.location_wrap{border:0;}
+.location_wrap *{text-decoration:none !important;}
+.location_wrap .location_cont{width:100%;padding-left:40px;box-sizing:border-box;line-height:1;}
+.location_wrap .location_cont > em{font-size:14px;font-weight:400;color:#717171;text-align:left;line-height:1;padding:0;display:inline-block;vertical-align:top;}
+.location_wrap .location_cont > em a{}
+.location_wrap .location_cont > em a{}
+.location_wrap .location_cont > span{display:inline-block;vertical-align:top;line-height:1;margin:0 13px 0 15px;position:relative;top:2px;}
+.location_wrap .location_cont > .location_select{margin-top:0;display:inline-block;vertical-align:top;min-width:auto;border:0;margin:0;line-height:1;top:1px;padding-bottom:10px;}
+.location_wrap .location_cont > .location_select .location_tit{background:none;}
+.location_wrap .location_cont > .location_select .location_tit a{display:block;padding:0;font-size:14px;font-weight:400;color:#333;padding-right:17px;background:none;}
+.location_wrap .location_cont > .location_select .location_tit a span{padding:0;display:block;width:100%;}
+.location_wrap .location_cont > .location_select > ul{padding:19px 17px;border-radius:5px;border:1px solid #262626;overflow:hidden;background-color:#fff;left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);-moz-transform:translateX(-50%);-ms-transform:translateX(-50%);-o-transform:translateX(-50%);margin:0;top:20px;width:auto;}
+.location_wrap .location_cont > .location_select > ul > li:first-of-type{margin-top:0;}
+.location_wrap .location_cont > .location_select > ul > li{margin-top:15px;}
+.location_wrap .location_cont > .location_select > ul > li > a{padding:0;display:block;text-align:center;background-color:transparent !important;}
+.location_wrap .location_cont > .location_select > ul > li > a:hover{}
+.location_wrap .location_cont > .location_select > ul > li > a:hover span{color:#333;font-weight:500;}
+.location_wrap .location_cont > .location_select > ul > li > a span{display:block;font-size:13px;font-weight:400;color:#717171;text-align:center;line-height:1;white-space:nowrap;}
+.content_box{float:none;}
+.content_box .member_wrap{}
+.content_box .member_wrap .member_cont{padding:0;border:0;}
+.content_box .member_wrap .member_cont form{}
+.content_box .member_wrap .member_cont form .find_id_sec{}
+.content_box .member_wrap .member_cont form .find_id_sec .form_element{font-size:0;text-align:center;margin-bottom:20px;display:block;width:100%;margin:0;}
+.content_box .member_wrap .member_cont form .find_id_sec .form_element > div:first-of-type label:before{display:block;content:"";position:absolute;width:1px;height:100%;background-color:#2A4E41;right:0;top:0;}
+.content_box .member_wrap .member_cont form .find_id_sec .form_element > div.on{}
+.content_box .member_wrap .member_cont form .find_id_sec .form_element > div{width:50%;box-sizing:border-box;display:inline-block;vertical-align:top;position:relative;}
+.content_box .member_wrap .member_cont form .find_id_sec .form_element > div label{display:block;width:100%;height:100%;box-sizing:border-box;background:none;line-height:1;padding:20px 0;background-color:#F8F8F8;position:relative;border-bottom:1px solid #2A4E41;font-size:15px;color:#717171;font-weight:300;transition:all 0.3s;cursor:pointer;}
+.content_box .member_wrap .member_cont form .find_id_sec .form_element > div label.on{border-top:1px solid #2A4E41;border-bottom-color:transparent;background-color:#fff;color:#333;font-weight:500;}
+.find_id_sec .login_input{}
+.find_id_sec .login_input > div{float:none;width:100%;font-size:0;text-align:left;}
+.find_id_sec .login_input > div > div{position:relative;}
+.find_id_sec .login_input input:first-of-type{margin-top:0;}
+.find_id_sec .login_input input,
+.find_id_sec .login_input select{width:100%;padding:11px 15px 22px;border:0;border-bottom:1px solid #ececec;box-sizing:border-box;line-height:1;height:auto;margin:0;margin-top:12px !important;height:49px;font-size:14px;font-weight:400;color:#717171;}
+.find_id_sec .login_input input#userEmail{width:344px !important;display:inline-block;vertical-align:top;}
+.find_id_sec .login_input input#userEmail + i{display:block;width:1px;height:16px;background-color:#ececec;position:absolute;right:156px;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);-moz-transform:translateY(-50%);-o-transform:translateY(-50%);}
+.find_id_sec .login_input input#userEmail:disabled + i{display:none;}
+.find_id_sec .login_input select{width:calc(100% - 344px);display:inline-block;vertical-align:top;position:relative;}
+.find_id_sec .login_input button{width:100%;height:60px;line-height:60px;box-sizing:border-box;border:0;background-color:#2A4E41;color:#fff;font-size:16px;font-weight:600;height:auto;letter-spacing:2px;margin-top:30px;}
+.find_id_box .btn_member_sec{border-top:0;margin-top:28px;position:relative;}
+.find_id_box .btn_member_sec p{position:absolute;font-size:14px;font-weight:400;color:#333;text-align:left;line-height:1;left:0;top:0;}
+.find_id_box .btn_member_sec ul{font-size:0;text-align:right;}
+.find_id_box .btn_member_sec ul li:first-of-type{margin-right:40px;}
+.find_id_box .btn_member_sec ul li:first-of-type:after{display:block;content:"";position:absolute;width:1px;height:14px;background-color:#ececec;right:-19px;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);-moz-transform:translateY(-50%);-o-transform:translateY(-50%);}
+.find_id_box .btn_member_sec ul li:last-of-type{margin-right:0;}
+.find_id_box .btn_member_sec ul li{display:inline-block;vertical-align:top;margin:0;margin-right:40px;position:relative;}
+.find_id_box .btn_member_sec ul li button{display:block;font-size:14px;font-weight:600;color:#717171;letter-spacing:2px;line-height:1;width:auto;height:auto;border:0;background-color:transparent;}
+.find_id_box .btn_member_sec ul li:first-of-type button{color:#C6A277;}
+.find_complete_box{padding:45px 40px;border:1px solid #ececec;}
+.find_complete_box p{font-size:16px;font-weight:400;color:#717171;text-align:center;line-height:28px;padding:0;}
+.find_complete_box p strong{font-weight:500;color:#2A4E41;}
+.find_complete_box a{display:block;width:100%;height:60px;line-height:60px;border:1px solid #2A4E41;box-sizing:border-box;font-size:16px;font-weight:600;color:#2A4E41;letter-spacing:2px;margin-top:28px;}
+.find_id_sec > p{font-size:14px;color:#C6A277;padding-top:10px;font-weight:500;}
+
+/* /member/find_password.php */
+.find_password_box{}
+.find_password_box > p{font-size:16px;font-weight:400;color:#717171;text-align:left;margin-top:-28px;margin-bottom:0;}
+.find_password_box .login_input{border:0;padding:0;}
+.find_password_box .login_input .member_warning{display:block;width:100%;margin:0;margin-top:38px;}
+.find_password_box .login_input .member_warning input{margin:0;width: 100%;padding: 11px 15px 22px;border: 0;border-bottom: 1px solid #ececec;box-sizing: border-box;line-height: 1;height: auto;margin: 0;margin-top: 12px !important;height: 49px;font-size: 14px;font-weight: 400;color: #717171;}
+.member_cont .btn_center_box, .member_warning + .btn_center_box{margin-top:20px;}
+.member_cont .btn_center_box, .member_warning + .btn_center_box{}
+.btn_member_next{margin-top:0;width:100%;height:60px;line-height:60px;box-sizing:border-box;background-color:#2A4E41;font-size:16px;font-weight:600;color:#fff;text-align:center;border:0;letter-spacing:2px;}
+.btn_member_next:hover{background-color:#2A4E41;font-size:16px;font-weight:600;color:#fff;text-align:center;border:0;letter-spacing:2px;}
+.info_again{padding-top:0;font-size:14px;font-weight:400;color:#333;text-align:left;position:relative;line-height:1;margin-top:27px;}
+.info_again a{display:block;position:absolute;right:0;top:0;font-size:14px;font-weight:600;color:#C6A277;text-decoration:none;letter-spacing:2px;}
+
+/* /member/user_certification.php */
+.user_certify_box .user_certify_tit > p{font-size:16px;font-weight:400;color:#717171;text-align:left;margin-top:-28px;margin-bottom:0;}
+.user_certify_box .login_input{border:0;padding:0;}
+.user_certify_box .login_input .form_element{display:block;width:100%;}
+.btn_member_sec{margin-top:20px;}
+.user_certify_box .btn_member_sec li{display:block;width:100%;}
+.user_certify_box .btn_member_sec li button{width:100%;height:60px;line-height:60px;box-sizing:border-box;background-color:#2A4E41;font-size:16px;font-weight:600;color:#fff;text-align:center;border:0;letter-spacing:2px;display:block;}
+.user_certify_box .btn_member_sec li button:hover{height:60px;line-height:60px;box-sizing:border-box;background-color:#2A4E41;font-size:16px;font-weight:600;color:#fff;text-align:center;border:0;letter-spacing:2px;display:block;}
+.user_certify_box .user_certify_list{padding:0;margin-top:40px;padding:72px 50px;box-sizing:border-box;border:1px solid #ececec;}
+.user_certify_box .user_certify_list li:first-of-type{margin-top:0;}
+.user_certify_box .user_certify_list li{margin-top:30px;padding-bottom:0;}
+.user_certify_box .user_certify_list li input{}
+.user_certify_box .user_certify_list li label{font-size:16px;font-weight:500;color:#333;text-align:left;background:url("../../wib/img/radio-off.png")no-repeat left center;padding-left:23px;}
+.user_certify_box .user_certify_list li label:hover{background:url("../../wib/img/radio-off.png")no-repeat left center;}
+.user_certify_box .user_certify_list li label.on{background:url("../../wib/img/radio-on.png")no-repeat left center;}
+.user_certify_box .user_certify_list li strong{font-size:16px;font-weight:400;color:#717171;}
+.user_certify_box .user_certify_list li span{font-size:14px;font-weight:400;color:#333;letter-spacing:0.03em;}
+
+/* /member/user_certification_confirm.php */
+#wrap .find_password_box .login_input .member_warning{margin-top:70px;}
+.auth-text-time-authno{margin-top:10px !important;font-size:14px;color:#C6A277 !important;}
+.auth-text-time-authno span{font-family:"Raleway", "Noto Sans KR" !important;color:#C6A277 !important;font-weight:500 !important;position:relative;top:-1px;}
+
+/* /member/find_password_reset.php */
+.find_password_reset_box > p{font-size:16px;font-weight:400;color:#717171;text-align:left;margin-top:-28px;margin-bottom:0;}
+.find_password_reset_box .login_input{width:100%;padding:0;border:0;margin-top:16px;}
+.find_password_reset_box .login_input .member_warning:first-of-type{margin-top:0;}
+.find_password_reset_box .login_input .member_warning{display:block;width:100%;margin:0;}
+.find_password_reset_box .login_input .member_warning input{margin:0;width: 100%;padding: 11px 15px 22px;border: 0;border-bottom: 1px solid #ececec;box-sizing: border-box;line-height: 1;height: auto;margin: 0;margin-top: 12px !important;height: 49px;font-size: 14px;font-weight: 400;color: #717171;margin-top:17px;}
+.find_password_reset_box .login_input .member_warning.prior_wrong input{border:0 !important;border-bottom:1px solid #ab3e55 !important;margin-bottom:0 !important;}
+.find_password_reset_box .login_input .member_warning.prior_half_pass input{margin-bottom:0 !important;}
+.find_password_reset_box .btn_center_box{}
+.find_password_reset_box .btn_center_box button{margin-top: 0;width: 100%;height: 60px;line-height: 60px;box-sizing: border-box;background-color: #2A4E41;font-size: 16px;font-weight: 600;color: #fff;text-align: center;border: 0;letter-spacing: 2px;}
+#wrap .text_warning{font-size:14px;padding-top:10px;}
+#wrap .text_pass{font-size:14px;padding-top:10px;}
+
+/* /member/find_password_complete.php */
+.find_password_complete_box{padding: 45px 40px;border: 1px solid #ececec;}
+.find_password_complete_box p{font-size: 16px;font-weight: 400;color: #717171;text-align: center;line-height: 28px;padding: 0;text-align:center;}
+.find_password_complete_box .btn_center_box{margin-top:0;}
+.find_password_complete_box .btn_center_box button{display: block;width: 100%;height: 60px;line-height: 60px;background-color:#2A4E41;box-sizing: border-box;font-size: 16px;font-weight: 600;color: #fff;letter-spacing: 2px;margin-top: 28px;}

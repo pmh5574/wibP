@@ -1,0 +1,246 @@
+{*** [위젯] 필터 출력 | goods/_wib_filter.php ***}
+<style>
+    .grape.ui-widget-content {/* background: url('../wib/img/rangerBg.png');background-repeat-y: no-repeat;background-position-y: center; */border: 0}
+    .grape.ui-widget-content .ui-slider-range {visibility: hidden}
+    .grape .ui-state-default, .grape .ui-widget-content .ui-state-default, .grape .ui-widget-header .ui-state-default 
+    {border: 3px solid #665B58 !important;border-radius: 50%;background: #fff !important;background-repeat: no-repeat}
+    .ui-slider-horizontal .ui-slider-handle {width: 11px !important;height: 11px !important;top: -.2em !important;}
+    .color_box .color {cursor: pointer}
+    .color_box .colorNatural {background: repeating-linear-gradient(90deg, #E8E1D1, #E8E1D1 4px, #fff 0, #fff 7px) !important;}
+    .color_box .colorMulti {background: linear-gradient(180deg, #E5EAF1 0%, #F4F4F4 31.77%, #CADAF2 31.78%, #CADAF2 66.67%, #7AA6D5 67.19%, #7AA6D5 100%), #FFFFFF !important;}
+    div.filter_box .total_box ul.select_box li {display:none}
+    div.filter_box .total_box ul.select_box li.sel_price {display: inline-block}
+    .clList {margin-right: 5px}
+    .priceBox label {cursor: pointer}
+    .tooltips{position: absolute;color:#000 !important;position: absolute;top: -49px;left: 0;min-width: 55px;text-align: center;display: inline-block;text-indent: 0;border: 1px solid #3e3e3e;padding: 10px 13px;background: #fff;font-size: 12px;}
+    .spWhite {border: 1px solid #e5e5e5;}
+    .filter_box ul li .color_box ul li span.color.sel.spWhite:before {background:url("../wib/img/sel_color_sp.png") center center no-repeat;}
+    .category-box .on {font-weight:bold}
+</style>
+<div class="filter_box {mode}">
+
+    <div class="tit_box">
+        <p class="tit">Filter <span class="wib_search_total"></span></p>
+        <p class="close"><a href="javascript:;"><img src="../wib/img/sub/filter_close.png" /></a></p>
+    </div>
+    
+    <ul class="filter_con">
+        <li>
+            <div class="box category-box">
+                <p class="tit">카테고리</p>
+				<div class="cateBox-wrap">
+					<!--{ ? category }-->
+						<!--{ @ category }-->
+						<div class="cateBox">
+							<div class="cateA" data-cateval="{cateNum[.key_]}">{.key_}<span class="arrow"></span></div>
+							<!--{ ? .value_ }-->
+								<ul {?.index_ > 0}style="display:none"{/}>
+									<!--{ @ .value_ }-->
+										<li class="cateB" data-cateval="{..cateCd}"><!--{ ..cateNm }--></li>
+									<!--{ / }-->
+								</ul>
+							<!--{ / }-->
+						</div>
+						<!--{ / }-->
+					<!--{ / }-->
+				</div>
+            </div>
+        </li>
+        <li>
+            <div class="box price_box">
+                <p class="tit">가격</p>
+				<div class="input_box">
+					<p class="grape"></p>
+					<p class="grape_price">
+						<span class="sprice">0</span>원 <span class="dash">~</span>
+						<span class="eprice">0</span>원
+					</p>
+					<div class="input_box priceBox">
+						<!-- <p><input type="checkbox" id="price01" class="priceInsert" value="0||50000" /><label for="price01">~50,000원</label></p> -->
+						<p><input type="checkbox" id="price05" class="priceInsert" value="50000||100000" /><label for="price05">50,000원 ~ 100,000원</label></p>
+						<p><input type="checkbox" id="price06" class="priceInsert" value="100000||150000" /><label for="price06">100,000원 ~ 150,000원</label></p>
+						<p><input type="checkbox" id="price07" class="priceInsert" value="150000||99999999" /><label for="price07">150,000원~</label></p>
+					</div>
+				</div>
+            </div>
+        </li>
+        <li>
+            <div class="box pattern_box">
+                <p class="tit">사이즈</p>
+                <div class="input_box">
+                    <p>
+                        <input type="checkbox" id="s225" class="filterpattern" name="pattern[]" value="225" />
+                        <label for="s225">225</label>
+                    </p>	
+                    <p>
+                        <input type="checkbox" id="s230" class="filterpattern" name="pattern[]" value="230" />
+                        <label for="s230">230</label>
+                    </p>	
+                    <!-- <p>
+                        <input type="checkbox" id="s230s235" class="filterpattern" name="pattern[]" value="230~235" />
+                        <label for="s230s235">230~235</label>
+                    </p> -->
+                    <p>
+                        <input type="checkbox" id="s235" class="filterpattern" name="pattern[]" value="235" />
+                        <label for="s235">235</label>
+                    </p>	
+                    <!-- <p>
+                        <input type="checkbox" id="s235s240" class="filterpattern" name="pattern[]" value="235~240" />
+                        <label for="s235s240">235~240</label>
+                    </p> -->
+                    <p>
+                        <input type="checkbox" id="s240" class="filterpattern" name="pattern[]" value="240" />
+                        <label for="s240">240</label>
+                    </p>	
+                    <p>
+                        <input type="checkbox" id="s245" class="filterpattern" name="pattern[]" value="245" />
+                        <label for="s245">245</label>
+                    </p>	
+                    <p>
+                        <input type="checkbox" id="s250" class="filterpattern" name="pattern[]" value="250" />
+                        <label for="s250">250</label>
+                    </p>	
+                    <!-- <p>
+                        <input type="checkbox" id="s250s255" class="filterpattern" name="pattern[]" value="250~255" />
+                        <label for="s250s255">250~255</label>
+                    </p> -->
+                    <p>
+                        <input type="checkbox" id="s255" class="filterpattern" name="pattern[]" value="255" />
+                        <label for="s255">255</label>
+                    </p>	
+                    <!-- <p>
+                        <input type="checkbox" id="s255s260" class="filterpattern" name="pattern[]" value="255~260" />
+                        <label for="s255s260">255~260</label>
+                    </p> -->
+                    <p>
+                        <input type="checkbox" id="s260" class="filterpattern" name="pattern[]" value="260" />
+                        <label for="s260">260</label>
+                    </p>	
+                    <p>
+                        <input type="checkbox" id="s265" class="filterpattern" name="pattern[]" value="265" />
+                        <label for="s265">265</label>
+                    </p>	
+                    <p>
+                        <input type="checkbox" id="s270" class="filterpattern" name="pattern[]" value="270" />
+                        <label for="s270">270</label>
+                    </p>	
+                    <!-- <p>
+                        <input type="checkbox" id="s270s275" class="filterpattern" name="pattern[]" value="270~275" />
+                        <label for="s270s275">270~275</label>
+                    </p> -->
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="box season_box">
+                <p class="tit">시즌</p>
+                <div class="input_box">
+                    <!--{ @season }-->
+                    <p><input type="checkbox" id="sea{.index_+1}" class="filterseason" name="season[]" value="{.value_}" /><label for="sea{.index_+1}">{.value_}</label></p>
+                    <!--{ / }-->
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="box color_box">
+                <p class="tit">컬러</p>
+                <ul class="input_box">
+                    <!-- 색렉트 sel -->
+                    <!--{ @color }-->
+                    <!--{ ? .value_[1] }-->
+                    <li><span class="hastooltip color { ?.value_[1] == '#FFFFFF'}colorWhite{/} { ?.value_[1] == '#ff0000' }colorNatural{/}{ ?.value_[1] == '#bf0000' }colorMulti{/} { ?.value_[1] == '#fff' }spWhite{/}" data-name="{.value_[0]}" data-backs="{.value_[2]}" style="background:{.value_[1]}"></span></li>
+                    <!--{ / }-->
+                    <!--{ / }-->
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <div class="total_box">
+        <ul class="select_box">
+            <li class="sel_cate"><span class="caBox"></span><span class="del" data-del="sel_cate"><img src="../wib/img/sub/sel_delete.png" /></span></li>
+            <li class="sel_color"><span class="clBox"><span class="clList"><span class="color"></span><span class="name">Orenge</span></span></span><span class="del" data-del="sel_color"><img src="../wib/img/sub/sel_delete.png" /></span> </li>
+            <li class="sel_price"><span class="fpStartBox"></span>원 ~ <span class="fpEndBox"></span>원 <span class="del"  data-del="sel_price"><img src="../wib/img/sub/sel_delete.png" /></span> </li>
+            <li class="sel_pat"><span class="ptBox">체크, 스트라이프</span> <span class="del"  data-del="sel_pat"><img src="../wib/img/sub/sel_delete.png" /></span> </li>
+            <li class="sel_sea"><span class="seBox">겨울용</span><span class="del"  data-del="sel_sea"><img src="../wib/img/sub/sel_delete.png" /></span> </li>
+        </ul>
+        <ul class="btn_box">
+            <li class="reset"><a href="#">전체해제</a></li>
+            <li class="ok"><a href="#">필터적용</a></li>
+        </ul>
+        <p class="open show"><!-- <img src="../wib/img/filter_open.png" /> --></p>
+    </div>
+    
+    <div class="cateForm" style="">
+    <!--{ ? category }-->
+        <select id="cateGoodsA" name="cateGoods[]"  style="">
+            <option value="">=카테고리선택=</option>
+            <option value="022">WOMEN</option>
+            <option value="023">MEN</option>
+        </select>
+        <select id="cateGoodsB" name="cateGoods[]"  style="">
+            <option value="">=카테고리선택=</option>
+            <!--{ @ category }-->
+                <!--{ ? .value_ }-->
+                    <!--{ @ .value_ }-->
+                        <option value="{..cateCd}"><!--{ ..cateNm }--></option>
+                    <!--{ / }-->
+                <!--{ / }-->
+            <!--{ / }-->
+        </select>
+    <!--{ / }-->
+    </div>
+    
+</div>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/hot-sneaks/jquery-ui.css" />
+<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script>
+    var fpStart = {fpStart};
+    var fpEnd = {fpEnd};
+</script>
+<script src="../wib/js/wib-filter.js?v=2"></script>
+
+<script>
+$(document).ready(function(){
+
+<!--{ ? fcolor }-->
+    <!--{ @ fcolor }-->
+        <!--{ ? .value_ }-->
+            $('.color_box ul').children().eq('{.index_}').children('span').trigger('click');
+        <!--{ / }-->
+    <!--{ / }-->
+<!--{ / }-->
+
+<!--{ ? fprice }--> 
+    otherTriggers('price_box', 'priceInsert', '{fprice}');
+<!--{ / }-->
+
+<!--{ ? fpattern }-->
+    <!--{ @ fpattern }-->
+        <!--{ ? .value_ }-->
+            otherTriggers('pattern_box', 'filterpattern', '{.index_}');
+        <!--{ / }-->
+    <!--{ / }-->
+<!--{ / }-->
+
+<!--{ ? fseason }-->
+    <!--{ @ fseason }-->
+        <!--{ ? .value_ }-->
+            otherTriggers('season_box', 'filterseason', '{.index_}');
+        <!--{ / }-->
+    <!--{ / }-->
+<!--{ / }-->
+
+<!--{ ? cateGoods }-->
+    cateTrigger('{cateGoods[0]}', '{cateGoods[1]}');
+<!--{ / }-->
+
+$('.hastooltip').hover(function(){
+    $(this).append('<span class="tooltips">'+$(this).data('name')+'</span>');
+}, function() {
+   $('.tooltips').remove();
+});
+
+});
+
+
+</script>

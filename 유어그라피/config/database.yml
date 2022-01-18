@@ -1,0 +1,12 @@
+master: 
+  host: localhost
+  port: 3306
+  username: yourgraphy
+  password: Bla20212020
+  database: yourgraphy3_godomall_com
+slave1:
+  host: localhost
+  port: 3306
+  username: yourgraphy
+  password: Bla20212020
+  database: yourgraphy3_godomall_com

@@ -1,0 +1,10 @@
+.goods-sort-area {
+    background: #fff !important;
+    margin-bottom: 10px;
+}
+
+.common-product [class*=goods-gallery-num] {
+    padding: 0px 10px;
+    margin: 0;
+}
+

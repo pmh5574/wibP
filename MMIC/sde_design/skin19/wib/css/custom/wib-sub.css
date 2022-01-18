@@ -1,0 +1,213 @@
+/* check button */
+.content input[type="radio"]:checked {background: url(/wib/img/icon/radio_on.png) center center no-repeat;-webkit-appearance: none;width: 16px;height: 16px;background-size: 100% 100%;}
+.content input[type="radio"] {background: url(/wib/img/icon/radio_off.png) center center no-repeat;-webkit-appearance: none;width: 16px;height: 16px;background-size: 100% 100%;border-radius: none;}
+.content input[type="checkbox"]:before {background: url(/wib/img/icon/check_off.png)no-repeat center center !important; width: 20px; height: 20px;content: '';display: inline-block;background-size: 20px;}
+.content input[type="checkbox"]:hover:before {background: url(/wib/img/icon/check_over.png)no-repeat center center !important;}
+.content input[type="checkbox"]:checked:before {background: url(/wib/img/icon/check_on.png)no-repeat center center !important; width: 20px; height: 20px;content: '';display: inline-block;}
+.content input[type=checkbox] {width: 20px;height: 20px;}
+/*
+.content .ec-base-chk .checkbox {background: url(/wib/img/icon/check_off.png)no-repeat center center !important; width: 20px; height: 20px;content: '';display: inline-block;}
+.content #sAgreeAllChecked:checked + .checkbox {background: url(/wib/img/icon/check_on.png)no-repeat center center !important; width: 20px; height: 20px;content: '';display: inline-block;}
+*/
+
+/* 회원가입 */
+#contents .ec-base-chk .checkbox {background: url(/wib/img/icon/check_off.png)no-repeat center center !important; width: inherit; height: inherit;}
+#contents #sAgreeAllChecked:checked + .checkbox {background: url(/wib/img/icon/check_on.png)no-repeat center center !important; width: 20px; height: 20px;}
+
+/* 로그인 공통 */
+input#member_passwd::placeholder ,
+input#member_id::placeholder,
+#order_name::placeholder,
+#order_id::placeholder,
+#order_password::placeholder {color: #999;font-weight: 800;}
+input:focus {outline: none;}
+.txtEm {color: #232323 !important;}
+
+
+/* 로그인 */
+#login_inner {width: 550px;margin: 0 auto;}
+#login_inner .content .login {}
+#login_inner .content .login .ePlaceholder input {width: 100%; border: none; border-bottom: 2px solid #000;height: 36px;margin: 15px 0 10px 0;padding: 0 0 0 8px;font-size: 20px;font-weight: 800;color: #000;box-sizing: border-box;}
+
+.log-btn {text-align: center;margin:40px 0 20px;}
+.log-btn a {display: block; color: #00ff32 ; background-color: #000; font-size: 30px; font-style: italic; font-weight:900;font-family:'arial black' !important;height: 55px;line-height: 55px;}
+
+.links .sns-login ul li:first-child {margin-bottom: 12px;}
+
+.find {}
+.find ul {text-align: center;margin-top: 20px;}
+.find ul li {width: 32.3333%; margin-left: 1%;}
+.find ul li:first-child {margin-left: 0;}
+.find ul li a {display:block; font-size: 15px;font-weight: bold;border: solid 1px #000;height: 45px;line-height: 45px;}
+
+.check {position: relative;}
+.check input {margin-right: 5px;}
+
+
+/* 비회원 */
+.nomember_login .btn-submit {display: block; color: #00ff32 ; background-color: #000; font-size: 30px; font-style: italic; font-weight:900;font-family:'arial black' !important;height: 55px;line-height: 55px;width: 100%;margin-top: 15px;}
+.nomember_login input[type=text],
+.nomember_login input[type=password] {width: 100%; border: none; border-bottom: 2px solid #000;height: 36px;margin: 15px 0 10px 0;padding: 0 0 0 8px;font-size: 20px;font-weight: 900;color: #000;box-sizing: border-box;}
+.message {color: #666;background: url(/wib/img/icon/icon_caution.png)no-repeat left center;text-indent: 20px;margin-top: 10px;}
+
+
+/* 탭메뉴 영역 */
+.tab-menu ul {text-align: center;margin-bottom: 40px;}
+.tab-menu li {display: inline-block;}
+.tab-menu li a{display: inline-block;font-size: 16px;padding: 0;margin: 0 15px;cursor: pointer;border-bottom: 1px solid #222;opacity: 0.4;}
+.tab-menu li.on a{color: #000;font-weight: 500;opacity: 1;}
+
+
+/* 비회원 구매 */
+.member-container.member-container2 {/*display: none;*/}
+#noMemberWrap a.btn-submit{margin:0; width:100%; height:60px; line-height:60px;font-size: 12px; display: block; background: #000; color: #00f530;text-align: center;font-size: 30px;font-style: italic;font-weight:900;font-family:'arial black' !important;padding: 0 10px;border: solid 1px #000;text-transform:uppercase;box-sizing: border-box;}
+
+/* id,pw 찾기 공통 */
+.btn_member_sec {padding-top: 20px;border-top: 1px solid #dbdbdb;clear: both;}
+.btn_member_sec ul {text-align: center;font-size: 0;}
+.btn_member_sec ul li {display: inline-block;}
+.btn_member_sec ul li .membtn {display: inline-block;font-size: 30px;font-style: italic;font-weight:900;font-family:'arial black' !important;line-height: 30px;width: 200px;color: #333333;border: 1px solid #bbbbbb;height: 45px;line-height: 45px;}
+.btn_member_sec ul li .membtn.b-two {color:#00ff32;background: #000;margin-left: 10px;}
+
+/* 아이디찾기 */
+#findIdForm .findId h3 {font-weight: 900;font-family: 'arial black'; font-size: 22px;color: #222222;}
+#findIdForm .findId .sub_txt {margin: 5px 0 15px !important;}
+#findIdForm .xans-member-findid .findId {width: 550px;}
+#findIdForm .xans-member-findid .findId .check {margin: 10px 0 20px;}
+#findIdForm .ec-base-box.typeThin {border: none;}
+#findIdForm .xans-member-findid .findId strong {display: none;}
+#findIdForm .m-left {display: inline-block;float: left;width: 382px;/*margin-bottom: 20px;*/}
+#findIdForm .xans-member-findid .findId .m-left .member select,
+#findIdForm .xans-member-findid .findId input[type=text], 
+#findIdForm .xans-member-findid .findId input[type=password] {width: 100%; height: 34px; box-sizing: border-box;border:none;border-bottom: 2px solid #000;padding-left:10px;font-size: 14px;}
+input#mobile1,
+input#mobile2,
+input#mobile3 {width: 31.33% !important;}
+input#ssn1,
+input#ssn2 {width: 48.3% !important;}
+#findIdForm .xans-member-findid .findId p {margin: 0 0 10px;}
+#findIdForm .xans-member-findid .findId p:last-child {margin: 0 0 20px;}
+#findIdForm .xans-member-findid .findId p input { color: #000; font-weight:900;font-family:'arial black' !important;padding-left:16px;}
+#findIdForm .xans-member-findid .findId .m-left .member select {font-size: 20px; color: #000; font-weight:900;font-family:'arial black' !important;padding-left:6px;}
+#findIdForm .xans-member-findid .findId .m-left .member select#searchType {background: #fff !important;}
+#findIdForm .xans-member-findid .findId p input::placeholder {font-size: 20px; color: #979d9d;}
+#findIdForm .m-right {display: inline-block;float: right;}
+#findIdForm .m-right a {display: inline-block;color: #00ff32;background-color: #000;font-size: 22px;font-style: italic;font-weight: 900;font-family: 'arial black' !important;width: auto;padding: 0 37px;height: 34px;line-height: 34px;}
+
+/* 비밀번호 찾기 */
+#findPasswdForm .findPw h3 {font-weight: 900;font-family: 'arial black'; font-size: 22px;color: #222222; padding-bottom: 10px;}
+#findPasswdForm .xans-member-findpasswd .findPw {width: 550px;}
+#findPasswdForm .xans-member-findpasswd .findPw .ec-base-desc .desc {padding: 0;}
+#findPasswdForm .xans-member-findpasswd .findPw .check {margin: 10px 0 20px;}
+#findPasswdForm .ec-base-box.typeThin {border: none;}
+#findPasswdForm .xans-member-findpasswd .findPw strong {display: none;}
+#findPasswdForm .m-left {display: inline-block;float: left;width: 382px;margin-bottom: 20px;}
+#findPasswdForm .xans-member-findpasswd .findPw .m-left .member select,
+#findPasswdForm .xans-member-findpasswd .findPw input[type=text], 
+#findPasswdForm .xans-member-findpasswd .findPw input[type=password],
+#findPasswdForm .xans-member-findpasswd .findPw #searchType {width: 100%; height: 34px; box-sizing: border-box;border:none;border-bottom: 2px solid #000;padding-left:10px;}
+#findPasswdForm .xans-member-findpasswd .findPw #searchType,
+#findIdForm .xans-member-findid .findId .m-left .member select#searchType {background:#fff url(/wib/img/icon/sel_arrow.png)no-repeat 95% center !important;}
+
+input#mobile1,
+input#mobile2,
+input#mobile3 {width: 31.33% !important;}
+#findPasswdForm .xans-member-findpasswd .findPw p {margin: 0 0 10px;}
+#findPasswdForm .xans-member-findpasswd .findPw p:last-child {margin: 0 0 20px;}
+#findPasswdForm .xans-member-findpasswd .findPw input {color: #000; font-weight:900;font-family:'arial black' !important;padding-left:16px;}
+#findPasswdForm .xans-member-findpasswd .findPw #searchType {font-size: 20px; color: #000; font-weight:900;font-family:'arial black' !important;padding-left:6px;}
+#findPasswdForm .xans-member-findpasswd .findPw input::placeholder {font-size: 20px; color: #979d9d;}
+#findPasswdForm .m-right {display: inline-block;float: right;}
+#findPasswdForm .m-right a {display: inline-block;color: #00ff32;background-color: #000;font-size: 30px;font-style: italic;font-weight:900;font-family:'arial black' !important;width: auto;padding: 0 37px;height: 116px;line-height: 116px;}
+
+/* 아이디 찾기 결과 */
+.ec-base-box.typeThin {border: none;}
+.xans-member-findidresult .findId {width: 550px !important;}
+.xans-member-findidresult .findId li label {display: block !important;}
+.ec-base-desc.gSmall {padding: 15px 0 50px 0;font-size: 18px;color: #232323;text-align: center;}
+.ec-base-desc.gSmall li {display:block; margin-bottom: 10px;}
+.ec-base-desc.gSmall li br {display: none;}
+.xans-member-findidresult .findId li label .id {font-size: 18px;color: #232323;font-weight: bold;}
+
+
+/* 비밀번호 찾기 결과 */
+.xans-member-findpasswdmethod .inner {width: 550px !important; font-size: 14px !important;}
+.xans-member-findpasswdmethod .inner .txtEm {color: #232323 !important;}
+.xans-member-findpasswdmethod .inner .txtEm span {font-size: 16px;}
+.xans-member-findpasswdmethod .inner .ec-base-desc,
+.xans-member-findpasswdmethod .inner .ec-base-box.typeThin h3.boxTitle {}
+.findPw .ec-base-box.typeMember.gMessage,
+.findPw .ec-base-box.typeMember .information .description {border: none; text-align: center; font-size: 18px;}
+.xans-member-findpasswdmethod .inner .ec-base-desc dd,
+.xans-member-findpasswdmethod .inner .ec-base-desc .desc {margin: 0 0 20px;}
+.xans-member-findpasswdresult .findPw .desc p {color: #333;}
+
+/* 장바구니담기 팝업 */
+#confirmLayer .xans-order-layerbasketpackage {width: 405px;height: 312px;border: 2px solid #555;padding: 14px 20px;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);margin: 0;box-sizing: border-box;}
+.ec-base-layer .header {background: none;color: #000;font-style: italic;padding: 0 0 13px;border-bottom: 1px solid #999999;color: #000;font-size: 18px;}
+.ec-base-layer .header h3 {font-size: 18px;font-weight:900;font-family:'arial black' !important;}
+.cart-txt {text-align: center;}
+.cart-txt > img {margin: 30px 0 20px;}
+.cart-txt p {color: #222;font-size: 14px;line-height: 22px;text-align: center;font-weight: 300;}
+.cart-txt p strong {}
+.cart-txt p span {}
+#confirmLayer .ec-base-layer .close {padding: 18px 20px;}
+[class^='btnNormal']:not(.disabled):hover {background: none;}
+#confirmLayer .ec-base-layer .ec-base-button {background: none;border: none;padding: 30px 0 0;}
+#confirmLayer .ec-base-layer .ec-base-button a {display: inline-block;color: #000;min-width: 74px;padding: 10px 10px 9px 10px;border: 1px solid #cccccc;color: #3e3d3c;background: #ffffff;font-weight: bold;font-size: 12px;border: 1px solid #000;box-sizing: border-box;}
+#confirmLayer .ec-base-layer .ec-base-button a.btn-confirm {color: #00f530;background: #000;margin-left: 6px;}
+
+
+/* JOIN */
+#join-wrap {width: 743px;margin: 0 auto;}
+#contents .ec-base-table table {border: none;margin: 0;}
+#contents .ec-base-table table:before {display: none;}
+#contents .ec-base-table tbody th,
+#contents .ec-base-table tbody td {background-color: #fff;border: none;border-bottom: 1px solid #dcdcdc;color: #333;}
+#contents .ec-base-table tr:first-child td,
+#contents .ec-base-table tr:first-child th {border-top: 1px solid #000;}
+#contents .ec-base-table tbody th {padding: 21px 0 20px 18px;font-weight: bold;position: relative;}
+#contents .ec-base-table td {}
+#contents .ec-base-table.typeWrite img {position: absolute;left: 10px;top: 27px;}
+#contents .addin-tit {border-bottom:1px solid #999; padding-bottom: 10px;}
+#contents select {height: 31px;}
+#contents .ec-base-box.typeThinBg {background: #fff;border: none;padding-left: 0;}
+#contents .xans-member-join .agreeArea h3 {color: #333;}
+#contents input[type=checkbox] {position: relative;top: -2px;}
+.xans-member-join #phone1, 
+.xans-member-join #mobile1, 
+.xans-member-join #phone2, 
+.xans-member-join #phone3, 
+.xans-member-join #mobile2, 
+.xans-member-join #mobile3 {background-color: #000; color: #fff; width: 70px !important;}
+.xans-myshop-asyncbenefit {display: none;}
+
+/* JOIN_result */
+.join_result_wrap {margin: 0 auto; width: 593px;}
+.join_result_wrap .xans-member-joincomplete {padding: 70px 60px;box-sizing: border-box;border: none;}
+.join_result_wrap .tit {font-size: 18px;color: #707270;font-weight: normal;display: block;text-align: left;margin-bottom: 30px;}
+.join_result_wrap .ec-base-box.typeMember.gMessage {display: none;}
+.join_result_wrap .xans-member-joincomplete .joinComplete .memberSpecial {display: none;}
+.join_result_wrap .xans-member-joincomplete .joinComplete .desc {color: #000;padding: 40px 0;border-bottom: 1px solid #ddd;}
+
+/* 주문상세조회 */
+.xans-myshop-orderhistorydetail .totalDetail .content p {color: #000 !important;}
+
+/* 회원정보수정 */
+#contents .ec-base-button.justify {padding: 40px 0;}
+#contents .ec-base-table .ec-address > li {border: none;}
+#postBtn {height: 31px;}
+.xans-member-edit #phone2, 
+.xans-member-edit #phone3, 
+.xans-member-edit #mobile2, 
+.xans-member-edit #mobile3 {width: 70px !important; background: #000; color: #fff;}
+.membtn {display: inline-block;font-size: 30px;font-style: italic;font-weight: 900;font-family: 'arial black' !important;line-height: 30px;width: 200px;color: #333333;border: 1px solid #bbbbbb;height: 45px;line-height: 45px;}
+.membtn.btn2 {background: #000;color:#00f530;margin-left: 5px;}
+
+
+/* 배송지 추가 */
+.xans-myshop-addrregister #ma_rcv_phone1,
+.xans-myshop-addrregister #ma_rcv_mobile_no1 {margin-right: 3px;}
+
+
+

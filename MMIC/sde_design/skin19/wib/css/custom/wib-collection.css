@@ -1,0 +1,16 @@
+#contents {width:100% !important;}
+#contents .sub_content {width:auto; margin:0 40px; padding:45px 0 0 0;}
+.agc_collection_box{ margin:-45px -40px -105px;}
+.agc_collection_box>p>img {width: 100%; max-width:100%;}
+.agc_content_box *{ line-height:120%; font-size:18px;}
+.agc_content_box h3{ font-size:72px; line-height:72px; margin-bottom:20px; font-family:'arial black' !important; letter-spacing:-0.03em;}
+.agc_content_box h4{ font-size:35px; line-height:60px; margin-bottom:70px; letter-spacing:-0.03em;}
+.agc_content_box h4 b{ display:block; font-size:65px; letter-spacing:-0.03em;}
+.agc_content_box table{ width:700px; margin:0 auto;}
+.agc_content_box table tr th,
+.agc_content_box table tr td{ font-size:28px; padding:8px 15px;}
+.agc_content_box table tr th{ text-align:right; font-weight:bold;}
+.agc_content_box table tr td{ text-align:left;}
+
+.agc_content_box .agc_collect_bg { position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; z-index: -1;}
+.agc_content_box .agc_movie_title { padding: 250px 40px;}

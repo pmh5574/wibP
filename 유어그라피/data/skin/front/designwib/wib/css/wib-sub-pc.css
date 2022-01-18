@@ -1,0 +1,90 @@
+/* =============================
+   서브페이지 PC전용 소스입니다.
+   수정/삭제시 사이트가 틀어질수 있습니다.
+   ============================= */
+
+
+/** 게시판관련 **/
+.board_contact,
+.form_wrap .board_zone_tit p{display:none;}
+.board_zone_tit h2{font-size:20px;}
+
+#wrap .apply, .qa_hide{display:none ! important;}
+.board_write_table tbody .name th span.apply_name{display:none;}
+
+/* 마이페이지 */
+.side_cont .sub_menu_box h2{padding-left:0;}
+.side_cont .sub_menu_box .sub_menu a{padding-left:0;}
+#contents .sub_content > .side_cont + .content{width:calc(100% - 200px); box-sizing:border-box;}
+/* 갤러리 게시판 */
+
+.board_list_gallery .board_img{
+	width: 100%;
+	min-height: 100%;
+    display: block;
+}
+
+.board_list_gallery .board_img a{
+	display: block;
+}
+
+.board_list_gallery .board_img a img{
+	width: 100%;
+    height: auto;
+}
+
+.board_view_content .seem_cont img.photo {
+	width:100% !important; 
+	height:100% !important;
+}
+
+/* 게시판 공통 레이어팝업 */
+
+.layer_wrap.add_goods_layer{
+    width: 746px;
+    margin: 0 !important;
+    transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+}
+
+/* 게시판 공통 하단버튼 */
+
+.board_zone_sec .btn_center_box{
+	padding-bottom: 40px;
+}
+
+
+/** 레이어팝업 공통 **/
+
+/* 옵션변경 공통 팝업 - 찜리스트,장바구니 */
+
+.option_layer_cont{
+	top: 50px;
+    left: 50% !important;
+    margin-left: -331.5px !important;
+}
+
+/* 배송지관리,쿠폰적용 팝업 - 주문서작성 */
+
+.layer_wrap.coupon_apply_layer .layer_wrap_cont,
+.layer_wrap.delivery_add_list_layer .layer_wrap_cont{
+	top: 50px;
+    left: 50% !important;
+	margin-left: -375px !important;
+}
+
+/* 비밀번호 도움말 팝업 - 회원정보변경 */
+
+#wrap .ly_wrap.pw_advice_layer {
+    width: 250px;
+    top: 0px;
+    left: -12px;
+}
+
+/* 회원가입 */
+.join_agreement_wrap .member_cont{
+	max-width:863px;
+	width:100%;
+	box-sizing:border-box;
+}

@@ -1,0 +1,99 @@
+{*** 인쇄선택 | frame/start.php ***}
+
+<div id="frame_left">
+    <!-- 이미지 -->
+    <div class="img_box">
+        <ul class="img_nav">
+            <!--{ ? frameImage }-->
+                <!--{ @ frameImage }-->
+                    <li>
+                        <!--{ ? .index_ == 0 }-->
+                            <img src="../wib/img/imgbox/setframe.png"/>
+                        <!--{ : }-->
+                            <img src="/data/goods/{.imagePath}{.imageName}"/>
+                        <!--{ / }-->
+                    </li>
+                <!--{ / }-->
+            <!--{ / }-->
+        </ul>
+        <div class="img_cont">
+            <img src="../wib/img/imgbox/shadowR.png" class="frameshadow hidden">
+            <ul>
+                <!--{ ? frameImage }-->
+                    <!--{ @ frameImage }-->
+                        <!--{ ? .index_ == 0 }-->
+                            <li>
+                                <div class="imgContBox">
+                                    <img src="../wib/img/imgbox/setframe.png"/>
+                                </div>
+                                <div class='cropBox hidden'>
+
+                                </div>
+                                <div class='resultBox hidden'></div>
+                            </li>
+                        <!--{ : }-->
+                            <li class="detailImage"><img src="/data/goods/{.imagePath}{.imageName}"/></li>
+                        <!--{ / }-->
+                    <!--{ / }-->
+                <!--{ / }-->
+            </ul>
+        </div>
+    </div>
+    <!--// 이미지 -->
+    
+    <ul class="btn_box hidden">
+        <li class="re_load_btn eventBtn" data-event="uploadMultiImg">
+            <div class="icon"></div>
+            <p>이미지 재 업로드</p>
+        </li>
+        <li class="img_crop_btn on">
+            <div class="icon"></div>
+            <p>이미지 크롭</p>
+        </li>
+        <li class="img_rotate_btn">
+            <div class="icon"></div>
+            <p>이미지 회전</p>
+        </li>
+    </ul>
+    
+</div>
+<div id="frame_right">
+    <div class="right_all">
+        <section id="print">
+            {=includeFile('frame/content/print.html')}
+        </section>
+        
+        <section id="print_paper" class="hidden">
+            {=includeFile('frame/content/print_paper.html')}
+        </section>
+        
+        <section id="crop_image" class="hidden">
+            {=includeFile('frame/content/crop_image.html')}
+        </section>
+        
+        <section id="print_size" class="hidden">
+            {=includeFile('frame/content/print_size.html')}
+        </section>
+        
+        <section id="artsize" class="hidden">
+            {=includeFile('frame/content/artsize.html')}
+        </section>
+        
+        <section id="frame_select" class="hidden">
+            {=includeFile('frame/content/frame_select.html')}
+        </section>
+        
+        <section id="matt_board" class="hidden">
+            {=includeFile('frame/content/matt_board.html')}
+        </section>
+        
+        <section id="cover" class="hidden">
+            {=includeFile('frame/content/cover.html')}
+        </section>
+        
+        <section id="detail" class="hidden">
+            {=includeFile('frame/content/detail.html')}
+        </section>
+        
+    </div>
+</div>

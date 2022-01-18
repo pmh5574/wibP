@@ -1,0 +1,91 @@
+{***  플러스 리뷰 리스트 | board/plus_review_list.php ***}
+<script>
+	$(function(){
+		if ($(".best-review > div").length == "")
+		{
+			$(".best-review-wrap").clone().appendTo(".best-review");
+		}
+
+		if ($(".js_pr_list .best-review-wrap").length)
+		{
+			$(".best-top-wrap").show();
+		}
+	});
+</script>
+<!--{ ? result}-->
+<div class="best-review-wrap">
+    <!--{ @ result}-->  	
+       <div class="bestreview" >
+           <div class="best_left" >
+               <img src="{.saveFileNm}" class="file js_pr_thum_img js_pr_btn_image" data-sno="{=.sno}">	
+           </div>
+           <div class="main_review">        
+               <div class="rtext">{=.contents}</div><br/>
+               <div class="rid">{=.writerId}</div>
+               <div class="rregdt">{=.regDt}</div>
+           </div>									
+       </div>            
+   <!--{ / }-->  
+</div>
+<!--{ / }-->
+<div class="plus_review_photo_cont">
+	<!--{ ? imglist}-->
+	<!--{ @ imglist}-->
+	<!--{ ? .saveFileNm}-->
+	<div> 
+		<img src="{.saveFileNm}">   
+	</div>
+	<!--{/}-->
+	<!--{/}-->
+	<!--{/}-->
+</div>
+<!--{ ? data.list}-->
+<!--{ @ data.list}-->
+<li>
+    <div class="list_top">
+		<div class="rating_box">
+			<span class="rating"><span style="width:{.goodsPt*20}%">{=__('평가')}</span></span>
+        </div>
+		<div class="total_count">
+			<!--{ ? plusReviewConfig.memoFl == 'y'}-->
+			<dl>
+				<dt>{=__('댓글')}</dt>
+				<dd>{=.memoCnt}</dd>
+			</dl>
+			<!--{/}-->
+			<!--{ ? plusReviewConfig.recommendFl == 'y'}-->
+			<dl>
+				<dt>{=__('추천')}</dt>
+				<dd>{=.recommend}</dd>
+			</dl>
+			<!--{/}-->
+		</div>
+    </div>
+    <div class="plus_reivew_contents_box" id="plus_reivew_focus_{=.sno}">
+        <div class="plus_reivew_contents" data-sno="{=.sno}" >
+            {=.contents}
+            <!--{ ? .isNew == 'y'}-->
+            <span class="new"></span>
+            <!--{/}-->
+            <a href="../board/plus_review_view.php?sno={=.sno}" data-cache="false"  data-toggle="modal" data-target="#popupBoardView" data-focus="{=.sno}" class="more">{=__('더보기')}</a>
+        </div>
+        
+        <!--{?.saveFileNm}-->
+        <!--{@.saveFileNm}-->
+
+        <div class="plus_reivew_contents_img"><img src="{..thumSrc}"/></div>
+
+        <!--{/}-->
+        <!--{/}-->
+    </div>
+    <div class="plus_review_info">
+        <span class="writer">{=.writerId}</span><span class="date">{=.regDt}</span>
+    </div>
+</li>
+<!--{/}-->
+<!--{:}-->
+<div class="no_list">
+    {=__('게시글이 존재하지 않습니다.')}
+</div>
+<!--{/}-->
+<div class="dn"><li id="totalPage">{=pagecount}</li></div>

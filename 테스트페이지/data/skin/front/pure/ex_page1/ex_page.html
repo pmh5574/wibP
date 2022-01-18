@@ -1,0 +1,33 @@
+<table border="3" id ="ex_table">
+    <thead>
+        <tr>
+           <th>게시글 번호</th> 
+           <th>goodsNo</th>
+           <th>goodsName</th>
+        </tr>
+    </thead>
+    <tbody>
+     <!--{@ result}-->  
+        <tr>
+            <td>{.no}</td>
+            <td>{.goodsNo}</td>
+            <td>{.goodsNm}</td>
+        </tr>
+    <!--{/}-->  
+    </tbody>
+</table>
+<ul>
+    <li>
+        {first_page}
+        {print_pre}
+        <!--{@ print_page}-->
+        {.value_}
+        <!--{/}-->
+        {print_next}
+        {end_page}
+    </li>
+</ul>
+
+<style>
+ul{ list-style:none; }
+</style>

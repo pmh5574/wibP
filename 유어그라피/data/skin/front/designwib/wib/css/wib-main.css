@@ -1,0 +1,75 @@
+#container{margin-top:-77px;}
+#contents{max-width:100%;}
+#contents .sub_content{max-width:100%; position:static;}
+
+/* 이미지 리스트 */
+.main_banner, .m_main_banner{display:none;}
+
+/* 메인배너 텍스트 */
+#fullpage .section{background-size:cover; background-position:center center;}
+#fullpage .section .txt{position:absolute; top:50%; left:0; width:100%; text-align:center; transform:translateY(-50%); box-sizing:border-box; padding:0 40px;}
+#fullpage .section .txt p{font-size:20px; font-weight:300;}
+#fullpage .section .txt h1{font-size:28px; font-weight:500;}
+#fullpage .section .txt.left{text-align:left;}
+#fullpage .section .txt.right{text-align:right;}
+#fullpage .section .txt.left_bottom{text-align:left; top:auto; bottom:33px; transform:translateY(0);}
+#fullpage .section .txt.right_bottom{text-align:right; top:auto; bottom:33px; transform:translateY(0);}
+#fullpage .section .txt.white *{color:#fff;}
+
+/* 하단 */
+#fullpage .f_section{display:block;}
+
+/* 스크롤모션 */
+.scroll_motion{position:fixed; bottom:30px; left:50%; margin-left:-22px;}
+.scroll_motion p{font-size:11px; line-height:1; padding-bottom:26px;}
+.scroll_motion div span{display:block; position:absolute; bottom:10px;; left:50%; width:10px; height:10px; margin-left:-5px; border-left:1px solid #000; border-bottom:1px solid #000; transform:rotate(-45deg); -webkit-animation:motion 2s infinite; animation:motion 2s infinite; opacity:0; box-sizing:border-box;}
+.scroll_motion div span:nth-of-type(2){animation-delay:0.15s; -webkit-animation-delay:0.15s; bottom:0;}
+.scroll_motion.white p{color:#fff;}
+.scroll_motion.white span{border-color:#fff;}
+
+@keyframes motion{
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes motion{
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 950px) {
+
+	#container{margin-top:-51px;}
+
+	/* 메인배너 텍스트 */
+	#fullpage .section .txt{padding:0 15px;}
+	#fullpage .section .txt p{font-size:15px;}
+	#fullpage .section .txt h1{font-size:18px;}
+
+}
+
+@media (max-width: 769px) {
+
+	#footer .footer_all{border:none;}
+
+	/* 메인배너 텍스트 */
+	#fullpage .section .txt.left_bottom, #fullpage .section .txt.right_bottom{bottom:15px;}
+
+	/* 스크롤모션 */
+	.scroll_motion{display:none ! important;}
+
+}

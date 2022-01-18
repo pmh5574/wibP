@@ -1,0 +1,59 @@
+#contents{padding-top:20px;}
+.location_wrap{border:0;}
+.location_wrap .location_cont{width:100%;padding-left:40px;box-sizing:border-box;line-height:1;}
+.location_wrap .location_cont > em{font-size:14px;font-weight:400;color:#717171;text-align:left;line-height:1;padding:0;display:inline-block;vertical-align:top;}
+.location_wrap .location_cont > em a{}
+.location_wrap .location_cont > em a{}
+.location_wrap .location_cont > span{display:inline-block;vertical-align:top;line-height:1;margin:0 13px 0 15px;position:relative;top:2px;}
+.location_wrap .location_cont > .location_select{margin-top:0;display:inline-block;vertical-align:top;min-width:auto;border:0;margin:0;line-height:1;top:1px;padding-bottom:10px;}
+.location_wrap .location_cont > .location_select .location_tit{background:none;}
+.location_wrap .location_cont > .location_select .location_tit a{display:block;padding:0;font-size:14px;font-weight:400;color:#333;padding-right:0;background:none;}
+.location_wrap .location_cont > .location_select .location_tit a span{padding:0;display:block;width:100%;}
+.location_wrap .location_cont > .location_select > ul{padding:19px 17px;border-radius:5px;border:1px solid #262626;overflow:hidden;background-color:#fff;left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);-moz-transform:translateX(-50%);-ms-transform:translateX(-50%);-o-transform:translateX(-50%);margin:0;top:20px;width:auto;}
+.location_wrap .location_cont > .location_select > ul > li:first-of-type{margin-top:0;}
+.location_wrap .location_cont > .location_select > ul > li{margin-top:15px;}
+.location_wrap .location_cont > .location_select > ul > li > a{padding:0;display:block;text-align:center;background-color:transparent !important;}
+.location_wrap .location_cont > .location_select > ul > li > a:hover{}
+.location_wrap .location_cont > .location_select > ul > li > a:hover span{color:#333;font-weight:500;}
+.location_wrap .location_cont > .location_select > ul > li > a span{display:block;font-size:13px;font-weight:400;color:#717171;text-align:center;line-height:1;white-space:nowrap;}
+
+.order_wrap .order_tit h2{font-size:27px;font-weight:400;color:#333;text-align:left;letter-spacing:-0.02em;line-height:1;padding-top:14px;}
+.order_wrap .order_tit ol{line-height:1;}
+.order_wrap .order_tit ol li span{font-weight:400;}
+.order_wrap .order_tit ol li{padding:20px 0;color:#717171;}
+.order_wrap .order_tit .page_on{color:#333;}
+.order_wrap .order_tit .page_on span{font-weight:600;color:#2A4E41;}
+
+.order_table_type table{}
+.order_table_type table th{background-color:transparent;border-top:1px solid #ECECEC;font-size:13px;font-weight:400;color:#333;text-align:center;line-height:1;padding:13px 0;border-bottom:1px solid #ececec;}
+.order_table_type table td{padding:35px 0;font-size:13px;font-weight:400;color:#333;border-color:#ececec;}
+.order_table_type table td strong{font-weight:400;}
+.order_table_type table td.td_left{}
+.order_table_type table .form_element{}
+.order_table_type table .form_element input{}
+.order_table_type table .form_element input + label{width:18px;height:18px;padding:0 !important;background:url("../../wib/img/chk-off.png")no-repeat center top;min-width:auto;min-height:auto;}
+.order_table_type table .form_element input + label:hover{background:url("../../wib/img/chk-off.png")no-repeat center top;}
+.order_table_type table .form_element input + label.on{background:url("../../wib/img/chk-on.png")no-repeat center top;}
+
+.order_table_type .pick_add_cont .pick_add_img{width:55px;padding-right:20px;}
+.order_table_type .pick_add_cont .pick_add_img img{width:100%;border:0;}
+.order_table_type .pick_add_cont .pick_btn_box{padding-bottom:13px;}
+.order_table_type .pick_add_cont .pick_add_info em{font-size:14px;font-weight:400;color:#333;text-align:left;line-height:19px;}
+.order_table_type .pick_add_cont .text_type_cont{font-size:13px;font-weight:400;color:#717171;padding:3px 0;}
+.benefit_list .benefit_mileage em{background-position:0;}
+.price_sum{border:1px solid #ececec;}
+#totalGoodsCnt{font-weight:400;}
+.price_sum_cont .price_sum_list dd{color:#333;}
+.price_sum_cont .price_sum_list dd strong{color:#333;}
+.price_sum_cont .tobe_mileage{font-size:14px;color:#333;}
+.price_sum_cont .tobe_mileage span{font-weight:700;}
+.chk_none{color:12px;font-weight:400;color:#717171;background-position:left 7px;}
+.btn_order_box .btn_right_box button{font-size:14px;font-weight:500;color:#fff;text-align:center;border:0;}
+.btn_order_choice_buy{background-color:#C6A277;}
+.btn_order_whole_buy{background-color:#2A4E41;}
+
+.option_layer_cont .btn_box{border-top:0;}
+.option_layer_cont .btn_box button{width:140px;height:45px;box-sizing:border-box;line-height:45px;border:1px solid #ccc;padding:0;}
+.option_layer_cont .btn_box button span{font-size:15px;font-weight:400;color:#333;}
+.option_layer_cont .btn_box button.btn_confirm{background-color:#2A4E41;border-color:#2A4E41;}
+.option_layer_cont .btn_box button.btn_confirm span{color:#fff;}

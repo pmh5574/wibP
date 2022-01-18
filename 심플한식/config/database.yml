@@ -1,0 +1,12 @@
+master :
+  host: promalldb35.godomall.com
+  username: fcv11243
+  password: fcvfcv112
+  database: fcv0525_godomall_com
+  port: 3306
+slave1 :
+  host: promalldb35.godomall.com
+  username: fcv11243
+  password: fcvfcv112
+  database: fcv0525_godomall_com
+  port: 3306

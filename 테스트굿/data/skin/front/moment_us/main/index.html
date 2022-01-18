@@ -1,0 +1,288 @@
+{*** 쇼핑몰 메인본문 | main/index.php ***}
+{ # header }
+{=includeWidget('proc/_populate.html', 'sno', '100')}
+
+<!-- wib 추가 -->
+<script src="../wib/js/jquery.cycle2.min.js"></script>
+<link type="text/css" rel="stylesheet" href="../wib/css/wib-main.css" /> 
+<script type="text/javascript" src="../wib/js/wib-main.js"></script>   
+
+
+<!-- 메인 슬라이드 배너 -->
+<div class="main-slide-wrap">
+	<div class="main-slider">
+		<!-- 배너개수에 맞춰 slide 추가/삭제해주세요. -->
+		<!-- slide 3 : 슬라이드 배너 3 -->
+		<!--{ @dataBanner('3446719802', true) }--><!--{ ? .index_ == '2'}-->
+		<div class="slide">
+			<div class="slide-img">
+				<img src="{.bannerImageUrl}" alt="" />
+			</div>
+		</div>
+		<!--{ / }--><!--{ / }-->
+		<!-- //slide 3 -->
+
+		<!-- slide 1 : 슬라이드 배너 1 -->
+		<!--{ @dataBanner('3446719802', true) }--><!--{ ? .index_ == '0'}-->
+		<div class="slide">
+			<div class="slide-img">
+				<img src="{.bannerImageUrl}" alt="" />
+			</div>
+		</div>
+		<!--{ / }--><!--{ / }-->
+		<!-- //slide 1 -->
+		
+		<!-- slide 2 : 슬라이드 배너 2 -->
+		<!--{ @dataBanner('3446719802', true) }--><!--{ ? .index_ == '1'}-->
+		<div class="slide">
+			<div class="slide-img">
+				<img src="{.bannerImageUrl}" alt="" />
+			</div>
+		</div>
+		<!--{ / }--><!--{ / }-->
+		<!-- //slide 2 -->
+		
+		
+	</div>
+</div>
+<!-- //메인 슬라이드 배너 -->
+
+
+<div class="main-content">
+	<div class="main-inner">
+            
+            <!-- 기획전 -->
+            <div class="today-pick-wrap container">
+                <div class="goods_list">
+                    <div class="goods_list_cont">
+                        <div class="item_hover_type">
+                            <a href="#" class="slide-control prev">이전</a>
+                            <a href="#" class="slide-control next">다음</a>
+
+                            <div class="list swiper-container">
+                                <ul class="swiper-wrapper">
+                                    <!--{ @getArticles( 'topcircle' , 50 , 10 ) }-->
+                                        <li  class="swiper-slide ">
+                                            <div class="item_cont">
+                                                <div class="item_photo_box">
+                                                    <a href="{.urlLink}">
+                                                        <img src="{.attachImageSrc}" alt="상품이미지" />
+                                                    </a>
+                                                </div>
+                                                <div class="item_info_cont">
+                                                    <div class="item_tit_box">
+                                                        <a href="{.urlLink}">
+                                                            <strong class="item_name">{.subject}</strong>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    <!--{ / }-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //기획전 -->
+
+            <!-- section01 : 메인상품진열(1) -->
+            <div class="section01 goods-w">
+                    <div class="title-wrap">
+                            <h2 class="main-tit">New Arrivals</h2>
+                    </div>
+                    <div class="prd-wrap">
+                            {=includeWidget('goods/_goods_display_main.html','sno','48')}
+                    </div>
+            </div>
+            <!-- //section01 : 메인상품진열(1)  -->
+		
+		<!-- 서브 띠배너 슬라이드 영역 1-->
+<div class="mid-slide-banner-wrap line-banner relative">
+    {=includeWidget('proc/_slider_banner.html', 'bannerCode', '1351939006')}
+</div>
+<!--// 서브 띠배너 영역 -->
+
+
+		<!-- section02 : 메인 서브배너(1) -->
+		<div class="section02 comm-w">
+			<!--{ @dataBanner('1339979131') }-->{.tag}<!--{ / }-->
+		</div>
+		<!-- //section02 : 메인 서브배너(1) -->
+
+
+		<!-- section03 : 메인상품진열(2) -->
+		<div class="section03">
+			<div class="title-wrap">
+				<h2 class="main-tit">Best Seller</h2>
+			</div>
+			
+			<div class="tabs">
+				<span class="tabs_controls">
+					<a class="tabs-prev"></a>
+					<a class="tabs-next"></a>
+				</span>
+				<ul class="horizontal">
+					<li class="active"><a href="#tab-1">All</a></li>
+					<li><a href="#tab-2">Living</a></li>
+					<li><a href="#tab-3">Electric</a></li>
+					<li><a href="#tab-4">Food</a></li>
+				</ul>
+
+				<div id="tab-1" class="prd-wrap goods-w">
+					{=includeWidget('goods/_goods_display_main.html','sno','47')}
+				</div>
+
+				<div id="tab-2" class="prd-wrap goods-w">
+					{=includeWidget('goods/_goods_display_main.html','sno','46')}
+				</div>
+
+				<div id="tab-3" class="prd-wrap goods-w">
+					{=includeWidget('goods/_goods_display_main.html','sno','49')}
+				</div>
+
+				<div id="tab-4" class="prd-wrap goods-w">
+					{=includeWidget('goods/_goods_display_main.html','sno','50')}
+				</div>
+			</div>
+			
+		</div>
+		<!-- //section03 : 메인상품진열(2)  -->
+
+
+		<!-- section04 : 메인 서브배너(2) -->
+		<div class="section04">
+			<div class="banner-wrap">
+				<!-- left section -->
+				<div class="banner-box left ani">
+				   <div class="box-inner">
+						<p class="banner-txt">
+							<span>Best Figure Product</span><br/>
+							<a href="#">More</a>
+						</p>
+						<p class="banner-img figure">
+							<!--{ @dataBanner('3497484260') }-->{.tag}<!--{ / }-->
+						</p>
+					</div>
+				</div>
+				<!-- //left section -->
+
+				<!-- right section -->
+				<div class="banner-box right ani">
+					<div class="box-inner">
+						<p class="banner-txt">
+							<span>Best Kids Product</span><br/>
+							<a href="#">More</a>
+						</p>
+						<p class="banner-img">
+							<!--{ @dataBanner('521280425') }-->{.tag}<!--{ / }-->
+						</p>
+					</div>
+				</div>
+				<!-- //right section -->
+			</div>
+		</div>
+		<!-- //section04 : 메인 서브배너(2) -->
+
+
+		<!-- section05 : 메인상품진열(3) -->
+		<div class="prd-section05 comm-w clearFix">
+			<div class="title-wrap">
+				<h2 class="main-tit">MD’s Pick</h2>
+			</div>
+
+			<!-- prd box 01 -->
+			<div class="prd-box one fleft">
+				<div class="prd-tit">Top</div>
+				<div class="prd-wrap">
+					{=includeWidget('goods/_goods_display_main.html','sno','63')}
+				</div>
+			</div>
+			
+			<!-- prd box 02 -->
+			<div class="prd-box two fleft">
+				<div class="prd-tit">Food</div>
+				<div class="prd-wrap">
+					{=includeWidget('goods/_goods_display_main.html','sno','64')}
+				</div>
+			</div>
+			
+			<!-- prd box 03 -->
+			<div class="prd-box three fleft">
+				<div class="prd-tit">Acc</div>
+				<div class="prd-wrap">
+					{=includeWidget('goods/_goods_display_main.html','sno','65')}
+				</div>
+			</div>
+		</div>
+		<!-- //section05 : 메인상품진열(3) -->
+		
+		<!-- section6 : video -->
+		<div class="section06 comm-w">
+		   <div class="video-wrap">
+				<div class="video-bg">
+					<div class="video_inn">
+						<figure class="vc_figure-popup">
+							<a href="https://www.youtube.com/embed/NmJVoBzkUcg?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="video_popup_bg"><img src="//cdn.shopify.com/s/files/1/0065/8767/8835/t/10/assets/play-btn-white.png?8294776282037178065" alt=""></a>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //section6 : video -->
+		
+		<!-- 이벤트 배너 & 후기 영역 -->
+                <div class="bottom-wrap">
+                    <div class="container clearifx">
+                        <!-- 이벤트 배너 -->
+                        <div class="event-banner-wrap pull-left relative">
+                            <ul class="cycle-slideshow" data-cycle-timeout="2500" data-cycle-slides="> li" data-cycle-pager=".event-pager" data-cycle-pager-event="mouseover">
+                                <!--{ @dataBanner('3835872780') }-->
+                                <!--{ ? .index_ == '0'}-->
+                                <li>{.tag}</li>
+                                <!--{ / }-->
+                                <!--{ / }-->
+                                <!--{ @dataBanner('3835872780') }-->
+                                <!--{ ? .index_ == '1'}-->
+                                <li>{.tag}</li>
+                                <!--{ / }-->
+                                <!--{ / }-->
+                                <!--{ @dataBanner('3835872780') }-->
+                                <!--{ ? .index_ == '2'}-->
+                                <li>{.tag}</li>
+                                <!--{ / }-->
+                                <!--{ / }-->
+                            </ul>
+                            <div class="event-pager circle-pager inline"></div>
+                        </div>
+                        <!--// 이벤트 배너 -->
+                        <!-- 후기 영역 -->
+                        <div class="review-wrap pull-right relative">
+                            <div class="wrap-title">Review</div>
+                                <!--{ @getArticles( 'goodsreview' , 9 , 25 ) }-->
+                                <li>
+                                    <a href="/us/board/view.php?bdId={.bdId}&sno={.sno}" alt="제목">
+                                        <div class="thumbnail"><img src="{.goodsImageSrc}" alt="상품이미지" /></div>
+                                        <div class="info-wrap">
+                                            <p>{.writer} {.regDate}</p>
+                                            <p class="subject">{.subject}</p>
+                                            <p><!--{? bdView.data.goodsData.goodsPriceString}-->
+                                                {=bdView.data.goodsData.goodsPriceString}
+                                                <!--{:}-->
+                                                {=gd_global_currency_symbol()}{=gd_global_money_format(bdView.data.goodsData.goodsPrice)}{=gd_global_currency_string()}
+                                                <!--{/}--></p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <!--{ / }-->               
+                           <div class="review-pager circle-pager inline"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--// 이벤트 배너 & 후기 영역 -->
+
+	</div> <!-- // .main-inner -->
+</div> <!-- // .main-content -->
+
+{ # footer }

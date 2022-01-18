@@ -1,0 +1,12 @@
+master: 
+  host: localhost
+  port: 3306
+  username: hdmkorea
+  password: altaigear0
+  database: hdmkorea_godomall_com
+slave1:
+  host: localhost
+  port: 3306
+  username: hdmkorea
+  password: altaigear0
+  database: hdmkorea_godomall_com

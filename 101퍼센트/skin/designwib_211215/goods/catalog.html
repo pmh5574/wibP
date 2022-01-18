@@ -1,0 +1,132 @@
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++
+@@ "카테고리" 리스트 페이지 @@
+- 파일위치 : [스킨폴더]/goods/catalog.html
+++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<link rel="stylesheet" type="text/css" href="../wib/css/wib-list.css" />
+<script src="../wib/js/wib-common.js"></script>
+
+
+<div id="itemstmplayer" class="hide"></div>
+
+
+<div id="catalog_page">
+	<div class="search_nav"></div>
+	
+    <!-- 자동 카테고리 추가 숨김처리! -->
+    <div class="sub_cate_wrap">
+    <!--{ @ category }-->
+        <!--{ ? .category_code == categoryData.category_code }-->
+            <!--{ @ .childs}-->
+                <div class="categoryDepth2 add_listcate">
+                    
+                    <img class="banner" src="{..top_html}" title="" alt=""/>
+                    
+                    <a href="/goods/catalog?code={..category_code}">{..name}</a>
+                    <!--{ ? ..childs}-->
+                    <ul class="categorySub">
+                        <!--{ @ ..childs}-->
+                        <li>
+                            <p class="categorySubDepth"><a href="/goods/catalog?code={...category_code}">{...name}</a></p>
+                        </li>
+                        <!--{ / }-->
+                    </ul>
+                    <!--{ / }-->
+                </div>  	
+            <!--{ / }-->
+        <!--{ / }-->
+    <!--{ / }-->
+    </div>
+    <!-- //자동 카테고리 추가 -->
+    
+    <!-- 빌레로이 확인 소스 -->
+    <div class="zoomcate_outwrap">
+        <div class="zoomcate_wrap clearbox">
+            {@childData}
+            <div class="zoombox catezoom" onclick="location.href='/goods/catalog?code={.category_code}'">
+                <div class="coverbox">
+                    <a href="/goods/catalog?code={.category_code}"><img class="banner" src="{.cate_image}" title="" alt=""/></a>
+                </div>
+                <div class="blue_tx">
+                    <a href="/goods/catalog?code={.category_code}">{.name}</a>
+                </div>
+            </div>
+            {/}
+        </div>
+    </div>
+    <!-- //빌레로이 확인 소스 -->
+    
+	
+	<!--수동 카테고리 추가-->
+	<div class="add_listcate">
+	    <ul class="inner01">
+	        <li>
+	            <a href="/page/index?tpl=etc%2Fbrand01.html">
+	                <a href='http://theheavenmall.firstmall.kr/goods/catalog?page=1&searchMode=catalog&category=c00390001&per=40&sorting=ranking&filter_display=lattice' target='_self'><img src="../wib/img/one01.png" title="Department" alt="Department"></a><span>Department<b>브랜드 바로가기></b></span>
+	            </a>
+	        </li>
+	        <li>
+	            <a href="/page/index?tpl=etc%2Fbrand02.html">
+	                <a href='/page/index?tpl=etc%2Fbrand02.html' target='_self'><img src="../wib/img/one02.png" title="Fashion Beauty" alt="Fashion Beauty"></a><span>Fashion Beauty<b>브랜드 바로가기></b></span>
+	            </a>
+            </li>
+	            <li>
+	            <a href="/page/index?tpl=etc%2Fbrand03.html">
+	                <a href='http://theheavenmall.firstmall.kr/goods/catalog?page=1&searchMode=catalog&category=c00390003&per=40&sorting=ranking&filter_display=lattice' target='_self'><img src="../wib/img/one03.png" title="Sports · Hobbies · Leisure" alt="Sports · Hobbies · Leisure"></a>
+	                <span>Sports · Hobbies · Leisure<b>브랜드 바로가기></b></span>
+	            </a>
+            </li>
+            <li>
+                <a href="/page/index?tpl=etc%2Fbrand04.html">
+                    <a href='http://theheavenmall.firstmall.kr/goods/catalog?page=1&searchMode=catalog&category=c00390004&per=40&sorting=ranking&filter_display=lattice' target='_self'><img src="../wib/img/one04.png" title="Living" alt="Living"></a>
+                    <span>Living<b>브랜드 바로가기></b></span>
+                </a>
+            </li>
+	        <li>
+                <a href="/page/index?tpl=etc%2Fbrand05.html">
+                    
+                    <span>Kitchen<b>브랜드 바로가기></b></span>
+                </a>
+	        </li>
+	        <li>
+	            <a href="/page/index?tpl=etc%2Fbrand06.html">
+                    
+                    <span>Food<b>브랜드 바로가기></b></span>
+	            </a>
+	        </li>
+	    </ul>
+	</div>
+	<!--//수동 카테고리 추가-->
+
+	<!--[ 상단 꾸미기 HTML ]-->
+	<!--{? categoryData.top_html }-->
+	<div class="category_edit_area mobile_img_adjust">
+	    <div class="cate_banner">{categoryData.top_html}</div>
+	</div>
+	<!--{ / }-->
+    
+
+	<!-- ------- 검색필터, 추천상품, 상품정렬( 파일위치 : [스킨폴더]/goods/_search_form_light.html ) ------- -->
+	{=showGoodsSearchFormLight()}
+	<!-- ------- //검색필터, 추천상품, 상품정렬 ------- -->
+
+	<!-- ------- 상품 영역( data-displaytype : "lattice", "list" ), 파일위치 : [스킨폴더]/goods/search_list_template.html ------- -->
+	<div id="searchedItemDisplay" class="searched_item_display" data-displaytype="lattice"></div>
+	<!-- ------- //상품 영역 ------- -->
+</div>
+
+<div id="wish_alert">
+	<div class="wa_on"></div>
+	<div class="wa_off"></div>
+	<div class="wa_msg"></div>
+</div>
+
+<script type="text/javascript">
+$(function() {
+	// 검색 페이지 -> 디폴트 검색박스 open
+	$('#searchModule #searchVer2').show();
+
+	// 컬러 필터 - 255, 255, 255 --> border
+	colorFilter_white( '#searchFilterSelected .color_type' );
+});
+</script>

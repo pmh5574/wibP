@@ -1,0 +1,153 @@
+{*** 쇼핑몰 메인본문 | main/index.php ***}
+{ # header }
+
+<link rel="stylesheet" type="text/css" href="../wib/css/wib-main.css" />
+<script src="../wib/js/wib-main.js"></script>
+
+<link type="text/css" rel="stylesheet" href="../wib/css/animate.css" /> 
+<script type="text/javascript" src="../wib/js/slick-animation.js"></script> 
+
+<div class="main">
+	
+	<!-- 상단 슬라이드 비주얼 -->
+	<div class="mv">
+		<div class="mv_slide">
+			<ul>
+			<!--{ @dataBanner('2924082346', true) }-->
+			<!--{ ? .index_ == '0'}-->
+				<li>
+					<a href="{.bannerLink}">
+						<p class="ban"><img src="{.bannerImageUrl}" alt="{.bannerImageAlt}"/></p>
+						<div class="txt_box" data-animation-in="fadeInUp" data-delay-in="0.5">
+							<img src="../wib/img/main/mv_txt.png" alt="Miso flat" />
+						</div>
+					</a>					
+				</li>
+			<!--{ / }-->
+			<!--{ ? .index_ == '1'}-->
+				<li>
+					<a href="{.bannerLink}">
+						<p class="ban"><img src="{.bannerImageUrl}" alt="{.bannerImageAlt}"/></p>
+						<div class="txt_box" data-animation-in="fadeInUp" data-delay-in="0.5">
+							<img src="../wib/img/main/mv_txt.png" alt="Miso flat" />
+						</div>
+					</a>					
+				</li>
+			<!--{ / }-->
+			<!--{ ? .index_ == '2'}-->
+				<li>
+					<a href="{.bannerLink}">
+						<p class="ban"><img src="{.bannerImageUrl}" alt="{.bannerImageAlt}"/></p>
+						<div class="txt_box" data-animation-in="fadeInUp" data-delay-in="0.5">
+							<img src="../wib/img/main/mv_txt.png" alt="Miso flat" />
+						</div>
+					</a>					
+				</li>
+			<!--{ / }-->
+			<!--{ / }-->
+			</ul>
+		</div>
+	</div>
+	<!-- // 상단 슬라이드 비주얼 -->
+
+	<!-- New Arrival -->
+	<div class="new_prd">
+		<div class="m_tit_box">
+			<p class="tit">New Arrival</p>
+			<p class="more"><a href="../goods/goods_main.php?sno=59"><img src="../wib/img/main/prd_more.png" /></a></p>
+		</div>
+		<div class="prd_box">
+			{=includeWidget('goods/_goods_display_main.html','sno','59')}
+		</div>
+	</div>
+	<!-- // New Arrival -->	
+
+	<!-- 중간 배너 -->
+	<div class="mid_ban">
+		<p class="ban"><!--{ @dataBanner('408938156') }-->{.tag}<!--{ / }--></p>
+	</div>
+	<!-- // 중간 배너 -->
+
+	<!-- Best Seller -->
+	<div class="best_prd">
+		<div class="m_tit_box">
+			<p class="tit">Best Seller</p>
+		</div>	
+		<div class="prd_box">
+			{=includeWidget('goods/_goods_display_main.html','sno','60')}
+		</div>
+	</div>
+	<!-- // Best Seller -->
+
+	<!-- 슬라이드 상품 -->
+	<div class="slide_prd">
+		<img src="../wib/img/main/slide_logo.png" class="slide_logo" />
+		<div class="inner">
+			<div class="prd_box">
+				{=includeWidget('goods/_goods_display_main.html','sno','64')}
+			</div>
+		</div>
+	</div>
+	<!--// 슬라이드 상품 -->
+
+	<!-- Special Miso -->
+	<div class="tab_prd">
+		<div class="m_tit_box">
+			<p class="tit">Special Miso</p>
+		</div>	
+		<div class="prd_box">
+			{=includeWidget('goods/_goods_display_main.html','sno','61')}
+<!-- 			<div class="swiper-pagination"></div> -->
+		</div>
+	</div>
+	<!-- // Special Miso -->
+
+	<!-- 이벤트 -->
+	<div class="event_board">
+		<ul>
+			<!--{ @getArticles( 'event' , 2 , 62 ) }-->
+				<li>
+					<a href="/board/view.php?bdId={.bdId}&sno={.sno}">
+						<div class="thumb">
+							<!--{ ? .attachImageSrc }-->
+							<img class="" src="{.attachImageSrc}" alt="{.goodsNm}" />
+							<!--{ : }-->
+							<img class="" src="{.goodsImageSrc}" alt="{.goodsNm}" />
+							<!--{ / }-->
+						</div>
+						<div class="info">
+							<p class="tit">{.subject}</p>
+							<div class="contents">{.contents}</div>
+						</div>
+					</a>
+				</li>
+			<!--{ / }-->
+		</ul>	
+	</div>
+	<!-- // 이벤트 -->
+
+	<!-- 리뷰 -->
+	<div class="review_box">
+		<div class="m_tit_box">
+			<p class="tit">Best Review</p>
+		</div>		
+		<div class="review_list">
+			<!-- 크리마 리뷰 삽입 영역 -->
+			크리마 리뷰 영역
+			<!-- // 크리마 리뷰 삽입 영역 -->
+		</div>
+	</div>
+	<!-- // 리뷰 -->
+
+	<!-- 인스타그램 -->
+	<div class="insta_box">
+		<p class="insta_id">@m_misope</p>
+		<div class="insta_list">
+			{=includeWidget('proc/_insgov2.html', 'sno', '1')}
+		</div>
+	</div>
+	<!-- // 인스타그램 -->
+
+</div>
+{=includeWidget('proc/_populate.html', 'sno', '1')}
+{ # footer }

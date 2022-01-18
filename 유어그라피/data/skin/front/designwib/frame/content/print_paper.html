@@ -1,0 +1,41 @@
+{*** 인쇄종이선택 | frame/content/print_paper.php ***}
+
+<!-- 인쇄 용지 선택 -->
+<!-- 선택영역 -->
+<div class="choice_type1">
+    <div class="choice_title">
+        <h1>종이 선택</h1>
+        <p>원하는 종이 재질을 선택해주세요.</p>
+    </div>
+    <div class="choice_select">
+        <ul class="type2 inline">
+            <!--{ ? artList }-->
+                <!--{ @ artList }-->
+                    <li class="eventBtn" data-artCd="{.artCd}" data-name="{.artName}" data-rollprice-a="{.roll_price_A}" data-length-a="{.roll_length_A}" data-rollprice-b="{.roll_price_B}" data-length-b="{.roll_length_B}" 
+                        data-itemprice="{.item_price}" data-ppA="{.ppA}" data-ppB="{.ppB}" data-ppC="{.ppC}" data-ppD="{.ppD}" data-ppE="{.ppE}" data-ppF="{.ppF}" data-ppG="{.ppG}"
+                        data-event="paperSelect">
+                        <div class="chk_box">
+                            <div class="img" style="max-height: 181px;overflow: hidden;">
+                                <img src="../../wib/img/imgbox/{.artImg}.jpg" alt="뉴하이크림"/>
+                            </div>
+                            <div class="txt">
+                                <h3>{.artName}</h3>
+                                <p>크리미한 색상과 매끄러운 표면 고급인쇄용지 용지 설명글이 노출됩니다.</p>
+                            </div>
+                        </div>
+                    </li>
+                <!--{ / }-->
+            <!--{ / }-->
+        </ul>
+    </div>
+</div>
+<!--// 선택영역 -->
+<!-- 단계 -->
+<div class="step_box">
+    <ul class="inline">
+        <li><a href="#" class="back_btn">back</a></li>
+        <li><button type="button" class="upload_btn upload_btnMatt eventBtn" data-event="uploadMultiImg">이미지 업로드</button></li>
+    </ul>
+</div>
+<!--// 단계 -->
+<!--// 인쇄 용지 선택 -->

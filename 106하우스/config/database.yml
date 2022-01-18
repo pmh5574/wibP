@@ -1,0 +1,12 @@
+master: 
+  host: promalldb10.godomall.com
+  port: 3306
+  username: house106
+  password: 106Nocnocnoc
+  database: house106_godomall_com
+slave1:
+  host: promalldb10.godomall.com
+  port: 3306
+  username: house106
+  password: 106Nocnocnoc
+  database: house106_godomall_com

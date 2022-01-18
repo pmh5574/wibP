@@ -1,0 +1,322 @@
+{*** 상품상세 - 상품 후기 리스트 | goods/goods_board_review_list.php ***}
+<!--WIB-->
+<script type="text/javascript" src="{=setBrowserCache('../wib/js/wib-view.js')}"></script>
+
+<div class="reviews_table">
+    <table class="reviews_table_type">
+        <colgroup>
+            <col>
+            <col>
+            <col width="13%">
+            <col width="13%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>{=__('평점')}</th>
+                <th>{=__('제목')}</th>
+            	<th>{=__('작성자')}</th>
+                <th>{=__('작성일')}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--{ ? bdList.noticeList }-->
+            <!--{ @ bdList.noticeList }-->
+            <tr class="js_data_row" data-bdid="{req.bdId}" data-sno="{.sno}" data-auth="{.auth.view}" data-notice="y">
+                <td>
+                    <img src="{bdList.cfg.iconImage.notice.url}" alt="{=__('공지')}" />
+                    <span>{.writer}{.regDate}</span>
+                </td>
+                <td class="board_tit">
+                    <a href="javascript:void(0)" class="js_btn_view"><strong>{.subject}</strong></a>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="js_detail" data-bdid="{req.bdId}" data-sno="{.sno}" data-auth="{.auth.view}" data-notice="y"></tr>
+            <!--{ / }-->
+            <!--{ / }-->
+            <!--{ ? bdList.list }-->
+            <!--{ @ bdList.list }-->
+            <tr class="js_data_row" data-bdid="{req.bdId}" data-sno="{.sno}" data-auth="{.auth.view}" data-notice="n">
+                <td class="txt_left">
+                    <!--{ ? !.groupThread }-->
+                    <span class="rating_star">
+                        <span style="width:{.goodsPt * 20}%;">{=__('별')}</span>
+                        <strong class="star_txt">{=.goodsPt}.0</strong>
+                    </span>
+                    <!--{ / }-->
+                    <span class="wr_txt">{.writer}</span>
+                    
+                    <a href="javascript:void(0)" class="js_btn_view wib_more_btn <!--{ ? .groupThread }-->reply<!--{ / }-->">
+                        {.gapReply}
+                        <!--{ ? .isSecret == 'y' }-->
+                        <img src="{bdList.cfg.iconImage.secret.url}">
+                        <!--{ / }-->
+                        <strong>{.subject}</strong>
+                        <span class="detail_txt">{.contents}</span>
+                        <!--{ ? bdList.cfg.bdMemoFl == 'y' && .memoCnt > 0 }-->
+                        <span class="js_comment_count">({.memoCnt})</span>
+                        <!--{ / }-->
+                        <!--{ ? .isFile == 'y' }-->
+                        <span class="is_images"></span>
+                        <!--img src="{bdList.cfg.iconImage.attach_file.url}" alt="{=__('파일첨부 있음')}"/-->
+                        <!--{ / }-->
+                        <!--{ ? .isImage == 'y' }-->
+                        <span class="is_images"></span>
+                        <!--img src="{bdList.cfg.iconImage.attach_img.url}" alt="{=__('이미지첨부 있음')}"/-->
+                        <!--{ / }-->
+                        <!--{ ? .isNew == 'y' }-->
+                        <img src="{bdList.cfg.iconImage.new.url}" alt="{=__('신규 등록글')}"/>
+                        <!--{ / }-->
+                    </a>
+                </td>
+                <td class="board_tit">
+                    
+                </td>
+                <td></td>
+                <td class="r_imgbox">
+					<!--{ ? .attachImageSrc }-->
+                    <img src="{.attachImageSrc}" alt="{=__('파일첨부')}"/>
+					<!--{ / }-->
+					{.contents}
+                </td>
+            </tr>
+            <tr class="js_detail" data-bdid="{req.bdId}" data-sno="{.sno}" data-auth="{.auth.view}" data-notice="n"></tr>
+            <!--{ / }-->
+            <!--{ : }-->
+            <tr>
+                <td colspan="4" class="no_data">{=__('등록된 상품후기가 없습니다.')}</td>
+            </tr>
+            <!--{ / }-->
+        </tbody>
+    </table>
+</div>
+
+{pagienation}
+
+<script>
+var gd_show_ajax_detail2 = function (bdId, sno, isReload, notice) {
+    var domRoot = domSelect(bdId, sno, notice);
+    $.ajax({
+        method: "get",
+        url: "./goods_board_view.php",
+        async: true,
+        cache: false,
+        data: {sno: sno, bdId: bdId, writerPw: passwordLayer.value()},
+        dataType: 'json'
+    }).success(function (data) {
+//        console.log(data.contents);
+        var _startSplit= data.contents.split('<img');
+        if(_startSplit[1]){
+            var _splitLength = _startSplit.length;
+        
+            var _newSplit = '';
+            for(var i = 1; i<_splitLength; i++){
+                _newSplit += '<img '+_startSplit[i];
+            }
+            data.contents = _startSplit[0]+'<div class="no_more_btn">접기</div>'+_newSplit;
+        }else{
+            var _wantSplit = data.contents.split('</div>');
+            var _splitLength = _wantSplit.length;
+            
+            var _newSplit = '';
+            for(var i = 1; i<_splitLength; i++){
+                _newSplit += '<img '+_wantSplit[i];
+            }
+            
+            data.contents = _wantSplit[0]+'<div class="no_more_btn">접기</div>'+_newSplit;
+            
+            
+        }
+        
+
+        
+        if (data.result == 'fail') {
+            alert(data.contents);
+            $('.js_password_layer').find('input[name="writerPw"]').val('');
+            return;
+        }
+
+        //초기화
+        $('.js_data_row').find(".js_btn_view").removeClass('this');
+        domRoot.dataRow.find('.js_btn_view').removeClass('this').addClass('this');    //볼드처리 제거
+        domRoot.dataRow.children('.board_tit').addClass('on');
+        if (isReload) {
+            domRoot.detail.html(data.contents);
+            domRoot.detail.fadeIn('slow');
+
+            //공지사항이 리스트에 포함되어 노출시 서로의 내용을 갱신처리
+            if(domRoot.detailReverse.length > 0){
+                if($.trim(domRoot.detailReverse.html()).length > 0){
+                    domRoot.detailReverse.html(data.contents);
+                }
+            }
+        } else {
+            if (domRoot.detail.html().length == 0) {
+                domRoot.detail.hide();
+                domRoot.detail.html(data.contents);
+                domRoot.detail.fadeIn('slow');
+            }
+            else {
+                domRoot.detail.fadeIn('slow');
+            }
+        }
+        passwordLayer.close();
+    }).error(function (e) {
+        alert('fail');
+        alert(e.responseText);
+    });
+};
+    $(function(){
+        $('.js_data_row .detail_txt .review_text .word').each(function(){
+           var _thisHtml = $(this).html();
+           $(this).html('<span class="newTag">'+_thisHtml+'</span>');
+//           console.log(_pastTag);
+           
+       });
+       
+       $('.js_data_row .detail_txt').each(function(){
+           
+            var _thisHtml = $(this).html();
+            if($(this).children().length == 0){
+                $(this).html('<span class="shortTag">'+_thisHtml+'</span>');
+                $(this).addClass('new_word');
+            };
+       });
+       
+       $('.js_data_row').each(function(){
+           var checks_images = $(this).find('.is_images').length;
+           var _pastHeight = $(this).find('.new_word').height();
+           var _newHeight = $(this).find('.shortTag').height();
+           
+           if(checks_images == 0){
+               
+               if(_pastHeight<_newHeight){
+                   $(this).find('.wib_more_btn').append('<span class="more_btn">더보기</span>');
+                   $(this).find('.wib_more_btn').click(function(e){
+                        e.stopPropagation();
+                        var bdId = $(this).closest('.js_data_row').data('bdid');    //전역변수등록
+                        var sno = $(this).closest('.js_data_row').data('sno');  //전역변수등록
+                        var auth = $(this).closest('.js_data_row').data('auth');
+                        var notice = $(this).closest('.js_data_row').data('notice');
+                        var domRoot = domSelect(bdId, sno, notice);
+                        $(this).parents('.js_data_row').toggleClass('on');
+
+                        if (domRoot.detail.is(':visible') == true && domRoot.detail.html().length > 0) {
+                            domRoot.detail.hide();
+                            domRoot.dataRow.children('.board_tit').removeClass('on');
+                            return;
+                        } else {
+                            if (auth == 'n') {
+                                alert(__('권한이 없습니다.'));
+                                return;
+                            } else if (auth == 'c') {
+                                passwordLayer.show();
+                                passwordLayer.btn.unbind('click').bind('click', function () {
+                                    gd_show_ajax_detail2(bdId, sno, false, notice);
+                                });
+                                return;
+                            }
+
+                            if (domRoot.detail.html().length > 0) {
+                                domRoot.detail.show();
+                                return;
+                            }
+                        }
+                        gd_show_ajax_detail2(bdId, sno, false, notice);
+                    });
+               }else{
+                   $(this).find('.wib_more_btn').css('cursor','auto').click(function(e){
+                        e.stopPropagation();
+                   });
+               }
+               
+           }else{
+               if(_pastHeight<_newHeight){
+                   $(this).find('.wib_more_btn').append('<span class="more_btn">더보기</span>');
+                   $(this).find('.wib_more_btn').click(function(e){
+                        e.stopPropagation();
+                        var bdId = $(this).closest('.js_data_row').data('bdid');    //전역변수등록
+                        var sno = $(this).closest('.js_data_row').data('sno');  //전역변수등록
+                        var auth = $(this).closest('.js_data_row').data('auth');
+                        var notice = $(this).closest('.js_data_row').data('notice');
+                        var domRoot = domSelect(bdId, sno, notice);
+                        $(this).parents('.js_data_row').toggleClass('on');
+
+                        if (domRoot.detail.is(':visible') == true && domRoot.detail.html().length > 0) {
+                            domRoot.detail.hide();
+                            domRoot.dataRow.children('.board_tit').removeClass('on');
+                            return;
+                        } else {
+                            if (auth == 'n') {
+                                alert(__('권한이 없습니다.'));
+                                return;
+                            } else if (auth == 'c') {
+                                passwordLayer.show();
+                                passwordLayer.btn.unbind('click').bind('click', function () {
+                                    gd_show_ajax_detail2(bdId, sno, false, notice);
+                                });
+                                return;
+                            }
+
+                            if (domRoot.detail.html().length > 0) {
+                                domRoot.detail.show();
+                                return;
+                            }
+                        }
+                        gd_show_ajax_detail2(bdId, sno, false, notice);
+                    });
+               }
+           }
+       });
+       
+       
+       
+
+       
+       
+       $('.js_data_row .detail_txt .review_text .word .newTag').each(function(){
+            var _pastHeight = $(this).parent().height();
+            var _newHeight = $(this).height();
+            if(_pastHeight<_newHeight){
+                $(this).parent().parent('.review_text').append('<span class="more_btn">더보기</span>');
+                $(this).parents('.wib_more_btn').click(function(e){
+                    e.stopPropagation();
+                    var bdId = $(this).closest('.js_data_row').data('bdid');    //전역변수등록
+                    var sno = $(this).closest('.js_data_row').data('sno');  //전역변수등록
+                    var auth = $(this).closest('.js_data_row').data('auth');
+                    var notice = $(this).closest('.js_data_row').data('notice');
+                    var domRoot = domSelect(bdId, sno, notice);
+                    $(this).parents('.js_data_row').toggleClass('on');
+
+                    if (domRoot.detail.is(':visible') == true && domRoot.detail.html().length > 0) {
+                        domRoot.detail.hide();
+                        domRoot.dataRow.children('.board_tit').removeClass('on');
+                        return;
+                    } else {
+                        if (auth == 'n') {
+                            alert(__('권한이 없습니다.'));
+                            return;
+                        } else if (auth == 'c') {
+                            passwordLayer.show();
+                            passwordLayer.btn.unbind('click').bind('click', function () {
+                                gd_show_ajax_detail2(bdId, sno, false, notice);
+                            });
+                            return;
+                        }
+
+                        if (domRoot.detail.html().length > 0) {
+                            domRoot.detail.show();
+                            return;
+                        }
+                    }
+                    gd_show_ajax_detail2(bdId, sno, false, notice);
+                });
+            }
+        });
+       
+       
+              
+
+    });
+</script>

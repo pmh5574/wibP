@@ -1,0 +1,12 @@
+master: 
+  host: pro200db-215-88.godomall.com
+  port: 3306
+  username: wellnew
+  password: wiseux2015
+  database: imwell_godomall_com
+slave1:
+  host: pro200db-215-88.godomall.com
+  port: 3306
+  username: wellnew
+  password: wiseux2015
+  database: imwell_godomall_com

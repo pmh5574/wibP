@@ -1,0 +1,12 @@
+master: 
+  host: promalldb37.godomall.com
+  port: 3306
+  username: designwib001
+  password: wib1216wib1
+  database: imarketing21_godomall_com
+slave1:
+  host: promalldb37.godomall.com
+  port: 3306
+  username: designwib001
+  password: wib1216wib1
+  database: imarketing21_godomall_com

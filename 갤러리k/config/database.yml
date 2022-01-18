@@ -1,0 +1,12 @@
+master :
+  host: promalldb3.godomall.com
+  username: galleryk
+  password: Galleryk1
+  database: jodieyoo_godomall_com
+  port: 3306
+slave1 :
+  host: promalldb3.godomall.com
+  username: galleryk
+  password: Galleryk1
+  database: jodieyoo_godomall_com
+  port: 3306

@@ -1,0 +1,71 @@
+/* 주문서작성 */
+#mCafe24Order .ec-base-layer.typeWide.theme1 > h1 {background: #000 ;}
+#userStyle {width: 100%;}
+#mCafe24Order {background: none;border: none;}
+#mCafe24Order .ec-base-fold {margin:0 0 20px;}
+#mCafe24Order .ec-base-fold > .title:after {background-size: 15px auto;right: 6px;}
+#mCafe24Order .tit {font-size: 35px;font-style: italic;font-weight: 900;letter-spacing: -0.05em;font-family: 'arial black' !important;color: #000;display: block;line-height: 1.5;margin-bottom: 40px;}
+#mCafe24Order .title h2 {font-weight: normal;}
+#mCafe24Order .title h3,
+#mCafe24Order .totalPay .heading,
+#mCafe24Order .payMethod > li > label,
+#mCafe24Order .agreeArea .agreement .agree .check > label {font-size: 14px;}
+#mCafe24Order .ec-base-fold > .title {padding-left: 0;}
+#mCafe24Order.typeHeader {padding-top: 0;margin-top: 110px;}
+#mCafe24Order .ec-base-fold {border: none;}
+#mCafe24Order .ec-base-fold.selected > .contents {border-top: 1px solid #000;}
+#mCafe24Order .ec-base-table {color: #333;}
+#mCafe24Order .ec-base-table.typeWrite tbody th {font-size: 12px; font-weight: bold;padding: 17px 0 14px 14px;position: relative;color: #333;}
+#mCafe24Order .ec-base-table.gCellNarrow tbody th {font-size: 14px; }
+#mCafe24Order #rzipcode1 {width: 100px; }
+#mCafe24Order input[type="checkbox"] {width: 16px;height:16px;background: none;}
+#mCafe24Order input:not(:disabled):checked[type="checkbox"] {background: none;}
+#mCafe24Order .txtStrong,
+#mCafe24Order .txtEm {color: #000;}
+#mCafe24Order .payMethod > li.selected > .inner {}
+#mCafe24Order .icoRequired {background:url("/wib/img/icon/icon_dot_red.png") no-repeat 0 0;position: absolute;left: 0;top: 28px;}
+#mCafe24Order .orderArea .totalPrice .ec-base-table.gCellNarrow th {color: #333;}
+#mCafe24Order .orderArea .totalPrice .title,
+#mCafe24Order .totalPay,
+#mCafe24Order .payMethod > li.selected > label {background: #f7f7f7;}
+#mCafe24Order .payMethod > li.selected > label {border:1px solid #ddd; }
+#mCafe24Order .payMethod > li.selected > .inner {border:1px solid #ddd;border-top-width: 0; }
+#mCafe24Order select {background-color: #000;color: #fff;}
+#mCafe24Order select option {background-color: #fff;color: #000;}
+#mCafe24Order .ec-base-mail .mailAddress {height: 40px; background: 000;}
+#mCafe24Order .ec-base-mail .mailAddress .directInput input {background-color: #000;color: #fff;border: none;font-size: 14px; text-indent: 10px;}
+#mCafe24Order .ec-base-mail .mailAddress .directInput input::placeholder {color: #fff;font-weight: bold;}
+#mCafe24Order .ec-base-table .ec-address .ec-address-zipcode .btnBasic {background: #fff;}
+#mCafe24Order .ec-base-prdInfo .thumbnail {border: none;}
+#mCafe24Order .ec-base-prdInfo .description .info li {color: #333;}
+#mCafe24Order .recentShipArea .contact {margin: 0;}
+#mCafe24Order .recentShipArea .contact dd:before {display: none;}
+#mCafe24Order #omessage_select {background: #000 url(/wib/img/icon/sel_arrow.png)no-repeat 98% center !important}
+
+#mCafe24Order input[type="radio"] {background: url(/wib/img/icon/radio_off_small.png) center center no-repeat;-webkit-appearance: none;width: 16px;height: 16px;background-size: 100% 100%;}
+#mCafe24Order input:not(:disabled):checked[type="radio"] {background: url(/wib/img/icon/radio_on_small.png) center center no-repeat;-webkit-appearance: none;width: 16px;height: 16px;background-size: 100% 100%;}
+
+#mCafe24Order #ophone1_1, #mCafe24Order #ophone2_1, #mCafe24Order #rphone1_1, #mCafe24Order #rphone2_1, #mCafe24Order #tax_request_phone1 {background-color: #fff !important; color: #333; }
+#oemail3 {background: #000 url(/wib/img/icon/sel_arrow.png)no-repeat 98% center !important}
+
+#mCafe24Order .agreeArea .allAgree {font-size: 14px;}
+#mCafe24Order .discountDetail .control .inputTypeText {color: #333;}
+
+#mCafe24Order .btnSubmit {background: #000; color:#fff; }
+
+/* 주문완료 */
+#mCafe24Order.result .contents {border-color: #000;}
+#mCafe24Order.result .resultArea .message {background: none;padding: 0 0 20px;}
+#mCafe24Order.result .ec-base-table.gCellNarrow tbody th,
+#mCafe24Order.result .ec-base-table.typeView > table > tbody > tr > th {color: #333;}
+#mCafe24Order.result .pannelArea,
+#mCafe24Order.result .ec-base-table.typeView > table > tbody > tr > td,
+#mCafe24Order.result .ec-base-table.typeView > table > tbody > tr > th {border: none;}
+
+/* 팝업 */
+#popup .ec-base-layer .header {background: #000;}
+#popup [class^='btnSubmit']:not(.disabled):hover, 
+#popup [class^='btnSubmit'],
+#popup a[class^='btnSubmit'] {background: #000;}
+#popup .txtEm {color: #000;}
+

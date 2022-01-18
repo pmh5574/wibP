@@ -1,0 +1,426 @@
+{*** 상품리스트 | goods/goods_list.php ***}
+{#header}
+<script type="text/javascript" src="../wib/js/wib-filter.js"></script>
+<style>
+    .sub_top,
+    .navi_g,
+    .goods_list .goods_list_content .goods_top_box .goods_arr_box .goods_view_type {display: none;}
+    
+    .list_topban img {width: 100%;}
+    .goods_list .goods_list_content {margin-top: 25px;}
+    .goods_list .goods_list_category ul {width: 96%;margin: 0 auto;text-align: center;}
+    .goods_list .goods_list_category ul li a {color: #686868;}
+    .goods_list .goods_list_category ul li.selected a {color: #000;}
+    .cate-tit {text-align: center;line-height: 1;padding: 26px 0 13px;}
+    .goods_prd_item2 .goods_prd_content {
+        text-align: center;
+    }
+
+    .goods_prd_item2 .goods_prd_content .prd_name {
+        display: block;
+        font-size: 12px;
+        color: #000;
+        font-weight: bold;
+        margin-bottom: 1px;
+    }
+    .filter_result{
+        display:none;
+    }
+    
+    .filter_result.filterOn{
+        display:block;
+    }
+    
+    .filter_result .inline{
+        font-size: 12px;
+        padding: 0 10px;
+    }
+
+    .goods_prd_item2 .goods_prd_content .fixed_price {
+        display: inline-block;
+        vertical-align: top;
+        text-decoration: line-through;
+        font-size: 12px;
+        color: #868686;
+        margin: 0px 5px;
+        font-weight: normal;
+    }
+
+    .goods_prd_item2 .goods_prd_content .price {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 12px;
+        color: #212121;
+        margin: 0px 5px;
+        font-weight: normal;
+    }
+    
+    .goods_list .goods_list_content .goods_top_box {padding: 0;line-height: 40px;background: none;border-top: 1px solid #ebebeb;border-bottom: 1px solid #ebebeb;}
+    .goods_list .goods_list_content .goods_top_box .goods_arr_box .goods_sort .inp_sel {margin: 0 auto;}
+    .inp_sel select {border: none;background: none;height: auto;padding: 0 33px;background: url(../wib/img/icon/prd_arrow.png)no-repeat 73% center;background-size: 7.5px auto;}
+    .filter {display: table-cell;text-align: center;position: relative;}
+    .filter:after {display: inline-block;content: '';width: 1px;height: 10px;background: #dedede;position: absolute;right: 0;top: 16px;}
+    .filter p {}
+    .filter img {width: 4.5px;vertical-align: middle;margin-left: 7px;margin-top: -2px;}
+    
+    .prd_filter {position: fixed;left: 0;top: 0;background: #fff;width: 100%;height: 100vh;z-index: 10000;box-sizing: border-box;visibility: hidden;opacity: 0;}
+    .prd_filter .filter_top {height: 49px;line-height: 49px;border-bottom: 1px solid #eeeeee;padding: 0 10px;}
+    .prd_filter .filter_top > * {display: inline-block;vertical-align: middle;}
+    .prd_filter .filter_top .fil_close {}
+    .prd_filter .filter_top .fil_close img {width: 15px;margin-bottom: -3px;}
+    .prd_filter .filter_top h3 {font-size: 14px;color: #3a3a3a;font-weight: 500;position: absolute;left: 50%;transform: translateX(-50%);}
+    .prd_filter .filter_top .fil_reset {float: right;}
+    .prd_filter .filter_top .fil_reset img {width: 11px;margin-left: 7px;}
+    
+    .prd_filter .filter_inner {padding: 18px 20px;overflow-y: auto;max-height: 90vh;}
+    .prd_filter .filter_inner > ul {}
+    .prd_filter .filter_inner > ul > li {border-bottom: 1px solid #f1f1f1;}
+    
+    .prd_filter .filter_inner > ul > li .fil_tit {font-size: 12px;font-weight: bold;color: #3a3a3a;display: block;padding: 16px 0;background: url(../wib/img/icon/fil_plus.png)no-repeat right center;background-size: 12.5px 12.5px;}
+    .prd_filter .filter_inner > ul > li.on .fil_tit {background: url(../wib/img/icon/fil_minus.png)no-repeat right center;background-size: 12.5px 12.5px;}
+    .prd_filter .filter_inner .fil_txt {display: none;padding-bottom: 24px;}
+    .prd_filter .filter_inner .fil_txt li span {padding: 6px 0 5px 23px;background: url(../wib/img/icon/fil_check_off.png)no-repeat left center;background-size: 15px 15px;display: block;}
+    .prd_filter .filter_inner .fil_txt li.on span {background: url(../wib/img/icon/fil_check_on.png)no-repeat left center;background-size: 15px 15px;}
+    .prd_filter .filter_inner .f_price .fil_txt {padding-bottom: 64px;}
+    
+    .sel_clear {width: 87.5%;text-align: center;line-height: 38px;color: #fff;background: #494949;position: absolute;left:50%;transform: translateX(-50%);-webkit-transform: translateX(-50%);bottom: 10px;}
+    
+    .filterVal {}
+    .filterVal > div {display: inline-block;border: 1px solid #9d9d9d;padding: 9px 6.5px;margin: 13px 10px 0 0;line-height: 1;}
+    .filterVal > div p {display: inline-block;vertical-align: middle;}
+    .filterVal > div .filter_del {border: none;background: #fff url(../wib/img/icon/option_close.png)no-repeat;width: 9px;height: 8.5px;background-size: 9px auto;display: inline-block;margin-left: 15px;}
+    
+    .filterVal.fReset > div span {display: inline-block;vertical-align: middle;}
+    .filterVal.fReset > div .filter_reset {border: none;background: #fff url(../wib/img/icon/reset_icon.png)no-repeat;width: 9px;height: 8.5px;background-size: 9px auto;display: inline-block;margin-left: 15px;}
+</style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    // 필터 열닫
+    $('.filter').click(function(){
+        $('.prd_filter').css({visibility:'visible',opacity:'1'});
+    });
+    
+    $('.fil_close, .sel_clear').click(function(){
+        $('.prd_filter').css({visibility:'hidden',opacity:'0'});
+    });
+    
+    // 필터 내용
+    $('.fil_tit').click(function(){
+        $(this).siblings('.fil_txt').slideToggle();
+        $(this).parent('li').toggleClass('on');
+    });
+    
+//    $('.fil_txt li').click(function(){
+//        $(this).toggleClass('check');
+//    })
+});
+</script>
+
+<!--필터-->
+<div class="prd_filter">
+    <!--필터 상단-->
+    <div class="filter_top">
+        <p class="fil_close"><img src="../wib/img/icon/fil_close.png" alt="필터 닫기"></p>
+        <h3>상품필터</h3>
+        <p class="fil_reset">초기화<img src="../wib/img/icon/reset_icon.png" alt="초기화"></p>
+    </div>
+    <!--필터 내용-->
+    <div class="filter_inner">
+        <ul>
+            <!--사이즈-->
+            <!--{? strpos(cateCd,'001002') !== false}-->
+            <!--링 사이즈-->
+            <li class="f_size">
+                <span class="fil_tit">사이즈</span>
+                <ul class="fil_txt">
+                    <li class=''><span class='check_box_img' data-size='44'>44</span></li>
+                    <li class=''><span class='check_box_img' data-size='46'>46</span></li>
+                    <li class=''><span class='check_box_img' data-size='48'>48</span></li>
+                    <li class=''><span class='check_box_img' data-size='50'>50</span></li>
+                    <li class=''><span class='check_box_img' data-size='52'>52</span></li>
+                    <li class=''><span class='check_box_img' data-size='54'>54</span></li>
+                    <li class=''><span class='check_box_img' data-size='56'>56</span></li>
+                    <li class=''><span class='check_box_img' data-size='58'>58</span></li>
+                    <li class=''><span class='check_box_img' data-size='60'>60</span></li>
+                    <li class=''><span class='check_box_img' data-size='62'>62</span></li>
+                    <li class=''><span class='check_box_img' data-size='64'>64</span></li>
+                </ul>
+                <div class="hiddenSize" style="display:none"></div>
+            </li>
+            <!--//링 사이즈-->
+            <!--{: strpos(cateCd,'001004') !== false}-->
+            <!--브레이슬릿 사이즈-->
+            <li class="f_size">
+                <span class="fil_tit">사이즈</span>
+                <ul class="fil_txt">
+                    <li class=''><span class='check_box_img' data-size='OneSize'>One Size</span></li>
+                    <li class=''><span class='check_box_img' data-size='15cm'>15cm</span></li>
+                    <li class=''><span class='check_box_img' data-size='16cm'>16cm</span></li>
+                    <li class=''><span class='check_box_img' data-size='17cm'>17cm</span></li>
+                    <li class=''><span class='check_box_img' data-size='175cm'>17.5cm</span></li>
+                    <li class=''><span class='check_box_img' data-size='18cm'>18cm</span></li>
+                    <li class=''><span class='check_box_img' data-size='19cm'>19cm</span></li>
+                    <li class=''><span class='check_box_img' data-size='20cm'>20cm</span></li>
+                    <li class=''><span class='check_box_img' data-size='205cm'>20.5cm</span></li>
+                    <li class=''><span class='check_box_img' data-size='21cm'>21cm</span></li>
+                    <li class=''><span class='check_box_img' data-size='23cm'>23cm</span></li>
+                    <li class=''><span class='check_box_img' data-size='25cm'>25cm</span></li>
+                    <li class=''><span class='check_box_img' data-size='35cm'>35cm</span></li>
+                    <li class=''><span class='check_box_img' data-size='38cm'>38cm</span></li>
+                    <li class=''><span class='check_box_img' data-size='41cm'>41cm</span></li>
+                </ul>
+                <div class="hiddenSize" style="display:none"></div>
+            </li>
+            <!--브레이슬릿 사이즈-->
+            <!--{/}-->
+            <!--가격-->
+            <li class="f_price">
+                <span class="fil_tit">가격</span>
+                <ul class="fil_txt">
+                    <li><span class="check_box_img" data-price="35000원">~35,000원</span></li>
+                    <li><span class="check_box_img" data-price="55000원">~55,000원</span></li>
+                    <li><span class="check_box_img" data-price="75000원">~75,000원</span></li>
+                    <li><span class="check_box_img" data-price="95000원">~95,000원</span></li>
+                    <li><span class="check_box_img" data-price="135000원">~135,000원</span></li>
+                    <li><span class="check_box_img" data-price="135000원이상">135,000원 이상</span></li>
+                </ul>
+                <div class="hiddenPrice" style="display:none"></div>
+            </li>
+        </ul>
+        
+        <p class="sel_clear">선택완료</p>
+    </div>
+    
+</div>
+<!--// 필터-->
+
+<div class="goods_list">
+	<!-- 설문조사 배너 -->{=pollViewBanner()}<!-- 설문조사 배너 -->
+	<!-- gd5 상단 하위 카테고리 -->
+	<!--{ ? themeInfo.cateHtml1Mobile }--><div class="list_topban">{=stripslashes(str_replace('&nbsp;', ' ', themeInfo.cateHtml1Mobile))}</div><!--{ / }-->
+	<div class="cate-tit"><h2><a href="#" class="js_page_reload "><!--{ ? gPageName }-->{=gPageName}<!--{:}-->{=layout.page_name}<!--{/}--></a></h2></div>
+	<!--{ ? naviDisplay.naviUse =='y' }-->
+	<div class="goods_list_category">
+		<ul>
+			<!--{ @ dataSubCategory( cateCd, cateType ) }-->
+			<li {.style} <!--{ ? cateCd == .cateCd }-->class="selected" <!--{ / }-->><a href="?{cateType}Cd={.cateCd}" >{.cateNm} <!--{ ? naviDisplay.naviCount =='y' }--><span>({.goodsCnt+0})</span> <!--{ / }--></a></li>
+			<!--{ / }-->
+		</ul>
+	</div>
+	<!--{ / }-->
+	<!--{ ? themeInfo.recomDisplayMobileFl == 'y'  && widgetGoodsList}-->
+	<div class="goods_list_recom">
+		<!--{ ? themeInfo.cateHtml2Mobile }-->
+		<div class="user_tune">{=stripslashes(str_replace('&nbsp;', ' ', themeInfo.cateHtml2Mobile))}</div>
+		<!--{ / }-->
+
+		<h3>{=__('추천상품')}
+			<div class="more_btn_box">
+				<a class="recommend_more_btn" href="../goods/goods_recom.php?{cateType}Cd={=cateCd}">{=__('더보기')}</a>
+			</div>
+		</h3>
+		<!-- 추천상품 -->
+		<ul class="recommend_prd_list">
+			{=includeWidget('goods/_goods_display.html')}
+		</ul>
+		<!-- 추천상품 -->
+	</div>
+	<!--{ / }-->
+	<div id="goodslist" class="goods_list_content cont_list">
+		<!--{ ? themeInfo.cateHtml3Mobile }--><div>{=stripslashes(str_replace('&nbsp;', ' ', themeInfo.cateHtml3Mobile))}</div><!--{ / }-->
+		<div class="goods_top_box">
+			<div class="goods_arr_box">
+			    <div class="filter">
+			        <p>상품필터<img src="../wib/img/icon/filter_icon.png" alt="상품필터"></p>
+			    </div>
+			
+				<div class="goods_sort">
+					<div class="inp_sel">
+						<select name="goods_sort">
+							<option value="">{=__('상품정렬')}</option>
+							<option value="g.regDt desc">{=__('등록순')}</option>
+							<option value="goodsPrice asc,g.regDt desc">{=__('낮은가격순')}</option>
+							<option value="goodsPrice desc,g.regDt desc">{=__('높은가격순')}</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="goods_view_type">
+					<input type="hidden" name="displayType" value="{themeInfo.displayType}" >
+					<ul>
+						<li><button class="<!--{ ? themeInfo.displayType =='02' }-->on<!--{ / }-->" data-key="02" >list</button></li>
+						<li><button class="<!--{ ? themeInfo.displayType =='09' }-->on<!--{ / }-->" data-key="09">gallery_type1</button></li>
+						<li><button class="<!--{ ? themeInfo.displayType =='01' }-->on<!--{ / }-->" data-key="01">gallery_type2</button></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+                
+                <!-- 필터 결과값 -->
+                <div class="filter_result">
+                    <ul class="inline">
+                        <li class="fSize filterVal">
+                        </li>
+                        <li class="fPrice filterVal">
+                        </li>
+                        <li class="fReset filterVal">
+                            <div><span>초기화</span><button type="button" class="filter_reset"></button></div>
+                        </li>
+                    </ul>
+                </div>
+                <!--// 필터 결과값 -->
+
+		<div class="goods_list_box filter_goods_list">
+                    <input type="hidden" id="wibPaging" value="{themeInfo.lineCnt * themeInfo.rowCnt}">
+                    <ul class="goods_product_list">{ # goodsTemplate }</ul>
+                    <div class="btn_box">
+                            <button type="button" class="more_btn" data-page="2" >{=__('더보기')}</button>
+                    </div>
+                    <div class="loading_img"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	<!--
+	<!--{ ? cateType == 'cate' }-->
+	var keyValue = 'C{gGlobal.locale}{cateCd}';
+	<!--{ : }-->
+	var keyValue = 'B{gGlobal.locale}{brandCd}';
+	<!--{ / }-->
+
+	var key = {
+		html: 'html' + keyValue,
+		page: 'page' + keyValue,
+		viewType: 'viewType' + keyValue,
+		sortType: 'sortType' + keyValue,
+		endFlag: 'endflag' + keyValue,
+	};
+
+	var gdStorage = gd_load_session(key.html);
+	var gdPage = gd_load_session(key.page);
+	var gdViewType = gd_load_session(key.viewType);
+	var gdSortType = gd_load_session(key.sortType);
+	var endFlag = gd_load_session(key.endFlag);
+
+	$(document).ready(function(){
+		if (gdStorage) {
+			$(".goods_product_list").html(gdStorage);
+			$('.btn_box button').data('page',parseInt(gdPage)+1);
+			$('.goods_view_type ul li button [data-key!="' + gdViewType + '"]').removeClass('on');
+			$('.goods_view_type ul li button [data-key="' + gdViewType + '"]').addClass('on');
+			$('input[name="displayType"]').val(gdViewType);
+			$('select[name="goods_sort"]>option[value="' + gdSortType + '"]').prop('selected', true);
+		}
+		$('.btn_box button.more_btn').on('click', function(e){
+//			gd_get_list($(this).data('page'),false);
+		});
+
+		$('.goods_view_type ul li').on('click', function(e){
+			$(".goods_view_type ul li button").removeClass('on');
+			$('input[name="displayType"]').val($(this).find('button').data('key'));
+			$(this).find('button').addClass('on');
+			gd_get_list('1',true);
+    });
+
+		$(document).on('click','.btn_alert_login',function (e){
+			alert("{=__('로그인하셔야 본 서비스를 이용하실 수 있습니다.')}");
+			document.location.href = "../member/login.php";
+			return false;
+		});
+
+		$('body').on('click', '.js_option_layer', function(e){
+			var params = {
+				type : $(this).data('type'),
+				sno: $(this).data('sno'),
+				goodsNo: $(this).data('goodsno')
+			};
+
+			$('#popupOption').modal({
+				remote: '../goods/layer_option.php',
+				cache: false,
+				params: params,
+				type : 'POST',
+				show: true
+			});
+		});
+        
+        
+        // 상단 카테고리 타이틀
+        var topTit = $('.sub_top h2').text();
+        
+
+	});
+
+	function before_more_btn() {
+        $('.goods_product_list').on('click', function(){return false;})
+        $('.btn_box button').hide();
+        $('.loading_img').append('<img src="../img/icon/icon_loading.gif">');
+	}
+
+	function after_more_btn() {
+        $('.goods_product_list').off('click');
+        $('.btn_box button').show();
+        $('.loading_img img').remove();
+	}
+
+	var endflag = false;
+	function gd_get_list123(page, reloadFl){
+		var displayType = $('input[name="displayType"]').val();
+		var sort =  $('select[name="goods_sort"]').val();
+
+		$.ajax({
+			method		: 'GET',
+			url			: './filter_goods.php',
+			data		: {
+			    'mode' : 'data',
+				'cateCd' : '{cateCd}',
+				'brandCd' : '{brandCd}',
+				'cateType' : '{cateType}',
+				'displayType' : displayType,
+				'page' : page,
+				'sort' : sort
+			},
+			beforeSend	: function(){
+                before_more_btn();
+			},
+			success	: function(data){
+
+                after_more_btn();
+
+                if($(data).filter("li.no_bx").length) {
+                    if(page =='1' && endflag == false) {
+                        $(".goods_product_list").append(data);
+                        gd_save_session(key.endFlag, true);
+                        gd_save_session(key.html, $('.goods_product_list').html());
+                        endflag = true;
+                        if ($(data).find('.goods_list_info').length < {themeInfo.lineCnt * themeInfo.rowCnt}) {
+                            $('.more_btn').hide();
+                        }
+                    } else {
+                        alert("{=__('더이상 상품이 없습니다')}");
+                        $('.more_btn').hide();
+                    }
+
+                } else {
+                    if(reloadFl === true) $(".goods_product_list").html(data);
+                    else  $(".goods_product_list").append(data);
+
+                    $('.btn_box button').data('page',parseInt(page)+1);
+                    gd_save_session(key.html, $('.goods_product_list').html());
+                    gd_save_session(key.page, parseInt(page));
+                    if ($(data).find('.goods_list_info').length < {themeInfo.lineCnt * themeInfo.rowCnt}) {
+                        $('.more_btn').hide();
+                    }
+                }
+                wibFilter.getList();
+			}
+		});
+		gd_save_session(key.sortType, sort);
+		gd_save_session(key.viewType, displayType);
+	}
+
+	//-->
+</script>
+
+{#footer}

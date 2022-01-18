@@ -1,0 +1,90 @@
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+
+<!--상단 띠배너-->
+<div class="topbanner">
+    <div class="banner" module="bannermanage2_display_1">
+        <a href="{$href}" alt="{$title}" {$target}>{$banner}</a>
+    </div>
+    <p class="top-close"><img src="/wib/img/icon/top_close.png" alt="띠배너닫기"></p>
+</div>
+
+<!--header-->
+<div id="header-top">
+    <div class="all-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <div class="logo" module="bannermanage2_display_2">
+        <a href="/">{$banner}</a>
+    </div>
+    
+    <div class="h-right">
+        <ul>
+            <li class="search">
+                <img src="/wib/img/icon/search_bt.png" alt="검색">
+            </li>
+            <li class="cart">
+                <img src="/wib/img/icon/cart_bt.png" alt="검색">
+                <span module="Layout_stateLogon" class="count {$basket_count_display|display} {$basket_count_display_class}"><span class="{$basket_count_class}">{$basket_count}</span></span>
+                <span module="Layout_statelogoff" class="count {$basket_count_display|display} {$basket_count_display_class}"><span class="{$basket_count_class}">{$basket_count}</span></span>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- 제품 카테고리 영역 -->
+    <div class="product nav-layer easing-one">
+        <div class="layer-inner easing-one">
+            <div class="category-nav">
+                <ul>
+                    <!--자동-->
+                    <!--//자동-->
+                    <!--수동-->
+                    <li class="cate-grade-one">
+                        <a href="/shopinfo/c2020mmicxbenzank.html">EDITORIAL</a>
+                        <span class="c-arrow" style="opacity: 1;"></span>
+                        <ul class="cate-grade-two-wrap">
+                            <li class="cate-grade-two hover-line"><a href="/shopinfo/mmicvideo.html">VIDEO</a></li>
+                            <li class="cate-grade-two hover-line"><a href="/shopinfo/c2020mmicxbenzank.html">IMAGE</a></li>
+                        </ul>
+                    </li>
+                    <li class="cate-grade-one"><a href="/shopinfo/collection.html">COLLECTION</a></li>
+                    <li class="cate-grade-one"><a href="/board/product/list.html?board_no=4">REVIEW</a></li>
+                    <!--//수동-->
+                </ul>
+            </div>
+            <div class="community-nav">
+                <ul>
+                    <li><a href="/shopinfo/company.html">COMPANY</a></li>
+                    <li><a href="/board/free/list.html?board_no=1">BOARD</a></li>
+                    <li><a href="/shopinfo/store.html">STORE</a></li>
+                    <li><a href="/shopinfo/contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!--검색창-->
+    <div class="search-inner" module="Layout_SearchHeader">
+        <!--@css(/css/module/layout/searchHeader.css)-->
+        <!--
+            $product_page=/product/detail.html
+            $category_page=/product/list.html
+        -->
+        <fieldset>
+            <legend>검색</legend>
+            {$form.keyword}<input type="image" src="/wib/img/icon/search_bt.png" alt="검색" onclick="{$action_search_submit}" />
+        </fieldset>
+    </div>
+    
+    
+    <!--장바구니-->
+    <div class="top-cart-wrap">
+        
+    </div>
+    
+    
+</div>

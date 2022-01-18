@@ -1,0 +1,93 @@
+#wrap #contents {width: 1370px;padding: 150px 0 80px;}
+#contents .xans-myshop-orderstate .order .count,
+#contents .xans-myshop-orderstate .cs .count,
+#contents .xans-myshop-asyncbankbook .use,
+#contents .xans-myshop-orderstate .desc em {color:#000; }
+
+
+@media screen and (max-width:1400px) {
+    #wrap #contents { width: 1200px;}
+}
+
+#contents [class^='btnEm'],
+#contents a[class^='btnEm'] {background: #000;color: #00f530;}
+
+/* 마이페이지 메인 */
+#contents .ec-base-box.gHalf {border:2px solid #000;padding: 30px 0;}
+#contents .ec-base-box.gHalf:before {display: none;}
+#contents .xans-myshop-asyncbankbook ul {display: inline-block; text-align: center;}
+#contents .xans-myshop-asyncbankbook li {line-height: 1;height: auto;}
+#contents .xans-myshop-asyncbankbook .left {width: 30%;margin: 0;padding: 0 0 12px;border: none;}
+#contents .xans-myshop-asyncbankbook .left li {width: 100%;text-align: center;margin: 0;padding: 0;color: #333;line-height: 1.5;}
+#contents .xans-myshop-asyncbankbook .right {width: 69%;}
+#contents .xans-myshop-asyncbankbook .right li {width: 33%;text-align: center;margin: 0;padding: 0;}
+#contents .xans-myshop-asyncbankbook .right .title {width: 100%;padding: 15px 0 15px 0;font-weight: bold;font-size: 14px;}
+#contents .xans-myshop-asyncbankbook .right .data {width: 100%;float: none;text-align: center;font-size: 22px;color: #000;font-weight: bold;}
+
+#contents .xans-myshop-orderstate {border: none; margin: 50px 0;}
+#contents .xans-myshop-orderstate .order {margin-top: 20px;}
+#contents .xans-myshop-orderstate .order li {border-right:1px dotted #ddd; }
+#contents .xans-myshop-orderstate .order li > strong {font-size: 13px;padding-bottom: 10px;}
+#contents .xans-myshop-orderstate .order li > a.count  {font-size: 18px;}
+#contents .xans-myshop-orderstate .title {border: none; background: none;}
+#contents .xans-myshop-orderstate .title h3 {text-align: center;color: #777;font-weight: 400;}
+#contents .xans-myshop-orderstate .desc em {color: #777;}
+#contents .xans-myshop-orderstate .cs li {border-bottom: 1px solid #ddd;padding: 8px 5px 10px 5px;margin:0 0 0 40px;}
+#contents .xans-myshop-orderstate .cs li:last-child {border: none;}
+#contents .xans-myshop-orderstate .cs .icoDot {margin: 9px 0 0 0; background:#000; }
+#contents .xans-myshop-orderstate .cs strong {font-weight: bold;}
+#contents .xans-myshop-orderstate .cs .count {float: right;font-weight: 300;}
+
+#contents #myshopMain ul {margin: 0;}
+#contents #myshopMain .shopMain {border: none; width: auto; height: auto; margin: 0; padding: 0; text-align: center;width: 25%;margin-bottom: 40px}
+#contents #myshopMain .shopMain h3:before,
+#contents #myshopMain .shopMain p {display: none;}
+#contents #myshopMain .shopMain h3 strong {font-style: italic;font-weight: 900;transition: all .3s ease;}
+#contents #myshopMain .shopMain:hover strong {color: #00f530;}
+#contents #myshopMain .shopMain h3 span {font-weight: bold;font-size: 14px;}
+
+
+/* 주문조회 */
+#order_status {background: #000; color: #fff; width: 124px; height: 30px; line-height: 30px; padding-left: 5px;}
+#order_status option {background: #fff; color: #000;}
+#OrderHistoryForm .xans-myshop-orderhistoryhead fieldset .period img {display: none;}
+#OrderHistoryForm .xans-myshop-orderhistoryhead fieldset .period a {float: left;width: 54px;height: 31px;margin: 0 0 0 -1px;color: #777777;font-size: 12px;border: 1px solid #d6d6d6;width: 76px;height: 30px;line-height: 30px;}
+#OrderHistoryForm .xans-myshop-orderhistoryhead fieldset .period a:hover {background: #fafafa;}
+#OrderHistoryForm .xans-myshop-orderhistoryhead fieldset .fText {width: 120px;height: 28px;line-height: 28px;}
+#contents .xans-myshop-orderhistorylistpast .title {margin-left: 0;}
+#contents .xans-myshop-orderhistorylistpast .title h3 {color: #333; font-size: 14px;}
+#contents .ec-base-table.typeList table,
+#contents .ec-base-table.typeList .center td.left,
+.ec-base-table.typeList .center td, 
+.ec-base-table.typeList td.center {border: none;}
+#contents .ec-base-table td {color: #333;}
+#contents .ec-base-table thead th {background: none;border: none;font-size: 14px;color: #333;}
+.ec-base-table.typeList .center td .txtEm {color: #777;}
+#contents .ec-base-table.typeList .center td.product {vertical-align: middle;}
+#contents .xans-myshop-orderhistorylistitem.ec-base-table td.thumb img {width: 50px;}
+#contents .ec-base-table .message {border: none;color: #777;font-weight: 300;}
+#contents .ec-base-table.typeList .center td.right {padding-right: 0;text-align: center;}
+#search_year {height: 30px;line-height: 30px;}
+
+#contents .xans-myshop-summary .title,
+#contents .xans-myshop-depositsummary .title{font-size: 14px; font-weight: bold; color: #333;}
+#contents .xans-myshop-summary .data,
+#contents .xans-myshop-depositsummary .data {font-size: 14px; font-weight: bold; color: #333;}
+
+#contents .xans-myshop-couponlist .title h3 {font-size: 14px;color: #333;}
+#contents .regularDeliveryPayInfo .ec-base-box .information .status {color: #333;}
+#contents #order_status {width: 143px;}
+#detail_info_layer.csDetail .prdInfo {background: none;}
+
+/* 교환신청 */
+#reason_select {min-width: 120px;}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,426 @@
+{*** 쇼핑몰 메인본문 | main/index.php ***}
+{ # header }
+{=includeWidget('proc/_populate.html', 'sno', '100')}
+
+<!-- 디자인위브 추가 -->
+<link type="text/css" rel="stylesheet" href="../wib/css/wib-main.css" />
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>-->
+<script type="text/javascript" src="../wib/js/wib-main.js"></script>
+
+<div class="main_wrap">
+	<!-- 메인배너 -->
+	<div class="main_ban">
+		<div class="ban_all">
+			<div class="cont">
+				<div class="left">
+					<!--{ @dataBanner('3089418258', true) }--><!--{ ? .index_ == '0'}-->
+					<a href="{.bannerLink}"><img src="{.bannerImageUrl}" alt="" data-animation-in="slideInLeft"/></a>
+					<!--{ / }--><!--{ / }-->	
+				</div>
+				<div class="right">
+					<div class="top">
+						<!--{ @dataBanner('3089418258', true) }--><!--{ ? .index_ == '1'}-->
+						<div class="img">
+							<a href="/main/html.php?htmid=main/membership.html">
+							<img src="{.bannerImageUrl}" alt="" data-animation-in="slideInDown" data-delay-in="0.5"/>
+							</a>
+						</div>
+						
+						<!--20210302-->
+						
+						<div class="txt">
+							<a href="/main/html.php?htmid=main/membership.html">
+							<h1 data-animation-in="fadeInUp" data-delay-in="1.8">
+								알타이기어 공식 웹사이트<br/>
+								회원에게만 드리는 혜택
+							</h1>
+							</a>
+							<p data-animation-in="fadeInUp" data-delay-in="2.5">알타이기어 회원 혜택을 확인해 보세요.</p>
+							<a href="{.bannerLink}" class="btn_basic" data-animation-in="fadeInUp" data-delay-in="2.8">
+								<span data-hover="SEE">SEE</span>
+								<span data-hover="MORE" >MORE</span>
+							</a>
+							
+						</div>
+						
+						
+						<!--{ / }--><!--{ / }-->	
+					</div>
+					<div class="bottom">
+						<!--{ @dataBanner('3089418258', true) }--><!--{ ? .index_ == '2'}-->
+						<a href="{.bannerLink}"><img src="{.bannerImageUrl}" alt="" data-animation-in="slideInUp" data-delay-in="0.9"/></a>
+						<!--{ / }--><!--{ / }-->	
+					</div>
+				</div>
+			</div>
+			<div class="cont">
+				<div class="left">
+					<!--{ @dataBanner('4036115375', true) }--><!--{ ? .index_ == '0'}-->
+					<a href="{.bannerLink}"><img src="{.bannerImageUrl}" alt="" data-animation-in="slideInLeft"/></a>
+					<!--{ / }--><!--{ / }-->	
+				</div>
+				<div class="right">
+					<div class="top">
+						<!--{ @dataBanner('4036115375', true) }--><!--{ ? .index_ == '1'}-->
+						<div class="img">
+							<a href="#">
+							<img src="{.bannerImageUrl}" alt="" data-animation-in="slideInDown" data-delay-in="0.5"/>
+							</a>
+						</div>
+						
+						<!--20210302-->
+						
+						<div class="txt">
+							<h1 data-animation-in="fadeInUp" data-delay-in="1.8">
+								이달의 프로모션
+							</h1>
+							<p data-animation-in="fadeInUp" data-delay-in="2.5">공식 사이트에서 구매하는 회원에게만 드리는 특별한 선물</p>
+							<a href="{.bannerLink}" class="btn_basic" data-animation-in="fadeInUp" data-delay-in="2.8">
+								<span data-hover="SEE">SEE</span>
+								<span data-hover="MORE" >MORE</span>
+							</a>
+						</div>
+						</a>
+						
+						
+						<!--{ / }--><!--{ / }-->	
+					</div>
+					<div class="bottom">
+						<!--{ @dataBanner('4036115375', true) }--><!--{ ? .index_ == '2'}-->
+						<a href="{.bannerLink}"><img src="{.bannerImageUrl}" alt="" data-animation-in="slideInUp" data-delay-in="0.9"/></a>
+						<!--{ / }--><!--{ / }-->	
+					</div>
+				</div>
+			</div>
+			<div class="cont">
+				<div class="left">
+					<!--{ @dataBanner('2072249838', true) }--><!--{ ? .index_ == '0'}-->
+					<a href="{.bannerLink}"><img src="{.bannerImageUrl}" alt="" data-animation-in="slideInLeft"/></a>
+					<!--{ / }--><!--{ / }-->	
+				</div>
+				<div class="right">
+					<div class="top">
+						<!--{ @dataBanner('2072249838', true) }--><!--{ ? .index_ == '1'}-->
+						<div class="img">
+							<a href="/board/list.php?bdId=store">
+							<img src="{.bannerImageUrl}" alt="" data-animation-in="slideInDown" data-delay-in="0.5"/>
+							</a>
+						</div>
+						
+						<!--20210302-->
+						
+						<div class="txt">
+							<h1 data-animation-in="fadeInUp" data-delay-in="1.8">
+								알타이기어 오프라인<br/> 매장 안내
+							</h1>
+							<p data-animation-in="fadeInUp" data-delay-in="2.5">알타이기어를 오프라인에서도 만나보세요.</p>
+							<a href="{.bannerLink}" class="btn_basic" data-animation-in="fadeInUp" data-delay-in="2.8">
+								<span data-hover="SEE">SEE</span>
+								<span data-hover="MORE" >MORE</span>
+							</a>
+						</div>
+						
+						
+						
+						<!--{ / }--><!--{ / }-->	
+					</div>
+					<div class="bottom">
+						<!--{ @dataBanner('2072249838', true) }--><!--{ ? .index_ == '2'}-->
+						<a href="{.bannerLink}"><img src="{.bannerImageUrl}" alt="" data-animation-in="slideInUp" data-delay-in="0.9"/></a>
+						<!--{ / }--><!--{ / }-->	
+					</div>
+				</div>
+			</div>
+		</div>
+		<p class="main_ban_paging main_paging"></p>
+		<div class="main_ban_prev main_prev">
+			<svg class="svg_circle"><circle cx="30" cy="30" r="27" stroke-dasharray="170" stroke-dashoffset="170"></circle></svg>	
+		</div>
+		<div class="main_ban_next main_next">
+			<svg class="svg_circle"><circle cx="30" cy="30" r="27" stroke-dasharray="170" stroke-dashoffset="170"></circle></svg>
+		</div>
+	</div>
+	<!--// 메인배너 -->
+	<!-- 상품폼01 -->
+	<div class="container">
+		<div id="optionViewLayer" class="layer_wrap dn"></div>
+		<div id="addCartLayer" class="layer_wrap dn">
+			<div class="box add_cart_layer" style="position: absolute; margin: 0px; top: 279.5px; left: 651px;">
+				<div class="view">
+					<h2>{=__('장바구니 담기')}</h2>
+					<div class="scroll_box">
+						<p class="success"><strong>{=__('상품이 장바구니에 담겼습니다.')}</strong><br>{=__('바로 확인하시겠습니까?')}</p>
+					</div>
+					<div class="btn_box">
+						<button class="btn_cancel"><span>{=__('취소')}</span></button>
+						<button class="btn_confirm btn_move_cart"><span>{=__('확인')}</span></button>
+					</div>
+					<!-- //btn_box -->
+					<button title="{=__('닫기')}" class="close" type="button">{=__('닫기')}</button>
+				</div>
+			</div>
+		</div>
+		<div id="addWishLayer" class="layer_wrap dn">
+			<div class="box add_wish_layer" style="position: absolute; margin: 0px; top: 279.5px; left: 651px;">
+				<div class="view">
+					<h2>{=__('찜 리스트 담기')}</h2>
+					<div class="scroll_box">
+						<p class="success"><strong>{=__('상품이 찜 리스트에 담겼습니다.')}</strong><br>{=__('바로 확인하시겠습니까?')}</p>
+					</div>
+					<div class="btn_box">
+						<button class="btn_cancel"><span>{=__('취소')}</span></button>
+						<button class="btn_confirm btn_move_wish"><span>{=__('확인')}</span></button>
+					</div>
+					<!-- //btn_box -->
+					<button title="{=__('닫기')}" class="close layer_close" type="button">{=__('닫기')}</button>
+				</div>
+			</div>
+		</div>
+		<div class="pd_list new_pd" data-aos="fade-up" data-aos-duration="1000">
+			{=includeWidget('goods/_goods_display_main.html','sno','1')}
+		</div>
+	</div>
+	<!--// 상품폼01 -->
+	<!-- 배너&상품 -->
+	<div class="content01">
+		<div class="cont_all">
+			<div class="cont inline">
+				<div class="left">
+					<!--{ @dataBanner('4029445399', true) }--><!--{ ? .index_ == '0'}-->
+					<a href="{.bannerLink}"><img src="{.bannerImageUrl}" alt="" data-animation-in="slideInLeft"/></a>
+					<!--{ / }--><!--{ / }-->
+				</div>
+				<div class="right">
+					<div class="txt" data-animation-in="fadeInUp"  data-delay-in="0.5">
+						<h1>Outdoor Boots Collection</h1>
+						<p>
+							SuperFabric®이 적용된 알타이기어만의 가볍고 강력한 아웃도어 부츠!<br/>
+							나만의 아웃도어 부츠 스타일을 찾아 보세요
+						</p>
+						<a href="http://hdmkorea.godomall.com/goods/goods_list.php?cateCd=001001" class="btn_basic">
+							<span data-hover="SHOP">SHOP</span>
+							<span data-hover="NOW" >NOW</span>
+						</a>
+					</div>
+					<div class="pd_list" data-animation-in="fadeInUp" data-delay-in="0.8">
+						{=includeWidget('goods/_goods_display_main.html','sno','2')}
+					</div>
+				</div>
+			</div>
+			<div class="cont inline">
+				<div class="left">
+					<!--{ @dataBanner('4029445399', true) }--><!--{ ? .index_ == '1'}-->
+					<a href="{.bannerLink}"><img src="{.bannerImageUrl}" alt="" data-animation-in="slideInLeft"/></a>
+					<!--{ / }--><!--{ / }-->
+				</div>
+				<div class="right">
+					<div class="txt" data-animation-in="fadeInUp"  data-delay-in="0.5">
+						<h1>Traveler Shoes Collection</h1>
+						<p>
+							SuperFabric®이 적용된 알타이기어만의 가볍고 편안한 트래블러 슈즈!<br/>
+							나만의 트래블러 슈즈 스타일을 찾아 보세요
+						</p>
+						<a href="http://hdmkorea.godomall.com/goods/goods_list.php?cateCd=001002" class="btn_basic">
+							<span data-hover="SHOP">SHOP</span>
+							<span data-hover="NOW" >NOW</span>
+						</a>
+					</div>
+					<div class="pd_list" data-animation-in="fadeInUp" data-delay-in="0.8">
+						{=includeWidget('goods/_goods_display_main.html','sno','3')}
+					</div>
+				</div>
+			</div>
+			<div class="cont inline">
+				<div class="left">
+					<!--{ @dataBanner('4029445399', true) }--><!--{ ? .index_ == '2'}-->
+					<a href="{.bannerLink}"><img src="{.bannerImageUrl}" alt="" data-animation-in="slideInLeft"/></a>
+					<!--{ / }--><!--{ / }-->
+				</div>
+				<div class="right">
+					<div class="txt" data-animation-in="fadeInUp"  data-delay-in="0.5">
+						<h1>Accesory Collection</h1>
+						<p>
+							알타이기어의 기술력으로 만든 기능성 인솔부터 쿨맥스 양말!<br/>
+					        나에게 필요한 악세사리를 찾아 보세요
+						</p>
+						<a href="http://hdmkorea.godomall.com/goods/goods_list.php?cateCd=001006" class="btn_basic">
+							<span data-hover="SHOP">SHOP</span>
+							<span data-hover="NOW" >NOW</span>
+						</a>
+					</div>
+					<div class="pd_list" data-animation-in="fadeInUp" data-delay-in="0.8">
+						{=includeWidget('goods/_goods_display_main.html','sno','9')}
+					</div>
+				</div>
+			</div>
+		</div>
+		<p class="content01_paging main_paging"></p>
+		<div class="content01_prev main_prev">
+			<svg class="svg_circle"><circle cx="30" cy="30" r="27" stroke-dasharray="170" stroke-dashoffset="170"></circle></svg>	
+		</div>
+		<div class="content01_next main_next">
+			<svg class="svg_circle"><circle cx="30" cy="30" r="27" stroke-dasharray="170" stroke-dashoffset="170"></circle></svg>	
+		</div>
+	</div>
+	<!--// 배너&상품 -->
+	<!-- 중간배너01 -->
+	<div class="container container02">
+		<div class="mid_banner01 pc" data-aos="fade-up" data-aos-duration="1000">
+			<!--{ @dataBanner('1924537514', true) }-->
+			<a href="{.bannerLink}"><img src="{.bannerImageUrl}" alt="" data-animation-in="slideInLeft"/></a>
+			<div class="txt"  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+				<a href="/main/html.php?htmid=main/sf_intro.html"><h1 style="color:white; letter-space: -10px;">
+					SuperFabric<sup>®</sup> 은 어떤 소재인가요?<br/>
+					SuperFabric<sup>®</sup>에 대해 알려 드립니다.
+				</h1>
+				</a>
+				<a href="{.bannerLink}" class="btn_basic">
+					<span style="color:white; letter-space: -5px;" data-hover="SEE">SEE</span>
+					<span style="color:white; letter-space: -5px;" data-hover="MORE" >MORE</span>
+				</a>
+				</div>
+			<!--{ / }-->
+		</div>
+		<a href="/main/html.php?htmid=main/sf_intro.html"><div class="mid_banner01 mo" data-aos="fade-up" data-aos-duration="1000">
+			<!--{ @dataBanner('175401612', true) }-->
+			<a href="{.bannerLink}"><img src="{.bannerImageUrl}" alt="" data-animation-in="slideInLeft"/></a>
+			<div class="txt"  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a href="/main/html.php?htmid=main/sf_intro.html">
+				<h1><font color="#fff">
+					SuperFabric® 은 어떤 소재인가요?<br/>
+					SuperFabric®에 대해 알려 드립니다.</font>
+				</h1>
+				</a>
+				<a href="{.bannerLink}" class="btn_basic">
+					<span data-hover="SHOP">SHOP</span>
+					<span data-hover="NOW" >NOW</span>
+				</a>
+				</div>
+			<!--{ / }-->
+		</div>
+	</div>
+	<!--// 중간배너01 -->
+	<!-- 상품폼02 -->
+	<div class="container">
+		<div class="pd_list best_pd" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+			{=includeWidget('goods/_goods_display_main.html','sno','7')}
+		</div>
+	</div>
+	<!--// 상품폼02 -->
+	<!-- 중간배너02 -->
+	<div class="mid_banner02 inline">
+		<!--{ @dataBanner('3549354621', true) }--><!--{ ? .index_ == '0'}-->
+		<div class="img">
+			<a href="{.bannerLink}"><img src="{.bannerImageUrl}" alt="" data-aos="fade-right"/></a>
+		</div>
+		<div class="txt">
+			<h1 data-aos="fadeInUp">
+				<span>한계를 뛰어 넘는 알타이기어 with SuperFabric<sup>®</sup></span>
+			</h1>
+			<p data-aos="fadeInUp" data-aos-delay="300">
+				<span>Higher Dimension Material Company(이하 HDM)에서 개발한 SuperFabric®은 내구성과 가벼운 중량, 마모저항성, 오염저항성 등의 특징을 바탕으로 다양한 분야에 널리 사용되고 있으며 전 세계 제조 회사와 소비자들에게 뛰어난 기능과 편안함, 그리고 완벽한 보호를 제공하는 소재로 인정받고 있습니다. 1996년 재미교포 물리학박사인 김영화박사(Dr. Young-Hwa Kim)는 완전히 새로운 개념의 신소재 SuperFabric®을 개발하면서 HDM, Inc.를 설립하였습니다.
+미국 미네소타 주에 설립된 본사는 수천 평 규모의 생산시설과 연구개발시설을 갖추어 최상의 SuperFabric® 제품을 생산하고 있습니다. 2008년, 싱가포르에 아시아 첫 번째 지사 NouvoFabric, Inc.(NVF)를, 2012년 HDM Korea(Seoul, Korea)를 설립하였습니다. HexArmor, 3M, Ferrari, Nobull, Northface, K2, Kolon, Arc'teryx, Vans, Massif, Blackyak 등 수많은 기업들이 SuperFabric®을 적용한 제품들을 생산, 판매하고 있습니다. 지금까지 SuperFabric®은 기술을 발전시키고 상품화하여 방염, 방화, 항균 및 멸군, 오염저항성을 지닌 산업안전, 군용제품, 아웃도어 의류와 신발, 자동차 관련 원단 자재 등에 사용되고 있으며, 앞으로도 폭넓은 분야에 최고의 제품을 제공할 것을 목표로 삼고 있습니다.</span>
+			</p>
+			<a href="{.bannerLink}" class="btn_basic" data-aos="fadeInUp" data-aos-delay="500">
+				<span data-hover="BRAND">BRAND</span>
+				<span data-hover="STORY" >STORY</span>
+			</a>
+		</div>
+		<!--{ / }--><!--{ / }-->
+	</div>
+	<!--// 중간배너02 -->
+	<!-- 리뷰 -->
+	<div class="review">
+		<span class="bg" data-aos="RightFull" data-aos-duration="1000"></span>
+		<div class="review_all">
+			<div class="cont_all"  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+				<!--{ @getArticles( 'goodsreview' , 12 , 62 ) }-->
+				<div class="cont inline">
+					<div class="txt">
+						<h1>REVIEW</h1>
+						<p class="grade">
+							<span class="rating_star">
+								<span style="width:{.goodsPtPer}%;">{=__('별 다섯개중 다섯개')}</span>
+							</span>
+						</p>
+						<p class="cont"><a href="/board/view.php?bdId={.bdId}&sno={.sno}">{=gd_html_cut(gd_remove_tag(.contents),'300')}</a></p>
+						<div class="date inline">
+							<p>{.writer} </p>
+							<p>{.regDate}</p>
+						</div>
+					</div>
+					<div class="img" data-aos="fade-left">
+						<a href="/board/view.php?bdId={.bdId}&sno={.sno}">
+							<!--{ ? .attachImageSrc }-->
+							<img src="{.attachImageSrc}" alt="{.goodsNm}" data-animation-in="slideInRight"/>
+							<!--{ : }-->
+							<img src="{.goodsImageSrc}" alt="{.goodsNm}" data-animation-in="slideInRight"/>
+							<!--{ / }-->
+						</a>
+					</div>
+				</div>
+				<!--{ / }-->
+			</div>
+			<p class="review_paging main_paging"></p>
+			<div class="review_prev main_prev">
+				<svg class="svg_circle"><circle cx="30" cy="30" r="27" stroke-dasharray="170" stroke-dashoffset="170"></circle></svg>	
+			</div>
+			<div class="review_next main_next">
+				<svg class="svg_circle"><circle cx="30" cy="30" r="27" stroke-dasharray="170" stroke-dashoffset="170"></circle></svg>	
+			</div>
+		</div>
+	</div>
+	<!--// 리뷰 -->
+	<!-- 매거진 -->
+	<div class="magazine">
+		<div class="container relative">
+			<h1>NEWS & FUN</h1>
+			<a href="../board/list.php?bdId=board14" class="btn_basic">
+				<span data-hover="SEE">SEE</span>
+				<span data-hover="MORE" >MORE</span>
+			</a>
+			<div class="cont">
+				<ul class="inline">
+					<!--{ @dataBanner('2790982048', true) }--><!--{ ? .index_ == '0'}-->
+					<li data-aos="fade-up" data-aos-duration="1000">
+						<a href="{.bannerLink}">
+							<div class="img"><img src="{.bannerImageUrl}"/></div>
+							<div class="txt">
+								<p class="subject">OUTDOOR FOOTWEAR 알타이기어!</p>
+								<p class="contents">독창적인 기술력으로 만든 SuperFabric® 소재가 적용된 가볍고 강력한 아웃도어 신발, 알타이기어를 만나보세요.</p>
+							</div>
+						</a>
+					</li>
+					<!--{ / }--><!--{ / }-->
+					<!--{ @dataBanner('2790982048', true) }--><!--{ ? .index_ == '1'}-->
+					<li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+						<a href="{.bannerLink}">
+							<div class="img"><img src="{.bannerImageUrl}"/></div>
+							<div class="txt">
+								<p class="subject">알타이기어 제품 입점 매장 안내</p>
+								<p class="contents">알타이기어 제품을 가까운 오프라인 매장에서 만나보세요!</p>
+							</div>
+						</a>
+					</li>
+					<!--{ / }--><!--{ / }-->
+					<!--{ @dataBanner('2790982048', true) }--><!--{ ? .index_ == '2'}-->
+					<li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+						<a href="{.bannerLink}">
+							<div class="img"><img src="{.bannerImageUrl}"/></div>
+							<div class="txt">
+								<p class="subject">SuperFabric<sup>®</sup>은 어떤 소재인가요?</p>
+								<p class="contents">SuperFabric<sup>®</sup>은 뛰어난 기능과 편안함, 완벽한 보호를 제공하는 소재로 인정받고 있습니다.</p>
+							</div>
+						</a>
+					</li>
+					<!--{ / }--><!--{ / }-->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--// 매거진 -->
+</div>
+
+
+
+
+{ # footer }

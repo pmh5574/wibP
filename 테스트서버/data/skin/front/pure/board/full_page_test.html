@@ -1,0 +1,56 @@
+{ # header }
+<!-- 추가 -->
+
+<link href="../wib/css/jquery.fullPage.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../wib/js/jquery.fullPage.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#fullpage').fullpage({
+            menu: '#menu',
+            anchors: ['page1','page2', 'page3', 'page4','page5'],   
+			scrollingSpeed: 900,
+			autoScrolling: true,
+        });
+    });
+</script>
+<style>
+    .sub_content{width:100% !important; height: 100%; padding: 0 0 0 0;}
+    .section{height: 1089px !important;}
+    #header{height: 0px !important;}
+    #section1{background-color: rgb(198, 61, 15);}
+    #section2{background-color: rgb(27, 188, 155);}
+    #section3{background-color: rgb(126, 143, 124);}
+    #section4{background-color: rgb(100, 143, 100);}
+    #section5{background-color: rgb(16, 59, 129);}
+</style>
+
+
+<div id="fullpage">
+    <div id="section1" data-anchor="page1" class="section">
+
+    </div>
+
+    <div id="section2" data-anchor="page2" class="section">
+
+    </div>
+    
+    <div id='section3' data-anchor="page3" class='section'>
+
+    </div>
+        
+    <div id='section4' data-anchor="page4" class='section'>
+
+    </div>
+
+    <div id='section5' data-anchor="page5" class='section'>
+
+    </div>
+    
+
+
+</div>
+
+
+
+
+{ # footer }

@@ -1,0 +1,46 @@
+{*** 인쇄선택 | frame/content/print.php ***}
+
+<!-- 인쇄 타입 선택 -->
+<!-- 선택영역 -->
+<div class="choice_type1 frame_select_chk">
+    <div class="choice_title">
+        <h1>아트프린팅 추가 선택</h1>
+        <p>유어그라피에서는 기억에 남는 순간이 담긴 사진을 쉽고 합리적인 가격에<br>
+프린트하여 액자에 넣을 수 있습니다.</p>
+    </div>
+    <div class="choice_select">
+        <ul class="type1 inline">
+            <li class="on eventBtn" data-type="frame" data-event="setArtPrint">
+                <div class="chk_box">
+                    <h3>액자만 필요해요.</h3>
+                    <p>
+                        사진의 크기를 측정하고 입력하기만<br/>
+                        하면 맞는 프레임을 만들어드려요.
+                    </p>
+                </div>
+            </li>
+            <li class="eventBtn" data-type="print" data-event="setArtPrint">
+                <div class="chk_box">
+                    <h3>액자&인쇄 모두 필요해요.</h3>
+                    <p>
+                        사진의 크기를 측정하고 입력하기만<br/>
+                        하면 맞는 프레임을 만들어드려요.
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--// 선택영역 -->
+<!-- 단계 -->
+<div class="step_box">
+    <ul class="inline">
+        <li><a href="#" class="back_btn">back</a></li>
+        <li class="next_step_upload">
+            <button type="button" class="next_btn next_upload2-1 eventBtn" data-type="frame" data-event="printSelectNo">다음단계</button>
+            <button type="button" class="next_btn next_upload2-2 hidden eventBtn" data-type="frame" data-event="printSelect">다음단계</button>
+        </li>
+    </ul>
+</div>
+<!--// 단계 -->
+<!--// 인쇄 타입 선택 -->

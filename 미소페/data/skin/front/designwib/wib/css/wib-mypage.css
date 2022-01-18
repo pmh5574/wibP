@@ -1,0 +1,52 @@
+.date_check_box{border:0;background-color:#FCFAF8;padding:20px 30px;}
+.date_check_box form{font-size:0;text-align:center;height:41px;}
+.date_check_box form h3{font-size:15px;font-weight:400;color:#333;padding:0;line-height:41px;margin-right:30px;}
+.date_check_box form .date_check_list{margin-right:15px;}
+.date_check_box form .date_check_list button:last-of-type{margin-right:0;}
+.date_check_box form .date_check_list button{width:61px;height:41px;box-sizing:border-box;border:1px solid #ececec;font-size:14px;font-weight:400;color:#717171;text-align:center;background-color:#fff;margin-right:7px;line-height:41px;}
+.date_check_box form .date_check_list button.on{border:1px solid #C6A277;color:#C6A277;background-color:#fff}
+.date_check_box form .date_check_list button:hover{border:1px solid #C6A277;color:#C6A277;background-color:#fff;font-weight:400;}
+.date_check_box form .date_check_calendar{font-size:18px;font-weight:400;color:#333;width:auto;margin-right:10px;}
+.date_check_box form .date_check_calendar input{width:137px;height:41px;border:0;border-bottom:1px solid #717171;font-size:15px;font-weight:400;color:#333;letter-spacing:0.03em;}
+.date_check_box form .date_check_calendar input:first-of-type{margin-right:10px;}
+.date_check_box form .date_check_calendar input:last-of-type{margin-left:10px;}
+
+body #wrap #contents .sub_content .btn_date_check{background:none;width:71px;height:41px;line-height:41px;box-sizing:border-box;border:0;padding:0;margin:0;font-size:14px;font-weight:bold;color:#fff;background-color:#C6A277;min-width:auto;border:0;}
+body #wrap #contents .sub_content .btn_date_check:hover{font-size:14px;font-weight:bold;color:#fff;background-color:#C6A277;border:0;}
+body #wrap #contents .sub_content .btn_date_check:hover em{font-size:14px;font-weight:bold;color:#fff;background-color:#C6A277;border:0;}
+body #wrap #contents .sub_content .btn_date_check em{padding:0;background:none;font-size:14px;font-weight:bold;border:0;display:block;line-height:1;}
+.date_check_calendar .anniversary{background:url("../../img/member/icon_calendar.svg") no-repeat right center !important;}
+
+td.day.active.today{background-color:#C6A277 !important;}
+td.day.active{background-color:#C6A277 !important;}
+td.day.today::before{border-bottom-color:#C6A277 !important;}
+
+.pagination{padding:0;border:0;margin:0;margin-top:50px;}
+.pagination ul{padding:0;font-size:0;text-align:center;}
+.pagination ul li:last-of-type{margin-right:0;}
+.pagination ul li{margin-right:7px;min-width:auto;}
+.pagination ul li a{display:block;width:35px;height:35px;border-radius:0;box-sizing:border-box;text-align:center;line-height:35px;font-size:15px;font-weight:400;color:#717171;}
+.pagination ul li.on:hover{border:0 !important;}
+.pagination ul li.on span{background-color:transparent;border-radius:0;width:35px;height:35px;box-sizing:border-box;text-align:center;line-height:35px;font-size:15px;font-weight:700;color:#fff;background-color:#2A4E41;}
+.pagination ul li.btn_page{margin:0;padding:0 !important;border:0;}
+.pagination ul li.btn_page_first{font-size:0;background:none;margin-right:7px;}
+.pagination ul li.btn_page_first a{font-size:0;display:block;background:url("../../wib/img/paging-first.png")no-repeat center;}
+.pagination ul li.btn_page_prev{font-size:0;background:none;margin-right:7px;}
+.pagination ul li.btn_page_prev a{font-size:0;display:block;background:url("../../wib/img/paging-prev.png")no-repeat center;}
+.pagination ul li.btn_page_next{font-size:0;background:none;margin-right:7px;}
+.pagination ul li.btn_page_next a{font-size:0;display:block;background:url("../../wib/img/paging-next.png")no-repeat center;}
+.pagination ul li.btn_page_last{font-size:0;background:none;}
+.pagination ul li.btn_page_last a{font-size:0;display:block;background:url("../../wib/img/paging-last.png")no-repeat center;}
+
+.mypage_table_type table .form_element input + label{width:18px;height:18px;padding:0 !important;background:url("../../wib/img/chk-off.png")no-repeat center top;min-width:auto;min-height:auto;}
+.mypage_table_type table .form_element input + label:hover{background:url("../../wib/img/chk-off.png")no-repeat center top;}
+.mypage_table_type table .form_element input + label.on{background:url("../../wib/img/chk-on.png")no-repeat center top;}
+
+
+
+.hack_out .mypage_table_type table .form_element input + label{width:auto;height:auto;min-width:18px;min-height:18px;padding:0 !important;background:url("../../wib/img/chk-off.png")no-repeat left top;min-width:auto;min-height:auto;padding-left:22px !important;}
+.hack_out .mypage_table_type table .form_element input + label:hover{background:url("../../wib/img/chk-off.png")no-repeat left top;}
+.hack_out .mypage_table_type table .form_element input + label.on{background:url("../../wib/img/chk-on.png")no-repeat left top;}
+
+.service-tab{display:none !important;}
+.my_page_password .id_pw_cont{border:0;background-color:#FCFAF8;}

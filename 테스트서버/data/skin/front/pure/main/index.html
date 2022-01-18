@@ -1,0 +1,76 @@
+{*** 쇼핑몰 메인본문 | main/index.php ***}
+{ # header }
+
+<div class="main_visual">
+    {=includeWidget('proc/_slider_banner.html', 'bannerCode', '511517418')}
+    <div class="main_visual_banner">
+        <!--{ ? canNotice}-->
+        <div class="notice_list">
+            <h3>NOTICE<span><a href="../board/list.php?bdId={noticeBdId}" title="{=__('공지 리스트')}">MORE</a></span></h3>
+            {=includeWidget('board/board_article', 'bdId', noticeBdId, 'listCount', 3, 'strCut', 20)}
+        </div>
+        <!--{/}-->
+        <!-- //notice_list -->
+        <div class="main_ban_img07">
+            <!--{ @dataBanner('2342991316') }-->{.tag}<!--{ / }-->
+        </div>
+    </div>
+</div>
+<!-- //main_visual -->
+<div class="main_content">
+    <div class="main_slide_ban">
+        <div class="main_slide">
+            <!--{ @dataBanner('378864211') }-->{.tag}<!--{ / }-->
+        </div>
+        <!-- //main_slide -->
+
+        <div class="main_banner">
+            <!--{ @dataBanner('735864301') }-->{.tag}<!--{ / }-->
+        </div>
+        <!-- //main_banner -->
+    </div>
+    <!-- //main_slide_ban -->
+
+    <div class="main_goods_cont">
+        <!-- 메인 상품 노출 -->{=includeWidget('goods/_goods_display_main.html','sno','1')}<!-- 메인 상품 노출 -->
+    </div>
+    <!-- //main_goods_cont -->
+
+    <div class="main_goods_cont">
+        <!-- 메인 상품 노출 -->{=includeWidget('goods/_goods_display_main.html', 'sno', '3')}<!-- 메인 상품 노출 -->
+        <div class="main_ban_img06">
+            <!--{ @dataBanner('2028551540') }-->{.tag}<!--{ / }-->
+        </div>
+    </div>
+    
+    <div class="main_cont_slide_ban">
+        <div class="main_cont_slide">
+            {=includeWidget('proc/_slider_banner.html', 'bannerCode', '3040312042')}
+        </div>
+        <!-- //main_cont_slide -->
+    </div>
+    <!-- //main_cont_slide_ban -->
+
+    <div class="main_goods_cont">
+        <!-- 메인 상품 노출 -->{=includeWidget('goods/_goods_display_main.html', 'sno', '3')}<!-- 메인 상품 노출 -->
+        <div class="main_ban_img06">
+            <!--{ @dataBanner('2028551540') }-->{.tag}<!--{ / }-->
+        </div>
+        <!-- 메인 상품 노출 -->{=includeWidget('goods/_goods_display_main.html', 'sno', '2')}<!-- 메인 상품 노출 -->
+    </div>
+    <!-- //main_goods_cont -->
+    <script>
+        $(window).scroll(function(){
+            if($(window).scrollTop() >= 165){
+                $('.scroll_wrap').css({'top':'842px'});
+            }else{
+                $('.scroll_wrap').css({'top':'891px'});
+            }
+        });
+    </script>
+</div>
+<!-- //main_content -->
+
+
+
+{ # footer }

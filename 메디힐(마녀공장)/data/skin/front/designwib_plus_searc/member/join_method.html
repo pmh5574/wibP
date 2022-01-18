@@ -1,0 +1,104 @@
+{*** 회원가입 > 가입방법 선택 | member/join_method.php ***}
+{ # header }
+
+<link href="../wib/css/wib-join.css" rel="stylesheet" type="text/css">
+
+<div class="content_box">
+	<div class="member_wrap join_step1">
+		<div class="member_tit">
+			<h2 class="skip">{=__('회원가입')}</h2>
+		</div>
+		<!-- //member_tit -->
+		<!-- 회원가입 배너 -->
+		<div class="join_banner w1200">
+			<div class="cont01">
+				<h1><img src="../wib/img/join_logo.png"/> 스토어 회원이면 누구나<span>!</span></h1>
+				<p>새롭게 m:스토어 가족이 되어 주신 분들께 <br/>감사의 마음을 담아 다영한 혜택을 준비했어요</p>
+			</div>
+			<div class="cont02">
+				<h1 class="tit"><img src="../wib/img/join_logo.png"/> 가입 즉시 혜택</h1>
+				<ul>
+					<li>
+						<p>가입 즉시 드리는</p>
+						<strong>쿠폰 혜택 하나</strong>
+						<div class="coupon">
+							<p>신규 회원 가입 <br/> 쿠폰</p>
+							<strong>2,000원</strong>
+						</div>
+					</li>
+					<li>
+						<p>가입 즉시 드리는</p>
+						<strong>쇼핑지원금</strong>
+						<div class="coupon">
+							<p>신규 회원 가입 <br/> 쿠폰</p>
+							<strong>10%</strong>
+						</div>
+					</li>
+					<li>
+						<p>또 다른 혜택</p>
+						<strong>배송비 쿠폰</strong>
+						<div class="coupon">
+							<p>무료 배송 쿠폰 <span>첫 구매 배송 완료 후 발급</span></p>
+							<strong>배송비 무료</strong>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="cont03">
+				<h1 class="tit"><img src="../wib/img/join_logo.png"/> 가입 할인 혜택</h1>
+				<a href="/main/html.php?htmid=service/membenefit.html" class="link">혜택 한번에 보기</a>
+				<img src="../wib/img/join_coupon_banner.jpg"/>
+			</div>
+		</div>
+		<!--// 회원가입 배너 -->
+		<div class="member_cont w500">
+			<div class="member_login_box">
+				<div class="member_login_shop">
+					<a href="#" id="btnJoin" class="shop_mall_join" ><span>{=__('쇼핑몰 회원가입')}</span></a>
+				</div>
+
+				<div class="member_sns_login">
+					<!--{? usePaycoLogin}-->
+					<a href="#" class="btn_payco_login js_btn_payco_login" data-payco-type="join_method"><img src="../img/etc/pc_payco_join.png" alt="{=__('PAYCO')} {=__('아이디 로그인')}"></a>
+					<!--{/}-->
+					<!--{? useFacebookLogin}-->
+					<a href="#" class="btn_facebook_login js_btn_facebook_login" data-sns-type="join_method" data-facebook-url="{=facebookUrl}"><img src="../img/etc/pc_facebook_join.png" alt="{=__('FACEBOOK')} {=__('아이디 로그인')}"></a>
+					<!--{/}-->
+					<!--{? useNaverLogin}-->
+					<a href="#" class="btn_naver_login js_btn_naver_login" data-naver-type="join_method" data-naver-url="{=facebookUrl}">네이버 간편회원 가입</a>
+					<!--{/}-->
+					<!--{? useKakaoLogin}-->
+					<a href="#" class="btn_naver_login js_btn_kakao_login" data-kakao-type="join_method" data-return-url="{=returnUrl}">카카오 간편회원 가입</a>
+					<!--{/}-->
+					<!--{? useWonderLogin}-->
+					<a href="#" class="btn_wonder_login js_btn_wonder_login" data-wonder-type="join_method" data-wonder-url="{=wonderReturnUrl}"><img src="../img/etc/pc_wonder_join.png" alt="{=__('위메프')} {=__('아이디 회원가입')}"></a>
+					<!--{/}-->
+				</div>
+
+				<strong class="chk_none hide_c">
+					{=__('SNS계정을 연동하여 빠르고 쉽고 안전하게 회원가입 할 수 있습니다.')} <br />
+					{=__('이 과정에서 고객님의 데이터는 철저하게 보호됩니다.')}
+				</strong>
+			</div>
+		</div>
+		<!-- //member_cont -->
+
+		<div class="member_guide_txt hide_c">
+			<p>{=__('이미 쇼핑몰 회원이세요?')} <a href="#" id="btnLoginMember">{=__('로그인')}</a></p>
+		</div>
+
+	</div>
+	<!-- //member_wrap -->
+</div>
+<!-- //content_box -->
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#btnJoin').click(function () {
+			location.href = '../member/join_agreement.php?memberFl=personal';
+		});
+		$('#btnLoginMember').click(function () {
+			window.location.href = '../member/login.php';
+		});
+	});
+</script>
+{ # footer }

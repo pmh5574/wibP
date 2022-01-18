@@ -1,0 +1,158 @@
+{*** 팝업 상단 레이아웃 | main/index.php ***}
+<!doctype html>
+<html>
+<head>
+    <title>{=gMall.mallTitle}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="{=gMall.mallDescription}" />
+    <meta name="keywords" content="{=gMall.mallKeyword}" />
+    <meta name="csrf-token" content="{=token}" />
+    <!--{ ? gMall.robotsFl == 'n' }-->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="noarchive" />
+    <!--{ / }-->
+
+    <!--{ ? is_array(gd_isset(headerMeta)) }-->
+    <!-- Add Meta : start -->
+    <!--{ @ headerMeta }-->
+    <!--{ .value_ }-->
+    <!--{ / }-->
+    <!-- Add Meta : end -->
+    <!--{ / }-->
+
+    <!--{ @ snsShareMetaTag }-->
+    {.value_}
+    <!--{ / }-->
+
+    <!--{ ? gMall.mallFavicon }-->
+    <link rel="icon" href="/data/common/favicon.ico" type="image/x-icon" />
+    <!--{ / }-->
+
+    <link type="text/css" rel="stylesheet" href="{=setBrowserCache('../css/reset.css')}">
+    <link type="text/css" rel="stylesheet" href="{=setBrowserCache('../css/common/common.css')}">
+    <link type="text/css" rel="stylesheet" href="{=setBrowserCache('../css/common/layer/layer.css')}">
+    <link type="text/css" rel="stylesheet" href="{=setBrowserCache('../css/layout/layout.css')}">
+    <link type="text/css" rel="stylesheet" href="{=setBrowserCache('../css/goods/list.css')}">
+    <link type="text/css" rel="stylesheet" href="{=setBrowserCache('../css/button.css')}" />
+    <link type="text/css" rel="stylesheet" href="{=setBrowserCache(c.PATH_SKIN+'css/'+gThisDirName+'/'+gThisDirName+'.css')}" />
+    <link type="text/css" rel="stylesheet" href="{=setBrowserCache('../js/jquery/chosen/chosen.css')}" />
+    <!--{ ? gThisPageCss }-->
+    <link type="text/css" rel="stylesheet" href="{=setBrowserCache(gThisPageCss)}" />
+    <!--{ / }-->
+
+    <!--{ ? is_array(gd_isset(headerStyle)) }-->
+    <!-- Add style : start -->
+    <!--{ @ headerStyle }-->
+    <link type="text/css" rel="stylesheet" href="{=.value_}" />
+    <!--{ / }-->
+    <!-- Add style : end -->
+    <!--{ / }-->
+
+    <script type="text/javascript">
+        <!--{=includeFile(gGlobal.languageJson)}-->
+    </script>
+    <script type="text/javascript" src="{=setBrowserCache('../js/gd_gettext.js')}"></script>
+    <script type="text/javascript" src="{=setBrowserCache('../js/jquery/jquery.min.js')}"></script>
+    <script type="text/javascript" src="{=setBrowserCache('../js/underscore/underscore-min.js')}"></script>
+    <script type="text/javascript" src="{=setBrowserCache('../js/jquery/validation/jquery.validate.min.js')}"></script>
+    <script type="text/javascript" src="{=setBrowserCache('../js/jquery/validation/additional-methods.min.js')}"></script>
+    <script type="text/javascript" src="{=setBrowserCache('../js/numeral/numeral.min.js')}"></script>
+    <script type="text/javascript" src="{=setBrowserCache('../js/global/accounting.min.js')}"></script>
+    <script type="text/javascript" src="{=setBrowserCache('../js/global/money.min.js')}"></script>
+    <script type="text/javascript" src="{=setBrowserCache('../js/jquery/chosen/chosen.jquery.min.js')}"></script>
+    <script type="text/javascript" src="{=setBrowserCache('../js/jquery/placeholder/placeholders.jquery.min.js')}"></script>
+    <![if gt IE 8]>
+    <script type="text/javascript" src="{=setBrowserCache('../js/copyclipboard/clipboard.min.js')}"></script>
+    <![endif]>
+    <script type="text/javascript" src="{=setBrowserCache('../js/jquery/vticker/jquery.vticker.js')}"></script>
+    <script type="text/javascript" src="{=setBrowserCache('../js/gd_ui.js')}"></script>
+
+	<!-- WIB CSS -->
+	<link type="text/css" rel="stylesheet" href="{=setBrowserCache('../wib/css/wib-common.css')}">
+	<link type="text/css" rel="stylesheet" href="{=setBrowserCache('../wib/css/wib-service.css')}">
+
+	<link type="text/css" rel="stylesheet" href="{=setBrowserCache('../wib/css/wib-board.css')}">
+
+    <script type="text/javascript">
+        // 고도몰5 통화정책
+        var gdCurrencyDecimal = {gGlobalCurrency.decimal};
+        var gdCurrencyDecimalFormat = '{gGlobalCurrency.decimalFormat}';
+        var gdCurrencyCode = '{gGlobalCurrency.code}';
+        var gdCurrencyAddDecimal = {=gd_isset(gGlobalCurrency.addDecimal,0)};
+        var gdCurrencyAddDecimalFormat = '{gGlobalCurrency.addDecimalFormat}';
+        var gdCurrencyAddCode = '{gGlobalCurrency.addCode}';
+        var gdLocale = '{gGlobal.locale}';
+        var gdCurrencySymbol = '{=gd_global_currency_symbol()}';
+        var gdCurrencyString = '{=gd_global_currency_string()}';
+
+        // 환율변환 정책
+        fx.base = "KRW";
+        fx.settings = {
+            from : "KRW",
+            to : gdCurrencyCode
+        };
+        fx.rates = {
+            "KRW" : 1,
+            <!--{ @ gGlobalCurrency.perRate }-->
+            "{=.key_}" : {=.value_},
+        <!--{ / }-->
+        }
+    </script>
+
+    <script type="text/javascript" src="{=setBrowserCache('../js/gd_common.js')}"></script>
+
+    <!--{ ? is_array(gd_isset(headerScript)) }-->
+    <!-- Add script : start -->
+    <!--{ @ headerScript }-->
+    <script type="text/javascript" src="{=.value_}"></script>
+    <!--{ / }-->
+    <!-- Add script : end -->
+    <!--{ / }-->
+
+    {=pgScript}
+
+    <style type="text/css">
+        body {
+        <!--{ ? layout.outbg_img }-->background: url("{=layout.outbg_img}") repeat left top;<!--{ / }-->
+        <!--{ ? layout.outbg_color }-->background-color: #{=str_replace('#', '', layout.outbg_color)};<!--{ / }-->
+        }
+
+        /* body > #wrap > #header_warp : 상단 영역 */
+        #header_warp {
+        <!--{ ? layout.topbg_img }-->background: url("{=layout.topbg_img}") repeat 0 0;<!--{ / }-->
+        }
+
+        /* body > #wrap > #container : 메인 영역 */
+        #container {
+        <!--{ ? layout.inbg_img }-->background: url("{=layout.inbg_img}") repeat 0 0;<!--{ / }-->
+        <!--{ ? layout.inbg_color }-->background-color: {=layout.inbg_color};<!--{ / }-->
+        }
+
+        /* body > #wrap > #footer_wrap : 하단 영역 */
+        #footer_wrap {
+        }
+    </style>
+	<style>
+		.date_check_box{border:0;background-color:#FCFAF8;padding:30px 50px;}
+		.date_check_box form{font-size:0;text-align:center;height:41px;}
+		.date_check_box form h3{font-size:15px;font-weight:400;color:#333;padding:0;line-height:41px;margin-right:30px;}
+		.date_check_box form .date_check_list{margin-right:55px;}
+		.date_check_box form .date_check_list button:last-of-type{margin-right:0;}
+		.date_check_box form .date_check_list button{width:71px;height:41px;box-sizing:border-box;border:1px solid #ececec;font-size:14px;font-weight:400;color:#717171;text-align:center;background-color:#fff;margin-right:7px;line-height:41px;}
+		.date_check_box form .date_check_list button.on{border:1px solid #C6A277;color:#C6A277;background-color:#fff}
+		.date_check_box form .date_check_list button:hover{border:1px solid #C6A277;color:#C6A277;background-color:#fff;font-weight:400;}
+		.date_check_box form .date_check_calendar{font-size:18px;font-weight:400;color:#333;}
+		.date_check_box form .date_check_calendar input{width:180px;height:41px;border:0;border-bottom:1px solid #717171;font-size:15px;font-weight:400;color:#333;letter-spacing:0.03em;}
+		.date_check_box form .date_check_calendar input:first-of-type{margin-right:10px;}
+		.date_check_box form .date_check_calendar input:last-of-type{margin-left:10px;}
+		.date_check_box form button{background:none;width:71px;height:41px;line-height:41px;box-sizing:border-box;border:0;padding:0;margin:0;font-size:14px;font-weight:bold;color:#fff;background-color:#C6A277;min-width:auto;border:0;}
+		.date_check_box form button:hover{font-size:14px;font-weight:bold;color:#fff;background-color:#C6A277;border:0;}
+		.date_check_box form button:hover em{font-size:14px;font-weight:bold;color:#fff;background-color:#C6A277;border:0;}
+		.date_check_box form button em{padding:0;background:none;font-size:14px;font-weight:bold;border:0;display:block;line-height:1;}
+		.date_check_calendar .anniversary{background:url("../../img/member/icon_calendar.svg") no-repeat right center !important;}
+	</style>
+
+</head>
+
+<body class="{userBodyClass}" <!--{=gd_copy_protect()}--> >

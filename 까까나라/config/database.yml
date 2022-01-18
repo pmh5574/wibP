@@ -1,0 +1,12 @@
+master :
+  host: promalldb38.godomall.com
+  username: marketh3333
+  password: rkrkskfk012
+  database: marketh3_godomall_com
+  port: 3306
+slave1 :
+  host: promalldb38.godomall.com
+  username: marketh3333
+  password: rkrkskfk012
+  database: marketh3_godomall_com
+  port: 3306

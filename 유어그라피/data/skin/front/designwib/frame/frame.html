@@ -1,0 +1,195 @@
+{*** 프레임_step1 | proc/frame.php ***}
+{ # header }
+
+<!-- 디자인위브 추가 -->
+<link type="text/css" rel="stylesheet" href="../wib/css/wib-frame.css?v=2"/>
+<link type="text/css" rel="stylesheet" href="../wib/css/wib-frame-mobile.css?v=2">
+<link type="text/css" rel="stylesheet" href="./css/cropper.css?v=2"/>
+<link type="text/css" rel="stylesheet" href="./css/frame.css?v=2"/>
+<link type="text/css" rel="stylesheet" href="../wib/css/wib-frame-cart.css?v=2"/>
+<script type="text/javascript" src="../wib/js/wib-frame.js?v=3"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.8.7/polyfill.min.js"></script>
+<script type="text/javascript" src="./js/dropzone.js"></script>
+
+<!-- 프레임 상단 -->
+<div id="frame_header">
+	<div class="f_header_all container">
+		<!-- 로고 -->
+		<div class="f_logo">
+			<!--{ @dataBanner('2102749213') }-->{.tag}<!--{ / }-->
+		</div>
+		<!--// 로고 -->
+                <!-- 메뉴버튼 -->
+		<div class="f_side_btn">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<!--// 메뉴버튼 -->
+		<!-- 네비 -->
+		<div class="f_navi">
+			<ul class="inline">
+				<li class="on mon"><span data-num="1.">시작</span></li>
+				<li><span data-num="2.">이미지업로드</span></li>
+				<li><span data-num="3.">사이즈</span></li>
+				<li><span data-num="4.">프레임</span></li>
+				<li><span data-num="5.">매트보드</span></li>
+				<li><span data-num="6.">투명커버</span></li>
+				<li><span data-num="7.">최종확인</span></li>
+			</ul>
+		</div>
+		<!--// 네비 -->
+		<!-- 장바구니 -->
+		<div class="f_cart">
+			<a href="../order/cart.php">CART<span>{=dataCartGoodsCnt()}</span></a>
+		</div>
+		<!--// 장바구니 -->
+	</div>
+</div>
+<!--// 프레임 상단 -->
+
+<!-- 프레임 컨텐츠 -->
+<div id="frame_wrap">
+	<div class="frameContent container">
+            <section id="frameStart" class="">
+                <div class="frame_select_wrap">
+                    <div class="frame_select_all">
+                        <!-- 프레임 시작 -->
+                        {=includeFile('frame/start.html')}
+                    </div>
+                </div>
+            </section>
+            
+            <section id="content" class="hidden">
+                <!-- 프레임 시작 -->
+                {=includeFile('frame/content.html')}
+            </section>
+            
+            <section id="frame_cart_wrap" class="hidden inline">
+                <div id="cart_info_box">
+                    <div class="frame_wrap">
+                        <!-- 프레임 시작 -->
+                        {=includeFile('frame/cart.html')}
+                    </div>
+                </div>
+                <!-- 최종 결제 금액 -->
+                <div id="cart_total_price">
+                    <h1>최종결제 금액</h1>
+                    <ul>
+                        <li class="total_price">
+                            <p class="tit">총 <span>1</span>개의 상품금액</p>
+                            <p class="cont shPrice">0원</p>
+                        </li>
+                        <li>
+                            <p class="tit">배송비</p>
+                            <p class="cont">2,500원</p>
+                        </li>
+                        <li class="total_ptice total_price">
+                            <p class="tit">총 합계 금액</p>
+                            <p class="cont"><strong>0</strong>원</p>
+                        </li>
+                    </ul>
+                    <button type="button" class="order_now_btn">상품 주문하기</button>
+                </div>
+                <!--// 최종 결제 금액 -->
+            </section>
+	</div>
+</div>
+<!--// 프레임 컨텐츠 -->
+
+<!-- 프레임 하단 -->
+<div id="frame_footer">
+	<div class="f_footer_all container">
+		<!-- 배송안내 -->
+		<div class="delivery_txt inline">
+			<h3>배송예정일</h3>
+			<p>{deliDate} 이내 발송예정입니다</p>
+		</div>
+		<!--// 배송안내 -->
+                <div class="right_txt hidden">
+                    <!-- 액자명 -->
+                    <div class="frame_name">
+                        <h3 class="name">{goodsView['goodsNm']}</h3>
+                        <p class="color">{goodsView['coreColor']}</p>
+                    </div>
+                    <!--// 액자명 -->
+                    <div class="total_price">
+                        <p><strong>0</strong> won</p>
+                    </div>
+		</div>
+	</div>
+</div>
+
+
+<!-- 업로드 팝업 -->
+<div class="pop upload_pop">
+    <span class="pop_close"></span>
+    <div class="upload_all">
+        <div class="tit">
+            <h1>업로드할 사진 선택</h1>
+            <p>업로드 가능한 이미지 파일은 JPEG, PNG, GIF파일입니다.</p>
+        </div>
+        <form action="/frame/upload.php" class="dropzone file" id="my-awesome-dropzone">
+            <div class="file_all file_up">
+                <img src="../wib/img/icon/icon_upload.png" alt="업로드"/>
+                <p>
+                    Drag & Drop으로 기능으로 사진을 끌어서<br/>
+                    첨부하거나 버튼을 클릭하세요
+                </p>
+                <div class="dz-message needsclick">
+                    <button type="button" class="file_btn dz-button">업로드할 파일 선택</button>
+                </div>
+            </div>
+            <div class="file_all file_down" style="display:none;">
+                <p class="loading"><strong>26</strong> %</p>
+                <div class="loading_bar">
+                    <span></span>
+                </div>
+                <p class="txt"></p>
+            </div>
+        </form>
+        
+    </div>
+</div>
+<!--// 업로드 팝업 -->
+
+<div class="pop frame_info_pop"></div>
+
+<div class="pop frame_video_pop"></div>
+
+
+<div class="dark_bg"></div>
+
+
+<script>
+Dropzone.autoDiscover = false;
+var textHook;
+var num = 0;
+var maxNum = 0;
+var basicGoodsNo = '{basicGoodsNo}';
+var basicColor = '{basicColor}';
+var manPrice = {manPrice};
+var goodsViewJson = {goodsViewJson};
+
+var framePriceInfo = {
+    'borderSum' : 0,    // 네변의 합
+    'ross' : 100,       // 로스길이
+    'oriLength' : goodsViewJson.oriLength,    // 원봉길이
+    'oriPrice' : goodsViewJson.oriPrice,     // 원봉단가
+    'manPrice' : goodsViewJson.manPrice,     // 인건비
+    'perPrice' : 0,      // 마진율
+    'settlePrice' : 0
+};
+</script>
+
+<!--// 프레임 하단 -->
+<script src="./js/canvasToblob.js?v=2"></script>
+<script src="./js/cropper.js?v=2"></script>
+<script src="./js/FrameComponent.js?v=4"></script>
+<script src="./js/FrameManager.js?v=4"></script>
+<script>
+    var Frame = new Object();
+    Frame = $.extend(true, {}, FrameManager, FrameComponent);
+    Frame.init();
+</script>
+{ # footer }

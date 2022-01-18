@@ -1,0 +1,4 @@
+DirectoryIndex index.php
+RewriteEngine off
+php_value session.auto_start 0
+php_value max_input_vars 10000

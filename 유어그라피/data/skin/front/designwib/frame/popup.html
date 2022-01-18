@@ -1,0 +1,80 @@
+<span class="pop_close"></span>
+<div class="frame_info_all">
+    <div class="tit">
+        <h1>프레임 정보</h1>
+    </div>
+    <div class="list">
+        <div class="img_list">
+            <ul class="img_list_cont">
+                <!--{ @ goodsView.image.detail.img }-->
+                    <li>{.value_}</li>
+                <!--{/}-->
+            </ul>
+            <ul class="img_list_nav">
+                <!--{ @ goodsView.image.detail.img }-->
+                    <li>{.value_}</li>
+                <!--{/}-->
+            </ul>
+        </div>
+        <ul class="info_list">
+            <li>
+                <div class="style_info inline">
+                    <h3>컬러 및 스타일</h3>
+                    <div>
+                        <p>컬러 : <span>{goodsView['coreColor']}</span></p>
+                        <p>형태 : <span>{goodsView['coreType']}</span></p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="order_info inline">
+                    <h3>액자 정보</h3>
+                    <div>
+                        <p>면 두께 : <span>{goodsView['frontSize']}mm</span></p>
+                        <p>측면 두께 : <span>{goodsView['sideSize']}mm</span></p>
+                        <p>프레임 내부 깊이 : <span>{goodsView['innerSize']}mm</span></p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="stock_info inline">
+                    <h3>재고</h3>
+                    <div>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    //프레임 슬라이드
+    var frameNav = $('.frame_info_pop .list ul.img_list_nav');
+    var frameCont = $('.frame_info_pop .list ul.img_list_cont');
+
+    frameCont.slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: true,
+        asNavFor: frameNav,
+        responsive: [
+            {
+                breakpoint: 960,
+                settings: {
+                    slidesToShow: 1,
+                    arrows: false
+                }
+            }
+        ]
+    });
+
+    frameNav.slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        arrows: false,
+        asNavFor: frameCont,
+        dots: false,
+        focusOnSelect: true
+    });
+</script>

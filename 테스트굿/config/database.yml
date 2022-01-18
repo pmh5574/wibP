@@ -1,0 +1,12 @@
+master: 
+  host: promalldb24.godomall.com
+  port: 3306
+  username: tegut01
+  password: tegut69051
+  database: tegut01_godomall_com
+slave1:
+  host: promalldb24.godomall.com
+  port: 3306
+  username: tegut01
+  password: tegut69051
+  database: tegut01_godomall_com

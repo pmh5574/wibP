@@ -1,0 +1,115 @@
+<!-- 팝업창 -->
+<div class="gohash" data-sno="{sno}">
+	<style>
+        .gopop{
+            position: absolute;
+            margin: 0px;
+            top: 5%;
+            left: 601.5px;
+            width: 700px;
+            background: white;
+        }
+		div .mline{
+			margin-right: 20%;
+		}
+        .btable{
+            display: table;
+        }
+
+		div .lfline{
+            display: table-cell;
+			float: left;
+			/*margin-left: 30%;*/
+            background: white;
+		}
+
+		div .lfline .st{
+			color: #ffcc00;
+		}
+
+		div .rgline{
+            display: table-cell;
+			float: right;
+			/*margin-right: 45%;*/
+		}
+
+		div .rgline .gname{
+			margin-bottom: 10%;
+		}
+        .ly_close{
+            right: 0px;
+            padding: 10px;
+        }
+        .ly_close{
+            display: block;
+            position: absolute;
+            top: 0px;
+        }
+        .tcont{
+            min-height: 50px;
+            font-size: 18pt;
+            margin: 15px 0 15px 0;
+            padding: 10px 20px 0 20px;
+        }
+	</style>
+
+	<div class="gopop">	
+		<div class="gogopop">
+			<!--{ @ result }-->
+				<div class="mline">
+					<span class="goimage"><img src="/data/plus_review/{.goodsNo}/t/square_{.saveFileNm}"></span>
+                </div>
+                <div class="btable">
+                    <div class="lfline">
+                        { @ .popimage}
+                            <div class="lfimage"><img src="/data/goods/{.imagePath}{..imageName}"></div>
+                        { / }	
+                        <div class="pavg">
+                            평점 {.avgpt} 리뷰 {.pophap}
+                        </div>
+                        <!--{ ? .goodsPt > 0 }-->
+                            <div class="st"><!--{ @range(1,.goodsPt) }-->★<!--{/}--></div>				
+                        <!--{ / }-->
+                    </div>
+                    <div class="rgline">
+                        <div class="gname"><strong>{.goodsNm}</strong></div>
+                        <div class="tcont">{.contents}</div>
+                        <div class="cn">추천:0 &nbsp;&nbsp;&nbsp;<button style="border: 1px solid #db83a4; background:#db83a4; color:white; font-size:11px; text-align:center;">추천하기</button></div>
+                    </div>	
+                </div>			
+			<!--{ / }-->
+        </div>
+        <a href="#close" class="ly_close layer_close"><img src="../img/common/layer/btn_layer_close.png" alt="{=__('닫기')}"></a>
+    </div>
+    
+    
+</div>
+<script>
+    $(function(){
+        $('.gohash').on('click','.layer_close',function(){
+            $('.ppp').addClass('en');
+            $('.hhere').addClass('en').delay(1000);            
+        });
+
+        $(document).mousedown(function(e){
+            $('.gohash').each(function(){
+                //console.log($(this));
+                if( $(this).css('display') == 'block' )
+                {
+                    var l_position = $(this).offset();
+                    l_position.right = parseInt(l_position.left) + ($(this).width());
+                    l_position.bottom = parseInt(l_position.top) + parseInt($(this).height());
+
+                    if( ( l_position.left <= e.pageX && e.pageX <= l_position.right )
+                        && ( l_position.top <= e.pageY && e.pageY <= l_position.bottom ) )
+                    {
+                    }
+                    else
+                    {
+                        $(this).find('.layer_close').trigger('click');
+                    }
+                }
+            });
+        });
+    });
+</script>

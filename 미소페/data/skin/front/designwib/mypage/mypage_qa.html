@@ -1,0 +1,20 @@
+{*** 마이페이지 > 1:1문의 | mypage/mypage_qa.php ***}
+{ # header }
+
+<div class="content">
+	<script>
+		// FAQ 아이프레임 제어
+		$(function(){
+			$("iframe").load(function() {
+				$(".myI").contents().find("html").addClass("my");
+			});
+		});
+	</script>
+	<link type="text/css" rel="stylesheet" href="{=setBrowserCache('../wib/css/wib-mypage.css')}">
+    <div class="mypage_cont">
+    <iframe name="ifrmMyPage" class="myI" src="../board/list.php?bdId={bdId}&noheader=y&memNo={memNo}" width='100%' height='100%' marginwidth='0' marginheight='0' frameborder='no' scrolling='no' onload='gd_resize_frame(this)' ></iframe>
+    </div>
+    <!-- //mypage_cont -->
+</div>
+<!-- //content -->
+{ # footer }

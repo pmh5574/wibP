@@ -1,0 +1,240 @@
+{*** 상단 기본파일 | main/index.php ***}
+
+<div id="w-header"> <!-- w265 -->
+	<h1>
+		<!--{ @dataBanner('2276658052') }-->{.tag}<!--{ / }-->
+	</h1>
+
+	<div class="category-area">
+		<!-- 상단 카테고리 출력 시작 -->
+		{=includeWidget('proc/category_side', 'type', 'top','cateType','cate','menuType','all')}
+		<!-- 상단 카테고리 출력 끝 -->
+	</div>
+
+	<div class="bottom">
+		<div class="cs-area">
+			<dl>
+				<dt>온라인상품 / 배송문의</dt>
+				<dd>1577<i>·</i>7650</dd>
+			</dl>
+			<dl>
+				<dt>매장 상품구매 / 불만사항</dt>
+				<dd>1577<i>·</i>5499</dd>
+			</dl>
+			<ul>
+				<li>평일 AM10:00 ~ PM17:00</li>
+				<li>점심 PM12:00 ~ PM13:00</li>
+				<li>주말 및 공휴일은 휴무입니다.</li>
+			</ul>
+		</div>
+
+		<div class="today-area">
+			<p>TODAY VIEW</p>
+			<div class="recent-product swiper-container">
+				<img src="../../wib/img/no-product.png" class="no-product" alt="최근 본 상품이 없습니다." />
+				<!--{ @ dataTodayGoods(8) }-->
+				<ul class="swiper-wrapper">
+					<!--{ @ .value_ }-->
+					<li class="swiper-slide">
+						<a href="../goods/goods_view.php?goodsNo={..goodsNo}">
+							<img src="{=..goodsImageSrc}">
+						</a>
+					</li>
+					<!--{ / }-->
+				</ul>
+				<!--{ / }-->
+			</div>
+			<div class="arrow prev swiper-button-disabled"></div>
+			<div class="arrow next"></div>
+			<script>
+				$(function(){
+					$(".recent-product > ul").eq(1).remove();
+				});
+			</script>
+		</div>
+	</div>
+</div>
+
+<div id="w-header-top">
+	<div class="inner">
+		<div class="left">
+			<ul>
+				<li>
+					<a href="/goods/goods_list.php?cateCd=024">Best</a>
+				</li>
+				<li>
+					<a href="/goods/goods_list.php?cateCd=025">New</a>
+				</li>
+				<li>
+					<a href="../goods/event_sale.php?sno=45">Sale</a>
+				</li>
+				<li>
+					<a href="/board/list.php?bdId=lookbook">Brand</a>
+				</li>
+			</ul>
+		</div>
+		<div class="middle">
+			{=includeWidget('proc/_header_search.html')}
+			<div class="rank-area">
+				<ul>
+					<li class="popular-rank" data-index="1"><a href="/goods/goods_search.php?adUrl=%2F&keyword=로퍼">로퍼</a></li>
+					<li class="popular-rank" data-index="2"><a href="/goods/goods_search.php?adUrl=%2F&keyword=남성화">남성화</a></li>
+					<li class="popular-rank" data-index="3"><a href="/goods/goods_search.php?adUrl=%2F&keyword=블로퍼">블로퍼</a></li>
+					<li class="popular-rank" data-index="4"><a href="/goods/goods_search.php?adUrl=%2F&keyword=옥스포드">옥스포드</a></li>
+					<li class="popular-rank" data-index="5"><a href="/goods/goods_search.php?adUrl=%2F&keyword=스니커즈">스니커즈</a></li>
+					<li class="popular-rank" data-index="6"><a href="/goods/goods_search.php?adUrl=%2F&keyword=캐주얼">캐주얼</a></li>
+					<li class="popular-rank" data-index="7"><a href="/goods/goods_search.php?adUrl=%2F&keyword=펌프스">펌프스</a></li>
+					<li class="popular-rank" data-index="8"><a href="/goods/goods_search.php?adUrl=%2F&keyword=양가죽 로퍼">양가죽 로퍼</a></li>
+					<li class="popular-rank" data-index="9"><a href="/goods/goods_search.php?adUrl=%2F&keyword=5cm">5cm</a></li>
+					<li class="popular-rank" data-index="10"><a href="/goods/goods_search.php?adUrl=%2F&keyword=슬링백">슬링백</a></li>
+				</ul>
+				<a href="javascript:;" class="search-area-open">
+					<img src="../../wib/img/ranking-select-bg.png" alt="추천검색어 열기" />
+				</a>
+			</div>
+			<div class="rank-area-view">
+				<p>추천 검색어 <a href="javascript:;" class="search-area-close"><img src="../../wib/img/ranking-select-bg.png" alt="추천검색어 닫기" /></a></p>
+				<div class="ul-wrap"></div>
+				<script>
+					$(function(){
+						$(".rank-area ul").clone().appendTo(".rank-area-view .ul-wrap");
+						$(".rank-area-view .ul-wrap *").removeAttr("style");
+					})
+				</script>
+			</div>
+		</div>
+		<div class="right">
+			<ul>
+				<!-- <li><a href="../member/login.php">{=__('로그인')}</a></li> -->
+				<li class="my-page">
+					<a href="/member/login">
+						<span>10% COUPON</span>
+						<img src="../../wib/img/h-right-icon01.png" alt="혜택" />
+					</a>
+					<!--{ ? gd_is_login() === false }-->
+					<i>로그인&회원가입</i>
+					<!--{ : }-->
+					<ul>
+						<li>
+							<a href="../mypage/index.php">마이페이지</a>
+						</li>
+						<li>
+							<a href="/mypage/mileage.php">적립금 내역</a>
+						</li>
+						<li>
+							<a href="/mypage/coupon.php">쿠폰 내역</a>
+						</li>
+						<li>
+							<a href="/mypage/mypage_qa.php">1:1문의</a>
+						</li>
+						<li>
+							<a href="../member/logout.php">로그아웃</a>
+						</li>
+					</ul>
+					<!--{ / }-->
+				</li>
+				<li>
+					<a href="/mypage/order_list.php">
+						<img src="../../wib/img/h-right-icon02.png" alt="주문조회" />
+					</a>
+					<i>주문조회</i>
+				</li>
+				<li>
+					<a href="/service/index.php">
+						<img src="../../wib/img/h-right-icon03.png" alt="고객센터" />
+					</a>
+					<i>고객센터</i>
+				</li>
+				<li>
+					<a href="/order/cart.php">
+						<img src="../../wib/img/h-right-icon04.png" alt="장바구니" />
+						<em>{=dataCartGoodsCnt()}</em>
+					</a>
+					<i>장바구니</i>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<span class="btn_scroll_top">
+    <a href="#" class="go-top">
+        <img src="../../wib/img/top-btn.png">
+    </a>
+</span>
+
+<div id="header" style="display:none;">
+
+    <div class="header_top">
+        <div class="header_top_cont">
+
+            <!-- 멀티상점 선택 -->
+            {=includeWidget('proc/_global_select.html')}
+            <!-- 멀티상점 선택 -->
+
+            <ul class="top_member_box">
+                <!--{ ? gd_is_login() === false }-->
+                <li><a href="../member/login.php">LOGIN</a><span class="txt_bar"></span></li>
+                <li><a href="../member/join_method.php">JOIN</a><span class="txt_bar"></span>
+                    <!--<span class="accent">
+                        <span><strong>2,000 P</strong></span>
+                    </span>-->
+                </li>
+                <!--{ : }-->
+                <li><a href="../member/logout.php?returnUrl={=logoutReturnUrl}">LOGOUT<script type="text/javascript">var _id='{=gSess.memId}';</script></a><span class="txt_bar"></span></li>
+                <!--{ / }-->
+                <li>
+                    <div class="top_mypage_cont">
+                        <span class="top_mypage_tit"><a href="../mypage/index.php">MYPAGE</a></span>
+                        <ul style="display:none;">
+                            <li><a href="../mypage/order_list.php">{=__('주문조회')}</a></li>
+                            <li><a href="../mypage/my_page_password.php">{=__('내정보수정')}</a></li>
+                            <li><a href="../mypage/wish_list.php">{=__('찜 리스트')}</a></li>
+                            <li><a href="../mypage/mypage_qa.php">1:1 {=__('문의')}</a></li>
+                        </ul>
+                    </div>
+                    <span class="txt_bar"></span>
+                </li>
+                <li><a href="../order/cart.php">{=__('장바구니')}( <strong>{=dataCartGoodsCnt()}</strong> )</a><span class="txt_bar"></span></li>
+                <li><a href="../service/index.php">{=__('고객센터')}</a></li>
+            </ul>
+
+        </div>
+        <!-- //header_top_cont -->
+    </div>
+    <!-- //header_top -->
+    <div class="header_search">
+        <div class="header_search_cont">
+            <div class="h1_logo"><!--{ @dataBanner('4238483832') }-->{.tag}<!--{ / }--></div>
+
+            <!-- 검색 폼 -->
+            {=includeWidget('proc/_header_search.html')}
+            <!-- 검색 폼 -->
+
+        </div>
+        <!-- //header_search_cont -->
+    </div>
+    <!-- //header_search -->
+    <div class="header_gnb">
+
+
+        <div class="gnb">
+            <!-- 전체 카테고리 출력 레이어 시작 -->
+            {=includeWidget("proc/category_all.html")}
+            <!-- 전체 카테고리 출력 레이어 끝 -->
+
+            <!-- 상단 카테고리 출력 시작 -->
+            {=includeWidget('proc/category_side', 'type', 'top','cateType','cate','menuType','all')}
+            <!-- 상단 카테고리 출력 끝 -->
+
+            <!--스크롤 게시글 시작-->
+            {=includeWidget('board/board_article_scrolling', 'bdId', noticeBdId, 'listCount', 10, 'strCut', 15)}
+            <!--스크롤 게시글 끝-->
+
+        </div>
+        <!-- //gnb -->
+
+        <!-- //gnb_allmenu -->
+    </div>
+    <!-- //header_gnb -->
+</div>
+<!-- //header -->

@@ -1,0 +1,12 @@
+master :
+  host: promalldb32.godomall.com
+  username: hanw1847
+  password: hlcc6364
+  database: hanwhalnc_godomall_com
+  port: 3306
+slave1 :
+  host: promalldb32.godomall.com
+  username: hanw1847
+  password: hlcc6364
+  database: hanwhalnc_godomall_com
+  port: 3306

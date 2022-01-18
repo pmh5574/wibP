@@ -1,0 +1,43 @@
+{*** 기획전 | main/index.php ***}
+{ # header }
+<div class="content">
+    <div class="goods_event_sale">
+        <div class="goods_event_sale_cont">
+            <!--{ ? displayCategoryType == 'g' }-->
+            <!-- 기획전 그룹형 상품 노출 -->
+            {=includeWidget('goods/_goods_display_group_main.html','sno',sno)}
+            <!-- 기획전 그룹형 상품 노출 -->
+            <!--{ : }-->
+            <!-- 기획전 일반형 상품 노출 -->
+            {=includeWidget('goods/_goods_display_main.html','sno',sno,'viewType','all')}
+            <!-- 기획전 일반형 상품 노출 -->
+            <!--{ / }-->
+        </div>
+        <!-- //goods_event_sale_cont -->
+    </div>
+    <!-- //goods_event_sale -->
+</div>
+<!-- //content -->
+
+<div class="event_bottom">
+    <div class="inner">
+        <div class="inner_top">
+            <h2 class="tit">다른 기획전</h2>
+            <div class="event_btn">
+                <div class="event-button-prev"></div>
+                <div class="event-button-next"></div>
+            </div>
+        </div>
+        <div class="inner_bottom swiper-container">
+            <ul class="more_content swiper-wrapper">
+                <!--{ @ otherEvent }-->
+                    <!--{ ? .statusText == '진행중' }-->
+                        <li class="swiper-slide"><a href="/goods/event_sale.php?sno={.sno}"><img src="/data/display/{.event_thumbnail}" alt="{.event_thumbnail}"></a></li>
+                    <!--{ / }-->
+                <!--{ / }-->
+            </ul>
+        </div>
+    </div>
+</div>
+
+{ # footer }

@@ -1,0 +1,17 @@
+#wrap #contents {width: 96%; }
+
+/* 약관 , 이용안내 */
+#contents .titleArea {padding-bottom: 0;}
+#contents .titleArea h2.tit2 {font-style: normal; display: block; border-bottom: 1px solid #999;padding-bottom: 10px !important;font-size: 30px !important;}
+#contents .ec-base-box.typeThinBg {border: none;background: none;padding: 0;}
+#contents .ec-base-box.typeThinBg > .agree {border: none;padding:0;}
+#contents .ec-base-box.typeThinBg > .agree h3 {font-weight: 400;color: #333 !important;font-size: 12px;margin-top: 20px !important}
+#contents .ec-base-box.typeThinBg > .agree font span {color: #333 !important;line-height: 1.5;font-size: 12px;}
+
+#contents .ec-base-box.typeThinBg > .agree p {}
+#contents .ec-base-box.typeThinBg > .agree p font {font-size: 12px !important; font-weight: 400 !important;}
+#contents .ec-base-box.typeThinBg > .agree p b {font-weight: 400;}
+
+#contents .xans-mall-faq .cont {padding: 0;color: #333;}
+#contents .xans-mall-faq .cont h3 {margin: 20px 0 10px;font-weight: 400;font-size: 12px;color: #333;}
+#contents .ec-base-box.typeThinBg > .agree {padding-top: 30px;}

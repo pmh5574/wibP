@@ -1,0 +1,91 @@
+{*** 쇼핑몰 메인본문 | main/index.php ***}
+{ # header }
+{=includeWidget('proc/_populate.html', 'sno', '100')}
+<style>html,body {background: #000}</style>
+<script type="text/javascript" src="../wib/js/snowfall.jquery.js"></script>
+<script type="text/javascript" src="../wib/js/snowfall.js"></script> 
+
+<script type="text/javascript">
+    <!-- 페이지 호출 시 실행 -->
+    $(document).ready(function(){
+        $(document).snowfall({
+            image :"flake.png", 
+            minSize: 3, 
+            maxSize:10, 
+            flakeCount : 120
+        });
+        
+
+    });
+</script>
+<script type="text/javascript" src="../wib/js/mainTimesale.js"></script>
+
+<div class="main_visual">
+    {=includeWidget('proc/_slider_banner.html', 'bannerCode', '511517418')}
+</div>
+<!-- //main_visual -->
+<div class="main_content">
+    
+    <!--timesale s-->
+    <div id="timesaleSno" data-sno="1"></div>
+    <!--timesale e-->
+    
+    <div class="main_slide_ban">
+        <div class="main_slide">
+            <!--{ @dataBanner('378864211') }-->{.tag}<!--{ / }-->
+        </div>
+        <!-- //main_slide -->
+
+        <div class="main_banner">
+            <div class="main_ban_img01">
+                <!--{ @dataBanner('735864301') }-->{.tag}<!--{ / }-->
+            </div>
+            <div class="main_ban_img02">
+                <!--{ @dataBanner('3959528376') }-->{.tag}<!--{ / }-->
+            </div>
+            <div class="main_ban_img03">
+                <!--{ @dataBanner('701821562') }-->{.tag}<!--{ / }-->
+            </div>
+        </div>
+        <!-- //main_banner -->
+    </div>
+    <!-- //main_slide_ban -->
+    <div class="main_goods_cont">
+    <!-- 설문조사 배너 -->{=pollViewBanner()}<!-- 설문조사 배너 -->
+    </div>
+    <div class="main_goods_cont">
+        <!-- 메인 상품 노출 -->{=includeWidget('goods/_goods_display_main.html', 'sno', '1')}<!-- 메인 상품 노출 -->
+    </div>
+    <!-- //main_goods_cont -->
+
+    <div class="main_cont_slide_ban">
+        <div class="main_cont_slide">
+            {=includeWidget('proc/_slider_banner.html', 'bannerCode', '3040312042')}
+        </div>
+        <!-- //main_cont_slide -->
+    </div>
+    <!-- //main_cont_slide_ban -->
+
+    <div class="main_goods_cont">
+        <!-- 메인 상품 노출 -->{=includeWidget('goods/_goods_display_main.html', 'sno', '2')}<!-- 메인 상품 노출 -->
+        <!-- 메인 상품 노출 -->{=includeWidget('goods/_goods_display_main.html', 'sno', '3')}<!-- 메인 상품 노출 -->
+    </div>
+    <!-- //main_goods_cont -->
+</div>
+<!-- //main_content -->
+
+<div class="mkk">tts</div>
+<script>
+    $('.mkk').on('click', function(){
+        $.ajax({
+            url : 'http://www.kurly.com/shop/proc/ajax_address_chk.php',
+            //method : 'post',
+            data : { address : '서울 관악구 신림동 726-5', zipcode : '08864', zonecode : '08864' },
+            seccess : function(msg){
+                console.log(msg);
+            }
+        });
+    });
+</script>
+
+{ # footer }

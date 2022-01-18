@@ -1,0 +1,12 @@
+master: 
+  host: promalldb10.godomall.com
+  port: 3306
+  username: ipcltd1
+  password: Kenwood2611
+  database: ipcltd1_godomall_com
+slave1:
+  host: promalldb10.godomall.com
+  port: 3306
+  username: ipcltd1
+  password: Kenwood2611
+  database: ipcltd1_godomall_com

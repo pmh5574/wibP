@@ -1,0 +1,149 @@
+#wrap #contents {width: 100%;padding: 0;}
+
+/*
+color:#00f530;
+*/
+
+/* 배너 공통 */
+.maincon-wrap .banner_image {width: 100%;height: auto;}
+.con-bg img {width: 100%;}
+/* 비디오 공통 */
+lSPager.lSGallery{ display:none;}
+
+.video-wrap, video-wrap1 {position:relative; padding-bottom:65.25%; padding-top:30px; height:0; overflow:hidden; z-index: -1;}
+.video-wrap iframe,
+.video-wrap object,
+.video-wrap embed {position:absolute; top:0; left:0; width:100%; height:100%;}
+
+.video-wrap2 {position:relative; padding-bottom:54.7%; padding-top:30px; height:0; overflow:hidden; z-index: -1;}
+.video-wrap2 iframe,
+.video-wrap2 object,
+.video-wrap2 embed {position:absolute; top:0; left:0; width:100%; height:100%;}
+
+/* 비디오01 */
+.mcon01.video-wrap {padding-bottom: 45%}
+
+/* content02 */
+.mcon02 .txt-box {position: absolute;right: 40px;bottom: 80px;text-align: right;color: #00f530;font-style: italic;}
+.mcon02 .txt-box h3 {font-size: 68px;font-weight: bold;font-family: 'Times New Roman' !important;letter-spacing: -2px;}
+.mcon02 .txt-box p {font-size: 23px;font-weight: bold;letter-spacing: -1px;}
+.mcon02 .txt-box p:nth-of-type(1) {padding: 30px 0 22px;}
+
+/* content04 */
+.mcon04 .txt-box {position: absolute;bottom: 60px;left: 40px;}
+.mcon04 .txt-box h3 {font-size: 65px;font-style: italic;letter-spacing: -2px;}
+.mcon04 .txt-box h3 strong {font-weight: 900;}
+.mcon04 .txt-box p {font-size: 41px;font-family: 'Georgia';letter-spacing: -1px;}
+.mcon04 .txt-box p:nth-of-type(1) {padding: 50px 0;}
+.mcon04 .txt-box p strong,
+.mcon04 .txt-box p em {border-bottom: 3px solid #000; font-weight: 900; }
+.mcon04 .txt-box p strong:hover,
+.mcon04 .txt-box p em:hover {border-bottom: 3px solid blue; color: blue;}
+
+/* content06 */
+.mcon06 {background: #fff; font-size: 0;}
+.mcon06 .left-con {padding:40px 0 0 40px;box-sizing: border-box;width: 50%;float: left;}
+.mcon06 .left-con .top-txt h3 {font-size: 38px;font-weight: 400;letter-spacing: -1px;}
+.mcon06 .left-con .top-txt h3 strong {font-weight: 900;}
+.mcon06 .left-con .top-txt p {font-size: 33px;font-weight:bold;font-style: italic;padding: 50px 0 20px;letter-spacing: -1px;}
+.mcon06 .buybtn {width: 320px;height: 77px;line-height: 77px;text-align: center;display: inline-block;background: #000;font-size: 32px;font-weight: 900;letter-spacing: -2px;color: #fff;font-style: italic;}
+.mcon06 .left-con .bottom-txt {font-style: italic; padding-top: 25%;}
+.mcon06 .left-con .bottom-txt h4 {font-size: 75px;font-weight: 900;letter-spacing: -1px;padding-bottom: 60px;}
+.mcon06 .left-con .bottom-txt p {font-size:45px;font-weight: 400;letter-spacing: -1px; }
+
+.mcon06 .right-con {width: 50%;display: inline-block;clear: both;}
+.mcon06 .right-con .slick-arrow {z-index: 1; }
+.mcon06 .right-con .slick-arrow.slick-prev {width: 32px;display: block;top: 50%;height: 32px;background-image: url(/wib/img/icon/controls.png);cursor: pointer;position: absolute;z-index: 99;margin-top: -16px;opacity: 0.5;-webkit-transition: opacity 0.35s linear 0s;transition: opacity 0.35s linear 0s;left: 10px;}
+.mcon06 .right-con .slick-arrow.slick-next {width: 32px;display: block;top: 50%;height: 32px;background-image: url(/wib/img/icon/controls.png);cursor: pointer;position: absolute;z-index: 99;margin-top: -16px;opacity: 0.5;-webkit-transition: opacity 0.35s linear 0s;transition: opacity 0.35s linear 0s;right: 10px;transform: rotate(180deg);}
+.mcon06 .right-con .slick-prev:before,
+.mcon06 .right-con .slick-next:before {display: none;}
+
+/* content08 */
+.mcon08 {font-size: 0;}
+
+/* content09 */
+.mcon09 {padding-bottom: 30px;background: #fff;}
+.mcon09 .txt-box {position: absolute; left: 40px; top: 40px;}
+.mcon09 .txt-box h3 {font-size: 33px;font-style: italic;letter-spacing: -1px;}
+.mcon09 .txt-box p {font-size: 17px;line-height: 1;padding: 20px 0 25px;font-style: italic;font-weight: bold;}
+.mcon09 .txt-box span {display: block; font-size: 17px; font-weight: bold; font-family: 'Noto Sans Mono' !important;}
+.mcon09 .txt-box a {font-style: italic;background: #000;width: 178px;height: 48px;text-align: center;color:#00f530;display: inline-block;line-height: 48px;font-size: 18px;font-weight: 900;margin-top: 19px;}
+
+/* content15 */
+.mcon15 {background: #000; color: #fff;text-align: center;padding: 13% 0 14%;}
+.mcon15 h3 {font-size: 150px;font-weight:400;line-height: 1;padding-bottom: 185px;}
+.mcon15 h3 strong {font-weight: 900;}
+.mcon15 h3 em {font-weight: bold;}
+.mcon15 p {line-height: 37.5px;font-size: 30px;font-weight: 400;width: 75%;margin: 0 auto;font-style: italic;}
+.mcon15 p strong {font-style: normal;font-weight: 400;}
+.mcon15 p strong em {font-weight: 900; font-style: normal;}
+.mcon15 p em {font-weight: bold;}
+.mcon15 p span {padding-top:3.3%;display: block;}
+
+/* content17 */
+.mcon17 {font-size: 0;}
+
+/* content18 */
+.mcon18 {background: #000; padding:31% 0; text-align: center;}
+.mcon18 p {font-size: 30px;font-weight: 400;line-height: 37.5px;color: #fff;font-style: italic;}
+.mcon18 p span {font-style: normal;}
+.mcon18 p span strong {font-weight: 900;}
+
+/* content19 */
+.mcon19 {font-size: 0;}
+
+/* content21 */
+.mcon21 {font-size: 0;}
+
+/* content22 */
+.mcon22 {text-align: center;background: #00ff32;line-height: 1;padding: 30% 0 13.2%;}
+.mcon22 h3 {font-size: 38px;font-style: italic;display: block;letter-spacing: -1px;}
+.mcon22 p {font-size: 38px;padding-top: 18.4%;letter-spacing: -2px;}
+.mcon22 p strong {font-weight: 900;}
+
+
+
+/* 리사이즈 */
+@media screen and (max-width:1720px){
+    .mcon02 .txt-box {bottom: 40px;}
+    
+    .mcon04 .txt-box p:nth-of-type(1) {padding: 30px 0;}
+}
+
+@media screen and (max-width:1520px){
+    .mcon02 .txt-box {bottom: 30px;}
+    .mcon02 .txt-box p {font-size: 20px;}
+    .mcon02 .txt-box p:nth-of-type(1) {padding: 20px 0 12px}
+    
+    .mcon04 .txt-box h3 {font-size: 55px;}
+    .mcon04 .txt-box p {font-size: 37px;}
+    
+    .mcon06 .left-con .bottom-txt {padding-top: 10%;}
+    .mcon06 .left-con .bottom-txt h4 {padding-bottom: 30px;}
+    .mcon06 .left-con .bottom-txt p {font-size: 35px;}
+    
+    .mcon15 h3 {font-size: 100px;}
+    .mcon15 p {font-size: 28px;}
+    .mcon15 p br {display: none;}
+}
+
+@media screen and (max-width:1380px){
+    .mcon02 .txt-box {bottom: 20px;}
+    .mcon02 .txt-box h3 {font-size: 62px;}
+    .mcon02 .txt-box p {font-size: 18px;}
+    .mcon02 .txt-box p:nth-of-type(1) {padding: 20px 0 12px}
+    
+    .mcon04 .txt-box h3 {font-size: 50px;}
+    .mcon04 .txt-box p:nth-of-type(1) {padding: 20px 0;}
+    .mcon04 .txt-box p {font-size: 32px;}
+}
+
+
+
+
+
+
+
+
+
+

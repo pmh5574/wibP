@@ -1,0 +1,131 @@
+/* 공통 세팅 */
+
+a:hover {
+    text-decoration: none;
+}
+
+#contents,
+.container {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.clearfix:after {
+	content: "";
+	display:block;
+	clear:both;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.inline {
+	font-size: 0;
+}
+
+.inline>*,
+.inline>* {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.relative {
+    position: relative;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.text-one-line {
+    white-space : nowrap;
+    overflow : hidden;
+    text-overflow : ellipsis;
+}
+
+.text-one-line-m {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;    
+}
+
+.easing-one {
+    -khtml-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.easing-two {
+    -khtml-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.easing-three {
+    -khtml-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+/* 버튼 */
+
+#wrap .btn-basic {
+    background: #404040;
+    border: 1px solid #404040;
+    box-sizing: border-box;
+    text-align: center;
+    color: #f1ece8;
+}
+
+#wrap .btn-basic.transparent {
+    border-color: #dbd6d3;
+	background: transparent;
+	color: #404040;
+}
+
+#wrap .btn-basic.gray {
+    border-color: #A2A2A2;
+	background: #A2A2A2;
+	color: #fff;
+}
+
+/* mmic subpage setting */
+.agc_content_box *{ line-height:120%; font-size:18px;}
+.agc_content_box h3{ font-size:72px; line-height:72px; margin-bottom:20px; font-family:'arial black' !important; letter-spacing:-0.03em;}
+.agc_content_box h4{ font-size:35px; line-height:60px; margin-bottom:70px; letter-spacing:-0.03em;}
+.agc_content_box h4 b{ display:block; font-size:65px; letter-spacing:-0.03em;}
+.agc_content_box table{ width:700px; margin:0 auto;}
+.agc_content_box table tr th,
+.agc_content_box table tr td{ font-size:28px; padding:8px 15px;}
+.agc_content_box table tr th{ text-align:right; font-weight:bold;}
+.agc_content_box table tr td{ text-align:left;}
+
+/* mmic 공통 */
+[class^='btnSubmit'], a[class^='btnSubmit'] {background: #000;}

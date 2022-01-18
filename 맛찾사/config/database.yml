@@ -1,0 +1,12 @@
+master: 
+  host: promalldb45.godomall.com
+  port: 3306
+  username: thenature77
+  password: operoper7
+  database: tnfarmers_godomall_com
+slave1:
+  host: promalldb45.godomall.com
+  port: 3306
+  username: thenature77
+  password: operoper7
+  database: tnfarmers_godomall_com

@@ -1,0 +1,199 @@
+<style type="text/css">
+	.goods_search_form {display:none;}
+	.h3_wrap {display:none;}
+</style>
+
+
+<div class="cate_nv page_txnv">
+<!--[ 카테고리 뎁스 네비 ]-->
+<!--{=showCategoryDepth(_GET.code)}-->
+</div>
+
+
+<!--[ 타이틀 ]-->
+<!--{ #common_title }-->
+
+<div class="cate_top_deco">
+<!--[ 카테고리별 상단 꾸미기 HTML ]-->
+<!--{?categoryData.top_html}-->
+	{categoryData.top_html}
+<!--{/}-->
+</div>
+
+<!-- 카테고리 상단 브랜드명이름불러오기--> <div class="cate_decobox bgwt" style="display:none">
+	<!-- <div class="lineh2">
+		<div class="tith2">{=categoryData.title}</div>
+	</div> -->
+</div> 
+
+<!--[ 메인 이미지 ]-->
+<div class="mb20 hide">
+	<img src="../images/common/list_bnr.jpg" width="100%" alt="" />
+</div>
+
+
+
+<!--######################## 17.02.16 gcs yjy : 배너이미지 추가 s  -->
+<div class="zoomcate_outwrap">
+	<div class="zoomcate_wrap clearbox">
+		{@childData}
+		<div class="zoombox catezoom" onclick="location.href='/goods/catalog?code={.category_code}'">
+			<div class="coverbox">
+				<a href="/goods/catalog?code={.category_code}"><img class="banner" src="{.cate_image}" title="" alt=""/></a>
+			</div>
+			<div class="blue_tx">
+				<a href="/goods/catalog?code={.category_code}">{.name}</a>
+			</div>
+		</div>
+		{/}
+	</div>
+	<div class="slider_prev onoff2"><img src="../wib/img/main/btn_prev_off.png" alt=""/></div>
+	<div class="slider_next onoff2"><img src="../wib/img/main/btn_next_off.png" alt=""/></div>
+</div>
+
+<div style="display:none">
+
+	<!--[ 카테고리별 추천상품 출력 ]-->
+	<!--{ ? categoryData.recommend_display_seq }-->
+	<div class="goods_recommend">
+		<h4>추천상품</h4>
+		<div class="mt10">
+			{=showCategoryRecommendDisplay(categoryCode)}
+		</div>
+	</div>
+	<!--{ / }-->
+
+	<!--[ 상품 검색 폼 ]-->
+	<!--{ ? categoryData.search_use=='y' }-->
+	<div class="goods_search_form">
+		{=showGoodsSearchForm(sc)}
+	</div>
+	<!--{ / }-->
+
+</div>
+
+<!--[ 상품 리스트 ]-->
+<!--{ ? categoryData.list_use == 'y' }-->
+<div class="cate_datawrap clearbox">
+	<div class="leftbox clearbox">
+		<div class="goods_lsummary">Total Item<span>{=number_format(page.totalcount)}</span></div>
+		<div class="paging_navigation mt0">
+			<p class="page_tit">Page:</p>
+			<!--{ ? page.first }--><a href="?page={page.first}&amp;{page.querystring}" class="first">◀ 처음</a><!--{ / }-->
+			<!--{ ? page.prev }--><a href="?page={page.prev}&amp;{page.querystring}" class="prev">◀ 이전</a><!--{ / }-->
+			<!--{ @ page.page }-->
+				<!--{ ? page.nowpage ==  .value_ }-->
+					<a href="?page={.value_}&amp;{page.querystring}" class="on">{.value_ }</a>
+				<!--{ : }-->
+					<a href="?page={.value_}&amp;{page.querystring}">{.value_ }</a>
+				<!--{ / }-->
+			<!--{ / }-->
+			<!--{ ? page.next }--><a href="?page={page.next}&amp;{page.querystring}" class="next">다음 ▶</a><!--{ / }-->
+			<!--{ ? page.last }--><a href="?page={page.last}&amp;{page.querystring}" class="last">마지막 ▶</a><!--{ / }-->
+		</div>
+		<!--{ / }-->			
+	</div>
+	<div class="rigthbox">
+		<div class="goods_list_top">
+			<table width="100%" cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td align="left">
+						<span class="catelist_th">Sort By</span>
+						{?sort}
+						<select name="sortwib" onchange="document.location.href='?sort='+this.value">
+							<option value="popular&code={_GET.code}" {?sort == 'popular'}selected{/}>인기순</option>
+							<option value="newly&code={_GET.code}" {?sort == 'newly'}selected{/}>최근등록순</option>
+							<option value="popular_sales&code={_GET.code}" {?sort == 'popular_sales'}selected{/}>판매인기순</option>
+							<option value="low_price&code={_GET.code}" {?sort == 'low_price'}selected{/}>낮은가격순</option>
+							<option value="high_price&code={_GET.code}" {?sort == 'high_price'}selected{/}>높은가격순</option>
+							<option value="review&code={_GET.code}" {?sort == 'review'}selected{/}>상품평많은순</option>
+						</select>
+						{/}
+					</td>
+					<td align="right">
+						<span class="catelist_th">Show</span>
+						<!--{?categoryData.list_paging_use=='y'}-->
+						<select name="perpage" onchange="document.location.href='?perpage='+this.value+'&{=get_args_list(array('page','perpage'))}'">
+							<option value="{=perpage_min}" {?_GET.perpage==perpage_min}selected{/}>{=number_format(perpage_min)}</option>
+							<option value="{=perpage_min*2}" {?_GET.perpage==perpage_min*2}selected{/}>{=number_format(perpage_min*2)}</option>
+							<option value="{=perpage_min*5}" {?_GET.perpage==perpage_min*5}selected{/}>{=number_format(perpage_min*5)}</option>
+							<option value="{=perpage_min*10}" {?_GET.perpage==perpage_min*10}selected{/}>{=number_format(perpage_min*10)}</option>
+						</select>
+						<!--{/}-->					
+					</td>
+				</tr>
+			</table>
+		</div>	
+	</div>
+</div>
+
+
+<div style="height:60px"></div>
+
+
+<!--{ ? page.totalcount==0 }-->
+<p style="text-align: center;"><img src="../images/common/nodata.png" title="" alt="" height="200" width="200" >
+   <br> <br><font size="4">타임세일이 종료되었거나 준비중입니다.</font>
+
+  <!--------예전 소스 
+<div class="nodata">타임세일이 종료되었거나 준비중입니다. </div>--->
+
+<!--{ : }-->
+{goodsDisplayHTML}
+
+<!--{ / }-->
+
+ <!--[ 상품 리스트 ]-->
+<!--{ ? categoryData.list_use == 'y' }-->
+<div class="cate_datawrap clearbox">
+	<div class="leftbox clearbox">
+		<div class="goods_lsummary">Total Item<span>{=number_format(page.totalcount)}</span></div>
+		<div class="paging_navigation mt0">
+			<p class="page_tit">Page:</p>
+			<!--{ ? page.first }--><a href="?page={page.first}&amp;{page.querystring}" class="first">◀ 처음</a><!--{ / }-->
+			<!--{ ? page.prev }--><a href="?page={page.prev}&amp;{page.querystring}" class="prev">◀ 이전</a><!--{ / }-->
+			<!--{ @ page.page }-->
+				<!--{ ? page.nowpage ==  .value_ }-->
+					<a href="?page={.value_}&amp;{page.querystring}" class="on">{.value_ }</a>
+				<!--{ : }-->
+					<a href="?page={.value_}&amp;{page.querystring}">{.value_ }</a>
+				<!--{ / }-->
+			<!--{ / }-->
+			<!--{ ? page.next }--><a href="?page={page.next}&amp;{page.querystring}" class="next">다음 ▶</a><!--{ / }-->
+			<!--{ ? page.last }--><a href="?page={page.last}&amp;{page.querystring}" class="last">마지막 ▶</a><!--{ / }-->
+		</div>
+		<!--{ / }-->			
+	</div>
+	<div class="rigthbox">
+		<div class="goods_list_top">
+			<table width="100%" cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td align="left">
+						<span class="catelist_th">Sort By</span>
+						{?sort}
+						<select name="sortwib" onchange="document.location.href='?sort='+this.value">
+							<option value="popular&code={_GET.code}" {?sort == 'popular'}selected{/}>인기순</option>
+							<option value="newly&code={_GET.code}" {?sort == 'newly'}selected{/}>최근등록순</option>
+							<option value="popular_sales&code={_GET.code}" {?sort == 'popular_sales'}selected{/}>판매인기순</option>
+							<option value="low_price&code={_GET.code}" {?sort == 'low_price'}selected{/}>낮은가격순</option>
+							<option value="high_price&code={_GET.code}" {?sort == 'high_price'}selected{/}>높은가격순</option>
+							<option value="review&code={_GET.code}" {?sort == 'review'}selected{/}>상품평많은순</option>
+						</select>
+						{/}
+					</td>
+					<td align="right">
+						<span class="catelist_th">Show</span>
+						<!--{?categoryData.list_paging_use=='y'}-->
+						<select name="perpage" onchange="document.location.href='?perpage='+this.value+'&{=get_args_list(array('page','perpage'))}'">
+							<option value="{=perpage_min}" {?_GET.perpage==perpage_min}selected{/}>{=number_format(perpage_min)}</option>
+							<option value="{=perpage_min*2}" {?_GET.perpage==perpage_min*2}selected{/}>{=number_format(perpage_min*2)}</option>
+							<option value="{=perpage_min*5}" {?_GET.perpage==perpage_min*5}selected{/}>{=number_format(perpage_min*5)}</option>
+							<option value="{=perpage_min*10}" {?_GET.perpage==perpage_min*10}selected{/}>{=number_format(perpage_min*10)}</option>
+						</select>
+						<!--{/}-->					
+					</td>
+				</tr>
+			</table>
+		</div>	
+	</div>
+</div>

@@ -1,0 +1,543 @@
+{*** 회원가입 > 약관동의 | member/join_agreement.php ***}
+{ # header }
+<div class="content_box">
+	<div class="join_agreement_wrap">
+		<div class="member_tit">
+			<h2>{=__('회원가입')}</h2>
+			<ol>
+				<li class="page_on"><span>01</span> {=__('약관동의')}<span><img src="../img/member/icon_join_step_on.png" alt=""></span></li>
+				<li><span>02</span> {=__('정보입력')}<span><img src="../img/member/icon_join_step_off.png" alt=""></span></li>
+				<li><span>03</span> {=__('가입완료')}</li>
+			</ol>
+		</div>
+		<!-- //member_tit -->
+		<div class="member_cont">
+			<form id="formTerms" name="formTerms" method="post" action="../member/join.php">
+				<input type="hidden" name="token" value="{token}">
+				<input type="hidden" name=mode value="chkRealName">
+				<input type="hidden" name=rncheck value="none">
+				<input type="hidden" name=nice_nm value="">
+				<input type="hidden" name=pakey value="">
+				<input type="hidden" name=birthday value="">
+				<input type="hidden" name=mobile value="">
+				<input type="hidden" name=mobileService value="">
+				<input type="hidden" name=sex value="">
+				<input type="hidden" name=dupeinfo value="">
+				<input type="hidden" name=foreigner value="">
+				<input type="hidden" name=adultFl value="">
+				<input type="hidden" name=phone value="">
+				<input type="hidden" name=type>
+
+				<h3>{=__('약관동의')}</h3>
+				<div class="join_agreement_cont">
+
+					<div class="join_agreement_box">
+						<div class="form_element">
+							<input type="checkbox" id="allAgree">
+							<label class="check" for="allAgree"> <em>{=__('%s의 모든 약관을 확인하고 전체 동의합니다.', serviceInfo['mallNm'])}</em></label>
+							<span>({=__('전체동의, 선택항목도 포함됩니다.')})</span>
+						</div>
+					</div>
+					<!-- //join_agreement_box -->
+
+					<div class="join_agreement_box js_terms_view">
+						<div class="form_element">
+							<input type="checkbox" id="termsAgree1" name="agreementInfoFl" class="require" >
+							<label class="check_s" for="termsAgree1"><strong>({=__('필수')})</strong> {=__('이용약관')}</label>
+							<span><a href="../service/agreement.php?code={agreementInfo['informCd']}" target="_blank">{=__('전체보기')}</a></span>
+						</div>
+						
+						<div class="agreement_box">
+							{=nl2br(agreementInfo['content'])}
+						</div>
+					    
+			<!--			
+			<div class="tbox">
+				<p><b>가. 회원가입 및 주문 등 필요시점에 수집하는 개인정보의 범위</b></p>
+				<table cellspacing="0" cellpadding="0" class="tt">				 
+				  <thead>
+				  <tr>
+					<td colspan="3" width="342">구분</td>
+					<td width="296">이용목적</td>
+					<td width="296">수집항목</td>
+					<td width="296">보유기간</td>
+				  </tr>
+				  </thead>
+				  <tr>
+					<td class="leftline textcenter" rowspan="7" width="104" >회원</td>
+					<td rowspan="2" width="160">회원가입</td>
+					<td width="78">필수</td>
+					<td width="296">본인확인 및 고객식별</td>
+					<td width="296">이름, 아이디, 이메일    주소,  생년월일, <br>비밀번호</td>
+					<td rowspan="7" width="296">회원탈퇴시 또는 법정 의무 보유기간</td>
+				  </tr>
+				  <tr>
+					<td width="78">선택</td>
+					<td width="296">새로운    서비스/상품 안내</td>
+					<td width="296">전화번호, 휴대폰번호, 주소</td>
+				  </tr>
+				  <tr>
+					<td rowspan="2" width="160">간편회원가입(네이버,페이코)</td>
+					<td width="78">필수</td>
+					<td width="296">본인확인    및 고객식별</td>
+					<td width="296">이름,    아이디</td>
+				  </tr>
+				  <tr>
+					<td width="78">선택</td>
+					<td width="296">새로운    서비스/상품 안내</td>
+					<td width="296">이메일,    휴대폰번호, 성별, 생년월일</td>
+				  </tr>
+				  <tr>
+					<td rowspan="2" width="160">구매결제</td>
+					<td width="78">필수</td>
+					<td width="296">상품    구매 결제, 주문 상품 배송, 주문/배송정보 안내</td>
+					<td width="296">결제정보(카드번호,    계좌번호, 휴대폰번호 등), 배송정보(주문자·수취인 성명, 휴대폰번호, 배송지 주소)</td>
+				  </tr>
+				  <tr>
+					<td width="78">선택</td>
+					<td width="296">새로운    서비스/상품 안내</td>
+					<td width="296">전화번호</td>
+				  </tr>
+				  <tr>
+					<td width="160">물품 관련 및 기타</td>
+					<td width="78">필수</td>
+					<td width="296">A/S,    CS처리, 온라인 문의(1:1문의, A/S신청), 고지사항 전달 </td>
+					<td width="296">이메일,    성명, 연락처(전화번호, 휴대폰번호), 주소</td>
+				  </tr>
+				  <tr>
+					<td class="leftline textcenter" rowspan="2" width="104">비회원</td>
+					<td width="160">구매결제</td>
+					<td rowspan="2" width="78">필수</td>
+					<td width="296">상품    구매 결제, 주문 상품 배송, 주문/배송정보 안내</td>
+					<td width="296">결제정보(카드번호,    계좌번호, 휴대폰번호 등), 배송정보(주문자·수취인 성명, 휴대폰번호, 배송지 주소)</td>
+					<td rowspan="2" width="296">수집목적 달성시까지 또는 법정 의무 보유기간</td>
+				  </tr>
+				  <tr>
+					<td width="160">물품 관련 및 기타</td>
+					<td width="296">A/S    및 CS처리</td>
+					<td width="296">성명,    연락처(전화번호, 휴대폰번호), 주소</td>
+				  </tr>
+				</table>
+			</div>
+            -->
+						<!-- //agreement_box -->
+					</div>
+					<!-- //join_agreement_box -->
+
+					<div class="join_agreement_box js_terms_view">
+						<div class="form_element">
+							<input type="checkbox" id="termsAgree2" name="privateApprovalFl" class="require" >
+							<label class="check_s" for="termsAgree2"><strong>(필수)</strong> {=__('개인정보 수집 및 이용')} </label>
+							<span><a href="../service/private.php" target="_blank">{=__('전체보기')}</a></span>
+						</div>
+						<!--
+						<div class="agreement_box">
+							{=nl2br(privateApproval['content'])}
+						</div>
+						-->
+						<div class="tbox">
+							<p><b>가. 회원가입 및 주문 등 필요시점에 수집하는 개인정보의 범위</b></p>
+							<table cellspacing="0" cellpadding="0" class="tt">				 
+							  <thead>
+							  <tr>
+								<td colspan="3" width="342">구분</td>
+								<td width="296">이용목적</td>
+								<td width="296">수집항목</td>
+								<td width="296" style="color: red;">*보유기간</td>
+							  </tr>
+							  </thead>
+							  <tr>
+								<td class="leftline textcenter" rowspan="7" width="104" >회원</td>
+								<td rowspan="2" width="160">회원가입</td>
+								<td width="78">필수</td>
+								<td width="296">본인확인 및 고객식별</td>
+								<td width="296">이름, 아이디, 이메일    주소,  생년월일, <br>비밀번호</td>
+								<td rowspan="7" width="296">회원탈퇴시 또는 법정 의무 보유기간</td>
+							  </tr>
+							  <tr>
+								<td width="78">선택</td>
+								<td width="296">새로운    서비스/상품 안내</td>
+								<td width="296">전화번호, 휴대폰번호, 주소</td>
+							  </tr>
+							  <tr>
+								<td rowspan="2" width="160">간편회원가입(네이버,페이코)</td>
+								<td width="78">필수</td>
+								<td width="296">본인확인    및 고객식별</td>
+								<td width="296">이름,    아이디</td>
+							  </tr>
+							  <tr>
+								<td width="78">선택</td>
+								<td width="296">새로운    서비스/상품 안내</td>
+								<td width="296">이메일,    휴대폰번호, 성별, 생년월일</td>
+							  </tr>
+							  <tr>
+								<td rowspan="2" width="160">구매결제</td>
+								<td width="78">필수</td>
+								<td width="296">상품    구매 결제, 주문 상품 배송, 주문/배송정보 안내</td>
+								<td width="296">결제정보(카드번호,    계좌번호, 휴대폰번호), 배송정보(주문자·수취인 성명, 휴대폰번호, 배송지 주소)</td>
+							  </tr>
+							  <tr>
+<!--
+								<td width="78">선택</td>
+								<td width="296">새로운    서비스/상품 안내</td>
+								<td width="296">전화번호</td>
+-->
+							  </tr>
+							  <tr>
+								<td width="160">물품 관련 및 기타</td>
+								<td width="78">필수</td>
+								<td width="296">A/S,    CS처리, 온라인 문의(1:1문의, A/S신청), 고지사항 전달 </td>
+								<td width="296">이메일,    성명, 연락처(전화번호, 휴대폰번호), 주소</td>
+							  </tr>
+							  <tr>
+								<td class="leftline textcenter" rowspan="2" width="104">비회원</td>
+								<td width="160">구매결제</td>
+								<td rowspan="2" width="78">필수</td>
+								<td width="296">상품    구매 결제, 주문 상품 배송, 주문/배송정보 안내</td>
+								<td width="296">결제정보(카드번호,    계좌번호, 휴대폰번호 등), 배송정보(주문자·수취인 성명, 휴대폰번호, 배송지 주소)</td>
+								<td rowspan="2" width="296">수집목적 달성시까지 또는 법정 의무 보유기간</td>
+							  </tr>
+							  <tr>
+								<td width="160">물품 관련 및 기타</td>
+								<td width="296">A/S    및 CS처리</td>
+								<td width="296">성명,    연락처(전화번호, 휴대폰번호), 주소</td>
+							  </tr>
+							</table>
+						</div>
+						<!-- //agreement_box -->
+					</div>
+					<!-- //join_agreement_box -->
+
+					<!-- {? privateApprovalOption[0]['modeFl']=='y'} -->
+					<div class="join_agreement_box js_terms_view">
+						<div class="form_element">
+							<input type="checkbox" id="termsAgree3" name="">
+							<label class="check_s" for="termsAgree3"><strong class="choice">({=__('선택')})</strong> {=__('개인정보 수집 및 이용')} </label>
+							<span><a href="../service/agreement.php?code={privateApprovalOption[0]['informCd']}" target="_blank">{=__('전체보기')}</a></span>
+						</div>
+						<div class="agreement_choice_box">
+							<!-- {@ privateApprovalOption} -->
+							<table summary="{=__('(선택)개인정보 수집 및 이용 내용입니다.')}" border="0" cellpadding="0" cellspacing="0">
+								<colgroup>
+									<col width="10px">
+									<col width="300px">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>{=__('선택')}</th>
+										<th>{=nl2br(.informNm)}</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div class="form_element">
+												<input type="checkbox" id="privateApprovalOption_{.sno}" name="privateApprovalOptionFl[{.sno}]">
+												<label class="check_s" for="privateApprovalOption_{.sno}">{=__('선택')}</label>
+											</div>
+										</td>
+										<td>{=nl2br(.content)}</td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- {/} -->
+						</div>
+					</div>
+					<!-- {/} -->
+					<!-- //join_agreement_box -->
+
+					<!-- {? privateConsign[0]['modeFl']=='y'} -->
+					<div class="join_agreement_box js_terms_view">
+						<div class="form_element">
+							<input type="checkbox" id="termsAgree4" name="">
+							<label class="check_s" for="termsAgree4"><strong class="choice">({=__('선택')})</strong> {=__('개인정보 처리위탁')} </label>
+							<span><a href="../service/agreement.php?code={privateConsign[0]['informCd']}" target="_blank">{=__('전체보기')}</a></span>
+						</div>
+						<div class="agreement_choice_box">
+							<!-- {@ privateConsign} -->
+							<table summary="{=__('개인정보 처리위탁 내용입니다.')}" border="0" cellpadding="0" cellspacing="0">
+								<colgroup>
+									<col width="10px">
+									<col width="300px">
+								</colgroup>
+								<thead>
+								<tr>
+									<th>{=__('선택')}</th>
+									<th>{=nl2br(.informNm)}</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>
+										<div class="form_element">
+											<input type="checkbox" id="privateConsign_{.sno}" name="privateConsignFl[{.sno}]">
+											<label class="check_s" for="privateConsign_{.sno}">{=__('선택')}</label>
+										</div>
+									</td>
+									<td>{=nl2br(.content)}</td>
+								</tr>
+								</tbody>
+							</table>
+							<!-- {/} -->
+						</div>
+					</div>
+					<!-- {/} -->
+					<!-- //join_agreement_box -->
+					
+					
+					<!--위브추가-->
+					<div class="join_agreement_box js_terms_view">
+						<div class="form_element">
+							<input type="checkbox" id="termsAgree6" name="eventAgreeFl">
+							<label class="check_s" for="termsAgree6"><strong class="choice">({=__('선택')})</strong> 이벤트 등 프로모션 제공</label>
+							<br>
+							<span>이벤트 등 프로모션 제공에 대한 동의를 하지 않으실 수 있으며, 동의하지 않는다고 하여 서비스 이용에 제한은 없습니다.</span>
+						</div>
+                        <div class="tbox">
+				            <table cellspacing="0" cellpadding="0" class="tt">
+							  <col width="296" span="3">
+							  <thead>
+                                  <tr>
+                                      <td width="296">수집하는 개인정보의 항목</td>
+                                      <td width="296">개인정보의 수집 및 이용 목적</td>
+                                      <td width="296">개인정보의 보유 및 이용기간</td>
+                                  </tr>
+							  </thead>	
+                              <tbody>
+                                  <tr>
+                                      <td class="leftline" width="296">이메일주소, 전화번호, 생년월일</td>
+                                      <td width="296">현대엘앤씨 행사안내(세일, 프로모션 등) 귀사 및 제휴사 상품, 서비스 안내 및 이용권유, 시장조사 및 상품 서비스 연구개발</td>
+                                      <td width="296">현대엘앤씨는 개인정보 수집 및 이용목적이 달성되기 전 또는 정보주체의 탈퇴요청이 있기 전까지 해당 정보를 보유합니다.</td>
+                                  </tr>
+                              </tbody>			 
+							</table>
+						</div>
+					</div>
+					<!--//위브추가-->
+					
+
+					<!-- {? privateOffer[0]['modeFl']=='y'} -->
+					<div class="join_agreement_box js_terms_view">
+						<div class="form_element">
+							<input type="checkbox" id="termsAgree5" name="privateOfferFl[5]">
+							<label class="check_s" for="termsAgree5"><strong class="choice">({=__('선택')})</strong> {=__('개인정보 처리 위탁에 관한 동의')} </label>
+							<span><a href="../service/agreement.php?code={privateOffer[0]['informCd']}" target="_blank">{=__('전체보기')}</a></span>
+							<br>
+							<span>개인정보 처리 위탁에 관한 동의를 하지 않으실 수 있으며, 동의하지 않는다고 하여 서비스 이용에 제한은 없습니다.</span>
+						</div>
+						<!--
+						<div class="agreement_choice_box">
+							<table summary="{=__('개인정보 제 3자 제공 내용입니다.')}" border="0" cellpadding="0" cellspacing="0">
+								<colgroup>
+									<col width="10px">
+									<col width="300px">
+								</colgroup>
+								<thead>
+								<tr>
+									<th>{=__('선택')}</th>
+									<th>{=nl2br(.informNm)}</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>
+										<div class="form_element">
+											<input type="checkbox" id="privateOffer{.sno}" name="privateOfferFl[{.sno}]">
+											<label class="check_s" for="privateOffer{.sno}">{=__('선택')}</label>
+										</div>
+									</td>
+									<td>{=nl2br(.content)}</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>-->
+							<div class="tbox">
+								<table cellspacing="0" cellpadding="0" class="tt">
+							  <col width="296" span="3">
+							  <thead>
+							  <tr>
+								<td rowspan="2" width="296">위탁업무내용</td>
+								<td rowspan="2" width="296">수탁자</td>
+								<td rowspan="2" width="296">위탁하는 항목</td>
+							  </tr>
+							</thead>				 
+							  <tr>
+								<td class="leftline" width="296">고객정보DB시스템 구축 및 운영/관리(전산아웃소싱)</td>
+								<td width="296">엔에이치엔고도㈜</td>
+								<td width="296">아이디,    이름, 연락처, 이메일 주소, 주소지, 배송지, 배송관련정보</td>
+							  </tr>
+							  <tr>
+								<td class="leftline" width="296">주문 상품의 배송 및 설치</td>
+								<td width="296">하우저,    E&amp;E, 동원산업 </td>
+								<td width="296">주문자명,    연락처, 배송지, 배송관련 정보</td>
+							  </tr>
+							  <tr>
+								<td class="leftline" width="296">모바일 상품권 발송</td>
+								<td width="296">(주)옴니텔,    (주)케이티엠하우스</td>
+								<td width="296">이름,    전화번호</td>
+							  </tr>
+							  <tr>
+								<td class="leftline" width="296">쇼핑몰 관리 위탁 업무</td>
+								<td width="296">(주)유니드</td>
+								<td width="296">이름,    전화번호, 주소, 이메일주소,배송지, 배송관련 정보</td>
+							  </tr>
+							  <tr>
+								<td class="leftline" width="296">결제대행업체, 상품구매와 관련한 신용카드 등의 결제 정보 전송</td>
+								<td width="296">KG이니시스</td>
+								<td width="296">주문자명,    결제 정보, 계좌 정보</td>
+							  </tr>
+							</table>
+						</div>
+					</div>
+					<!-- {/} -->
+					<!-- //join_agreement_box -->
+					<div class="important_check_box">
+						<strong class="important_check dn">{=__('이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.')}</strong>
+					</div>
+				</div>
+				<!-- //join_agreement_cont -->
+
+				<!-- {? ipinConfig.useFl == 'y' || authCellPhoneConfig.useFl == 'y'} -->
+				<div class="join_certify_box">
+					<h3>{=__('본인 인증방법 선택')}</h3>
+					<div class="join_certify_list">
+						<ul>
+							<!-- {? ipinConfig.useFl == 'y'} -->
+							<li>
+								<div class="form_element">
+									<input type="radio" id="authIpin" name="RnCheckType" value="ipin">
+									<label class="choice_s" for="authIpin">{=__('아이핀 본인인증')}</label>
+								</div>
+								<iframe id="ifrmRnCheck" name="ifrmRnCheck" style="width:500px;height:500px;display:none;"></iframe>
+							</li>
+							<!-- {/} -->
+							<!-- {? authCellPhoneConfig.useFl == 'y'} -->
+							<li>
+								<div class="form_element">
+									<input type="radio" id="authCellphone" name="RnCheckType" value="authCellPhone">
+									<label class="choice_s" for="authCellphone">{=__('휴대폰 본인인증')}</label>
+								</div>
+								<iframe id="ifrmHpauth" name="ifrmHpauth" style="width:500px;height:500px;display:none;"></iframe>
+							</li>
+							<!-- {/} -->
+						</ul>
+					</div>
+					<!-- //join_certify_list -->
+				</div>
+				<!-- {/} -->
+				<!-- //join_certify_box -->
+
+				<div class="btn_center_box">
+					<!--{ ? useThirdParty }-->
+					<button type="button" id="btnPrevStep" class="btn_member_prev">{=__('이전단계')}</button>
+					<!--{ / }-->
+					<button type="button" id="btnNextStep" class="btn_member_next">{=__('다음단계')}</button>
+				</div>
+				<!-- //btn_member_sec -->
+			</form>
+		</div>
+		<!-- //member_cont -->
+	</div>
+	<!-- //join_agreement_wrap -->
+</div>
+<!-- //content_box -->
+<script type="text/javascript">
+	$(document).ready(function () {
+		var body = $('body'), $formTerms = $('#formTerms');
+
+		$('#btnNextStep').click(function () {
+			var pass = true;
+			/*
+			 * 필수 동의 항목 검증
+			 */
+			$(':checkbox.require').each(function (idx, item) {
+				var $item = $(item);
+				if (!$item.prop('checked')) {
+					pass = false;
+					$('strong.important_check', $formTerms).removeClass('dn').text($item.next().text() + "{=__('을 체크해주세요.')}");
+					_.delay(function () {
+						$item.focus();
+					}, 1000);
+					return false;
+				}
+			});
+
+			if (pass) {
+				$('strong.important_check').addClass('dn');
+				/*
+				 * 실명인증 검증
+				 */
+				if ($('input[name="RnCheckType"]').length > 0) {
+					switch ($('input[name="RnCheckType"]:checked').val()) {
+						case 'ipin' :
+							var popupWindow = window.open("", "popupCertKey", "top=100, left=200, status=0, width=417, height=490");
+							ifrmRnCheck.location.href = "/member/ipin/ipin_main.php?callType=joinmember";
+							break;
+						case  'authCellPhone' :
+							var protocol = location.protocol;
+							var callbackUrl = "{=domainUrl}/member/authcellphone/dreamsecurity_result.php";
+							ifrmHpauth.location.href = protocol + "//hpauthdream.godo.co.kr/module/NEW_hpauthDream_Main.php?callType=joinmember&shopUrl=" + callbackUrl + "&cpid={=authDataCpCode}";
+							break;
+						default :
+							alert("{=__('본인인증이 필요합니다.')}");
+							$('input[name="RnCheckType"]:first').focus();
+							break;
+					}
+					return false;
+				} else {
+					$formTerms.submit();
+				}
+			}
+		});
+
+		/*
+		 * 전체 동의 체크박스 이벤트
+		 */
+		$('#allAgree', $formTerms).change(function (e) {
+			var $target = $(e.target), $checkbox = $(':checkbox'), $label = $checkbox.siblings('label');
+			if ($target.prop('checked') === true) {
+				$checkbox.prop('checked', true).val('y');
+				$label.addClass('on');
+			} else {
+				$checkbox.prop('checked', false).val('n');
+				$label.removeClass('on');
+			}
+		});
+
+		/*
+		 * 이전단계 버튼 이벤트
+		 */
+		$('#btnPrevStep', $formTerms).click(function (e) {
+			e.preventDefault();
+			window.location.href = '../member/join_method.php'
+		});
+
+		/*
+		 * 약관 체크박스 이벤트
+		 */
+		$('.js_terms_view :checkbox', $formTerms).change(function (e) {
+			$('strong.important_check').addClass('dn');
+			var $target = $(e.target), $label = $target.siblings('label'), $termsView = $target.closest('.js_terms_view');
+			var isTermsAgreeSelect = (e.target.id === 'termsAgree3') || (e.target.id === 'termsAgree4') || (e.target.id === 'termsAgree5');
+			var isTargetChecked = $target.prop('checked') === true;
+			if (isTargetChecked) {
+				if (isTermsAgreeSelect) {
+					$termsView.find('.agreement_choice_box label').addClass('on');
+					$termsView.find('.agreement_choice_box :checkbox').val('y');
+				} else {
+					$target.val('y');
+					$label.addClass('on');
+				}
+			} else {
+				if (isTermsAgreeSelect) {
+					$termsView.find('.agreement_choice_box label').removeClass('on');
+					$termsView.find('.agreement_choice_box :checkbox').val('n');
+				} else {
+					$target.val('n');
+					$label.removeClass('on');
+				}
+			}
+		});
+	});
+</script>
+{ # footer }

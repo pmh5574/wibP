@@ -1,0 +1,49 @@
+{*** 다중윈도우 | frame/multi_drop_zone.php ***}
+<div class="tit">
+    <h1>업로드할 사진 선택</h1>
+    <p>업로드 가능한 이미지 파일은 JPEG, PNG, GIF파일입니다.</p>
+</div>
+<div class="contents">
+    <div class="list_all">
+        <ul class="inline">
+            <!--{ @ multinum }-->
+            <li>1</li>
+            <!--{ / }-->
+        </ul>
+    </div>
+    <div class="list">
+        <ul>
+            <!--{ @ multinum }-->
+            <li class="dropzoneLi{.index_+1}">
+                <form action="/frame/upload.php" class="dropzone{.index_+1} file" id="my-awesome-dropzone{.index_+1}" >
+                    <div class="dz-message needsclick">
+                        <span class="num"><!--{ .index_ + 1 }--></span>
+                        <p>사진 업로드 하기 +</p>
+                    </div>
+                    <div class="dz-reault hidden">
+                        <div class="img_box inline">
+                            <div class="img">
+                                    <img src="/data/skin/front/designwib/wib/img/imgbox/upload_img.jpg">
+                            </div>
+                            <div class="name">
+                                    <span>1</span>
+                                    <p>젤리스튜디오사진.jpg</p>
+                            </div>
+                            <div class="loading">
+                                    <p>0%</p>
+                            </div>
+                        </div>
+                        <div class="btn_box inline">
+                                <button type="button" class="photo_reset_btn">재업로드</button>
+                                <button type="button" class="photo_del_btn">삭제</button>
+                        </div>
+                    </div>
+                </form>
+            </li>
+            <!--{ / }-->
+        </ul>
+    </div>
+</div>
+<div class="fix_btn">
+    <button type="button" id="photo_up_btn" >업로드</button>
+</div>

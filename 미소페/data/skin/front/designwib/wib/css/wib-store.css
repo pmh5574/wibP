@@ -1,0 +1,56 @@
+
+.sub_content{padding-top:0;width:100%;}
+.board_zone_sec{width:1200px;margin:0 auto;padding-top:60px;}
+h1.sub-title{font-size:24px;font-weight:500;color:#333;text-align:left;line-height:1;letter-spacing:0.05em;}
+.date_check_box.stores_box{border:0;border-top:1px solid #333;background-color:#FCFAF8;padding:29px 0;margin-top:28px;font-size:0;text-align:center;margin-bottom:0;}
+.date_check_box.stores_box .f_left{display:none;}
+.date_check_box.stores_box .f_right{}
+.date_check_box.stores_box .f_right form{}
+.date_check_box.stores_box .f_right form .search-detail-box{}
+.date_check_box.stores_box .f_right form .search-detail-box > span{display:inline-block;vertical-align:middle;font-size:15px;font-weight:400;color:#333;line-height:1;margin-right:20px;}
+.date_check_box.stores_box .f_right form .search-detail-box > ul:nth-of-type(1){margin-right:10px;}
+.date_check_box.stores_box .f_right form .search-detail-box > ul:nth-of-type(2){margin-right:90px;}
+.date_check_box.stores_box .f_right form .search-detail-box > ul{display:inline-block;vertical-align:middle;position:relative;}
+.date_check_box.stores_box .f_right form .search-detail-box > ul:last-of-type:before{display:block;content:"";position:absolute;width:1px;height:16px;background-color:#ECECEC;left:117px;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);-moz-transform:translateY(-50%);-o-transform:translateY(-50%);}
+.date_check_box.stores_box .f_right form .search-detail-box > ul:last-of-type select{width:117px;height:42px;box-sizing:border-box;border:1px solid #ededed;padding-left:15px;font-size:14px;font-weight:400;color:#717171;text-align:left;background:#fff url("../../wib/img/store-select-bg.png")no-repeat right 15px center;appearance: none;-webkit-appearance: none;-ms-appearance: none;border-right:0;display:inline-block;vertical-align:middle;}
+.date_check_box.stores_box .f_right form .search-detail-box > ul > li{}
+.date_check_box.stores_box .f_right form .search-detail-box > ul > li select{appearance: none !important;-moz-appearance: none !important;-webkit-appearance: none !important;display:inline-block;vertical-align:middle;width:220px;height:42px;box-sizing:border-box;border:1px solid #ededed;padding-left:15px;font-size:14px;font-weight:400;color:#717171;text-align:left;background:#fff url("../../wib/img/store-select-bg.png")no-repeat right 15px center;}
+.date_check_box.stores_box .f_right form .search-detail-box > ul > li select::-ms-expand{display:none}
+.date_check_box.stores_box .f_right form .search-detail-box > ul > li input{display:inline-block;vertical-align:middle;width:282px;height:42px;box-sizing:border-box;border:1px solid #ededed;padding-left:15px;font-size:14px;font-weight:400;color:#717171;text-align:left;border-left:0;margin-right:10px;}
+.date_check_box.stores_box .f_right form .search-detail-box > ul > li button{display:inline-block;vertical-align:middle;width:71px;height:42px;box-sizing:border-box;background-color:#C6A277;font-size:14px;font-weight:bold;color:#fff;text-align:center;line-height:42px;border:0;}
+
+
+table.board_list_table{width:100%;border-collapse:collapse;border-top:0;}
+table.board_list_table tr{}
+table.board_list_table tr th.text_center{text-align:left;padding-left:15px;}
+table.board_list_table tr th{font-size:14px;font-weight:500;color:#333;text-align:center;line-height:1;padding:29px 0 20px;border-bottom:1px solid #ededed;background-color:transparent;}
+table.board_list_table tbody{}
+table.board_list_table tbody tr td{border-bottom:1px solid #ededed;font-size:14px;font-weight:400;color:#333;text-align:center;padding:30px 5px;}
+table.board_list_table tbody tr td strong{}
+table.board_list_table tbody tr td.text_center{text-align:left;padding-left:15px;}
+
+
+.pagination{margin:0;padding:0;border:0;margin:0;margin-top:50px;} 
+.pagination ul{padding:0;font-size:0;text-align:center;}
+.pagination ul li:last-of-type{margin-right:0;}
+.pagination ul li{margin-right:7px;min-width:auto;}
+.pagination ul li a{display:block;width:35px;height:35px;border-radius:0;box-sizing:border-box;text-align:center;line-height:35px;font-size:15px;font-weight:400;color:#717171;}
+.pagination ul li.on span{background-color:transparent;border-radius:0;width:35px;height:35px;box-sizing:border-box;text-align:center;line-height:35px;font-size:15px;font-weight:700;color:#fff;background-color:#2A4E41;}
+.pagination ul li.btn_page{margin:0;padding:0 !important;border:0;}
+.pagination ul li.btn_page_first{font-size:0;background:none;margin-right:7px;}
+.pagination ul li.btn_page_first a{font-size:0;display:block;background:url("../../wib/img/paging-first.png")no-repeat center;}
+.pagination ul li.btn_page_prev{font-size:0;background:none;margin-right:7px;}
+.pagination ul li.btn_page_prev a{font-size:0;display:block;background:url("../../wib/img/paging-prev.png")no-repeat center;}
+.pagination ul li.btn_page_next{font-size:0;background:none;margin-right:7px;}
+.pagination ul li.btn_page_next a{font-size:0;display:block;background:url("../../wib/img/paging-next.png")no-repeat center;}
+.pagination ul li.btn_page_last{font-size:0;background:none;}
+.pagination ul li.btn_page_last a{font-size:0;display:block;background:url("../../wib/img/paging-last.png")no-repeat center;}
+
+.map_wrap{position:fixed;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,0.6);z-index:333;}
+.map_wrap .map-wrapper{width:1200px;height:775px;position:absolute;background-color:#fff;left:50%;top:50%;transform:translate(-50%, -50%);-webkit-transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);-moz-transform:translate(-50%, -50%);-o-transform:translate(-50%, -50%);padding:30px 25px;box-sizing:border-box;}
+.map_wrap .map-wrapper .map_box{width:100%;height:575px;}
+.map_wrap .map-wrapper .map_store_name{margin-top:32px;display:inline-block;font-size:18px;font-weight:500;color:#333;text-align:left;line-height:1;position:relative;padding-right:25px;}
+.map_wrap .map-wrapper .map_store_name:after{display:block;content:"";position:absolute;width:17px;height:17px;background:url("../../wib/img/location-icon-small.png")no-repeat right center;right:0;top:0;}
+.map_wrap .map-wrapper .map_store_address{font-size:15px;font-weight:400;color:#333;text-align:left;line-height:1;padding-top:15px;}
+.map_wrap .map-wrapper .map_store_number{font-size:14px;font-weight:400;color:#717171;letter-spacing:0.03em;padding-top:18px;}
+.map_wrap .map-wrapper span.close_icon{display:block;background:url("../../wib/img/store-close-btn.png")no-repeat center top;width:23px;height:23px;position:absolute;right:0;top:-35px;cursor:pointer;}

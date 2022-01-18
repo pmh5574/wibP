@@ -1,0 +1,103 @@
+{*** 플러스 리뷰  전체후기 리스트  | board/plus_review_article_list.php ***}
+<script>
+	$(function(){
+		if ($(".best-review > div").length == "")
+			{
+				$(".best-review-wrap").clone().appendTo(".best-review");
+			}
+	});
+</script>
+<div class="r-title">
+    <h3>리뷰 <span><img src="../wib/img/detail_review_star.png" alt="리뷰" /><!--{? pt}--><!--{@ pt}-->{.avg}({.ptTotal})<!--{/}--><!--{/}--></span></h3>
+</div>
+<!--{ ? beresult}-->
+<div class="best-review-wrap">
+    <!--{ @ beresult}-->  	
+       <div class="bestreview" >
+           <div class="best_left" >
+               <img src="{.saveFileNm}" class="file js_pr_thum_img js_pr_btn_image" data-sno="{=.sno}">	
+           </div>
+           <div class="main_review">
+               <div class="rNm">{=.goodsNm}</div>        
+               <div class="rtext">{=.contents}</div><br/>
+               <div class="rid">{=.writerId}</div>
+               <div class="rregdt">{=.regDt}</div>
+               <strong>
+				<!--{  ? .goodsPt > 0}--><!--{ @range(1,.goodsPt) }-->
+					<img src="../wib/img/review-star.png" alt="review" />
+				<!--{/}--><!--{/}-->
+			</strong>
+           </div>									
+       </div>            
+   <!--{ / }-->  
+</div>
+<!--{ / }-->
+<!--{ ? imglist}-->
+<div class="slider-wrap">
+    <!--{ @ imglist}-->
+        <!--{ ? .saveFileNm }-->
+            <div>
+                <img src="{.saveFileNm}" width="100px" height="100px">
+            </div>
+        <!--{ / }-->
+    <!--{ / }-->
+</div>
+<!--{/}-->
+<!--{ ? data.list}-->
+<!--{ @ data.list}-->
+<li>
+	<div class="list_left">
+		<div class="goods_image"><a href="../goods/goods_view.php?goodsNo={.goodsNo}" target="_blank"><img src="/data/goods/{.imagePath}{.imageName}" /></a></div>
+	</div>
+	<div class="list_right">
+		<div class="list_top">
+			<div class="rating_box">
+				<span class="rating"><span style="width:{.goodsPt*20}%">{=__('평가')}</span></span>
+			</div>
+			<div class="total_count">
+				<!--{ ? plusReviewConfig.memoFl == 'y'}-->
+				<dl style="display:none;">
+					<dt>{=__('댓글')}</dt>
+					<dd>{=.memoCnt}</dd>
+				</dl>
+				<!--{/}-->
+				<!--{ ? plusReviewConfig.recommendFl == 'y'}-->
+				<dl>
+					<dt>{=__('추천')} <span>{=.recommend}</span></dt>
+					<dd></dd>
+				</dl>
+				<!--{/}-->
+			</div>
+        </div>
+        <div>
+            <strong>{=.goodsNm}</strong>
+        </div>
+		<div class="plus_reivew_contents_box" id="plus_reivew_focus_{.sno}">
+			<div class="plus_reivew_contents" >
+				{=.contents}
+				<!--{ ? .isNew == 'y'}-->
+				<span class="new"></span>
+				<!--{/}-->
+				<a href="../board/plus_review_view.php?sno={.sno}<!--{? req.isMypage}-->&isMypage=y<!--{/}-->" data-cache="false"  data-toggle="modal" data-target="#popupBoardView" data-focus="{.sno}" class="more">{=__('더보기')}</a>
+				<div class="plus_review_info">
+					<span class="writer">{=.writerId}</span><span class="date">{=.regDt}</span>
+				</div>
+			</div>
+            <!--{ ? .saveFileNm}-->
+            <!--{ @ .saveFileNm}-->
+            
+            <div class="plus_reivew_contents_img"><img src="{..thumSrc}"/></div>
+            
+            <!--{/}-->
+            <!--{/}-->
+		</div>
+		
+	</div>
+</li>
+<!--{/}-->
+<!--{:}-->
+<div class="no_list">
+	{=__('게시글이 존재하지 않습니다.')}
+</div>
+<!--{/}-->
+<div class="dn"><li id="totalPage">{=pagecount}</li></div>

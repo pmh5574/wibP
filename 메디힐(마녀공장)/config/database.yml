@@ -1,0 +1,12 @@
+master: 
+  host: promalldb40.godomall.com
+  port: 3306
+  username: manyo0855
+  password: aksurhdwkd0829
+  database: mf08552_godomall_com
+slave1:
+  host: promalldb40.godomall.com
+  port: 3306
+  username: manyo0855
+  password: aksurhdwkd0829
+  database: mf08552_godomall_com

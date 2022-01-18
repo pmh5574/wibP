@@ -1,0 +1,80 @@
+{*** 프레임 선택 | frame/content/frame_select.php ***}
+
+<!-- 프레임 선택 -->
+<!-- 선택영역 -->
+<div class="choice_type1">
+    <div class="choice_title">
+        <h1>프레임 선택</h1>
+        <p>원목부터 알루미늄 프레임까지 다양한 소재와 디자인의 프레임이 준비되어 있습니다.</p>
+    </div>
+    <!-- 프레임 선택 -->
+    <div class="frame_select">
+        <ul class="inline frame_select_cont">
+            <li class="coreColor">
+                <div class="select_box">
+                    <p><!--{ ? colorList }-->{colorList[0].coreColor}<!--{/}--></p>
+                    <ul>
+                        <!--{ ? colorList }-->
+                            <!--{ @ colorList }-->
+                                <li data-corecolor="{.coreColor}"><p>{.coreColor}</p></li>
+                            <!--{/}-->
+                        <!--{/}-->
+                    </ul>
+                </div>
+            </li>
+            <li class="coreType">
+                <div class="select_box">
+                    <p>원목</p>
+                    <ul>
+                        <li data-coretype="원목"><p>원목</p></li>
+                        <li data-coretype="메탈"><p>메탈</p></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <p class="count_num">총 <strong>5</strong>건의 검색결과가 있습니다.</p>
+        <!-- 프레임 없을 시 -->
+        <div class="no_frame">
+            <img src="../../wib/img/icon/icon_noframe.png" alt="프레임 없음"/>
+            <p>조건과 일치하는 프레임이 없습니다.</p>
+        </div>
+        <!--// 프레임 없을 시 -->
+        <!-- 프레임 있을 시 -->
+        <!--{ ? frameList }-->
+        <div class="on_frame show">
+            <div class="choice_select">
+                <ul class="type2 inline">
+                    <!--{ @ frameList }-->
+                    <li class="<!--{ ? .index_ == 0 }-->on<!--{ / }--> eventBtn" data-folder="{.goodsNo}" data-event="selectFrame">
+                        <div class="chk_box">
+                            <div class="frameImg" data-folder="{.goodsNo}">
+                                <img src="/data/goods/{.imagePath}{.imageName}" alt="Black Wood Stain" >
+                            </div>
+                            <div class="btn_box inline">
+                                <button type="button" class="frame_info_btn" data-goodsno="{.goodsNo}" ></button>
+                                <button type="button" class="frame_video_btn {?.externalVideoUrl}onV{:}offV{/}" data-goodsno="{.goodsNo}"></button>
+                            </div>
+                            <div class="txt">
+                                <h3><!--{ ? .shortDescription != '' }-->{.shortDescription}<!--{ : }-->{.goodsNm}<!--{ / }--></h3>
+                            </div>
+                        </div>
+                    </li>
+                    <!--{ / }--> 
+                </ul>
+            </div>
+        </div>
+        <!--{ / }-->
+        <!--// 프레임 있을 시 -->
+    </div>
+    <!--// 프레임 선택 -->
+</div>
+<!--// 선택영역 -->
+<!-- 단계 -->
+<div class="step_box">
+    <ul class="inline">
+        <li><a href="#" class="back_btn">back</a></li>
+        <li><button type="button" class="next_btn eventBtn" data-event="gotoMattBoard">다음 단계</button></li>
+    </ul>
+</div>
+<!--// 단계 -->
+<!--// 프린트사이즈 확인 -->

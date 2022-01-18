@@ -1,0 +1,230 @@
+{*** 상품 리스트 | goods/goods_list.php ***}
+{ # header }
+
+<link rel="stylesheet" href="../wib/css/wib-list.css">
+<script type="text/javascript" src="../wib/js/wib-filter.js"></script>
+<script type="text/javascript" src="../wib/js/wib-list.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('form[name=frmList] select[name=pageNum]').change(function() {
+            $('form[name=frmList]').get(0).submit();
+        });
+
+        $('form[name=frmList] input[name=sort]').click(function() {
+            $('form[name=frmList]').get(0).submit();
+        });
+
+        $(':radio[name="sort"][value="{sort}"]').prop("checked","checked")
+        $(':radio[name="sort"][value="{sort}"]').next().addClass('on');
+
+    });
+</script>
+
+
+<div class="contents">
+    <div class="view">
+        <div class="location">
+            <h3 class="dn">{=__('현재 위치')}</h3>
+            <span>{=__('홈')}</span>
+            <!--{ ? goodsCategoryList }-->
+            <!--{ @ goodsCategoryList }-->
+            <div class="navi">
+                <div class="this">
+                    <a href="#">{=.cateNm}</a>
+                    <div>
+                        <!--{ @ .data }-->
+                        <a href="?{cateType}Cd={..key_}">{=..value_}</a>
+                        <!--{ / }-->
+                    </div>
+                </div>
+            </div>
+            <!--{ / }-->
+            <!--{ / }-->
+        </div>
+
+
+        <div class="cg-main">
+            <!--{ ? themeInfo.cateHtml1 }--><div class="cate_topban">{=stripslashes(str_replace('&nbsp;', ' ', themeInfo.cateHtml1))}</div><!--{ / }-->
+            <h2>{=goodsCategoryList[cateCd]['cateNm']}</h2>
+            <!--{ ? naviDisplay.naviUse =='y' }-->
+            
+            <!--{ @ dataSubCategory( cateCd,cateType ) }-->
+            <!--{ ? .index_ == '0' }--><ul class="lower-category"> <!--{ / }-->
+            <li><span <!--{ ? cateCd == .cateCd }-->style="font-weight:bold; color: #000;"<!--{ / }-->><a href="?{cateType}Cd={.cateCd}">{.cateNm}</a> <!--{ ? naviDisplay.naviCount =='y' }--><em>({.goodsCnt+0})</em> <!--{ / }--></span></li>
+            <!--{ ? .index_+1 == .size_ }--></ul> <!--{ / }-->
+            <!--{ / }-->
+            <!--{ / }-->
+
+            <!-- 설문조사 배너 -->{=pollViewBanner()}<!-- 설문조사 배너 -->
+
+            <!--{ ? themeInfo.recomDisplayFl == 'y'  && widgetGoodsList}-->
+            <!--{ ? themeInfo.cateHtml2 }--><div class="user-tune">{=stripslashes(str_replace('&nbsp;', ' ', themeInfo.cateHtml2))}</div><!--{ / }-->
+            <h3>BEST ITEM</h3>
+            <div class="common-product product-list weekly-best">
+                <!-- 추천상품 -->
+                {=includeWidget('goods/_goods_display.html')}
+                <!-- 추천상품 -->
+            </div>
+            <!--{ / }-->
+            <div class="common-product product-list goods-list cont_list">
+                <!--{ ? themeInfo.cateHtml3 }--><div>{=stripslashes(str_replace('&nbsp;', ' ', themeInfo.cateHtml3))}</div><!--{ / }-->
+                <span class="tc">TOTAL <strong>{=number_format(gd_isset(page->recode['total']))}</strong></span>
+                <form name="frmList" action="">
+                    <input type="hidden" name="{cateType}Cd" value="{cateCd}"/>
+                    <fieldset>
+                        <legend>{=__('상품 정렬 폼')}</legend>
+                        <div class="align">
+                            <div class="filter">
+                                <div class="f_list">
+                                    <!--{? strpos(cateCd,'001002') !== false}-->
+                                    <!--링 사이즈-->
+                                        <div class='f_size'>
+                                            <h1 class="side_title f_title">사이즈</h1>
+                                            <ul class="inline inner">
+                                                <li class=''><span class='check_box_img' data-size='44'>44</span></li>
+                                                <li class=''><span class='check_box_img' data-size='46'>46</span></li>
+                                                <li class=''><span class='check_box_img' data-size='48'>48</span></li>
+                                                <li class=''><span class='check_box_img' data-size='50'>50</span></li>
+                                                <li class=''><span class='check_box_img' data-size='52'>52</span></li>
+                                                <li class=''><span class='check_box_img' data-size='54'>54</span></li>
+                                                <li class=''><span class='check_box_img' data-size='56'>56</span></li>
+                                                <li class=''><span class='check_box_img' data-size='58'>58</span></li>
+                                                <li class=''><span class='check_box_img' data-size='60'>60</span></li>
+                                                <li class=''><span class='check_box_img' data-size='62'>62</span></li>
+                                                <li class=''><span class='check_box_img' data-size='64'>64</span></li>
+                                            </ul>
+                                            <div class="hiddenSize" style="display:none"></div>
+                                        </div>
+                                        
+                                    <!--//링 사이즈-->
+                                    <!--{: strpos(cateCd,'001004') !== false}-->
+                                    <!--브레이슬릿 사이즈-->
+                                        <div class='f_size'>
+                                            <h1 class="side_title f_title">사이즈</h1>
+                                            <ul class="inline inner">
+                                                <li class=''><span class='check_box_img' data-size='OneSize'>One Size</span></li>
+                                                <li class=''><span class='check_box_img' data-size='15cm'>15cm</span></li>
+                                                <li class=''><span class='check_box_img' data-size='16cm'>16cm</span></li>
+                                                <li class=''><span class='check_box_img' data-size='17cm'>17cm</span></li>
+                                                <li class=''><span class='check_box_img' data-size='175cm'>17.5cm</span></li>
+                                                <li class=''><span class='check_box_img' data-size='18cm'>18cm</span></li>
+                                                <li class=''><span class='check_box_img' data-size='19cm'>19cm</span></li>
+                                                <li class=''><span class='check_box_img' data-size='20cm'>20cm</span></li>
+                                                <li class=''><span class='check_box_img' data-size='205cm'>20.5cm</span></li>
+                                                <li class=''><span class='check_box_img' data-size='21cm'>21cm</span></li>
+                                                <li class=''><span class='check_box_img' data-size='23cm'>23cm</span></li>
+                                                <li class=''><span class='check_box_img' data-size='25cm'>25cm</span></li>
+                                                <li class=''><span class='check_box_img' data-size='35cm'>35cm</span></li>
+                                                <li class=''><span class='check_box_img' data-size='38cm'>38cm</span></li>
+                                                <li class=''><span class='check_box_img' data-size='41cm'>41cm</span></li>
+                                            </ul>
+                                            <div class="hiddenSize" style="display:none"></div>
+                                        </div>
+                                    <!--//브레이슬릿 사이즈-->
+                                    <!--{ / }-->
+
+                                    <div class="f_price">
+                                        <h1 class="side_title f_title">가격</h1>
+                                        <ul class="f_depth1 inline inner">
+                                            <li class=''><span class='check_box_img' data-price='35000'>~35,000원</span></li>
+                                            <li class=''><span class='check_box_img' data-price='55000'>~55,000원</span></li>
+                                            <li class=''><span class='check_box_img' data-price='75000'>~75,000원</span></li>
+                                            <li class=''><span class='check_box_img' data-price='95000'>~95,000원</span></li>
+                                            <li class=''><span class='check_box_img' data-price='135000'>~135,000원</span></li>
+                                            <li class=''><span class='check_box_img' data-price='135000이상'>135,000원 이상</span></li>
+                                        </ul>
+                                        <div class="hiddenPrice" style="display:none"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="choice">
+                                <div>
+                                    <select name="pageNum" class="tune" style="width: 110px; " >
+                                        <!--{ @ goodsData.multiple }-->
+                                        <option value="{=.value_}"  <!--{ ? pageNum == .value_ }-->selected='selected'<!--{ / }-->>{=.value_}{=__('개씩보기')}</option>
+                                        <!--{ / }-->
+                                    </select>
+                                </div>
+                                <!--
+                                <button type="button" class="gallery on" title="갤러리형">갤러리형</button>
+                                <button type="button" class="list" title="리스트형">리스트형</button>
+                                -->
+                            </div>
+                            
+                            <div class="sort_type">
+                                <div>
+                                    <p class="sort_tit">상품정렬</p>
+                                    <ul class="sort_inner">
+                                        <li>
+                                            <input type="radio" id="sort1" class="radio" name="sort" value="">
+                                            <label for="sort1">{=__('추천순')}</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="sort2" class="radio" name="sort" value="orderCnt desc,g.regDt desc">
+                                            <label for="sort2">{=__('판매인기순')}</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="sort3" class="radio" name="sort" value="goodsPrice asc,g.regDt desc">
+                                            <label for="sort3">{=__('낮은가격순')}</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="sort4" class="radio" name="sort" value="goodsPrice desc,g.regDt desc">
+                                            <label for="sort4">{=__('높은가격순')}</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="sort5" class="radio" name="sort" value="reviewCnt desc,g.regDt desc">
+                                            <label for="sort5">{=__('상품평순')}</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="sort6" class="radio" name="sort" value="g.regDt desc">
+                                            <label for="sort6">{=__('등록일순')}</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </fieldset>
+                </form>
+                
+                <!-- 필터 결과값 -->
+                <div class="filter_result">
+                    <ul class="inline">
+                        <li class="fSize filterVal">
+                            <p></p><button type="button" class="filter_del"></button>
+                        </li>
+                        <li class="fPrice filterVal">
+                            <p></p><button type="button" class="filter_del"></button>
+                        </li>
+                        <li class="fReset filterVal">
+                            <div><span>초기화</span><button type="button" class="filter_reset"></button></div>
+                        </li>
+                    </ul>
+                </div>
+                <!--// 필터 결과값 -->
+                <div class="filter_goods_list">
+                    <div class="goods_list">
+                        <div class="goods_list_cont">
+                            <!-- 상품 리스트 -->
+                            { # goodsTemplate }
+                            <!-- //상품 리스트 -->
+                        </div>
+                    </div>
+                    <div class="pagination <!--{? cateCdChecks == 'y'}-->filter-paging<!--{/}-->">
+                        <div class="board-paging">
+                            {page->getPage()}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <hr>
+</div>
+
+
+{ # footer }

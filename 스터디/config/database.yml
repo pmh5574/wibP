@@ -1,0 +1,12 @@
+master: 
+  host: promalldb10.godomall.com
+  port: 3306
+  username: yczoro
+  password: wib0201wib
+  database: yczoro1_godomall_com
+slave1:
+  host: promalldb10.godomall.com
+  port: 3306
+  username: yczoro
+  password: wib0201wib
+  database: yczoro1_godomall_com

@@ -1,0 +1,41 @@
+{*** 인쇄선택 | frame/start.php ***}
+
+<!-- 선택영역 -->
+<div class="choice_type1">
+    <div class="choice_title">
+        <h1>투명커버 선택</h1>
+        <p>내용물을 보다 안전하고 오래도록 보호해주는 다양한 투명커버를 선택해보세요.</p>
+    </div>
+    <!-- 커버 선택 -->
+    <div class="cover_select">
+        <div class="choice_select">
+            <ul class="type1 inline">
+                <!--{ ? coverList }-->
+                    <!--{ @ coverList }-->
+                        <li data-covercd="{.coverCd}" data-name="{.coverName}" data-price="{.coverPrice}" data-coverw="{.coverW}" data-coverh="{.coverH}" 
+                            data-ppA="{.ppA}" data-ppB="{.ppB}" data-ppC="{.ppC}" data-ppD="{.ppD}" data-ppE="{.ppE}" data-ppF="{.ppF}" data-ppG="{.ppG}">
+                            <div class="chk_box">
+                                <h3>{.coverName}</h3>
+                                <p>
+                                    스크래치에 강하고 아름답게 투명한 {.coverName}은 습기로부터<br/>
+                                    아트 워크를 보호하고 자외선을 99 % 필터링합니다.<br/>
+                                    영국 전역의 전문 예술가와 갤러리에서 사용합니다.
+                                </p>
+                            </div>
+                        </li>
+                    <!--{ / }-->
+                <!--{ / }-->
+            </ul>
+        </div>
+    </div>
+    <!--// 커버 선택 -->
+</div>
+<!--// 선택영역 -->
+<!-- 단계 -->
+<div class="step_box">
+    <ul class="inline">
+        <li><a href="#" class="back_btn">back</a></li>
+        <li><button type="button" class="next_btn">다음 단계</button></li>
+    </ul>
+</div>
+<!--// 단계 -->

@@ -1,0 +1,78 @@
+{*** 상단 기본파일 | main/index.php ***}
+<!-- header -->
+<div class="header">
+	<div class="header-inner">
+		<div class="header-container clearFix">
+			<div class="hd-left fleft">
+				<!-- 로고 -->
+				<div class="logo"><!--{ @dataBanner('4238483832') }-->{.tag}<!--{ / }--></div>
+				<!-- 카테고리 -->
+				<ul class="top-cate">
+					<li><a href="/us/service/company.php">Company</a></li>
+					<li><a href="/us/goods/brand.php">Brand</a></li>
+					<li class="cate_product">
+						<a href="#">Shop</a>
+						<div class="category_wrap">
+							{=includeWidget('proc/category_side', 'type', 'top','cateType','cate','menuType','all')}
+						</div>
+					</li>
+					<li><a href="#">Sale</a></li>
+					<li class="cate_basic">
+						<a href="/us/service/index.php">Cs center</a>
+						<div class="category_wrap">
+							<ul>
+								<li><a href="/us/board/list.php?bdId=notice">Notice</a></li>
+								<li><a href="/us/board/list.php?bdId=goodsqa">Q&A</a></li>
+                                                                <li style="display:none;"><a href="/us/board/list.php?bdId=goodsreview">Review</a></li>
+								<li><a href="/us/board/list.php?bdId=event">Event</a></li>
+							</ul>
+						</div>	
+					</li>
+				</ul><!-- .top-cate -->
+			</div><!-- .hd-left -->
+
+			<div class="hd-right fright">
+				<ul class="top-icon">
+					<li class="login">
+						<a class="btn-login easing-two" href="#">
+							<img src="../../wib/img/common/hd-login-icon.png" alt="로그인" />
+						</a>
+						<!--{ ? gd_is_login() === false }-->
+						<div class="login-box">
+							<a href="../member/login.php">Login <span>or</span> </a>
+							<a href="../member/join_method.php">Join</a>
+						</div>
+						<!--{ : }-->
+						<div class="login-box sec">
+							<a href="../member/logout.php?returnUrl={=logoutReturnUrl}">Logout <span>or</span> </a>
+							<a href="../mypage/index.php">Mypage</a>
+						</div>
+						<!--{ / }-->
+					</li>
+					<li>
+						<a class="btn-search-open easing-two" href="#">
+							<img src="../../wib/img/common/hd-search-icon.png" alt="검색" />
+						</a>
+					</li>
+					<li>
+						<a class="btn-cart" href="../order/cart.php">
+							<img src="../../wib/img/common/hd-cart-icon.png" alt="장바구니" />
+							<span class="cart-count">{=dataCartGoodsCnt()}</span>
+						</a>
+					</li>
+				</ul>
+			</div><!-- .hd-right -->
+		</div><!-- .header-container -->
+	</div><!-- .header-inner -->
+</div><!-- .header -->
+
+
+<!-- 퀵 검색 폼 -->
+<!--{ ? tpls.quick_search }-->
+{=includeWidget('proc/_quick_search.html')}
+<!--{ / }-->
+<!-- 퀵 검색 폼 -->
+
+<!-- 검색 폼 영역 -->
+{=includeWidget('proc/_header_search.html')}
+<!-- 검색 폼 영역 -->

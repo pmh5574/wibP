@@ -1,0 +1,457 @@
+{*** 상품 리스트 | goods/goods_list.php ***}
+{ # header }
+
+<!-- 디자인위브 추가 -->
+<link type="text/css" rel="stylesheet" href="../wib/css/wib-list.css" />
+<link type="text/css" rel="stylesheet" href="../wib/css/wib-list-pack.css" />
+
+<style>
+    .packBox.fixon {position: fixed;top: 214px;z-index: 10000;background: #fff}
+    .pagination {padding-right: 340px}
+</style>
+
+<div class="content">
+    <div class="location_wrap">
+        <div class="location_cont">
+            <em><a href="#" class="local_home">HOME</a> &nbsp;</em>
+            <!--{ ? goodsCategoryList }-->
+            <!--{ @ goodsCategoryList }-->
+            <span>&gt; </span>
+            <div class="location_select">
+                <div class="location_tit"><a href="#"><span>
+                    <!--{? .index_ == 0}-->
+                        1봉 골라담기
+                    <!--{ : }-->
+                        {.cateNm}
+                    <!--{ / }-->
+                </span></a></div>
+                
+                <ul style="display:none;">
+                    <!--{ @ .data }-->
+                    <li><a href="?{cateType}Cd={..key_}"><span>{=..value_}</span></a></li>
+                    <!--{ / }-->
+                    
+                    <!--{? .index_ == 0}-->
+                    <li><a href="?{cateType}Cd=023"><span>1봉 골라담기</span></a></li>
+                    <!--{ / }-->
+                </ul>
+            </div>
+            <!--{ / }-->
+            <!--{ / }-->
+        </div>
+    </div>
+    <!-- //location_wrap -->
+
+    <div class="goods_list_item">
+
+        <div class="goods_list_item_tit">
+            <h2>1봉 골라담기</h2>
+        </div>
+        <!--{ ? naviDisplay.naviUse =='y' }-->
+        <!--{ ? themeInfo.cateHtml1 }-->
+        <!-- 상단 꾸미기 영역 -->
+        <div class="addition_zone">
+            {=stripslashes(str_replace('&nbsp;', ' ', themeInfo.cateHtml1))}
+        </div>
+        <!--{ / }-->
+        <!--{ ? dataSubCategory( cateCd,cateType ) }-->
+        <div class="list_item_category">
+            <ul>
+                <!--{ @ dataSubCategory( cateCd,cateType ) }-->
+                <li class="<!--{ ? cateCd == .cateCd }-->on<!--{ / }-->">
+                    <a href="?{cateType}Cd={.cateCd}"><span>{.cateNm} <!--{ ? naviDisplay.naviCount =='y' }--><em>({.goodsCnt+0})</em><!--{ / }--></span></a>
+                </li>
+                <!--{ / }-->
+            </ul>
+        </div>
+        <!--{ / }-->
+        <!--{ / }-->
+
+        <!-- 설문조사 배너 -->{=pollViewBanner()}<!-- 설문조사 배너 -->
+
+        <!--{ ? themeInfo.recomDisplayFl == 'y'  && widgetGoodsList}-->
+        <!--{ ? themeInfo.cateHtml2 }-->
+        <!-- 추천상품 상단 꾸미기 영역 -->
+        <div class="addition_zone">
+            {=stripslashes(str_replace('&nbsp;', ' ', themeInfo.cateHtml2))}
+        </div>
+        <!-- //추천상품 상단 꾸미기 영역 -->
+        <!--{ / }-->
+
+        <!-- 추천 상품 나오는영역 -->
+        <div class="best_item_view">
+            <div class="best_item_view_tit">
+                <h3>{=__('추천상품')}</h3>
+            </div>
+            <div class="goods_list">
+                <div class="goods_list_cont">
+                    <p>{=includeWidget('goods/_goods_display.html')}</p>
+                </div>
+            </div>
+        </div>
+        <!-- //추천 상품 나오는영역 -->
+        <!--{ / }-->
+
+        <!--{ ? themeInfo.cateHtml3 }-->
+        <div class="addition_zone">
+            {=stripslashes(str_replace('&nbsp;', ' ', themeInfo.cateHtml3))}
+        </div>
+        <!--{ / }-->
+        <div class="goods_pick_list">
+            <span class="pick_list_num"><strong>{=number_format(gd_isset(page->recode['total']))}</strong>{=__('개')}</span>
+            <form name="frmList" action="">
+                <input type="hidden" name="{cateType}Cd" value="{cateCd}"/>
+                <div class="pick_list_box">
+                    <ul class="pick_list">
+						<li>
+                            <input type="radio" id="sort2" class="radio" name="sort" value="sellcnt"/>
+                            <label for="sort2">{=__('판매인기순')}</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="sort1" class="radio" name="sort" value=""/>
+                            <label for="sort1">{=__('추천순')}</label>
+                        </li>
+						<li>
+                            <input type="radio" id="sort5" class="radio" name="sort" value="review"/>
+                            <label for="sort5">{=__('상품평순')}</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="sort3" class="radio" name="sort" value="price_asc"/>
+                            <label for="sort3">{=__('낮은가격순')}</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="sort4" class="radio" name="sort" value="price_dsc"/>
+                            <label for="sort4">{=__('높은가격순')}</label>
+                        </li>
+                        
+                        <li>
+                            <input type="radio" id="sort6" class="radio" name="sort" value="date"/>
+                            <label for="sort6">{=__('등록일순')}</label>
+                        </li>
+                    </ul>
+                    <div class="choice_num_view">
+                        <select class="chosen-select" name="pageNum">
+                            <!--{ @ goodsData.multiple }-->
+                            <option value="{=.value_}"  <!--{ ? pageNum == .value_ }-->selected='selected'<!--{ / }-->>{=.value_}{=__('개씩보기')}</option>
+                            <!--{ / }-->
+                        </select>
+                    </div>
+                    <!-- //choice_num_view -->
+                </div>
+                <!-- //pick_list_box -->
+            </form>
+        </div>
+        <!-- //goods_pick_list -->
+
+        <div class="goods_list">
+            <div class="goods_list_cont">
+                <!-- 상품 리스트 -->
+                { # goodsTemplate }
+                <!-- //상품 리스트 -->
+            </div>
+            <!-- 한팩담기 -->
+            <div class="packBox">
+                <div class="packHead">
+                    <ul>
+                        <li class="packTxt">
+                            1봉담기<small>(상품 <span>{=count(packcart.list)}</span>개)</small>
+                        </li>
+                        <li class="packImg">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="refresh">
+                                <g clip-path="url(#clip0)">
+                                    <path d="M13.3333 0.666687L9.33334 0.666687L9.33334 4.66669" stroke="#727272" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2.66666 15.3333L6.66666 15.3333L6.66666 11.3333" stroke="#727272" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9.99999 13.66C10.9555 13.3219 11.8097 12.7473 12.483 11.9897C13.1564 11.2322 13.6268 10.3164 13.8505 9.32783C14.0742 8.33928 14.0438 7.31018 13.7621 6.33656C13.4805 5.36294 12.9568 4.47652 12.24 3.76002L9.33332 0.666687M6.66666 15.3334L3.75999 12.24C3.04313 11.5235 2.51946 10.6371 2.23784 9.66348C1.95622 8.68986 1.92582 7.66076 2.14949 6.67221C2.37317 5.68366 2.84361 4.76789 3.51694 4.01033C4.19026 3.25278 5.04451 2.67813 5.99999 2.34002" stroke="#727272" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0">
+                                        <rect width="16" height="16" fill="white" transform="translate(16) rotate(90)"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <img src="../wib/img/icon/resetPack.png">
+                        </li>
+                    </ul>
+                </div>
+                <div class="packBody">
+                    <ul>
+                        <!--{ ? packcart.list }-->
+                            <!--{ @ packcart.list }-->
+                                <li>
+                                    <div class="packBodyTitle">
+                                        <p>{.goodsNm}</p>
+                                        <span class="cartDel" data-cartno="{.sno}" data-goodsno="{.goodsNo}"><img src="../wib/img/icon/packXbtn.png"></span>
+                                        <input type="hidden" class="packCnt" name="packCnt" data-cartno="{.sno}" data-goodsno="{.goodsNo}" value="{.goodsCnt}" >
+                                    </div>
+                                    <div class="packBodyContent">
+                                        <span class="packminus"><img src="../wib/img/icon/packMinus.png"></span>
+                                        <span class="packNum">{.goodsCnt}</span>
+                                        <span class="packPlus"><img src="../wib/img/icon/packPlus.png"></span>
+                                        <span class="packPrice">{.goodsPriceTxt}<span>원</span></span>
+                                    </div>
+                                </li>
+                            <!--{ / }-->
+                        <!--{ / }-->
+                    </ul>
+                </div>
+                <div class="packBottom">
+                    <div class="totalPriceBox">
+                        <span class="txt">합계</span>
+                        <span class="price">{packcart.totalPriceTxt}</span>
+                        <span class="txt">원</span>
+                    </div>
+                    <div class="orderBtnBox">
+                        <img src="../wib/img/icon/packCart.png" class="orderCart">
+                        <img src="../wib/img/icon/packOrder.png" class="orderAll">
+                    </div>
+                </div>
+            </div>
+            <!-- //한팩담기 -->
+        </div>
+
+        <div class="pagination">
+            {page->getPage()}
+        </div>
+    </div>
+    <!-- //goods_list_item -->
+	<script type="text/javascript">
+            function setCateList(obj){
+                var list = obj.list;
+                if(!list){
+                    $('.packBody ul').empty();
+                    $('.totalPriceBox .price').text('0');
+                    $('.packTxt small span').text('0');
+                    return false;
+                }
+                
+                var html = '';
+                for(var i=0;i<list.length;i++){
+                    html += '<li>';
+                    html += '<div class="packBodyTitle">';
+                    html += '<p>'+list[i].goodsNm+'</p>';
+                    html += '<span class="cartDel" data-cartno="'+list[i].sno+'" data-goodsno="'+list[i].goodsNo+'"><img src="/data/skin/front/designwib/wib/img/icon/packXbtn.png"></span>';
+                    html += '<input type="hidden" class="packCnt" name="packCnt" data-cartno="'+list[i].sno+'" data-goodsno="'+list[i].goodsNo+'" value="'+list[i].goodsCnt+'" >';
+                    html += '</div>';
+                    html += '<div class="packBodyContent">';
+                    html += '<span class="packminus"><img src="/data/skin/front/designwib/wib/img/icon/packMinus.png"></span>';
+                    html += '<span class="packNum">'+list[i].goodsCnt+'</span>';
+                    html += '<span class="packPlus"><img src="/data/skin/front/designwib/wib/img/icon/packPlus.png"></span>';
+                    html += '<span class="packPrice">'+list[i].goodsPriceTxt+'<span>원</span></span>';
+                    html += '</div>';
+                    html += '</li>';
+                }
+                
+                $('.totalPriceBox .price').text(obj.totalPriceTxt);
+                $('.packTxt small span').text(list.length);
+                $('.packBody ul').empty().append(html);
+            }
+            
+            function getCartList(){
+                $.ajax({
+                    url : '/order/pack_cart_list.php',
+                    methos : 'post',
+                    cache : false,
+                    async: false,
+                    dataType: "json",
+                    success : function(result){
+                        setCateList(result);
+                    }
+                });
+            }
+            
+            function setCart(data)
+            {
+                $.ajax({
+                    url : '/order/cart_ps.php',
+                    methos : 'post',
+                    data : data,
+                    async: false,
+                    cache : false,
+                    dataType: "json",
+                    success : function(e){
+                        if(e.error == 0){
+                            getCartList();
+                        }
+                    }
+                });
+            }
+            
+            $(document).ready(function () {
+
+                $('form[name=frmList] select[name=pageNum]').change(function() {
+                        $('form[name=frmList]').get(0).submit();
+                });
+
+                $('form[name=frmList] input[name=sort]').click(function() {
+                        $('form[name=frmList]').get(0).submit();
+                });
+
+                $(':radio[name="sort"][value="{sort}"]').prop("checked","checked");
+                $(':radio[name="sort"][value="{sort}"]').next().addClass('on');
+
+                $('.packCartIn').click(function(e){
+                    e.preventDefault();
+                    
+                    var packGoodsNo = $(this).data('goodsno');
+                    var data = {
+                        mode : 'cartIn',
+                        goodsNo : [packGoodsNo],
+                        goodsCnt : ['1'],
+                        //findOptionSno : 1
+                    };
+                    
+                    var _paLi = $(this).parents('li');
+                    console.log(_paLi.attr('class'));
+                    if(_paLi.hasClass('chkIng')){
+                        console.log('false');
+                        return false;
+                    }
+                    
+                    if(_paLi.hasClass('chkOn')){
+                        _paLi.removeClass('chkOn');
+                        
+                        $('.packCnt').each(function(){
+                            var _cartThis = $(this);
+                            if(_cartThis.data('goodsno') == packGoodsNo){
+                                var data = {
+                                    mode : 'packDelete',
+                                    sno : [_cartThis.data('cartno')]
+                                };
+                                setCart(data);
+                            }
+                        });
+                        
+                        return false;
+                    }else{
+                        _paLi.addClass('chkOn').addClass('chkIng');
+                    }
+                    
+                    setCart(data);
+                    console.log('end');
+                    _paLi.removeClass('chkIng');
+                });
+                
+                $(document).on('click', '.cartDel', function(){
+                    var packCartNo = $(this).data('cartno');
+                    var packGoodsNo = $(this).data('goodsno');
+                    var data = {
+                        mode : 'packDelete',
+                        sno : [packCartNo]
+                    };
+                    setCart(data);
+                    $('.packCartIn').each(function(){
+                        if($(this).data('goodsno') == packGoodsNo){
+                            $(this).parents('li').removeClass('chkOn');
+                        }
+                    });
+                });
+                
+                $(document).on('click', '.packminus', function(){
+                    var _packCntm = $(this).parents('li').find('.packCnt');
+                    
+                    if(_packCntm.val() > 1){
+                        var data = {
+                            mode : 'packUpdate',
+                            sno : _packCntm.data('cartno'),
+                            goodsCnt : parseInt(_packCntm.val()) - 1
+                        };
+                        setCart(data);
+                    }else{
+                        alert('최소단위는 1개입니다.');
+                    }
+                    
+                });
+                
+                $(document).on('click', '.packPlus', function(){
+                    var _packCntp = $(this).parents('li').find('.packCnt');
+                    var data = {
+                        mode : 'packUpdate',
+                        sno : _packCntp.data('cartno'),
+                        goodsCnt : parseInt(_packCntp.val()) + 1
+                    };
+                    setCart(data);
+                });
+                
+                $('.packImg').on('click', function(){
+                    var allPackNo = [];
+                    $('.packCnt').each(function(){
+                        allPackNo.push($(this).data('cartno'));
+                    });
+                    var data = {
+                        mode : 'packDelete',
+                        sno : allPackNo
+                    };
+                    setCart(data);
+                    $('.chkOn').removeClass('chkOn');
+                });
+                
+                $('.item_cont').each(function(){
+                    var contPa = $(this).parents('li');
+                    var contTarget = $(this).find('.packCartIn');
+                    $('.packCnt').each(function(){
+                        var _cartThis = $(this);
+                        if(_cartThis.data('goodsno') == contTarget.data('goodsno')){
+                            contPa.addClass('chkOn');
+                        }
+
+                    });
+                });
+                
+                $('.orderAll').on('click', function(){
+                    var orderItem = [];
+                    $('.packCnt').each(function(){
+                        orderItem.push($(this).data('cartno'));
+                    });
+                    
+                    location.href = '/order/order.php?cartIdx=['+orderItem+']'; 
+                });
+                
+                $('.orderCart').on('click', function(){
+                   location.href = '/order/cart.php'; 
+                });
+            });
+            
+            function pzckResize(){
+                var _target = $('.goods_list_cont');
+                var _tarGetOffset = _target.offset().left;
+                var _tarGetWidth = _target.width();
+                var _fixBox = $('.packBox');
+                if(_fixBox.hasClass('fixon')){
+                    _fixBox.css('left', _tarGetOffset + _tarGetWidth + 39);
+                }else{
+                    _fixBox.css('left', 'auto');
+                }
+                
+                var _scBoxH = $(window).height() - $('.header_all').height() - 350;
+                $('.goods_list .packBox .packBody').css('height', _scBoxH+'px');
+            }
+            
+            function pzchScroll(obj){
+                var _winScroll = obj.scrollTop();
+                var _headHeight = $('.header_all').height();
+                var _targetTop = $('.goods_pick_list').offset().top;
+                
+                if( (_winScroll + _headHeight) > _targetTop  ){
+                    $('.packBox').addClass('fixon');
+                    
+                }else if((_winScroll + _headHeight) < _targetTop ){
+                    $('.packBox').removeClass('fixon');
+                }
+                pzckResize();
+            }
+
+            $(window).scroll(function(){
+                pzchScroll($(this));
+            });
+            
+            $(window).resize(function(){
+                pzckResize();
+            });
+            
+            pzchScroll($(window));
+            
+	</script>
+</div>
+<!-- //content -->
+
+{ # footer }

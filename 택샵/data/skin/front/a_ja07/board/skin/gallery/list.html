@@ -1,0 +1,273 @@
+{*** 목록 | list.php ***}
+
+<!-- MAGAZINE 게시판 -->
+{? req.bdId==='article'}
+<style>
+    .sub_content {width: 1280px;}
+    .dn01 {display: none;}
+
+    /* MAGAZINE 게시판 */
+    .btn_right_box {display: none;}
+    .board_zone_sec + .board_zone_cont, .board_zone_cont + .board_zone_cont {margin: 0;}
+    .board_hot_list ul li a span:hover {border-bottom: none;color: #FF623E;}
+
+    .board_zone_tit {text-align: center;}
+    .board_hot_list {border: none;padding: 10px 0 35px;}
+    .board_hot_list ul {font-size: 0;}
+    .board_hot_list ul li {width: 50%;text-align: center;line-height: 1;padding: 20px 0;border-bottom: 1px solid #E3E3E3;}
+    .board_hot_list ul li a {border: none;height: auto;}
+    .board_hot_list ul li a span {position: static;color: #717171;font-size: 18px;}
+    .board_hot_list ul li.on {border-bottom: 2px solid #FF623E;}
+    .board_hot_list ul li.on a span {color: #FF623E;font-weight: 600;}
+
+    .board_list_event .event_cont {display: block;}
+    .gallery_cont ul {text-align: left;}
+    .gallery_cont ul li {width: 403px;margin-right: 35px;height: auto !important;margin-bottom: 65px;}
+    .gallery_cont ul li:nth-child(3n) {margin-right: 0;}
+    .gallery_cont ul li:nth-last-child(-n+3) {margin-bottom: 0;}
+    .gallery_cont .board_img {display: block;border: none;width: 100%;}
+    .gallery_cont .gallery_info_cont {padding: 22px 0 0;}
+    .board_event_day span {color: #7C7C7C;font-size: 16px;font-weight: normal;font-family: 'NanumGothic';letter-spacing: -0.02em;}
+    .board_event_day span strong {display: none;}
+    .gallery_info_cont .board_tit strong {color: #1F1F1F;font-size: 20px;font-weight: 600;}
+    .board_day,
+    .board_name_day {display: none;}
+    .board_likeit_hits .board_hits {color: #7C7C7C;font-weight: normal;font-size: 13px;}
+    
+    .board_search_box {display: none;}
+
+    /* 페이징 */
+    .pagination ul {padding: 50px 0 0;}
+    .pagination li.on span {background: #FF623E;border-radius: 5px;}
+</style>
+{/}
+<!--// MAGAZINE 게시판 -->
+
+<!--{?bdList.cfg.bdHeader && !inList}-->
+<div class="addition_zone">
+	<p>{=bdList.cfg.bdHeader}</p>
+</div>
+<!--{/}-->
+<div class="board_zone_sec">
+	<!--{? !inList }-->
+	<div class="board_zone_tit">
+		<h2>{=__(bdList.cfg.bdNm)}</h2>
+	</div>
+	<!--{/}-->
+
+	<div class="board_zone_cont dn01">
+		<div class="board_zone_list" align="{bdList.cfg.bdAlign}">
+			<table class="board_list_table" {bdList.cfg.bdWidthStyle}>
+				<colgroup>
+					<col style="width:60px">
+					<!--{ ? bdList.cfg.bdCategoryFl == 'y'}-->
+					<col style="width:80px">
+					<!--{/}-->
+					<col>
+					<col style="width:100px">
+					<col style="width:80px">
+					<!--{ ? bdList.cfg.bdPcHitFl == 'y'}-->
+					<col style="width:60px">
+					<!--{/}-->
+				</colgroup>
+				<thead>
+				<tr>
+					<th>{=__('번호')}</th>
+					<!--{ ? bdList.cfg.bdCategoryFl == 'y'}-->
+					<th>{=__('말머리')}</th>
+					<!--{/}-->
+					<th>{=__('제목')}</th>
+					<th>{=__('날짜')}</th>
+					<th>{=__('작성자')}</th>
+					<!--{ ? bdList.cfg.bdPcHitFl == 'y'}-->
+					<th>{=__('조회')}</th>
+					<!--{/}-->
+				</tr>
+				</thead>
+				<tbody>
+				<!--{ @ bdList.noticeList }-->
+				<tr class="notice_point">
+					<td> <img src="{bdList.cfg.iconImage.notice.url}" alt="{=__('공지')}"/> </td>
+					<!--{ ? bdList.cfg.bdCategoryFl == 'y'}-->
+					<td>
+						<!--{? .category }-->[{.category}]<!--{/}-->
+					</td>
+					<!--{/}-->
+					<td class="board_tit">
+						<a href="javascript:gd_btn_view('{req.bdId}',{.sno} , '{.auth.view}')">
+							<strong>{.subject}</strong>
+							<!--{? bdList.cfg.bdMemoFl == 'y' && .memoCnt>0}-->
+							<span>({.memoCnt})</span>
+							<!--{/}-->
+						</a>
+					</td>
+					<td> {.regDate} </td>
+					<td> {.writer} </td>
+					<!--{ ? bdList.cfg.bdPcHitFl == 'y'}-->
+					<td> {.hit} </td>
+					<!--{/}-->
+				</tr>
+				<!--{/}-->
+				</tbody>
+			</table>
+		</div>
+		<!-- //board_zone_list -->
+	</div>
+	<!-- //board_zone_cont -->
+
+	<div class="board_zone_cont">
+		<div class="board_zone_list">
+			<!--{ ? bdList.list }-->
+			<div class="board_list_gallery">
+				<ul>
+					<!--{ @ bdList.list }-->
+					<li style="width:{100/bdList.cfg.bdListColsCount}%">
+						<div class="gallery_cont">
+							<div class="board_img">
+								<a href="javascript:gd_btn_view('{req.bdId}',{.sno} , '{.auth.view}')">
+									<img src="{.viewListImage}" width="{bdList.cfg.bdListImgWidth}" height="{bdList.cfg.bdListImgHeight}" class="js_image_load" alt="{.imageTitle}"/>
+								</a>
+							</div>
+							<div class="gallery_info_cont">
+								<!--{ ? bdList.cfg.bdGoodsPtFl == 'y' }-->
+								<div class="rating_star_box">
+									<span class="rating_star">
+										<span style="width:{.goodsPtPer}%;">{=__('별 다섯개중 다섯개')}</span>
+									</span>
+								</div>
+								<!--{/}-->
+
+								<div class="board_tit">
+									<!--{ ? bdList.cfg.bdCategoryFl == 'y'}--><em>[{.category}]</em><!--{/}-->
+									<a href="javascript:gd_btn_view('{req.bdId}',{.sno} , '{.auth.view}')">
+										<!--{ ? .isSecret == 'y' }-->
+										<img src="{bdList.cfg.iconImage.secret.url}" alt="{=__('비밀글')}" align=absmiddle>
+										<!--{ / }-->
+										<strong>{.subject}
+                                                                                    {? req.bdId==='article'}
+                                                                                    {.contents}
+                                                                                    {/}
+											<!--{? bdList.cfg.bdMemoFl == 'y' && .memoCnt>0}-->
+											({.memoCnt})
+											<!--{ / }-->
+										</strong>
+									</a>
+									<!--{ ? .isFile == 'y' }-->
+									<img src="{bdList.cfg.iconImage.attach_file.url}" alt="{=__('파일첨부 있음')}"/>
+									<!--{/}-->
+									<!--{ ? .isImage == 'y' }-->
+									<img src="{bdList.cfg.iconImage.attach_img.url}" alt="{=__('이미지첨부 있음')}"/>
+									<!--{/}-->
+									<!--{ ? .isNew == 'y' }-->
+									<img src="{bdList.cfg.iconImage.new.url}" alt="{=__('신규 등록글')}"/>
+									<!--{/}-->
+									<!--{ ? .isHot == 'y' }-->
+									<img src="{bdList.cfg.iconImage.hot.url}" alt="{=__('인기글')}"/>
+									<!--{/}-->
+								</div>
+
+								<div class="board_name_day">
+									<span class="board_name">{.writer}</span>
+									<span class="board_day"><span>{.regDate}</span></span>
+								</div>
+								<div class="board_likeit_hits">
+									<!--{ ? bdList.cfg.bdRecommendFl == 'y'}-->
+									<span class="board_likeit">{=__('추천')}  {.recommend}</span>
+									<!--{/}-->
+									<span class="board_hits"><!--{ ? bdList.cfg.bdPcHitFl == 'y'}-->{=__('조회')} {.hit}<!--{/}--></span>
+								</div>
+							</div>
+							<!-- //gallery_info_cont -->
+						</div>
+						<!-- //gallery_cont -->
+					</li>
+					<!--{/}-->
+				</ul>
+			</div>
+			<!--{:}-->
+			<div class="board_list_gallery">{=__('게시글이 존재하지 않습니다.')}</div>
+			<!--{/}-->
+			<!-- //board_list_gallery -->
+
+			{bdList.pagination}
+			<!-- //pagination -->
+
+			<div class="board_search_box">
+				<form name="frmList" id="frmList" action="list.php" method="get">
+					<input type="hidden" name="bdId" value="{bdList.cfg.bdId}"/>
+					<input type="hidden" name="memNo" value="{req.memNo}"/>
+					<input type="hidden" name="noheader" value="{req.noheader}"/>
+
+					<!--{ ? bdList.cfg.bdCategoryFl == 'y'}-->
+					{=gd_select_box('category', 'category', bdList.cfg.arrCategory, null, gd_isset(req.category), __('선택'), 'style="width: 80px;"','chosen-select')}
+					<!--{/}-->
+					<select class="chosen-select" name="searchField">
+						<option value="subject"
+						<!--{ ? req.searchField == 'subject'}-->selected<!--{/}--> >{=__('제목')}</option>
+						<option value="contents"
+						<!--{ ? req.searchField == 'contents'}-->selected<!--{/}--> >{=__('내용')}</option>
+						<option value="writerNm"
+						<!--{ ? req.searchField == 'writerNm'}-->selected<!--{/}--> >{=__('작성자')}</option>
+					</select>
+
+					<input type="text" class="text" name="searchWord" value="{=req.searchWord}"/>
+					<button class="btn_board_search"><em>{=__('검색')}</em></button>
+				</form>
+			</div>
+			<!-- //board_search_box -->
+
+		</div>
+		<!-- //board_zone_list -->
+		<!--{? !inList && bdList.cfg.auth.write == 'y'}-->
+		<div class="btn_right_box">
+			<button type="button" class="btn_write" onclick="javascript:gd_btn_write('{req.bdId}')"><strong>{=__('글쓰기')}</strong></button>
+		</div>
+		<!--{/}-->
+	</div>
+	<!-- //board_zone_cont -->
+
+</div>
+<!-- //board_zone_sec -->
+<!--{?bdList.cfg.bdFooter && !inList}-->
+<div class="addition_zone">
+	<p>{=bdList.cfg.bdFooter}</p>
+</div>
+<!--{/}-->
+
+<form id="frmWritePassword">
+	<div id="lyPassword" class="dn layer_wrap password_layer" style="height: 226px">
+		<div class="layer_wrap_cont">
+			<div class="ly_tit">
+				<h4>{=__('비밀번호 인증')}</h4>
+			</div>
+			<div class="ly_cont">
+				<div class="scroll_box">
+					<p>{=__('비밀번호를 입력해 주세요.')}</p>
+					<input type="password" name="writerPw" class="text"/>
+				</div>
+				<!-- // -->
+				<div class="btn_center_box">
+					<button type="button" class="btn_ly_password js_submit"><strong>{=__('확인')}</strong></button>
+				</div>
+			</div>
+			<!-- //ly_cont -->
+			<a href="#close" class="ly_close layer_close"><img src="../../../img/common/layer/btn_layer_close.png" alt="{=__('닫기')}"></a>
+		</div>
+		<!-- //layer_wrap_cont -->
+	</div>
+	<!-- //layer_wrap -->
+</form>
+
+<div id="layerDim" class="dn">&nbsp;</div>
+<script type="text/javascript" src="\{=c.PATH_SKIN}js/gd_board_list.js" charset="utf-8"></script>
+<script>
+    $(document).ready(function () {
+        $('img.js_image_load').error(function () {
+            $(this).css('background', 'url("img/etc/noimg.png") no-repeat center center');
+            $(this).attr('src', '../../../img/etc/blank.gif');
+        })
+            .each(function () {
+                $(this).attr("src", $(this).attr("src"));
+            })
+    });
+</script>

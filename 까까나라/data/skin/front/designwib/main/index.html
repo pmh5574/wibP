@@ -1,0 +1,200 @@
+{*** 쇼핑몰 메인본문 | main/index.php ***}
+{ # header }
+{=includeWidget('proc/_populate.html', 'sno', '100')}
+
+<!-- 디자인위브 추가 -->
+<link type="text/css" rel="stylesheet" href="../wib/css/wib-main.css" />
+<script type="text/javascript" src="../wib/js/wib-main.js"></script>
+<script type="text/javascript" src="../wib/js/mainTimesale.js"></script>
+
+<div class="main_wrap">
+	<!-- 메인배너 -->
+	<div class="main_ban_wrap relative">
+		<div class="main_ban">
+			<ul class="cut_layout">
+				<!--{ @dataBanner('2339921488', true) }-->
+				<li>
+					<img src="{.bannerImageUrl}" alt="" usemap="#Map1"/>
+					<map id="Map1" name="Map1">
+						<area shape="rect" alt="인기스낵 모음전" title="" coords="594,40,811,204" href="../goods/goods_view.php?goodsNo=1000000942&mtn=17%5E%7C%5E%EB%AA%A8%EC%9D%8C%EC%A0%84%5E%7C%5Ey" target="" />
+						<area shape="rect" alt="인기라면 모음전" title="" coords="820,39,1034,203" href="../goods/goods_search.php?reSearchKeyword%5B%5D=%EB%9D%BC%EB%A9%B4&reSearchKey%5B%5D=all&sort=sellcnt&pageNum=15&reSearch=y&key=goodsNm&keyword=%EB%AA%A8%EC%9D%8C%EC%A0%84&cateGoods%5B%5D=&cateGoods%5B%5D=&cateGoods%5B%5D=&cateGoods%5B%5D=&goodsPrice%5B%5D=&goodsPrice%5B%5D=" target="" />
+						<area shape="rect" alt="배홍동비빔면 특가" title="" coords="1045,39,1259,205" href="../goods/goods_view.php?goodsNo=1000002818&mtn=%5E%7C%5E%5E%7C%5E" target="" />
+						<area shape="rect" alt="까까나라 럭키박스" title="" coords="594,215,810,380" href="../goods/goods_search.php?keyword=%EB%9F%AD%ED%82%A4%EB%B0%95%EC%8A%A4&recentCount=10" target="" />
+						<area shape="rect" alt="오뚜기 컵밥 상품" title="" coords="818,214,1033,381" href="../goods/goods_search.php?keyword=%EC%BB%B5%EB%B0%A5&recentCount=10" target="" />
+						<area shape="rect" alt="초특가상품" title="" coords="1045,214,1260,380" href="../goods/goods_search.php?keyword=%EC%B4%88%ED%8A%B9%EA%B0%80&recentCount=10" target="" />
+					</map>			
+				</li>
+				<!--{ / }-->
+				<!--{ @dataBanner('2896112772', true) }-->
+				<li>
+					<a href="{.bannerLink}"><img src="{.bannerImageUrl}" alt=""/></a>			
+				</li>
+				<!--{ / }-->
+			</ul>
+			<div class="main_ban_btn cut_layout inline">
+				<div class="paging inline">
+					<div class="main_ban_prev"></div>
+					<p class="main_ban_paging"></p>
+					<div class="main_ban_next"></div>
+				</div>
+				<div class="play_btn"></div>
+			</div>
+		</div>
+		<div class="main_cate">
+			{=includeWidget('proc/category_side', 'type', 'layer','cateType','cate','menuType','all')}
+		</div>
+	</div>
+	<!--// 메인배너 -->
+
+	<!-- 갓딜 -->
+	<div class="main_deal cut_layout relative">
+		<h1 class="main_tit">갓까나라 갓딜 <img src="../wib/img/icon/icon_clock.png" alt="갓딜"/></h1>
+		<div id="timesaleSno" data-sno="5"></div>
+		<div class="btn_goods_more">
+			<a class="btn_goods_view_more on" href="/event/time_sale.php?sno=5">갓딜 상품 더보기</a>
+		</div>
+	</div>
+	<!--// 갓딜 -->
+
+	<!-- 요즘 뜨는 신상품 -->
+	<div class="main_pd new_pd cut_layout">
+		<h1 class="main_tit">요즘 뜨는 신상품</h1>
+		{=includeWidget('goods/_goods_display_main.html','sno','36')}
+	</div>
+	<!--// 요즘 뜨는 신상품 -->
+
+	<!-- 기획특가 -->
+	<div class="main_plan cut_layout">
+		<h1 class="main_tit">까까나라 기획특가</h1>
+		<div class="cont inline">
+			<div class="banner">
+				<!--{ @dataBanner('2568464284') }-->{.tag}<!--{ / }-->
+			</div>
+			<div class="pd">
+				{=includeWidget('goods/_goods_display_main.html','sno','37')}
+			</div>
+		</div>
+	</div>
+	<!--// 기획특가 -->
+
+	<!-- 카테고리 베스트 -->
+	<div class="main_pd best_pd cut_layout tab_pd">
+		<h1 class="main_tit">카테고리 베스트</h1>
+		{=includeWidget('goods/_goods_display_main.html','sno','38')}
+		<div class="btn_goods_more">
+			<a class="btn_goods_view_more on" href="/goods/goods_list.php?cateCd=007">과자 상품 더보기</a>
+			<a class="btn_goods_view_more" href="/goods/goods_list.php?cateCd=003">식품 상품 더보기</a>
+			<a class="btn_goods_view_more" href="/goods/goods_list.php?cateCd=004">라면 상품 더보기</a>
+			<a class="btn_goods_view_more" href="/goods/goods_list.php?cateCd=009">음료 상품 더보기</a>
+			<a class="btn_goods_view_more" href="/goods/goods_list.php?cateCd=018">생활용품 상품 더보기</a>
+			<a class="btn_goods_view_more" href="/goods/goods_list.php?cateCd=008">달콤한선물세트 상품 더보기</a>
+			<a class="btn_goods_view_more" href="/goods/goods_list.php?cateCd=021">박스단위 상품 더보기</a>
+		</div>
+	</div>
+	<!--// 카테고리 베스트 -->
+
+	<!-- 중간배너 -->
+	<div class="main_mid_ban inline">
+		<!--{ @dataBanner('405471433') }-->{.tag}<!--{ / }-->
+	</div>
+	<!--// 중간배너 -->
+
+	<!-- 리얼리뷰 -->
+	<div class="main_review cut_layout relative">
+		<h1 class="main_tit">고객님들의 리얼리뷰</h1>
+		<a href="/board/list.php?bdId=goodsreview" class="main_btn">상품리뷰 전체보기</a>
+		<ul class="inline">
+			<!--{ @getArticles( 'goodsreview' , 6 , 62 ) }-->
+			<li class="inline">
+				<div class="img">
+					<a href="/board/view.php?bdId={.bdId}&sno={.sno}">
+						<img src="{.goodsImageSrc}" alt="{.goodsNm}" />
+					</a>
+				</div>
+				<div class="txt">
+					<p class="grade">
+						<span class="rating_star">
+							<span style="width:{.goodsPtPer}%;">{=__('별 다섯개중 다섯개')}</span>
+						</span>
+					</p>
+					<a href="/board/view.php?bdId={.bdId}&sno={.sno}">{=gd_html_cut(gd_remove_tag(.contents),'300')}</a>
+				</div>
+			</li>
+			<!--{ / }-->
+		</ul>
+	</div>
+	<!--// 리얼리뷰 -->
+
+	<!-- 브랜드위크 특가세일 -->
+	<div class="main_pd brand_pd cut_layout">
+		<h1 class="main_tit">브랜드위크 특가세일</h1>
+		{=includeWidget('goods/_goods_display_main.html','sno','39')}
+		<div class="btn_goods_more">
+			<a class="btn_goods_view_more" href="/event/time_sale.php?sno=3">브랜드위크 특가상품 더보기</a>
+		</div>
+	</div>
+	<!--// 브랜드위크 특가세일 -->
+
+	<!-- 브랜드별 인기상품 -->
+	<div class="main_pd brand_best_pd cut_layout tab_pd">
+		<h1 class="main_tit">브랜드별 인기상품</h1>
+		{=includeWidget('goods/_goods_display_main.html','sno','40')}
+		<div class="btn_goods_more">
+			<a class="btn_goods_view_more on" href="/goods/goods_list.php?brandCd=008">크라운 상품 더보기</a>
+			<a class="btn_goods_view_more" href="/goods/goods_list.php?brandCd=004">농심 상품 더보기</a>
+			<a class="btn_goods_view_more" href="/goods/goods_list.php?brandCd=005">해태제과 상품 더보기</a>
+			<a class="btn_goods_view_more" href="/goods/goods_list.php?brandCd=006">롯데제과 상품 더보기</a>
+			<a class="btn_goods_view_more" href="/goods/goods_list.php?brandCd=001">롯데칠성음료 상품 더보기</a>
+			<a class="btn_goods_view_more" href="/goods/goods_list.php?brandCd=002">해태음료 상품 더보기</a>
+			<a class="btn_goods_view_more" href="/goods/goods_list.php?brandCd=007">오리온 상품 더보기</a>
+		</div>
+	</div>
+	<!--// 브랜드별 인기상품 -->
+
+	<!-- 인스타그램 -->
+	<div class="main_insta cut_layout relative">
+		<h1 class="main_tit">까까나라 인스타그램</h1>
+		<a href="https://www.instagram.com/ggagganara_official/" class="main_btn" target="_blank">ggagganara_official</a>
+		{=includeWidget('proc/_insgov2.html', 'sno', '1')}
+	</div>
+	<!--// 인스타그램 -->
+
+	<!-- 게시판 -->
+	<div class="main_board cut_layout inline">
+		<div class="cont">
+			<a href="/board/list.php?bdId=notice">공지사항</a>
+			<ul>
+				<!--{ @getArticles( 'notice' , 3 , 25, 'all' ) }-->
+				<li>
+					<a href="/board/view.php?bdId={.bdId}&sno={.sno}" alt="제목">{.subject}</a>
+					<p>{.regDate}</p>
+				</li>
+				<!--{ / }-->
+			</ul>
+		</div>
+		<div class="cont">
+			<a href="/board/list.php?bdId=event">이벤트</a>
+			<ul>
+				<!--{ @getArticles( 'event' , 3 , 25, 'all' ) }-->
+				<li>
+					<a href="/board/view.php?bdId={.bdId}&sno={.sno}" alt="제목">{.subject}</a>
+					<p>{.regDate}</p>
+				</li>
+				<!--{ / }-->
+			</ul>
+		</div>
+	</div>
+	<!--// 게시판 -->
+</div>
+
+
+<!-- 메인배너 bg 컬러 -->
+<ul class="main_bg">
+	<li data-index="0" data-color="#ffeae9"></li>
+	<li data-index="1" data-color="#ffd820"></li>
+	<li data-index="2" data-color="#df2121"></li>
+	<li data-index="3" data-color="#fffbef"></li>
+	<li data-index="4" data-color="#822791"></li>
+</ul>
+<!--// 메인배너 bg 컬러 -->
+{ # footer }

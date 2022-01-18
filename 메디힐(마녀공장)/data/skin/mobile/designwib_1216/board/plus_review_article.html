@@ -1,0 +1,241 @@
+{*** 플러스리뷰 전체 게시판 | board/plus_review_article.php ***}
+{ # header}
+<link type="text/css" rel="stylesheet" href="\{=c.PATH_MOBILE_SKIN}css/gd_plus_review.css?ts={=time()}">
+<link href="../wib/css/wib-review.css" rel="stylesheet" type="text/css">
+
+<div class="review_page_tit">
+	<div class="in_tit_box">
+		<ul>
+			<li>
+				<span>Before &amp; After 리뷰</span>
+				<strong>1,000P</strong>
+			</li>
+			<li>
+				<span>포토 리뷰</span>
+				<strong>500P</strong>
+			</li>
+			<li>
+				<span>텍스트 리뷰</span>
+				<strong>300P</strong>
+			</li>
+		</ul>
+		<p>
+			*월 최대 <em>5,000P</em>까지 적립 가능합니다
+		</p>
+	</div>
+	<div class="bg"></div>
+</div>
+<div class="best-review"></div>
+
+
+
+<div class="view_group">
+    <button class="view_all on" data-all="all">전체리뷰</button>
+    <button class="view_photo" data-photo="photo">포토리뷰</button>
+    <button class="view_text" data-text="text">텍스트리뷰</button>
+    <input type="hidden" class="selectwhere" value="all">
+</div>
+<form id="searchForm">
+    <div class="plus_review_goods_option">
+        <div class="inp_sel">
+            <select name="sort">
+                <option value="regDt desc">최신순</option>
+                <option value="goodsPt desc">평점순</option>
+                <option value="recommend desc">추천순</option>
+            </select>
+        </div>
+        <div class="inp_sel">
+            <select name="cateGoods[]">
+                <option value="">=카테고리선택=</option>
+                <!--{@ category}-->
+                <option value="{=.cateCd}">{=.cateNm}</option>
+                <!--{/}-->
+            </select>
+        </div>
+    </div>
+</form>
+<!--{ ? plusReviewConfig.addFormSearchFl == 'y' }-->
+<div class="plus_review_add_search"><!-- [D] 선택항목이 있을 경우 class에 on 추가 -->
+    <a href="javascript:void(0);" onclick="gd_search_layer()"><span>{= plusReviewConfig.addFormSearchTitle}</span><span class="arrow"></span></a>
+</div>
+<!--{ / }-->
+<div class="plus_review_article">
+    <div class="plus_review_list">
+        <ul class="js_pr_list"></ul>
+        <div class="plus_review_more" style="display: none;">
+            <button type="button" class="plus_review_more_btn1 js_pr_btn_page_more">{=__('상품후기 더보기')}</button>
+        </div>
+        <div class="plus_review_more">
+            <button type="button" class="plus_review_more_btn1 js_pr_btn_page_more2">더보기</button>
+        </div>
+    </div>
+</div>
+{ # footer}
+<script>
+    var page = 1;
+    var isMypage = '{=isMypage}';
+    //var totalPage = {=data.cnt.totalPage};
+    var totalPage = 1;
+
+    $(document).ready(function () {
+        gd_load_plus_review_list(1);
+
+        $('.js_pr_btn_page_more').bind('click',function () {
+            page=Number(page)+1;
+            var searchFormData = $("#searchForm").serialize();
+            gd_load_plus_review_list(page,$labelValueArry,false,searchFormData);
+        })
+
+        $('select[name=\'sort\'], select[name=\'cateGoods[]\']').change(function() {
+            page=1;
+            var searchFormData = $("#searchForm").serialize();
+            gd_load_plus_review_list(page,$labelValueArry,true,searchFormData);
+        });
+
+        
+        //더보기 버튼
+        $('.js_pr_btn_page_more2').on('click',function(){
+            page=Number(page)+1;
+            var total=$('#totalPage').text();
+           
+            if(total == 1){
+                $('.js_pr_btn_page_more2').hide(); 
+                return false;
+            }
+            var selectwhere = $('.selectwhere').val();
+            $.ajax({
+               url : '/board/plus_review_article_list.php',
+               method : 'post',
+               data : {"selectwhere" : selectwhere,
+                        "page" : page          
+                      },
+               success : function(data){
+                    $('.js_pr_list').html(data);
+                                    
+                    totalPage = $(data).find('#totalPage').text();
+                    
+                    if(page >= totalPage){
+                        $('.js_pr_btn_page_more2').hide();
+                    }else{
+                        $('.js_pr_btn_page_more2').show();
+                    }
+               } 
+            });
+        });
+
+        //전체보기+포토후기만보기+최신순+유용한 순
+        $('.view_all').click(function(){
+            
+            var all = $(this).data("all");
+            $('.view_all').addClass('on');
+            $('.view_photo').removeClass('on');
+            $('.view_text').removeClass('on');
+            $('.selectwhere').val(all);
+
+            var selectwhere = $('.selectwhere').val();
+
+            $.ajax({
+               url : '/board/plus_review_article_list.php',
+               method : 'post',
+               data : {"selectwhere" : selectwhere,
+                        "page" : page
+                      },
+               success : function(data){
+                $('.js_pr_list').html(data);
+                
+               } 
+            });
+        });
+
+        $('.view_photo').click(function(){
+            
+            var photo = $(this).data("photo");
+            $('.view_photo').addClass('on');
+            $('.view_text').removeClass('on');
+            $('.view_all').removeClass('on');
+            $('.selectwhere').val(photo);
+            var selectwhere = $('.selectwhere').val();
+            
+            //alert(orderby);
+            $.ajax({
+               url : '/board/plus_review_article_list.php',
+               method : 'post',
+               data : {"selectwhere" : selectwhere,
+                        "page" : page
+                      },
+               success : function(data){
+                $('.js_pr_list').html(data);
+                
+               } 
+            });
+        });
+
+        $('.view_text').click(function(){
+            
+            var text = $(this).data("text");
+            $('.view_text').addClass('on');
+            $('.view_all').removeClass('on');
+            $('.view_photo').removeClass('on');
+            $('.selectwhere').val(text);
+            var selectwhere = $('.selectwhere').val();
+            
+            //alert(orderby);
+            $.ajax({
+               url : '/board/plus_review_article_list.php',
+               method : 'post',
+               data : {"selectwhere" : selectwhere,
+                        "page" : page
+       
+                      },
+               success : function(data){
+                $('.js_pr_list').html(data);
+                
+               } 
+            });
+        });
+    })
+
+    var gd_load_plus_review_list = function (page,addForm,reload,searchFormData) {
+        $.ajax({
+            url: '../board/plus_review_article_list.php',
+            data: {page: page,isMypage : isMypage,addForm:addForm, searchFormData :searchFormData},
+            method: 'get',
+            type: 'text',
+            cache: false,
+        }).success(function (result) {
+            if(reload){
+                $('.js_pr_list').html(result);
+            }else{
+                $('.js_pr_list').append(result);
+            }
+
+            totalPage = $(result).find('#totalPage').text();
+            if(page >= totalPage){
+                $('.js_pr_btn_page_more').hide();
+            }else{
+                $('.js_pr_btn_page_more').show();
+            }
+        }).error(function (e) {
+            console.log(e);
+        });
+    }
+
+    var $labelValueArry = [];
+    var gd_search_layer = function(){
+        var params = {
+            addForm : $labelValueArry,
+        };
+        $('#popupAlikeSearch').modal({
+            remote: '../board/plus_review_search.php',
+            cache: false,
+            params: params,
+            type : 'GET',
+            show: true
+        });
+    }
+    var gd_search_add_form = function(){
+        page=1;
+        var searchFormData = $("#searchForm").serialize();
+        gd_load_plus_review_list(page,$labelValueArry,true,searchFormData);
+    }
+</script>

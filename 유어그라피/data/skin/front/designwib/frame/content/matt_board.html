@@ -1,0 +1,151 @@
+{*** 마운트 선택 | frame/content/matt_board.php ***}
+<!-- 선택영역 -->
+<div class="choice_type1">
+    <div class="choice_title">
+        <h1>매트보드 선택</h1>
+        <p>다양한 컬러와 스타일의 매트보드를 적용해보세요.</p>
+    </div>
+    <!-- 마운트 선택 -->
+    <div class="mount_select">
+        <div class="choice_select">
+            <ul class="type2 inline">
+                <li class="on"  data-mount="nomatt">
+                    <div class="chk_box">
+                        <div class="img no_img">
+                            <img src="../../wib/img/imgbox/paper_noimg.png" alt="마운트 선택안함"/>
+                        </div>
+                        <div class="txt">
+                            <h3>매트보드 선택 안함</h3>
+                        </div>
+                    </div>
+                </li>
+                <li class="eventBtn" data-mount="single" data-event="setMount">
+                    <div class="chk_box">
+                        <div class="img">
+                            <img src="../../wib/img/imgbox/single.png" alt="싱글 마운트"/>
+                        </div>
+                        <div class="txt">
+                            <h3>싱글 매트보드</h3>
+                        </div>
+                    </div>
+                </li>
+                <li class="eventBtn" data-mount="double" data-event="setMount">
+                    <div class="chk_box">
+                        <div class="img">
+                            <img src="../../wib/img/imgbox/double.png" alt="더블 마운트"/>
+                        </div>
+                        <div class="txt">
+                            <h3>더블 매트보드</h3>
+                        </div>
+                    </div>
+                </li>
+                <li data-mount="bSingle" class="hidden">
+                    <div class="chk_box">
+                        <div class="img">
+                            <img src="../../wib/img/imgbox/paper03.png" alt="두꺼운 더블마운트"/>
+                        </div>
+                        <div class="txt">
+                            <h3>두꺼운 싱글마운트</h3>
+                        </div>
+                    </div>
+                </li>
+                <li data-mount="bDouble" class="hidden">
+                    <div class="chk_box">
+                        <div class="img">
+                            <img src="../../wib/img/imgbox/paper04.png" alt="두꺼운 싱글마운트"/>
+                        </div>
+                        <div class="txt">
+                            <h3>두꺼운 더블마운트</h3>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="color_select cont_wrap">
+            <h3 class="cont_tit">STEP 1. 컬러선택</h3>
+            <div class="cont_box">
+                <div class="accentBox hidden">
+                    <h3>TOP COLOR</h3>
+                </div>
+                <ul class="topul">
+                    <li>
+                        <div class="color_chip on" style="background:#f5f5f5;" data-color="245_245_245"></div>
+                        <div class="color_chip" style="background:#f3e59e;" data-color="243_229_158"></div>
+                        <div class="color_chip" style="background:#1f5182;" data-color="31_81_130"></div>
+                        <div class="color_chip" style="background:#e44138;" data-color="228_65_56"></div>
+                    </li>
+                    <li>
+                        <div class="color_chip" style="background:#284654;" data-color="40_70_84"></div>
+                        <div class="color_chip" style="background:#5d414f;" data-color="93_65_79"></div>
+                        <div class="color_chip" style="background:#deba88;" data-color="222_186_136"></div>
+                        <div class="color_chip" style="background:#cacaa8;" data-color="202_202_168"></div>
+                        <div class="color_chip" style="background:#334a36;" data-color="51_74_54"></div>
+                        <div class="color_chip" style="background:#000;"  data-color="0_0_0"></div>
+                    </li>
+                </ul>
+                <div class="accentBox hidden">
+                    <br>
+                    <h3 >ACCENT COLOR</h3>
+                    <ul class="accul">
+                        <li>
+                            <div class="color_chip on" style="background:#f5f5f5;" data-color="245_245_245"></div>
+                            <div class="color_chip" style="background:#f3e59e;" data-color="243_229_158"></div>
+                            <div class="color_chip" style="background:#1f5182;" data-color="31_81_130"></div>
+                            <div class="color_chip" style="background:#e44138;" data-color="228_65_56"></div>
+                        </li>
+                        <li>
+                            <div class="color_chip" style="background:#284654;" data-color="40_70_84"></div>
+                            <div class="color_chip" style="background:#5d414f;" data-color="93_65_79"></div>
+                            <div class="color_chip" style="background:#deba88;" data-color="222_186_136"></div>
+                            <div class="color_chip" style="background:#cacaa8;" data-color="202_202_168"></div>
+                            <div class="color_chip" style="background:#334a36;" data-color="51_74_54"></div>
+                            <div class="color_chip" style="background:#000;"  data-color="0_0_0"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="border_select cont_wrap">
+            <h3 class="cont_tit">STEP 2. 매트보드 여백</h3>
+            <div class="cont_box">
+                <div class="border_wrap">
+                    <div class="main_box"><span></span></div>
+                    <div class="input_box top">
+                        <p>상단 mm</p>
+                        <input type="text" value="50"/>
+                    </div>
+                    <div class="input_box left">
+                        <p>좌측 mm</p>
+                        <input type="text" value="50"/>
+                    </div>
+                    <div class="input_box right">
+                        <p>우측 mm</p>
+                        <input type="text" value="50"/>
+                    </div>
+                    <div class="input_box bottom">
+                        <p>하단 mm</p>
+                        <input type="text" value="50"/>
+                    </div>
+                </div>
+                <button type="button" class="border_save_btn">여백 적용</button>
+                <div class="border_result hidden">
+                    <h3>열림 크기가 지정된 사진 크기보다 작습니다.</h3>
+                    <p>마운트 열림 크기 <span>90x87mm</span></p>
+                    <p>외부 마운트 열림 크기 <span>190x187mm</span></p>
+                    <p>예상 마운트 프레임 크기 <span>204x201mm</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// 마운트 선택 -->
+</div>
+<!--// 선택영역 -->
+<!-- 단계 -->
+<div class="step_box">
+    <ul class="inline">
+        <li><a href="#" class="back_btn">back</a></li>
+        <li><button type="button" class="next_btn eventBtn" data-event="gotoCover">다음 단계</button></li>
+    </ul>
+</div>
+<!--// 단계 -->

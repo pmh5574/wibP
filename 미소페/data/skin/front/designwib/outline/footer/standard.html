@@ -1,0 +1,176 @@
+{*** 하단 기본타입 | main/index.php ***}
+
+<div id="w-footer">
+	<div class="top">
+		<div class="inner">
+			<div class="left">
+				<p>CS CENTER</p>
+				<dl>
+					<dt>1577·7650</dt>
+					<dd>온라인상품/배송문의</dd>
+				</dl>
+				<dl>
+					<dt>1577·5499</dt>
+					<dd>매장 상품구매/불만사항</dd>
+				</dl>
+				<span>평일 AM10:00 ~ PM17:00(점심시간 PM12:00 ~ PM13:00)<br>주말 및 공휴일은 휴무입니다.</span>
+				<ul>
+					<li>
+						<a href="/service/index.php">FAQ</a>
+					</li>
+					<li>
+						<a href="/board/list.php?bdId=qa">1:1 문의</a>
+					</li>
+					<li>
+						<a href="/board/list.php?bdId=store">매장안내</a>
+					</li>
+				</ul>
+			</div>
+			<div class="middle">
+				<div class="tab">
+					<a href="javascript:;" class="on">NOTICE</a>
+					<a href="javascript:;">EVENT</a>
+				</div>
+				<div class="contents-wrap">
+					<div class="content">
+						<a href="/board/list.php?&bdId=notice">
+							<img src="../../wib/img/footer-more-icon.png" alt="MORE VIEW" />
+						</a>
+						<ul>
+							<!--{ @getArticles( 'notice' , 6 , 40 ) }-->
+							<li>
+								<a href="/board/view.php?bdId={.bdId}&sno={.sno}">
+									<span class="title">{.subject}</span>
+									<span class="date">{.regDate}</span>
+								</a>
+							</li>
+							<!--{ / }-->
+						</ul>
+					</div>
+					<div class="content">
+						<a href="/board/list.php?&bdId=event">
+							<img src="../../wib/img/footer-more-icon.png" alt="MORE VIEW" />
+						</a>
+						<ul>
+							<!--{ @getArticles( 'event' , 6 , 40 ) }-->
+							<li>
+								<a href="/board/view.php?bdId={.bdId}&sno={.sno}">
+									<span class="title">{.subject}</span>
+									<span class="date">{.regDate}</span>
+								</a>
+							</li>
+							<!--{ / }-->
+						</ul>
+					</div>
+
+				</div>
+			</div>
+			<div class="right">
+				<p>BENEFIT</p>
+				<div class="banner-area">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<!--{ @dataBanner('1006710047', true) }-->
+							<!--{ ? .index_ == '0'}-->
+							<div class="swiper-slide">
+								<a href="{.bannerLink}">
+									<img src="{.bannerImageUrl}" alt="{.bannerImageAlt}"/>
+								</a>
+							</div>
+							<!--{ / }-->
+							<!--{ ? .index_ == '1'}-->
+							<div class="swiper-slide">
+								<a href="{.bannerLink}">
+									<img src="{.bannerImageUrl}" alt="{.bannerImageAlt}"/>
+								</a>
+							</div>
+							<!--{ / }-->
+							<!--{ ? .index_ == '2'}-->
+							<div class="swiper-slide">
+								<a href="{.bannerLink}">
+									<img src="{.bannerImageUrl}" alt="{.bannerImageAlt}"/>
+								</a>
+							</div>
+							<!--{ / }-->
+							<!--{ ? .index_ == '3'}-->
+							<div class="swiper-slide">
+								<a href="{.bannerLink}">
+									<img src="{.bannerImageUrl}" alt="{.bannerImageAlt}"/>
+								</a>
+							</div>
+							<!--{ / }-->
+							<!--{ / }-->
+						</div>
+					</div>
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="middle">
+		<div class="inner">
+			<div class="left">
+				<ul>
+					<li>
+						<a href="../main/html.php?htmid=proc/brand.php&myShop">회사소개</a>
+					</li>
+					<li>
+						<a href="../service/private.php">개인정보처리방침</a>
+					</li>
+					<li>
+						<a href="../service/agreement.php">이용약관</a>
+					</li>
+				</ul>
+			</div>
+			<div class="right">
+				<ul>
+					<li>
+						<a href="https://www.facebook.com/MISOPE.Online/?modal=admin_todo_tour" target="_blank">
+							<img src="../../wib/img/f-icon.png" alt="페이스북" />
+						</a>
+					</li>
+					<li>
+						<a href="https://www.instagram.com/m_misope/" target="_blank">
+							<img src="../../wib/img/i-icon.png" alt="인스타그램" />
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="../../wib/img/y-icon.png" alt="유튜브" />
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="bottom">
+		<div class="inner">
+			<div class="left">
+				<!--{ @dataBanner('2075696951') }-->{.tag}<!--{ / }-->
+				<div class="info">
+					<span>상호명 : {=gMall.companyNm}</span>
+					<span>대표자 : {=gMall.ceoNm}</span>
+					<span>주소 : {=gMall.address} {=gMall.addressSub}</span>
+					<span>사업자등록번호 : {=gMall.businessNo} <a href="#" class="btn_licensee_info" onclick="gd_popup_bizInfo('{=str_replace('-', '', gMall.businessNo)}'); return false;">{=__('사업자번호조회')} ></a></span><br>
+					<span>TEL : {=gMall.phone}</span>
+					<span>통신판매업신고번호 : {=gMall.onlineOrderSerial}</span>
+					<span>FAX : {=gMall.fax}</span>
+					<span>개인정보관리자 : {=gMall.privateNm}</span>
+					<span>메일 : <a href="mailto:{=gMall.email}">{=gMall.email}</a></span>
+					<p>copyright (c) misope.co.kr all rights reserved. Hosting by NHN GODO. Design by Designwib</p>
+				</div>
+			</div>
+			<div class="right">
+				<p>RETURN&EXCHANGE</p>
+				<dl>
+					<dt>반품지 주소</dt>
+					<dd>경기도 남양주시 화도읍 비룡로 411번길 61 미소페물류센터</dd>
+				</dl>
+				<dl>
+					<dt>교환/반품비 입금 계좌</dt>
+					<dd>우리은행 1005-901-585988 (주)비경통상</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>

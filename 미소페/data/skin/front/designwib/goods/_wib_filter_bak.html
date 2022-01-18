@@ -1,0 +1,149 @@
+{*** [위젯] 필터 출력 | goods/_wib_filter.php ***}
+<style>
+    .grape.ui-widget-content {background: url('../wib/img/rangerBg.png');background-repeat-y: no-repeat;background-position-y: center;border: 0}
+    .grape.ui-widget-content .ui-slider-range {visibility: hidden}
+    .grape .ui-state-default, .grape .ui-widget-content .ui-state-default, .grape .ui-widget-header .ui-state-default 
+    {border: 3px solid #665B58 !important;border-radius: 50%;background: #fff !important;background-repeat: no-repeat}
+    .ui-slider-horizontal .ui-slider-handle {width: 11px !important;height: 11px !important;top: -.2em !important;}
+    .color_box .color {cursor: pointer}
+    .color_box .colorNatural {background: repeating-linear-gradient(90deg, #E8E1D1, #E8E1D1 4px, #fff 0, #fff 7px) !important;}
+    .color_box .colorMulti {background: linear-gradient(180deg, #E5EAF1 0%, #F4F4F4 31.77%, #CADAF2 31.78%, #CADAF2 66.67%, #7AA6D5 67.19%, #7AA6D5 100%), #FFFFFF !important;}
+    div.filter_box .total_box ul.select_box li {display:none}
+    div.filter_box .total_box ul.select_box li.sel_price {display: inline-block}
+    .clList {margin-right: 5px}
+    .priceBox label {cursor: pointer}
+      .tooltips{position: absolute;color:#000 !important;position: absolute;top: -49px;left: 0;min-width: 55px;text-align: center;display: inline-block;text-indent: 0;border: 1px solid #3e3e3e;padding: 10px 13px;background: #fff;font-size: 12px;}
+    .spWhite {border: 1px solid #e5e5e5;}
+    .filter_box ul li .color_box ul li span.color.sel.spWhite:before {background:url("../wib/img/sel_color_sp.png") center center no-repeat;}
+    .c1 {background : #808080 !important;}
+    .c2 {background : #009900 !important;}
+    .c3 {background : repeating-linear-gradient(90deg, rgb(232, 225, 209), rgb(232, 225, 209) 4px, rgb(255, 255, 255) 0px, rgb(255, 255, 255) 7px) repeat scroll 0% 0% / auto padding-box border-box !important;}
+    .c4 {background : #000080 !important;}
+    .c5 {background : linear-gradient(rgb(229, 234, 241) 0%, rgb(244, 244, 244) 31.77%, rgb(202, 218, 242) 31.78%, rgb(202, 218, 242) 66.67%, rgb(122, 166, 213) 67.19%, rgb(122, 166, 213) 100%) repeat scroll 0% 0% / auto padding-box border-box, rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box  !important;}
+    .c6 {background : #BDFCC9 !important;}
+    .c7 {background : #F5F5DC !important;}
+    .c8 {background : #3030F8 !important;}
+    .c9 {background : #36454f !important;}
+    .c10 {background : #ff3399 !important;}
+    .c11 {background : #fff !important;}
+</style>
+<div class="filter_box {mode}">
+    <ul class="filter_con">
+        <li>
+			<div class="category-box">
+				
+			</div>
+        </li>
+        <li>
+            <div class="price_box">
+                <p class="tit">PRICE</p>
+                <p class="grape"></p>
+                <p class="grape_price"><span class="sprice">0</span>원 ~ <span class="eprice">0</span>원</p>
+                <div class="input_box priceBox">
+                    <p><input type="checkbox" id="price01" class="priceInsert" value="0||20000" /><label for="price01">20,000원 이하</label></p>
+                    <p><input type="checkbox" id="price02" class="priceInsert" value="0||30000" /><label for="price02">30,000원 이하</label></p>
+                    <p><input type="checkbox" id="price03" class="priceInsert" value="20000||50000" /><label for="price03">20,000원 ~ 50,000원</label></p>
+                    <p><input type="checkbox" id="price04" class="priceInsert" value="30000||50000" /><label for="price04">30,000원 ~ 50,000원</label></p>
+                    <p><input type="checkbox" id="price05" class="priceInsert" value="50000||100000" /><label for="price05">50,000원 ~ 100,000원</label></p>
+                    <p><input type="checkbox" id="price06" class="priceInsert" value="100000||150000" /><label for="price06">100,000원 ~ 150,000원</label></p>
+                    <p><input type="checkbox" id="price07" class="priceInsert" value="150000||200000" /><label for="price07">150,000원 ~ 200,000원</label></p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="pattern_box">
+                <p class="tit">PATTERN</p>
+                <div class="input_box">
+                    <!--{ @pattern }-->
+                        <p><input type="checkbox" id="pat{.index_+1}" class="filterpattern" name="pattern[]" value="{.value_}" /><label for="pat{.index_+1}">{.value_}</label></p>
+                    <!--{ / }-->
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="season_box">
+                <p class="tit">SEASON</p>
+                <div class="input_box">
+                    <!--{ @season }-->
+                        <p><input type="checkbox" id="sea{.index_+1}" class="filterseason" name="pattern[]" value="{.value_}" /><label for="sea{.index_+1}">{.value_}</label></p>
+                    <!--{ / }-->
+                </div>
+            </div>
+        </li>
+		<li>
+            <div class="color_box">
+                <p class="tit">COLOR</p>
+                <ul>
+                    <!-- 색렉트 sel -->
+                    <!--{ @color }-->
+                        <!--{ ? .value_[1] }-->
+                        <li><span class="hastooltip color { ?.value_[1] == '#ff0000' }colorNatural{/}{ ?.value_[1] == '#bf0000' }colorMulti{/} { ?.value_[1] == '#fff' }spWhite{/}" data-name="{.value_[0]}" data-backs="{.value_[2]}" style="background:{.value_[1]}"></span></li>
+                        <!--{ / }-->
+                    <!--{ / }-->
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <div class="total_box">
+        <ul class="select_box">
+            <li class="sel_color"><span class="clBox"><span class="clList"><span class="color"></span><span class="name">Orenge</span></span></span><span class="del" data-del="sel_color"><img src="../wib/img/sel_delete.png" /></span> </li>
+            <li class="sel_price"><span class="fpStartBox"></span>원 ~ <span class="fpEndBox"></span>원 <span class="del"  data-del="sel_price"><img src="../wib/img/sel_delete.png" /></span> </li>
+            <li class="sel_pat"><span class="ptBox">체크, 스트라이프</span> <span class="del"  data-del="sel_pat"><img src="../wib/img/sel_delete.png" /></span> </li>
+            <li class="sel_sea"><span class="seBox">겨울용</span><span class="del"  data-del="sel_sea"><img src="../wib/img/sel_delete.png" /></span> </li>
+        </ul>
+        <ul class="btn_box">
+            <li class="reset"><a href="#">초기화</a></li>
+            <li class="ok"><a href="#">필터적용</a></li>
+        </ul>
+        <p class="open show"><img src="../wib/img/filter_open.png" /></p>
+    </div>
+</div>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/hot-sneaks/jquery-ui.css" />
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script>
+    var fpStart = {fpStart};
+    var fpEnd = {fpEnd};
+</script>
+<script src="../wib/js/wib-filter.js?v=2"></script>
+
+<script>
+$(document).ready(function(){
+
+<!--{ ? fcolor }-->
+    <!--{ @ fcolor }-->
+        <!--{ ? .value_ }-->
+            $('.color_box ul').children().eq('{.index_}').children('span').trigger('click');
+        <!--{ / }-->
+    <!--{ / }-->
+<!--{ / }-->
+
+<!--{ ? fprice }--> 
+    otherTriggers('price_box', 'priceInsert', '{fprice}');
+<!--{ / }-->
+
+<!--{ ? fpattern }-->
+    <!--{ @ fpattern }-->
+        <!--{ ? .value_ }-->
+            otherTriggers('pattern_box', 'filterpattern', '{.index_}');
+        <!--{ / }-->
+    <!--{ / }-->
+<!--{ / }-->
+
+<!--{ ? fseason }-->
+    <!--{ @ fseason }-->
+        <!--{ ? .value_ }-->
+            otherTriggers('season_box', 'filterseason', '{.index_}');
+        <!--{ / }-->
+    <!--{ / }-->
+<!--{ / }-->
+
+$('.hastooltip').hover(function(){
+    $(this).append('<span class="tooltips">'+$(this).data('name')+'</span>');
+}, function() {
+   $('.tooltips').remove();
+});
+
+});
+
+
+</script>

@@ -1,0 +1,79 @@
+/* 기존 게시판 */
+.ori-board .xans-board-listpackage .ec-base-table .thumb img,
+.ori-board .xans-board-title p.imgArea {display: none;}
+
+/* 게시판 목록 */
+#wrap #contents {padding:150px 0 80px;}
+#contents .ec-base-button.typeBG {background: none;}
+#contents .titleArea p {display: none;}
+#contents .xans-board-search p {background: none;}
+.xans-board-title p.imgArea {display: none;}
+#contents .ec-base-table table + .message {border: none; display: none;}
+#contents .ec-base-button.typeBG {border: none;}
+#contents .ec-base-table td,
+#contents .ec-base-table td a,
+.txtNum {color: #333 !important;font-weight: 400; font-size: 12px;}
+#contents .ec-base-table.typeList table,
+#contents .ec-base-table thead th,
+#contents .ec-base-table.typeList.gBorder tbody td {border: none;}
+#contents .ec-base-table thead th {font-weight: bold;}
+#contents .ec-base-table.typeList td {padding: 13px 10px 15px 10px;}
+
+#contents .xans-board-search {text-align: center;margin: 60px 0 30px 0;padding: 10px 10px 10px 10px;border-top: 1px solid #e8e8e8;border-bottom: 1px solid #e8e8e8;background: #f7f7f7;}
+#contents .btn-search {background-color: #000;color: #00ff32;display: inline-block;height: 31px;
+margin: 0 0 0 5px;padding: 0 15px 0 15px;line-height: 31px;vertical-align: top;}
+#contents .xans-board-search p:before {display: none;}
+#contents .xans-board-search select {background: #000; color: #fff; height: 31px; line-height: 31px;}
+
+.board-tab {margin-bottom: 40px;}
+.board-tab ul {font-size: 0;}
+.board-tab ul li {float: left;margin-right: 15px;padding-right: 15px;border-right: 1px solid #ddd;line-height: 12px;}
+.board-tab ul li:last-child {border-right: none;}
+.board-tab ul li a {font-size: 13px;font-weight: 300;color: #333;}
+
+/* 게시판 읽기 */
+#contents .titleArea h2 font {font-size: 24px;}
+#BoardDelForm .ec-base-table table {border: none; margin: 0;}
+#BoardDelForm .ec-base-table tbody th {display: none;}
+#BoardDelForm .ec-base-table.typeWrite tbody tr:first-child {background: #f7f7f7;}
+#contents .xans-board-movement,
+#contents .xans-board-listsgroup,
+#contents .xans-board-product.ec-base-box.typeProduct {display: none;}
+#contents .ec-base-table.typeWrite {border-bottom: 1px solid #ddd;}
+#contents .ec-base-table.typeWrite td.tit_txt01 {color: #111111;font-size: 14px;font-weight: bold;padding: 13px 10px 9px;border-top: 1px solid #000;width: 100%;}
+#contents .ec-base-table.typeWrite td.tit_txt02 {color: #111111;font-size: 12px;font-weight: bold;padding: 10px;}
+#contents .ec-base-table.typeWrite td .txtNum {border-left: 1px solid #ddd; margin-left: 5px; padding-left: 5px;}
+#contents .ec-base-table.typeWrite td .wr_txt {float: right;padding-top: 4px;}
+#contents .ec-base-table.typeWrite td .wr_txt strong {padding-right: 5px;}
+#contents .xans-board-commentwrite {background: #f8f8f8;border: solid 1px #dbdbdb;}
+#contents .xans-board-commentlist {border: none;}
+#contents .xans-board-commentlist .boardComment li {border: none;background: #f8f8f8;}
+#contents .xans-board-commentlist .boardComment li div.commentTop {border-color: #dbdbdb;}
+#contents [class^='btn'][class*='Fix'].sizeS {font-size: 12px;}
+#wrap #contents .titleArea h2 {padding: 0 !important;}
+
+/* 이벤트 게시판 (갤러리) */
+.gall-wrap.xans-board-listpackage-8 .notice {border-top: 1px solid #000;}
+.gall-wrap.xans-board-listpackage-8 .xans-board-list-8 li {display: block;width: 100%;}
+.gall-wrap.xans-board-listpackage-8 .xans-board-list-8 li .imgLink img {width: 100%;height: auto;border: none;}
+.gall-wrap.xans-board-listpackage-8 .xans-board-list-8 li .boardChk {margin: 0;display: none;}
+.gall-wrap.xans-board-listpackage-8 .xans-board-list-8 li a.imgLink, 
+.gall-wrap.xans-board-listpackage-8 .xans-board-list-8 li a.imgLink:hover {display: inline-block;font-size: 13px;font-weight: bold;width: auto;}
+.gall-wrap.xans-board-listpackage-8 .right-txt {display: inline-block;vertical-align: top;padding-left: 20px;}
+.gall-wrap.xans-board-listpackage-8 .xans-board-list-8 li span {color:#333;margin: 0;}
+.gall-wrap.xans-board-listpackage-8 .xans-board-list-8 li span.wr_txt {font-size: 11px;color: #b2b2b2;}
+/*.xans-board-read .ec-base-table .detail {width: 1180px;}*/
+.xans-board-read .ec-base-table .detail > img {display: none;}
+.gall-wrap.xans-board-listpackage-8 .xans-board-list-8 li strong {padding-right: 5px;}
+
+
+/* 마이페이지 게시판 */
+.xans-myshop-boardlistsearch {text-align: center;margin: 60px 0 30px 0;padding: 10px 10px 10px 10px;border-top: 1px solid #e8e8e8;border-bottom: 1px solid #e8e8e8;background: #f7f7f7;}
+#search_key {background: #000;color: #fff;height: 31px;line-height: 31px;}
+#board_sort {background: #000;color: #fff;margin-left: 10px;height: 30px;line-height: 30px;}
+
+
+
+
+
+

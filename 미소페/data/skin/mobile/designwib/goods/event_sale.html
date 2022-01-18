@@ -1,0 +1,32 @@
+{*** 기획전 | goods/event_sale.php ***}
+{ # header }
+
+<style>
+    .sub_top {display: none;}
+    #footer {margin: 0;}
+</style>
+
+<section id="main" class="content">
+	<!--{ ? data.displayCategory == 'g' }-->
+		<!-- 기획전 그룹형 상품 노출 -->
+		{=includeWidget('goods/_goods_display_group_main.html','sno',sno,'isMobile',isMobile,'viewType','all')}
+		<!-- 기획전 그룹형 상품 노출 -->
+	<!--{ : }-->
+		<!-- 기획전 일반형 상품 노출 -->
+		{=includeWidget('goods/_goods_display_main.html','sno',sno,'isMobile',isMobile,'viewType','all')}
+		<!-- 기획전 일반형 상품 노출 -->
+	<!--{ / }-->
+</section>
+
+<div class="event_bottom">
+    <h2>다른 기획전</h2>
+    <ul>
+        <!--{ @ otherEvent }-->
+            <!--{ ? .statusText == '진행중' }-->
+                <li class="swiper-slide"><a href="/goods/event_sale.php?sno={.sno}"><img src="/data/display/{.event_thumbnail}" alt="{.event_thumbnail}"></a></li>
+            <!--{ / }-->
+        <!--{ / }-->
+    </ul>
+</div>
+
+{ # footer }

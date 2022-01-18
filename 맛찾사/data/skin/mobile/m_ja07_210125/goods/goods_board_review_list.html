@@ -1,0 +1,435 @@
+{*** 상품상세 - 상품 문의/후기 목록 | goods/goods_board_review_list.php ***}
+
+<!--WIB-->
+<script type="text/javascript" src="{=setBrowserCache('../wib/js/wib-view.js')}"></script>
+
+
+<div class="goods_board_review_list">
+    <!--{? bdList.noticeList }-->
+    <!--{ @ bdList.noticeList }-->
+    <ul>
+        <li>
+            <div class="item_list_summary">
+                <div class="board_left">
+                    <div class="author_box">
+                        <span class="name">{.writer}</span>
+                        <span class="date"> {.regDate}</span>
+                    </div>
+                    <p class="title">
+                        <span><img src="{bdList.cfg.iconImage.notice.url}" /></span><a class="js_board_review_detail js_{req.bdId}_detail_{.sno}" data-bdid="{req.bdId}" data-sno="{.sno}" data-auth="{.auth.view}" data-goodsno="{.goodsNo}" data-notice="y"><strong>{.subject}</strong></a>
+                    </p>
+                </div>
+                <div class="board_right">
+                    <button type="button" class="detail_write_more_btn js_board_review_detail" data-bdid="{req.bdId}" data-sno="{.sno}" data-auth="{.auth.view}" data-goodsno="{.goodsNo}" data-notice="y">상품후기 더보기</button>
+                </div>
+            </div>
+            <div class="js_goodsreview_{.sno}" data-notice="y"></div>
+        </li>
+    </ul>
+    <!--{/}-->
+    <!--{/}-->
+    <!--{? bdList.list }-->
+    <!--{ @ bdList.list }-->
+    <ul>
+        <li>
+            <div class="item_list_summary">
+                <div class="board_left">
+                    <div class="star_box">\
+                        <span class="star_li" style="width:{.goodsPt*20}%;"></span>
+                        <strong class="star_txt">{=.goodsPt}.0</strong>
+                    </div>
+                    <div class="author_box">
+                        <span class="name">{.writer}</span>
+                        <!--<span class="date"> {.regDate}</span>-->
+                    </div>
+                    <p class="title">
+                        {.gapReply}
+                        <span <!--{ ? .groupThread }-->class="reply" <!--{/}-->>
+                            <!--{ ? .isSecret == 'y' }--><img src="{bdList.cfg.iconImage.secret.url}"> <!--{ / }-->
+                            <a class="js_board_review_detail js_{req.bdId}_detail_{.sno} wib_more_btn" data-bdid="{req.bdId}" data-sno="{.sno}" data-auth="{.auth.view}" data-goodsno="{.goodsNo}" data-notice="n">
+                                {.subject}
+                                <span class="detail_txt">{.contents}</span>
+                                <!--{ ? .attachImageSrc }-->
+                                <img class="add_img" src="{.attachImageSrc}" alt="{=__('파일첨부')}"/>
+                                <!--{ / }-->
+                            </a>
+
+                            <!--{ ? .isFile == 'y' }--><span class="is_images"></span><!--img src="{bdList.cfg.iconImage.attach_file.url}" alt="{=__('파일첨부 있음')}"/--><!--{/}-->
+                            <!--{ ? .isImage == 'y' }--><span class="is_images"></span><!--img src="{bdList.cfg.iconImage.attach_img.url}" alt="{=__('이미지첨부 있음')}"/--><!--{/}-->
+                            <!--{ ? .isNew == 'y' }--><img src="{bdList.cfg.iconImage.new.url}" alt="{=__('신규 등록글')}"/><!--{/}-->
+                        </span>
+                    </p>
+                </div>
+                <div class="board_right">
+                    <button type="button" class="detail_write_more_btn js_board_review_detail" data-bdid="{req.bdId}" data-sno="{.sno}" data-auth="{.auth.view}" data-goodsno="{.goodsNo}" data-notice="n">상품후기 더보기</button>
+                </div>
+            </div>
+            <div class="js_goodsreview_{.sno} review_detail" data-notice="n"></div>
+        </li>
+    </ul>
+    <!--{/}-->
+    <!--{:}-->
+    <p class="no_data">{=__('등록된 상품후기가 없습니다.')}</p>
+    <!--{/}-->
+    <div class="btn_box js_board_goodsreview_more wib_btn">
+        <button type="button" data-next-page="{pageData.next}" class="detail_more_btn">{=__('더보기')} <!--{<!--pageData.listCount}<span>/</span>{pageData.total--><!--}--></button>
+    </div>
+</div>
+
+<!--{? pageData.now =='1' }-->
+<script type="text/javascript" src="\{=c.PATH_MOBILE_SKIN}js/gd_board_view.js" charset="utf-8"></script>
+<script type="text/javascript">
+    <!--
+        $(document).ready(function () {
+            $('.js_board_goodsreview_view').off().on('touchstart', '.js_board_review_detail', function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+                var notice = $(this).data('notice');
+                if ($(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").html().trim() != '') {
+                    $(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").html('');
+                    $(this).closest("li").removeClass("selected");
+                    $(this).closest("li").find('.detail_write_more_btn').removeClass("detail_write_more_btn_on");
+                } else {
+                    gd_view_goods_board($(this).data('bdid'), $(this).data('sno'), $(this).data('auth'), $(this).data('goodsno'), notice);
+                    $(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").slideDown();
+                }
+            });
+            $('.js_board_goodsreview_view').on('click', '.js_board_goodsreview_more button', function (e) {
+                if ($(this).data('next-page') > 0) {
+                    gd_load_goods_board_list2('{req.bdId}', '{req.goodsNo}', $(this).data('next-page'));
+                }
+            });
+            $('.js_board_goodsreview_view').on("DOMSubtreeModified", '.goods_board_review_list ul > li > div:last-child', function () {
+                if ($(this).children('#boardContent').length > 0) {
+                    if ($(this).data('auth') != 'n') {
+                        $(this).closest("li").addClass("selected");
+                        $(this).closest("li").find('.detail_write_more_btn').addClass("detail_write_more_btn_on");
+                    }
+                }
+            });
+        });
+    //-->
+    
+function gd_view_goods_board2(bdId,sno,auth,goodsNo,notice) {
+    if (auth == 'n') {
+        $(this).closest("li").removeClass("selected");
+        alert(__('권한이 없습니다.'));
+        return;
+    }
+    else if (auth == 'c') {
+        passwordLayer.show();
+        passwordLayer.btnEl.unbind('click').bind('click', function () {
+            $.ajax({
+                method: "get",
+                url: "goods_board_view.php",
+                data: {sno: sno, bdId: bdId, writerPw: passwordLayer.value(), goodsNo: goodsNo},
+                dataType: 'text',
+                cache: false,
+                async: true,
+            }).success(function (data) {
+                passwordLayer.close();
+                commentAreaEl.element(bdId, sno, notice).html(data).promise().done(function(){
+                    $(this).find('.js_comment_area').attr('data-notice', notice);
+                    $(this).find('.js_comment_area').find('.js_data_comment_row').attr('data-notice', notice);
+                });
+                var commentAreaElReverse = commentAreaEl.elementReverse(bdId, sno, notice);
+                if(commentAreaElReverse.length > 0) {
+                    if ($.trim(commentAreaElReverse.html()).length > 0) {
+                        commentAreaElReverse.html(data).promise().done(function(){
+                            $(this).find('.js_comment_area').attr('data-notice', gd_notice_reverse(notice));
+                            $(this).find('.js_comment_area').find('.js_data_comment_row').attr('data-notice', gd_notice_reverse(notice));
+                        });
+                    }
+                }
+            }).error(function (e) {
+                alert('fail');
+                alert(e.responseText);
+            });
+        });
+    }  else if (auth == 'y') {
+
+        $.ajax({
+            method: "GET",
+            url: "../goods/goods_board_view.php",
+            data: {sno: sno, bdId: bdId, gboard: 'y', goodsNo: goodsNo},
+            dataType: 'text',
+            cache: false,
+            async: true,
+        }).success(function (data) {
+            var _startSplit= data.split('<img');
+            if(_startSplit[1]){
+                var _splitLength = _startSplit.length;
+
+                var _newSplit = '';
+                for(var i = 1; i<_splitLength; i++){
+                    _newSplit += '<img '+_startSplit[i];
+                }
+                data = _startSplit[0]+'<div class="no_more_btn">접기</div>'+_newSplit;
+            }else{
+                var _wantSplit = data.split('</div>');
+                var _splitLength = _wantSplit.length;
+
+                var _newSplit = '';
+                for(var i = 1; i<_splitLength; i++){
+                    _newSplit += '<img '+_wantSplit[i];
+                }
+
+                data = _wantSplit[0]+'<div class="no_more_btn">접기</div>'+_newSplit;
+
+
+            }
+            
+            commentAreaEl.element(bdId, sno, notice).html(data).promise().done(function(){
+                $(this).find('.js_comment_area').attr('data-notice', notice);
+                $(this).find('.js_comment_area').find('.js_data_comment_row').attr('data-notice', notice);
+            });
+            var commentAreaElReverse = commentAreaEl.elementReverse(bdId, sno, notice);
+            if(commentAreaElReverse.length > 0) {
+                if ($.trim(commentAreaElReverse.html()).length > 0) {
+                    commentAreaElReverse.html(data).promise().done(function(){
+                        $(this).find('.js_comment_area').attr('data-notice', gd_notice_reverse(notice));
+                        $(this).find('.js_comment_area').find('.js_data_comment_row').attr('data-notice', gd_notice_reverse(notice));
+                    });
+                }
+            }
+        }).error(function (e) {
+            alert('fail');
+            alert(e.responseText);
+        });
+    }
+
+}
+
+function gd_load_goods_board_list2(bdId,goodsNo,page){
+    $.ajax({
+        method: "GET",
+        url: "../goods/goods_board_list.php",
+        data: {bdId: bdId, goodsNo: goodsNo, gboard : 'y',page : page},
+        dataType: 'text',
+        cache: false,
+        async: false,
+    }).success(function (data) {
+       
+        $.getScript('../js/plugins/modalEffects.js');
+        if(page > 1) {
+            $('.js_board_'+bdId+'_more').remove();
+            $('.js_board_' + bdId+'_view').find(".item_list").append('<div class="wib_plus_'+page+'">'+data+'</div>');
+        } else {
+            $('.js_board_' + bdId+'_view').find(".item_list").html('<div class="wib_plus_'+page+'">'+data+'</div>');
+        }
+
+        //추가
+        $('.wib_plus_'+page+' .goods_board_review_list .item_list_summary .review_text .word').each(function(){
+           var _thisHtml = $(this).html();
+           $(this).html('<span class="newTag">'+_thisHtml+'</span>');
+//           console.log(_pastTag);
+           
+       });
+       
+       $('.wib_plus_'+page+' .goods_board_review_list .item_list_summary .detail_txt').each(function(){
+           
+            var _thisHtml = $(this).html();
+            if($(this).children().length == 0){
+                $(this).html('<span class="shortTag">'+_thisHtml+'</span>');
+                $(this).addClass('new_word');
+            };
+       });
+       
+       $('.wib_plus_'+page+' .item_list_summary').each(function(){
+           var checks_images = $(this).find('.is_images').length;
+           var _pastHeight = $(this).find('.new_word').height();
+           var _newHeight = $(this).find('.shortTag').height();
+
+           if(checks_images == 0){
+               
+               if(_pastHeight<_newHeight){
+                   
+                   $(this).find('.wib_more_btn').append('<span class="wib_more_text'+page+'">더보기</span>');
+                   $(this).off().on('touchstart', '.wib_more_btn', function (e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        var notice = $(this).data('notice');
+                        if ($(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").html().trim() != '') {
+                            $(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").html('');
+                            $(this).closest("li").removeClass("selected");
+                            $(this).closest("li").find('.detail_write_more_btn').removeClass("detail_write_more_btn_on");
+                        } else {
+                            gd_view_goods_board2($(this).data('bdid'), $(this).data('sno'), $(this).data('auth'), $(this).data('goodsno'), notice);
+                            $(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").slideDown();
+                        }
+                    });
+               }else{
+                   
+                   $(this).find('.wib_more_btn').off().on('touchstart',function(e){
+                       
+                        e.stopPropagation();
+                        e.preventDefault();
+                   });
+               }
+               
+           }else{
+               if(_pastHeight<_newHeight){
+                   
+                   $(this).find('.wib_more_btn').append('<span class="wib_more_text'+page+'">더보기</span>');
+                   $(this).find('.wib_more_btn').off().on('touchstart', function (e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        var notice = $(this).data('notice');
+                        if ($(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").html().trim() != '') {
+                            $(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").html('');
+                            $(this).closest("li").removeClass("selected");
+                            $(this).closest("li").find('.detail_write_more_btn').removeClass("detail_write_more_btn_on");
+                        } else {
+                            gd_view_goods_board2($(this).data('bdid'), $(this).data('sno'), $(this).data('auth'), $(this).data('goodsno'), notice);
+                            $(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").slideDown();
+                        }
+                    });
+               }
+           }
+       });
+       
+       
+       
+       
+       $('.wib_plus_'+page+' .goods_board_review_list .item_list_summary .review_text .word .newTag').each(function(){
+            var _pastHeight = $(this).parent().height();
+            var _newHeight = $(this).height();
+            
+            if(_pastHeight<_newHeight){
+                
+                $(this).parent().parent('.wib_more_btn').find('.word').after('<span class="wib_more_text'+page+'">더보기</span>');
+                $(this).parent().parent('.wib_more_btn').off().on('touchstart', function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    var notice = $(this).data('notice');
+                    if ($(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").html().trim() != '') {
+                        $(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").html('');
+                        $(this).closest("li").removeClass("selected");
+                        $(this).closest("li").find('.detail_write_more_btn').removeClass("detail_write_more_btn_on");
+                    } else {
+                        gd_view_goods_board2($(this).data('bdid'), $(this).data('sno'), $(this).data('auth'), $(this).data('goodsno'), notice);
+                        $(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").slideDown();
+                    }
+                });
+            }
+        });
+
+        
+        
+    }).error(function (e) {
+        alert(e.responseText);
+    });
+}
+    
+
+    $(function(){
+        
+
+
+
+        //추가
+        $('.goods_board_review_list .item_list_summary .review_text .word').each(function(){
+           var _thisHtml = $(this).html();
+           $(this).html('<span class="newTag">'+_thisHtml+'</span>');
+
+           
+       });
+       
+       $('.goods_board_review_list .item_list_summary .detail_txt').each(function(){
+           
+            var _thisHtml = $(this).html();
+            if($(this).children().length == 0){
+                $(this).html('<span class="shortTag">'+_thisHtml+'</span>');
+                $(this).addClass('new_word');
+            };
+       });
+       
+       $('.goods_board_review_list .item_list_summary').each(function(){
+           var checks_images = $(this).find('.is_images').length;
+           var _pastHeight = $(this).find('.new_word').height();
+           var _newHeight = $(this).find('.shortTag').height();
+           
+           if(checks_images == 0){
+               
+               if(_pastHeight<_newHeight){
+                    
+                    $(this).find('.wib_more_btn').find('.new_word').after('<span class="wib_more_text">더보기</span>');
+                    $(this).off().on('touchstart', '.wib_more_btn', function (e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        var notice = $(this).data('notice');
+                        if ($(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").html().trim() != '') {
+                            $(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").html('');
+                            $(this).closest("li").removeClass("selected");
+                            $(this).closest("li").find('.detail_write_more_btn').removeClass("detail_write_more_btn_on");
+                        } else {
+                            gd_view_goods_board2($(this).data('bdid'), $(this).data('sno'), $(this).data('auth'), $(this).data('goodsno'), notice);
+                            $(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").slideDown();
+                        }
+                    });
+               }else{
+               
+                   $(this).find('.wib_more_btn').off().on('touchstart',function(e){
+                       
+                        e.stopPropagation();
+                        e.preventDefault();
+                   });
+               }
+               
+           }else{
+            
+               if(_pastHeight<_newHeight){
+                   
+                   $(this).find('.wib_more_btn').find('.new_word').after('<span class="wib_more_text">더보기</span>');
+                   $(this).find('.wib_more_btn').off().on('touchstart', function (e) {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        var notice = $(this).data('notice');
+                        if ($(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").html().trim() != '') {
+                            $(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").html('');
+                            $(this).closest("li").removeClass("selected");
+                            $(this).closest("li").find('.detail_write_more_btn').removeClass("detail_write_more_btn_on");
+                        } else {
+                            gd_view_goods_board2($(this).data('bdid'), $(this).data('sno'), $(this).data('auth'), $(this).data('goodsno'), notice);
+                            $(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").slideDown();
+                        }
+                    });
+               }
+           }
+       });
+       
+       
+       
+
+       
+       
+       $('.goods_board_review_list .item_list_summary .review_text .word .newTag').each(function(){
+            var _pastHeight = $(this).parent().height();
+            var _newHeight = $(this).height();
+            
+            if(_pastHeight<_newHeight){
+
+                $(this).parent().parent('.wib_more_btn').find('.word').after('<span class="wib_more_textqwe">더보기</span>');
+                $(this).parent().parent('.wib_more_btn').off().on('touchstart', function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    var notice = $(this).data('notice');
+                    if ($(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").html().trim() != '') {
+                        $(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").html('');
+                        $(this).closest("li").removeClass("selected");
+                        $(this).closest("li").find('.detail_write_more_btn').removeClass("detail_write_more_btn_on");
+                    } else {
+                        gd_view_goods_board2($(this).data('bdid'), $(this).data('sno'), $(this).data('auth'), $(this).data('goodsno'), notice);
+                        $(".js_goodsreview_" + $(this).data('sno') + "[data-notice=" + notice + "]").slideDown();
+                    }
+                });
+            }
+        });
+       
+       
+              
+
+    });
+
+</script>
+<!--{/}-->

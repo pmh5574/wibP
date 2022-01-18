@@ -1,0 +1,448 @@
+{*** 목록 | list.php ***}
+  <script type="text/javascript">
+  <!--
+	mapPopFn = function(){
+	  if($(".map_wrap").css("display")=="none"){
+	  	$(".map_wrap").show();
+		$(".close_icon").click(function(){
+			$(".map_wrap").hide();	  
+		});
+	  }else {
+	  	$(".map_wrap").hide();	  
+	  } 		
+	}
+  //-->
+  </script>
+<!--2018-09-11 James naver map API Start-->
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=Lq3mKmUzTg70Z9t0f34R&submodules=geocoder"></script>
+<script type = "text/javascript">
+var map = new naver.maps.Map('map');
+var myaddress = '불정로 6';// 도로명 주소나 지번 주소만 가능 (건물명 불가!!!!)
+naver.maps.Service.geocode({address: myaddress}, function(status, response) {
+  if (status !== naver.maps.Service.Status.OK) {
+	  return alert(myaddress + '의 검색 결과가 없거나 기타 네트워크 에러');
+  }
+  var result = response.result;
+  // 검색 결과 갯수: result.total
+  // 첫번째 결과 결과 주소: result.items[0].address
+  // 첫번째 검색 결과 좌표: result.items[0].point.y, result.items[0].point.x
+  var myaddr = new naver.maps.Point(result.items[0].point.x, result.items[0].point.y);
+  map.setCenter(myaddr); // 검색된 좌표로 지도 이동
+  // 마커 표시
+  var marker = new naver.maps.Marker({
+	position: myaddr,
+	map: map
+  });
+  // 마커 클릭 이벤트 처리
+  naver.maps.Event.addListener(marker, "click", function(e) {
+	if (infowindow.getMap()) {
+		infowindow.close();
+	} else {
+		infowindow.open(map, marker);
+	}
+  });
+  // 마크 클릭시 인포윈도우 오픈
+  var infowindow = new naver.maps.InfoWindow({
+	  content: '<h4> [네이버 개발자센터]</h4><a href="https://developers.naver.com" target="_blank"><img src="https://developers.naver.com/inc/devcenter/images/nd_img.png"></a>'
+  });
+});
+</script>
+<div class="location_wrap">
+	<div class="location_cont">
+		<em><a href="/" class="local_home">HOME</a> &nbsp;&gt;&nbsp; BRAND &nbsp;&gt;&nbsp; STORES</em>
+	</div>
+</div>
+
+<!--{ ? bdList.cfg.bdHeader && !inList}-->
+<div class="addition_zone">
+    <p>{=bdList.cfg.bdHeader}</p>
+</div>
+<!--{/}-->
+<div class="board_zone_sec">
+    <!--{?!inList}-->
+    <div class="board_zone_tit stores_tit">
+        <h2>{=__(bdList.cfg.bdNm)}</h2>
+    </div>
+    <!--{/}-->
+	
+	<div class="date_check_box stores_box">
+		<div class="f_left">
+			<h3><span></span> 국내매장안내</h3>
+			<p>
+				해당지역을 클릭하시면 아울렛과 백화점에 입점되있는 매장정보를 보실 수 있습니다.<br>
+				가까운 미소페 매장을 확인해보세요.
+			</p>
+		</div>
+		
+		<div class="f_right">
+			<ul>
+				<li>지역매장</li>
+				<li>
+					<select>
+						<option>지역선택(전체)</option>
+						<option>2</option>
+					</select>
+					<select>
+						<option>시/군/구 선택</option>
+						<option>2</option>
+					</select>		
+				</li>
+			</ul>			
+			<ul>
+				<li>매장선택</li>
+				<li>
+					<select>
+						<option>매장선택</option>
+						<option>2</option>
+					</select>					
+				</li>
+			</ul>
+			<ul>
+				<li>상세검색</li>
+				<li>
+					<select>
+						<option>매장명</option>
+						<option>2</option>
+					</select>	
+					<input type="text"> <button type="button" class="btn_board_search">검색</button>
+				</li>
+			</ul>				
+		</div>
+	</div>	
+	
+	<div class="board_zone_cont stores_table">
+		<div class="board_zone_list">
+			<table class="board_list_table">
+                <colgroup>
+                    <col style="width:15%"> 
+                    <col style="width:15%">
+                    <col style="width:auto;">
+                    <col style="width:6%">                 
+                    <col style="width:15%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>{=__('지역')}</th>                    
+                    <th>{=__('매장명')}</th>                   
+                    <th>{=__('주소')}</th>                   
+                    <th>{=__('지도보기')}</th>                    
+                    <th>{=__('전화번호')}</th>
+                </tr>
+                </thead>
+				<tbody>
+					<tr>
+						<td>전라남도</td>
+						<td><a href="javascript:mapPopFn();">아울렛-LF스퀘어광양</a></td>
+						<td class="text_left"><a href="javascript:mapPopFn();">전남 광양시 광양읍 LF스퀘어광양 T1구역 1층 / 061-815-4642</a></td>
+						<td><a href="javascript:mapPopFn();"><span class="store_icon"></span></a></td>
+						<td>061-815-4642</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	
+	<div class="pagination">
+	<ul>
+		<li class="btn_page btn_page_first">
+			<a aria-label="First" href="./list.php?page=1&amp;bdId=qa"><img src="/admin/gd_share/img/icon_arrow_page_ll.png" class="img-page-arrow">맨앞</a>
+		</li>
+		<li class="btn_page btn_page_prev">
+			<a aria-label="Previous" href="./list.php?page=1&amp;bdId=qa"><img src="/admin/gd_share/img/icon_arrow_page_l.png" class="img-page-arrow">이전</a>
+		</li>
+		<li class="on">
+			<span>11</span>
+		</li>
+		<li>
+			<a href="./list.php?page=12&amp;bdId=qa">12</a>
+		</li>
+		<li>
+			<a href="./list.php?page=13&amp;bdId=qa">13</a>
+		</li>
+		<li>
+			<a href="./list.php?page=14&amp;bdId=qa">14</a>
+		</li>
+		<li>
+			<a href="./list.php?page=15&amp;bdId=qa">15</a>
+		</li>
+		<li>
+			<a href="./list.php?page=16&amp;bdId=qa">16</a>
+		</li>
+		<li>
+			<a href="./list.php?page=17&amp;bdId=qa">17</a>
+		</li>
+		<li>
+			<a href="./list.php?page=18&amp;bdId=qa">18</a>
+		</li>
+		<li>
+			<a href="./list.php?page=19&amp;bdId=qa">19</a>
+		</li>
+		<li>
+			<a href="./list.php?page=20&amp;bdId=qa">20</a>
+		</li>
+		<li class="btn_page btn_page_next">
+			<a aria-label="Next" href="./list.php?page=21&amp;bdId=qa"><img src="/admin/gd_share/img/icon_arrow_page_r.png" class="img-page-arrow">다음</a>
+		</li>
+		<li class="btn_page btn_page_last">
+			<a aria-label="Last" href="./list.php?page=156&amp;bdId=qa"><img src="/admin/gd_share/img/icon_arrow_page_rr.png" class="img-page-arrow">맨뒤</a>
+		</li>
+	</ul>
+</div>			
+			
+			
+
+
+	
+	
+	
+	
+    <div class="board_zone_cont dn">
+        <div class="board_zone_list" align="{bdList.cfg.bdAlign}">
+            <table class="board_list_table" {bdList.cfg.bdWidthStyle}>
+                <colgroup>
+                    <col style="width:6%">
+                    <!--{ ? bdList.cfg.bdListImageFl == 'y'}-->
+                    <col>
+                    <!--{/}-->
+                    <!--{ ? bdList.cfg.bdCategoryFl == 'y'}-->
+                    <col style="width:10%">
+                    <!--{/}-->
+                    <col style="width:37%;">
+                    <col style="width:12%">
+                    <col style="width:7%">
+                    <col style="width:15%">
+                    <!--{ ? bdList.cfg.bdRecommendFl == 'y'}-->
+                    <col style="width:6%">
+                    <!--{/}-->
+                    <col style="width:6%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>{=__('번호')}</th>
+                    <!--{ ? bdList.cfg.bdListImageFl == 'y'}-->
+                    <th>{=__('이미지')}</th>
+                    <!--{/}-->
+                    <!--{ ? bdList.cfg.bdCategoryFl == 'y'}-->
+                    <th>{=__('말머리')}</th>
+                    <!--{/}-->
+                    <th>{=__('제목')}</th>
+                    <!--{ ? bdList.cfg.bdGoodsPtFl == 'y' }-->
+                    <th>{=__('별점')}</th>
+                    <!--{/}-->
+                    <th>{=__('날짜')}</th>
+                    <th>{=__('작성자')}</th>
+                    <!--{ ? bdList.cfg.bdRecommendFl == 'y'}-->
+                    <th>{=__('추천')}</th>
+                    <!--{/}-->
+                    <th>{=__('조회')}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--{ @ bdList.noticeList }-->
+                <tr {bdList.cfg.bdHeightStyle}>
+                    <td><img src="{bdList.cfg.iconImage.notice.url}" alt="{=__('공지')}"/></td>
+                    <!--{ ? bdList.cfg.bdListImageFl == 'y'}-->
+                    <td>
+                        <!--{ ? bdList.cfg.bdListNoticeImageDisplayPc == 'y'}-->
+                        <div class="board_img">
+                            <a href="javascript:gd_btn_view('{req.bdId}',{.sno} , '{.auth.view}')">
+                                <img src="{=gd_isset(.viewListImage, 'img/etc/noimg.png')}" width="{bdList.cfg.bdListImgWidth}" height="{bdList.cfg.bdListImgHeight}" class="js_image_load"/>
+                            </a>
+                        </div>
+                        <!--{/}-->
+                    </td>
+                    <!--{/}-->
+                    <!--{ ? bdList.cfg.bdCategoryFl == 'y'}-->
+                    <td> <!--{? .category }-->[{.category}]<!--{/}--> </td>
+                    <!--{/}-->
+                    <td class="board_tit">
+                        <a href="javascript:gd_btn_view('{req.bdId}',{.sno} ,'{.auth.view}')">
+                            <strong>{.subject}</strong>
+                        </a>
+                    </td>
+                    <!--{ ? bdList.cfg.bdGoodsPtFl == 'y' }-->
+                    <td>
+                        <span class="rating_star">
+                            <span style="width:{.goodsPtPer}%;">{=__('별 다섯개중 다섯개')}</span>
+                        </span>
+                    </td>
+                    <!--{/}-->
+                    <td> {.regDate} </td>
+                    <td> {.writer} </td>
+                    <!--{ ? bdList.cfg.bdRecommendFl == 'y'}-->
+                    <td> {.recommend} </td>
+                    <!--{/}-->
+                    <td> {.hit} </td>
+                </tr>
+                <!--{/}-->
+
+                <!--{? bdList.list}-->
+                <!--{ @ bdList.list }-->
+                <tr data-sno="{.sno}" data-auth="{.auth.view}" {bdList.cfg.bdHeightStyle}>
+                    <td>
+                        <!--{ ? .isNotice == 'y'}-->
+                        <img src="{bdList.cfg.iconImage.notice.url}" alt="{=__('공지')}"/>
+                        <!--{:}-->
+                        {=.articleListNo}
+                        <!--{/}-->
+                    </td>
+                    <!--{ ? bdList.cfg.bdListImageFl == 'y'}-->
+                    <td>
+                        <div class="board_img">
+                            <a href="javascript:gd_btn_view('{req.bdId}',{.sno} , '{.auth.view}')">
+                                <img src="{=gd_isset(.viewListImage, 'img/etc/noimg.png')}" width="{bdList.cfg.bdListImgWidth}" height="{bdList.cfg.bdListImgHeight}" class="js_image_load"/>
+                            </a>
+                        </div>
+                    </td>
+                    <!--{/}-->
+                    <!--{ ? bdList.cfg.bdCategoryFl == 'y'}-->
+                    <td> <!--{? .category }-->[{.category}]<!--{/}--> </td>
+                    <!--{/}-->
+                    <td class="board_tit">
+                        {.gapReply}
+                        <!--{ ? .groupThread }--><img src="{bdList.cfg.iconImage.re.url}"alt="{=__('답변')}" style="padding:0 5px" /><!--{/}-->
+                        <a href="javascript:gd_btn_view('{req.bdId}',{.sno} ,'{.auth.view}')" >
+                            <!--{ ? .isSecret == 'y' }-->
+                            <img src="{bdList.cfg.iconImage.secret.url}" align=absmiddle>
+                            <!--{ / }-->
+                            <strong>{.subject}</strong>
+                            <!--{? bdList.cfg.bdMemoFl == 'y' && .memoCnt>0}-->
+                            <span>({.memoCnt})</span>
+                            <!--{/}-->
+                            <!--{ ? .isFile == 'y' }-->
+                            <img src="{bdList.cfg.iconImage.attach_file.url}" alt="{=__('파일첨부 있음')}"/>
+                            <!--{/}-->
+                            <!--{ ? .isImage == 'y' }-->
+                            <img src="{bdList.cfg.iconImage.attach_img.url}" alt="{=__('이미지첨부 있음')}"/>
+                            <!--{/}-->
+                            <!--{ ? .isNew == 'y' }-->
+                            <img src="{bdList.cfg.iconImage.new.url}" alt="{=__('신규 등록글')}"/>
+                            <!--{/}-->
+                            <!--{ ? .isHot == 'y' }-->
+                            <img src="{bdList.cfg.iconImage.hot.url}" alt="{=__('인기글')}"/>
+                            <!--{/}-->
+                        </a>
+                    </td>
+                    <!--{ ? bdList.cfg.bdGoodsPtFl == 'y' }-->
+                    <td>
+                        <span class="rating_star">
+                            <span style="width:{.goodsPtPer}%;">{=__('별 다섯개중 다섯개')}</span>
+                        </span>
+                    </td>
+                    <!--{/}-->
+                    <td> {.regDate} </td>
+                    <td> {.writer} </td>
+                    <!--{ ? bdList.cfg.bdRecommendFl == 'y'}-->
+                    <td> {.recommend} </td>
+                    <!--{/}-->
+                    <td> {.hit} </td>
+                </tr>
+                <!--{/}-->
+                <!--{:}-->
+                <tr>
+                    <td colspan="9" align="center">
+                        {=__('게시글이 존재하지 않습니다.')}
+                    </td>
+                </tr>
+                <!--{/}-->
+
+                </tbody>
+            </table>
+			
+
+            {bdList.pagination}
+
+            <!-- //pagination -->
+
+            <div class="board_search_box">
+                <form name="frmList" id="frmList" action="list.php" method="get">
+                    <input type="hidden" name="bdId" value="{bdList.cfg.bdId}">
+                    <input type="hidden" name="memNo" value="{req.memNo}"/>
+                    <input type="hidden" name="noheader" value="{req.noheader}"/>
+
+                    <!--{ ? bdList.cfg.bdCategoryFl == 'y'}-->
+                    {=gd_select_box('category', 'category', bdList.cfg.arrCategory, null, gd_isset(req.category), __('선택'), 'style="width: 80px;"','chosen-select')}
+                    <!--{/}-->
+                    <select class="chosen-select" name="searchField">
+                        <option value="subject"
+                        <!--{ ? req.searchField == 'subject'}-->selected<!--{/}--> >{=__('제목')}</option>
+                        <option value="contents"
+                        <!--{ ? req.searchField == 'contents'}-->selected<!--{/}--> >{=__('내용')}</option>
+                        <option value="writerNm"
+                        <!--{ ? req.searchField == 'writerNm'}-->selected<!--{/}--> >{=__('작성자')}</option>
+                    </select>
+					
+                    <input type="text" class="text" name="searchWord" value="{=req.searchWord}">
+                    <button class="btn_board_search"><em>{=__('검색')}</em></button>
+                </form>
+            </div>
+            <!-- //board_search_box -->
+
+        </div>
+        <!-- //board_zone_list -->
+
+        <!--{? !inList && bdList.cfg.auth.write == 'y'}-->
+        <div class="btn_right_box">
+            <button type="button" class="btn_write" onclick="gd_btn_write('{req.bdId}')"><strong>{=__('글쓰기')}</strong></button>
+        </div>
+        <!--{/}-->
+
+    </div>
+    <!-- //board_zone_cont -->
+</div>
+<!-- //board_zone_sec -->
+
+<!--레이어팝업-->
+<div class="map_wrap">
+	<div class="map_box">
+		<span class="close_icon"></span>
+	</div>
+</div>
+<!--//레이어팝업-->
+
+<!--{?bdList.cfg.bdFooter && !inList}-->
+<div class="addition_zone">
+    <p>{=bdList.cfg.bdFooter}</p>
+</div>
+<!--{/}-->
+
+
+
+<form id="frmWritePassword">
+    <div id="lyPassword" class="dn layer_wrap password_layer" style="height: 226px">
+        <div class="layer_wrap_cont">
+            <div class="ly_tit">
+                <h4>{=__('비밀번호 인증')}</h4>
+            </div>
+            <div class="ly_cont">
+                <div class="scroll_box">
+                    <p>{=__('비밀번호를 입력해 주세요.')}</p>
+                    <input type="password" name="writerPw" class="text">
+                </div>
+                <!-- // -->
+                <div class="btn_center_box">
+                    <button type="button" class="btn_ly_password js_submit"><strong>{=__('확인')}</strong></button>
+                </div>
+            </div>
+            <!-- //ly_cont -->
+            <a href="#close" class="ly_close layer_close"><img src="../../../img/common/layer/btn_layer_close.png" alt="닫기"></a>
+        </div>
+        <!-- //layer_wrap_cont -->
+    </div>
+    <!-- //layer_wrap -->
+</form>
+
+<div id="layerDim" class="dn">&nbsp;</div>
+<script type="text/javascript" src="\{=c.PATH_SKIN}js/gd_board_list.js" charset="utf-8"></script>
+<script>
+    $(document).ready(function () {
+        $('img.js_image_load').error(function () {
+                    $(this).css('background', 'url("img/etc/noimg.png") no-repeat center center');
+                    $(this).attr('src', '../../../img/etc/blank.gif');
+                })
+                .each(function () {
+                    $(this).attr("src", $(this).attr("src"));
+                })
+    });
+</script>
