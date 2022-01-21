@@ -26,6 +26,18 @@ class CartController extends \Bundle\Controller\Front\Order\CartController
     {
         parent::index();
         $cartInfo = $this->getData('cartInfo');
+        
+        // try {
+        //     // 부모 클래스 상속
+        //     parent::index();
+
+        //     $displayBox = '박스를 출력';
+        //     $this->setData('displayBox', $displayBox);
+
+        // } catch (\Exception $e) {
+        //     throw $e;
+        // }
+
 //        $totalScmGoodsDeliveryCharge = $this->getData('totalScmGoodsDeliveryCharge'); // 상품 배송정책별 총 배송 금액
 //        print_r($cartInfo);
     }

@@ -11,13 +11,9 @@
  * @copyright ⓒ 2016, NHN godo: Corp.
  * @link http://www.godo.co.kr
  */
-namespace Controller\Admin\Goods;
+namespace Controller\Admin\Promotion;
 
 
-/**
- * 상품 리스트 페이지
- */
-class GoodsListController extends \Bundle\Controller\Admin\Goods\GoodsListController
+class EventSaleRegisterController extends \Bundle\Controller\Admin\Promotion\EventSaleRegisterController
 {
-    
 }

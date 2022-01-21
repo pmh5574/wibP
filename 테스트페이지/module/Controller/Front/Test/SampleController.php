@@ -1,5 +1,5 @@
 <?php
-namespace Bundle\Controller\Front\Test;
+namespace Controller\Front\Test;
 
 class SampleController extends \Controller\Front\Controller
 {

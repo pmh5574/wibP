@@ -26,10 +26,8 @@ class GoodsRegisterController extends \Bundle\Controller\Admin\Goods\GoodsRegist
         
         $data = $this->getData('data');
         $scrollSno = str_replace('^|^', ' or sno = ',$data['scrollSno']);
-        
         $query = "SELECT * FROM es_goodsScroll WHERE sno = {$scrollSno}";
         $scrollData = $wibSql->WibAll($query);
-        
         $this->setData('scrollData', $scrollData);
     }
 }
