@@ -2223,6 +2223,8 @@
     #myShippingListLayer .left_table_type {
         border-top: 1px solid #dbdbdb;
     }
+
+	#myShippingListLayer .left_table_type colgroup {display: none;}
     
     .body-order .order_cont .table_left tr,
     #myShippingListLayer .left_table_type tr {
@@ -2245,7 +2247,6 @@
     .body-order .order_cont .table_left td,
     #myShippingListLayer .left_table_type td {
         background: #fff;
-        display: inline-block;
         vertical-align: top;
         width: calc(100% - 116px);
         height: auto;
@@ -2255,9 +2256,16 @@
         min-height: 49px;
     }
     
+    .body-order .order_cont .table_left td {
+        display: table-cell;
+    }
+    
     #myShippingListLayer .left_table_type td {
         padding: 8px 10px 7px 15px;
-    }    
+        display: inline-block;
+    }     
+
+	#myShippingListLayer .left_table_type td input {width:100%;}
     
     .body-order .order_cont input[type="text"],
     .body-order .delivery_info input[type="text"],
@@ -2337,7 +2345,7 @@
     
     .layer_wrap.coupon_apply_layer .layer_wrap_cont,
     .layer_wrap.delivery_add_list_layer .layer_wrap_cont {
-        width: 90%;
+        width: 90% !important;
         height: 75%;
         overflow: auto;
 		margin-left: -45% !important;
@@ -2350,6 +2358,7 @@
     
     #myShippingListLayer .left_table_type .address_postcode input {
         float: none;
+		width: 100%;
     }
     
     #myShippingListLayer .left_table_type .address_postcode .btn_post_search {
@@ -2383,6 +2392,8 @@
         border-bottom: 0;
         padding: 10px;
     }
+
+	#myShippingListLayer .delivery_add_list .top_table_type table colgroup {display:none;}
     
     #myShippingListLayer .delivery_add_list .top_table_type table td:nth-of-type(1) {
         display: inline-block;
@@ -2403,11 +2414,11 @@
         border-top: 0;
         padding: 2px 0px 7px 25%;
     }
-    
+/*    
     #myShippingListLayer .delivery_add_list .top_table_type table td:last-child {
         font-size: 0;
     }
-    
+*/    
     #myShippingListLayer .delivery_add_list .top_table_type table td:last-child>span {
         display: inline-block;
         vertical-align: top;
@@ -3167,6 +3178,43 @@
         width: 100%;
         height: auto;
     }
+
+	.body-order .order_cont .table_left td {display: table-cell;}		
+	#myShippingListLayer .delivery_add_list .top_table_type table colgroup {display:none;}		
+	#myShippingListLayer .left_table_type colgroup {display: none;}		
+	#myShippingListLayer .left_table_type td input {width:100%;}	 
+	#myShippingListLayer .left_table_type td {padding: 8px 10px 7px 15px;display: inline-block;}
+	#myShippingListLayer .left_table_type .address_postcode input {float:none; width:100%;} 
+
+	.mypage_table_type colgroup {display:none;}	
+	.board_list_table colgroup {display:none;}	
+	.board_write_table colgroup {display:none;}	
+	.add_goods_layer .scroll_box colgroup {display:none;}
+	#wrap .addition_info_sec .chosen-single {margin-bottom:10px;}
+
+	.tax_invoice_box .order_table_type .table_left {width:100%}
+	.body-order .order_cont .tax_invoice_box .table_left tr {background:#fff;}
+	.body-order .order_cont .tax_invoice_box .table_left th {width:60px; padding:15px 5px 20px;}
+
+	/* 모바일 장바구니 옵션선택 */
+	#optionViewLayer .item_choice_list .option_display_area .cart_prdt_name {padding-right:30px;}
+	#optionViewLayer .item_choice_list .option_display_area .item_choice_divide td.cart_prdt_name {width:30%; padding-left: 10px; padding-right: 35px;}
+
+	#wrap #optionViewLayer .ly_wrap.delivery_layer {width: 280px; left: 50%; transform: translateX(-70%);}
+	#optionViewLayer .option_layer_cont {width: 97%; box-sizing: border-box; padding: 10px; left: 50% !important; margin: 0 !important; transform: translateX(-50%);}
+	#optionViewLayer .option_layer_cont .option_layer_scroll .option_select_box .item_choice_list table td {border:none;}
+	#optionViewLayer .option_layer_scroll .option_select_box .item_choice_list table .item_choice_divide {padding:0;}
+	#optionViewLayer .option_layer_scroll .option_select_box .item_choice_list table .item_choice_divide td.cart_prdt_name {padding-right:0;}
+	#optionViewLayer .option_list .item_choice_divide .item_choice_photo + span {width:100%;}
+	#optionViewLayer .option_chosen dd input[type="text"] {width:100%;}
+
+	body .simple_join .sj_join_box .input_email,
+	body .simple_join .sj_join_box .btn_area .btn_sj_submit,
+	body .simple_join .sj_join_box .input_email input,
+	body .simple_join .sj_join_box .psw_area li,
+	body .simple_join .sj_join_box .psw_area input {display:block; width:100%;}
+	body .simple_join .sj_join_box .btn_area {position: static; margin: 0;}
+	body .simple_join .sj_join_box {padding: 85px 19px 20px 19px;}
 
 }
 
