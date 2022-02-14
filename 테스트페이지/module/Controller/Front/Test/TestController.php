@@ -15,6 +15,7 @@ class TestController extends \Controller\Front\Controller
     {
         $setData = 'Hello World !!!';
         print_r($setData);
+        print_r(Request::get()->toArray());
         exit;
         $this->setData('setData', $setData);
     }
