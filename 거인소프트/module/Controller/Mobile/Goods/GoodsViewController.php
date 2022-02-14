@@ -11,18 +11,15 @@
  * @copyright ⓒ 2016, NHN godo: Corp.
  * @link http://www.godo.co.kr
  */
-namespace Controller\Front\Goods;
+namespace Controller\Mobile\Goods;
 
 use Request;
 
-
-class GoodsViewController extends \Bundle\Controller\Front\Goods\GoodsViewController
-{   
-    protected $db = null;
-
+class GoodsViewController extends \Bundle\Controller\Mobile\Goods\GoodsViewController
+{
     public function index()
     {
-        parent::index();
+    parent::index();
         
         if (!is_object($this->db)) {
             $this->db = \App::load('DB');
@@ -46,9 +43,7 @@ class GoodsViewController extends \Bundle\Controller\Front\Goods\GoodsViewContro
         
         // Size 옵션 중복 제거, 정렬
         $goodsView['optionSizeDivision'] = array_unique($optionArr); 
-        $goodsView['optionSizeDivision'] = array_reverse($goodsView['optionSizeDivision']);
-
-        $this->setData('goodsView', $goodsView);
+        $set_size = array_reverse($goodsView['optionSizeDivision']);
 
     }
 }

@@ -6,9 +6,6 @@ use Session;
 use Response;
 use Request;
 
-/**
- * 테스트용
- */
 class TestController extends \Controller\Front\Controller
 {
     /**
@@ -17,6 +14,9 @@ class TestController extends \Controller\Front\Controller
     public function index()
     {
         $setData = 'Hello World !!!';
+        print_r($setData);
+        print_r(Request::get()->toArray());
+        exit;
         $this->setData('setData', $setData);
     }
 }
